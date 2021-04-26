@@ -10,19 +10,19 @@ const stageSettings = {
         identityPoolId: 'eu-central-1:079515e9-300a-42c6-b608-930f84fed704',
         userPoolId: 'eu-central-1_8kCTHzIgR',
         clientId: '4gql86evdegfa9otnpa30rf47i',
-        ssoClientId: '6bok2d0e9u5o5abn2u59rc76ic',
+        ssoClientId: '29lbd5uhmusbbp6vpri9tctphi',
     },
     staging: {
         identityPoolId: 'eu-central-1:a344597d-b532-4b94-81ef-5d31bf56e504',
         userPoolId: 'eu-central-1_8R899yNNH',
         clientId: '7qpfm5e3625hrf5mpieph9cu2a',
-        ssoClientId: '4n89omj7okn77k7s0e1vhorifu',
+        ssoClientId: '9qlo3sos0dl3n5aupeud5g1eu',
     },
     production: {
         identityPoolId: 'eu-central-1:2b79058f-3250-492a-a7a8-91bb06911ae9',
         userPoolId: 'eu-central-1_RdHzlSKS0',
         clientId: '57brn8csff678o6aee3k1ia00n',
-        ssoClientId: '2bcsa6s3oejftomdst1sujeg4c',
+        ssoClientId: '55r8g2b7ij17759ug3ehbvqloe',
     },
 };
 
