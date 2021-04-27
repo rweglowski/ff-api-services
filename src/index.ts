@@ -33,7 +33,6 @@ export { default as Authentication } from './authentication/Authentication';
 export { default as OmniChannelService } from './service/OmniChannelService';
 export { default as IS24EntitlementService } from './service/IS24EntitlementService';
 export { default as BehaviourService } from './service/BehaviourService';
-export { default as ContractService } from './service/ContractService';
 export { default as SoftLinksEntityService } from './service/SoftLinksEntityService';
 export { default as OpenimmoImporterService } from './service/OpenimmoImporterService';
 export { default as ImporterFlowFactTransferService } from './service/ImporterFlowFactTransferService';
@@ -79,6 +78,7 @@ export * from './service/ImporterRecordLogService';
 export * from './service/CaasManagementService';
 export * from './service/GeoInformationService';
 export * from './service/EverSignService';
+export * from './service/ContractService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
