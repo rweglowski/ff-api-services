@@ -1,11 +1,14 @@
-export type ContractTemplateType = 'PURCHASE' | 'RENT';
-export type ContractTemplateOrigin = 'BOORBERG';
-export interface ContractTemplate {
-    id: string;
-    subject: string;
-    fileName: string;
-    url: string;
-    type?: ContractTemplateType;
-    origin?: ContractTemplateOrigin;
-    version?: string;
+export namespace ContractServiceTypes {
+    export type TemplateType = 'PURCHASE' | 'RENT';
+    export type TemplateOrigin = 'BOORBERG';
+
+    export interface Template {
+        id: string;
+        subject: string;
+        fileName: string;
+        url: string;
+        type?: TemplateType;
+        origin?: TemplateOrigin;
+        version?: string;
+    }
 }

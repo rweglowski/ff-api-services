@@ -1,5 +1,5 @@
 import { APIClient, APIMapping } from '../../http';
-import { ContractTemplate, ContractTemplateOrigin } from './ContractService.Types';
+import { ContractServiceTypes } from './ContractService.Types';
 
 export class ContractServiceController extends APIClient {
     constructor() {
@@ -10,8 +10,8 @@ export class ContractServiceController extends APIClient {
      * Get all available template contracts for a specific origin.
      * @param origin
      */
-    async fetchTemplates(origin?: ContractTemplateOrigin) {
-        return await this.invokeApiWithErrorHandling<ContractTemplate[]>('/templates', 'GET', undefined, {
+    async fetchTemplates(origin?: ContractServiceTypes.TemplateOrigin) {
+        return await this.invokeApiWithErrorHandling<ContractServiceTypes.Template[]>('/templates', 'GET', undefined, {
             queryParams: {
                 origin: origin,
             },
