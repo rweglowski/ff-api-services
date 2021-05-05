@@ -2,7 +2,6 @@ import { AuthenticationData, CheckUsernameResult } from '@flowfact/types';
 import { CognitoUser, CognitoUserSession, ISignUpResult } from 'amazon-cognito-identity-js';
 import Amplify, { Auth } from 'aws-amplify';
 import { EnvironmentManagementInstance, StageTypes } from '../util/EnvironmentManagement';
-import CustomStorage from './CustomStorage';
 
 const region = 'eu-central-1';
 const stageSettings = {
@@ -43,7 +42,6 @@ class Authentication {
 
     public resetConfiguration = () => {
         Amplify.configure({
-            storage: CustomStorage,
             Auth: {
                 region: region,
                 userPoolId: stageSettings[this.stage].userPoolId,
@@ -54,7 +52,6 @@ class Authentication {
 
     public configureSSO = () => {
         return Amplify.configure({
-            storage: CustomStorage,
             Auth: {
                 region: region,
                 userPoolId: stageSettings[this.stage].userPoolId,
