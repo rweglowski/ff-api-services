@@ -1,11 +1,5 @@
-import * as store from 'store';
 import * as isNode from 'detect-node';
 import { LambdaAPIService } from '../http/APIMapping';
-
-const StoreKeys = {
-    edgeServiceStage: 'HTTPCLIENT.APICLIENT.STAGE',
-    edgeServiceVersionTag: 'HTTPCLIENT.APICLIENT.VERSIONTAG',
-};
 
 enum StageTypes {
     PRODUCTION = 'production',
@@ -24,7 +18,7 @@ const defaultVersionTag = defaultStage === StageTypes.PRODUCTION ? VersionTagTyp
 
 let instance: EnvironmentManagement | null = null;
 
-export class EnvironmentManagement {
+class EnvironmentManagement {
     constructor() {
         if (!instance) {
             instance = this;
@@ -32,27 +26,26 @@ export class EnvironmentManagement {
         return this;
     }
 
+    stage: StageTypes = defaultStage as StageTypes;
+    versionTag: VersionTagTypes = defaultVersionTag;
+
     // noinspection JSMethodCanBeStatic
     getStage(): StageTypes {
-        return store.get(StoreKeys.edgeServiceStage) || defaultStage;
+        return this.stage;
     }
 
     // noinspection JSMethodCanBeStatic
     getVersionTag(): VersionTagTypes {
-        return store.get(StoreKeys.edgeServiceVersionTag) || defaultVersionTag;
+        return this.versionTag;
     }
 
     // noinspection JSMethodCanBeStatic
     setStage(stage: StageTypes) {
-        if (stage) {
-            store.set(StoreKeys.edgeServiceStage, stage);
-        }
+        this.stage = stage;
     }
 
     setVersionTag(versionTag: VersionTagTypes) {
-        if (versionTag) {
-            store.set(StoreKeys.edgeServiceVersionTag, versionTag);
-        }
+        this.versionTag = versionTag;
     }
 
     getBaseUrl = (internal = false) => {
@@ -80,5 +73,4 @@ export class EnvironmentManagement {
 }
 
 const EnvironmentManagementInstance = new EnvironmentManagement();
-
-export { StoreKeys, VersionTagTypes, StageTypes, EnvironmentManagementInstance };
+export { VersionTagTypes, StageTypes, defaultVersionTag, defaultStage, EnvironmentManagementInstance };

@@ -51,12 +51,13 @@ export class APIClient {
             return {};
         }
 
-        const supportToken = localStorage.getItem('flowfact.support.token') || '';
-        const apiToken = localStorage.getItem('flowfact.api.token') || '';
+        const supportToken = window?.localStorage?.getItem('flowfact.support.token') || '';
+        const apiToken = window?.localStorage?.getItem('flowfact.api.token') || '';
 
         if (supportToken.length === 0 && apiToken.length === 0) {
+            const currentSession = await Authentication.getCurrentSession();
             return {
-                cognitoToken: (await Authentication.getCurrentSession())!.getIdToken()!.getJwtToken(),
+                cognitoToken: currentSession.getIdToken().getJwtToken(),
             };
         } else {
             return {
