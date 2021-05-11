@@ -99,6 +99,7 @@ const APIMapping = {
     smsService: new APIService('sms-service'),
     supportService: new APIService('support-service'),
     everSignService: new APIService('eversign-service'),
+    mailchimpService: new APIService('mailchimp-sync-integration-service'),
 };
 
 export default APIMapping;
