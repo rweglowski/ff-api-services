@@ -52,6 +52,17 @@ export interface ViewDefinitionV2Category {
     hideFieldsIfEmpty: string[];
 }
 
+export interface ViewDefinitionV2FilterConfigurationField {
+    fieldName: string;
+}
+
+export interface ViewDefinitionV2FilterConfiguration {
+    id: string;
+    showSavedSearches?: boolean;
+    groupByFields?: ViewDefinitionV2FilterConfigurationField[];
+    filterFields: ViewDefinitionV2FilterConfigurationField[];
+}
+
 export interface ViewDefinitionV2 {
     id: string;
     metadata?: object;
@@ -61,4 +72,5 @@ export interface ViewDefinitionV2 {
     captions: Captions;
     categories: ViewDefinitionV2Category[];
     defaultOrder?: string;
+    filterConfiguration?: ViewDefinitionV2FilterConfiguration;
 }
