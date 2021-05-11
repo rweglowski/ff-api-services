@@ -32,6 +32,7 @@ export enum AdditionalFieldType {
 export interface IdentifiedUserResponse {
     identifier: string;
     identifiersOfMatchingAliases: string[];
+    ssoInformation: SSOInformation;
 }
 
 export interface User {
@@ -73,6 +74,15 @@ export interface SSO {
 }
 
 export interface SSOResponse {
+    type: SsoType;
+    clientId: string;
+    companyId: string;
+    name: string;
+    // name of the indentity provider
+    idpName: string;
+}
+
+export interface SSOInformation {
     type: SsoType;
     clientId: string;
     companyId: string;

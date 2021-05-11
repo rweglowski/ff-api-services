@@ -18,10 +18,14 @@ export class PublicController extends APIClient {
             queryParams: {
                 name: loginName,
             },
+            headers: {
+                'x-ff-version': 2
+            }
         });
     }
 
     /**
+     * @deprecated This is returned by identifyUser function
      * This resource checks if a user has been created by Single-Sign-On of specific kind
      * @param businessMailAddress
      * @param ssoType
@@ -36,6 +40,7 @@ export class PublicController extends APIClient {
     }
 
     /**
+     * @deprecated This is returned by identifyUser function
      * This resource checks if a user is part of a company that is restricted to SSO
      * @param email
      */
