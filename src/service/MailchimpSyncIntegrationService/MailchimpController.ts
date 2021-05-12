@@ -47,6 +47,14 @@ export class MailchimpController extends APIClient {
      * @param settings
      */
     async saveSettings(settings: MailchimpServiceTypes.Settings) {
-        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Credentials>(`/settings`, 'POST', settings);
+        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Settings>(`/settings`, 'POST', settings);
+    }
+
+    /**
+     * Updates Mailchimp settings of the company
+     * @param settings
+     */
+    async updateSettings(settings: MailchimpServiceTypes.Settings) {
+        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Settings>(`/settings`, 'PUT', settings);
     }
 }
