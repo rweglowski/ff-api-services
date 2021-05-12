@@ -1,6 +1,7 @@
 import { AuthenticationData, CheckUsernameResult } from '@flowfact/types';
 import { CognitoUser, CognitoUserSession, ISignUpResult } from 'amazon-cognito-identity-js';
-import Amplify, { Auth } from 'aws-amplify';
+import { Amplify } from '@aws-amplify/core';
+import { Auth } from '@aws-amplify/auth';
 import { EnvironmentManagementInstance, StageTypes } from '../util/EnvironmentManagement';
 
 const region = 'eu-central-1';
