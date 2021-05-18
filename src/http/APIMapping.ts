@@ -38,6 +38,7 @@ const APIMapping = {
     // entitlementService: new LambdaAPIService('entitlement-lambda', 'http://localhost:3001/offline'), // for local offline usage
     entityExportService: new APIService('entity-export-service'),
     entityService: new APIService('entity-service'),
+    entityShareService: new APIService('entity-share-service'),
     excelExporterService: new APIService('excel-exporter-service'),
     flowfactExporterInternalService: new APIService('flowfact-exporter-internal-service'),
     flywheelService: new APIService('flywheel-service'),

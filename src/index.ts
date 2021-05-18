@@ -80,6 +80,7 @@ export * from './service/CaasManagementService';
 export * from './service/GeoInformationService';
 export * from './service/EverSignService';
 export * from './service/ContractService';
+export * from './service/EntityShareService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
