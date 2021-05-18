@@ -64,6 +64,7 @@ export * from './service/PropertyMarketingPhaseService';
 export * from './service/InteractiveExposeStatisticsService';
 export * from './service/EmailService';
 export * from './service/EntitlementService';
+export * from './service/MailchimpSyncIntegrationService';
 export * from './service/SearchServiceTypes';
 export * from './service/SlackService';
 export * from './service/TeamsIntegrationService';
