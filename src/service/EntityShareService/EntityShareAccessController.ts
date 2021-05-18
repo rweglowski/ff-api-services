@@ -12,7 +12,7 @@ export class EntityShareAccessController extends APIClient {
      * @param token
      */
     async fetchImportedEntities(page: number = 0, size: number = 10) {
-        return this.invokeApiWithErrorHandling<EntityShareServiceTypes.ImportedEntity[]>(`/access`, 'GET', { page, size });
+        return this.invokeApiWithErrorHandling<EntityShareServiceTypes.ImportedEntity[]>('/access', 'GET', { page, size });
     }
 
     /**
@@ -28,7 +28,7 @@ export class EntityShareAccessController extends APIClient {
      * @param token
      */
     async importEntity(token: string) {
-        return this.invokeApiWithErrorHandling(`/access`, 'POST', { token });
+        return this.invokeApiWithErrorHandling('/access', 'POST', { token });
     }
 
     /**
@@ -37,7 +37,7 @@ export class EntityShareAccessController extends APIClient {
      * @param token
      */
     async deactivateAccess(companyId: string, token: string) {
-        return this.invokeApiWithErrorHandling(`/access/deactivate`, 'POST', { companyId, token });
+        return this.invokeApiWithErrorHandling('/access/deactivate', 'POST', { companyId, token });
     }
 
     /**
@@ -46,6 +46,6 @@ export class EntityShareAccessController extends APIClient {
      * @param token
      */
     async reactivateAccess(companyId: string, token: string) {
-        return this.invokeApiWithErrorHandling(`/access/reactivate`, 'POST', { companyId, token });
+        return this.invokeApiWithErrorHandling('/access/reactivate', 'POST', { companyId, token });
     }
 }
