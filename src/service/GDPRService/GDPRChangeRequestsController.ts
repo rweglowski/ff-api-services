@@ -12,9 +12,9 @@ export class GDPRChangeRequestsController extends APIClient {
      * @param status
      * @param reason
      */
-    async updateChangeRequestStatus(changeRequestId: string, status: GDPRServiceTypes.DataChangeRequestApprovalStatus, reason: string) {
+    async updateChangeRequestStatus(changeRequestId: string, status: GDPRServiceTypes.DataChangeRequestApprovalStatus, reason?: string) {
         const formData = new FormData();
-        formData.append('reason', reason);
+        formData.append('reason', reason || '');
 
         return await this.invokeApiWithErrorHandling(`/changeRequests/${changeRequestId}/status/${status}`, 'POST', formData, {
             headers: {
@@ -24,9 +24,17 @@ export class GDPRChangeRequestsController extends APIClient {
     }
 
     /**
-     * TODO: Please comment this method
+     * Returns change or delete requests. Pass in the parameters to filter a list
      */
-    async fetchAllChangeRequests() {
-        return await this.invokeApiWithErrorHandling<GDPRServiceTypes.DataChangeRequest[]>('/changeRequests/all', 'GET');
+    async fetchAllChangeRequests(
+        approvalStatus?: Array<GDPRServiceTypes.DataChangeRequestApprovalStatus> | GDPRServiceTypes.DataChangeRequestApprovalStatus,
+        types?: Array<GDPRServiceTypes.DataChangeRequestType> | GDPRServiceTypes.DataChangeRequestType,
+    ) {
+        return await this.invokeApiWithErrorHandling<GDPRServiceTypes.DataChangeRequest[]>('/changeRequests/all', 'GET', undefined, {
+            queryParams: {
+                approvalStatus: Array.isArray(approvalStatus) ? approvalStatus.join(',') : approvalStatus,
+                types: Array.isArray(types) ? types.join(',') : types
+            }
+        });
     }
 }

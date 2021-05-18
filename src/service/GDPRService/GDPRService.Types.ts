@@ -1,4 +1,4 @@
-import { Contact, EntityView } from '@flowfact/types';
+import {Contact, Entity, EntityView} from '@flowfact/types';
 
 export namespace GDPRServiceTypes {
     export type ExportFileType = 'JSON' | 'CSV' | 'XML';
@@ -13,16 +13,23 @@ export namespace GDPRServiceTypes {
         type: DataChangeRequestType;
     }
 
+    export interface RetentionObligation {
+        type: 'OWNER' | 'BUYER' | 'RENTER';
+        linkedEntityId?: string;
+        linkedSchema?: string;
+    }
+
     export interface DataChangeRequest {
         id: string;
         contactId: string;
         companyId: string;
-        requestDateTime: Date;
-        processingDateTime: Date;
+        requestDateTime: string | number;
+        processingDateTime: string | number;
         note: string;
         type: DataChangeRequestType;
         approvalStatus: DataChangeRequestApprovalStatus;
-        changes: Map<string, object>;
+        retentionObligations: RetentionObligation[];
+        changes: Omit<Entity, 'id' | '_acls' | '_metadata' | '_acps' | '_refs'>;
     }
 
     export interface ExportRequestBody {
