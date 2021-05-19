@@ -20,7 +20,7 @@ export class EntityShareAccessController extends APIClient {
      * @param token
      */
     async fetchCompaniesWithAccess(token: string) {
-        return this.invokeApiWithErrorHandling<EntityShareServiceTypes.SharedEntityCompanyWithAccess[]>(`/access/${token}`, 'GET');
+        return this.invokeApiWithErrorHandling<EntityShareServiceTypes.SharedEntityCompanyWithAccessList>(`/access/${token}`, 'GET');
     }
 
     /**
