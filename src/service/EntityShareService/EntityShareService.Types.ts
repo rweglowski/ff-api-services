@@ -15,6 +15,10 @@ export namespace EntityShareServiceTypes {
         active: boolean;
     }
 
+    export interface SharedEntityCompanyWithAccessList {
+        accesses: SharedEntityCompanyWithAccess[];
+    }
+
     export interface ImportedEntity {
         entityId: string;
         schemaName: string;
