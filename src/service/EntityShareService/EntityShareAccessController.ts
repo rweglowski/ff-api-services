@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { EntityShareServiceTypes } from './EntityShareService.Types';
-import {PagedResponse} from "@flowfact/types";
+import { PagedResponse } from "@flowfact/types";
 
 export class EntityShareAccessController extends APIClient {
 
