@@ -1,6 +1,15 @@
 import { APIClient, APIMapping } from '../../http';
 import { EntityShareServiceTypes } from './EntityShareService.Types';
-import { PagedResponse } from "@flowfact/types";
+
+export interface PagedResponse<T> {
+    content: T[];
+    empty: boolean;
+    first: boolean;
+    last: boolean;
+    number: number;
+    numberOfElements: number;
+    size: number;
+}
 
 export class EntityShareAccessController extends APIClient {
 
@@ -10,10 +19,11 @@ export class EntityShareAccessController extends APIClient {
 
     /**
      * Fetches the list of imported entities for the company of current user
-     * @param token
+     * @param page
+     * @param size
      */
     async fetchImportedEntities(page: number = 0, size: number = 10) {
-        return this.invokeApiWithErrorHandling<PagedResponse<EntityShareServiceTypes.ImportedEntity[]>>('/access', 'GET', { page, size });
+        return this.invokeApiWithErrorHandling<PagedResponse<EntityShareServiceTypes.ImportedEntity>>('/access', 'GET', { page, size });
     }
 
     /**
