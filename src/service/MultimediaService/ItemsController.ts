@@ -1,4 +1,4 @@
-import { APIClient, APIMapping } from '../../http';
+import { APIClient, APIMapping, ApiResponse } from '../../http';
 import { AlbumAssignmentRequest, ContentCategory, MultimediaItem, UploadResponse } from './MultimediaService.Types';
 
 export class ItemsController extends APIClient {
@@ -160,5 +160,36 @@ export class ItemsController extends APIClient {
      */
     async patchMediaItem(mediaItemId: number, jsonPatch: object[]) {
         return await this.invokeApiWithErrorHandling<MultimediaItem>(`/items/${mediaItemId}`, 'PATCH', jsonPatch);
+    }
+
+    /**
+     * Copies multimedia items from a source entity
+     * @param schemaName
+     *      The name of the schema
+     * @param entityId
+     *      The uuid of the entity
+     * @param sourceSchemaName
+     *      The name of the source schema
+     * @param sourceEntityId
+     *      The uuid of the source entity
+     * @param mediaItems
+     *      Ids of media items to be copied
+     * @param albumIds
+     *      UUIDs of albums that media items should be assigned to
+     */
+    async copyItemsFromEntity(
+        schemaName: string,
+        entityId: string,
+        sourceSchemaName: string,
+        sourceEntityId: string,
+        mediaItems: number[],
+        albumIds: string[]
+    ): Promise<ApiResponse<any>> {
+        return await this.invokeApiWithErrorHandling(`/items/schema/${schemaName}/entities/${entityId}/copy`, 'PUT', {
+            sourceSchemaName: sourceSchemaName,
+            sourceEntityId: sourceEntityId,
+            selectedMultimediaItems: mediaItems,
+            selectedAlbums: albumIds,
+        });
     }
 }
