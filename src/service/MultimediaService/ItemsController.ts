@@ -184,8 +184,8 @@ export class ItemsController extends APIClient {
         sourceEntityId: string,
         mediaItems: number[],
         albumIds: string[]
-    ): Promise<ApiResponse<any>> {
-        return await this.invokeApiWithErrorHandling(`/items/schema/${schemaName}/entities/${entityId}/copy`, 'PUT', {
+    ): Promise<ApiResponse<{ entries: MultimediaItem[]; size: number }>> {
+        return await this.invokeApiWithErrorHandling(`/items/schema/${schemaName}/entities/${entityId}/transfers`, 'POST', {
             sourceSchemaName: sourceSchemaName,
             sourceEntityId: sourceEntityId,
             selectedMultimediaItems: mediaItems,
