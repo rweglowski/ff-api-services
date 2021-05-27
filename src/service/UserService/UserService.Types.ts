@@ -57,6 +57,7 @@ export interface User {
     sso?: SSO[];
     timestamp?: number;
     type?: UserType;
+    color?: string;
     language?: string;
 }
 
