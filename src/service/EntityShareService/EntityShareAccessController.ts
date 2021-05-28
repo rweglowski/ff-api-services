@@ -1,15 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { EntityShareServiceTypes } from './EntityShareService.Types';
-
-export interface PagedResponse<T> {
-    content: T[];
-    empty: boolean;
-    first: boolean;
-    last: boolean;
-    number: number;
-    numberOfElements: number;
-    size: number;
-}
+import { PagedResponse } from "@flowfact/types";
 
 export class EntityShareAccessController extends APIClient {
 
