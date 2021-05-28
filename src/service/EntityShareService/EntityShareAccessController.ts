@@ -10,10 +10,11 @@ export class EntityShareAccessController extends APIClient {
 
     /**
      * Fetches the list of imported entities for the company of current user
-     * @param token
+     * @param page
+     * @param size
      */
     async fetchImportedEntities(page: number = 0, size: number = 10) {
-        return this.invokeApiWithErrorHandling<PagedResponse<EntityShareServiceTypes.ImportedEntity[]>>('/access', 'GET', { page, size });
+        return this.invokeApiWithErrorHandling<PagedResponse<EntityShareServiceTypes.ImportedEntity>>('/access', 'GET', { page, size });
     }
 
     /**
