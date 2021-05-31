@@ -47,6 +47,7 @@ export interface Album {
     name: string;
     captions: Captions;
     categories: Category[];
+    hidden: boolean;
 }
 
 export interface UploadResponse {

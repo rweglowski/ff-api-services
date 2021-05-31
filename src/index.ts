@@ -64,6 +64,7 @@ export * from './service/PropertyMarketingPhaseService';
 export * from './service/InteractiveExposeStatisticsService';
 export * from './service/EmailService';
 export * from './service/EntitlementService';
+export * from './service/MailchimpSyncIntegrationService';
 export * from './service/SearchServiceTypes';
 export * from './service/SlackService';
 export * from './service/TeamsIntegrationService';
@@ -79,6 +80,7 @@ export * from './service/CaasManagementService';
 export * from './service/GeoInformationService';
 export * from './service/EverSignService';
 export * from './service/ContractService';
+export * from './service/EntityShareService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
