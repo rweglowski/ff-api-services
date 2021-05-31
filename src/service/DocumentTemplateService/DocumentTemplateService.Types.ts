@@ -17,11 +17,18 @@ export enum BaseTemplateType {
 // Expected types with a fallback to safe data, even if type is unknown
 export type TemplateType = BaseTemplateType | string;
 
+export enum BaseFileType {
+    DOCX = 'DOCX',
+    TXT = 'TXT',
+}
+
+export type FileType = BaseFileType | string;
+
 export interface BaseTemplate {
     name: string;
     categoryName?: string;
     captions: Captions;
-    fileType: string;
+    fileType: FileType;
     neededPlaceholders: NeededPlaceholder[];
     templateType?: TemplateType;
 }
