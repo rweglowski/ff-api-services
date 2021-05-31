@@ -1,5 +1,5 @@
 import { APIClient, APIMapping } from '../../http';
-import {JSONPatch, ReadTemplate, TemplateTypes, WriteTemplate} from './DocumentTemplateService.Types';
+import {JSONPatch, ReadTemplate, TemplateType, WriteTemplate} from './DocumentTemplateService.Types';
 
 export class TemplateController extends APIClient {
     constructor() {
@@ -9,10 +9,10 @@ export class TemplateController extends APIClient {
     /**
      * Fetches all available templates
      */
-    async fetchAllTemplates(templateType?: TemplateTypes) {
+    async fetchAllTemplates(templateType?: TemplateType) {
         return this.invokeApiWithErrorHandling<{ entries: ReadTemplate[] }>('/templates', 'GET', undefined, {
             queryParams: {
-                templateType: templateType,
+                templateType,
             },
         });
     }
