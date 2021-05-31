@@ -10,7 +10,7 @@ export class ConfigurationController extends APIClient {
      *
      * @param file
      */
-    async upload(file: FileWithPath) {
+    async upload(file: Blob) {
         const formData = new FormData();
         formData.append('file', file);
 
@@ -20,9 +20,4 @@ export class ConfigurationController extends APIClient {
             },
         });
     }
-}
-export interface FileWithPath extends Blob {
-    readonly lastModified: number;
-    readonly name: string;
-    readonly path: string;
 }
