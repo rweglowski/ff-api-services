@@ -18,8 +18,8 @@ export enum BaseTemplateType {
 export type TemplateType = BaseTemplateType | string;
 
 export enum BaseFileType {
-    DOCX = 'DOCX',
-    TXT = 'TXT',
+    DOCX = 'docx',
+    TXT = 'txt',
 }
 
 export type FileType = BaseFileType | string;
