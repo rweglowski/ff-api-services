@@ -18,7 +18,7 @@ export namespace NavigationTypes {
     }
 
     export interface Item extends BaseItem {
-        type: 'REDIRECT';
+        type: 'REDIRECT' | 'EXTERNAL_REDIRECT';
         url: string;
     }
 
