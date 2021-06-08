@@ -23,6 +23,7 @@ export namespace WidgetLayoutTypes {
     export interface SchemaBoundWidgetLayout extends BaseWidgetLayout {
         schema: string;
         domainType: LayoutDomainType.SCHEMA_BOUND;
+        categories?: string[];
     }
 
     export interface PagedWidgetLayouts {
