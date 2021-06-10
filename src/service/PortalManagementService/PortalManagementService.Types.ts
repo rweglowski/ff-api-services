@@ -47,6 +47,8 @@ export namespace PortalManagementTypes {
         fullUpdate: boolean;
         vendor?: string;
         index?: number;
+        _acps?: PortalACP[];
+        _metadata?: PortalMetadata;
     }
 
     export interface PortalEstate {
@@ -110,5 +112,14 @@ export namespace PortalManagementTypes {
         captions: { [key: string]: string };
         logo: string;
         portalType: PortalType;
+    }
+
+    export type PortalACP = {
+        groupId: string;
+        accessLevel: number;
+    }
+
+    export type PortalMetadata = {
+        currentAccessLevel: number
     }
 }
