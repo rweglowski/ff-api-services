@@ -59,7 +59,7 @@ export namespace UserHistoryTypes {
         entries: HistoryEntry[];
     }
 
-    export interface UserHistory {
+    export interface HistoryResponse {
         offset: number;
         size: number;
         totalCount: number;
