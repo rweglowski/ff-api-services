@@ -16,7 +16,7 @@ export default class HistoryController extends APIClient {
      * @param offset
      * @param filter
      */
-    async fetchHistory(schemaId: string, entityId: string, size: number = 20, offset: number = 0, filter?: HistoryFilter): Promise<ApiResponse<UserHistory>> {
+    async fetchHistory(schemaId: string, entityId: string, size: number = 20, offset: number = 0, filter?: HistoryFilter) {
         let body: any = {
             schemaId: schemaId,
             entityId: entityId,
