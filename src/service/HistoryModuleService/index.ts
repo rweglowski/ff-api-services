@@ -1,5 +1,5 @@
-import HistoryController from './HistoryController';
-import UserHistoryController from './UserHistoryController';
+import { HistoryController } from './HistoryController';
+import { UserHistoryController } from './UserHistoryController';
 export * from './HistoryServiceTypes';
 
 export class HistoryModuleService {

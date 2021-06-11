@@ -4,7 +4,7 @@ import { HistoryServiceTypes } from './HistoryServiceTypes';
 import HistoryResponse = HistoryServiceTypes.HistoryResponse;
 import SourceType = HistoryServiceTypes.SourceType;
 
-export default class UserHistoryController extends APIClient {
+export class UserHistoryController extends APIClient {
     constructor() {
         super(APIMapping.historyModuleService);
     }
