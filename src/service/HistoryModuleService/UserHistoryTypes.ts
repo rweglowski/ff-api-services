@@ -1,6 +1,6 @@
 import { Captions, Contact } from '@flowfact/types';
 
-export namespace UserHistoryTypes {
+export namespace HistoryServiceTypes {
     export interface Source {
         type:   'APPOINTMENT' |
                 'AUTOMATION' |
