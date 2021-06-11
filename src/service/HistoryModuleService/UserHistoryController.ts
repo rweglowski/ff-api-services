@@ -41,7 +41,7 @@ export default class UserHistoryController extends APIClient {
      * @param userIds
      * @param filter
      */
-    async fetchUserHistoryDataChanges(size: number = 100, offset: number = 0, sourceTypes: SourceType[] = ['ALL'], userIds: string[], filter?: HistoryFilter): Promise<ApiResponse<UserHistory>> {
+    async fetchUserHistoryDataChanges(size: number = 100, offset: number = 0, sourceTypes: SourceType[] = ['ALL'], userIds: string[], filter?: HistoryFilter) {
         let body: any = {
             size,
             offset,
