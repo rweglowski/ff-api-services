@@ -11,7 +11,6 @@ export { default as FormService } from './service/FormService';
 export { default as FullTextSearchService } from './service/FullTextSearchService';
 export { default as FunnelService } from './service/FunnelService';
 export { default as GeolocationService } from './service/GeolocationService';
-export { default as HistoryModuleService } from './service/HistoryModuleService';
 export * from './service/InquiryService';
 export { default as InteractiveExposeDeliveryService } from './service/InteractiveExposeDeliveryService';
 export { default as InteractiveExposeService } from './service/InteractiveExposeService';
@@ -81,6 +80,7 @@ export * from './service/GeoInformationService';
 export * from './service/EverSignService';
 export * from './service/ContractService';
 export * from './service/EntityShareService';
+export * from './service/HistoryModuleService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';

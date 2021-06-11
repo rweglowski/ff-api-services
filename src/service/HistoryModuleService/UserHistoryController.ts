@@ -3,6 +3,7 @@ import { APIClient, APIMapping } from '../../http';
 import { HistoryServiceTypes } from './HistoryServiceTypes';
 import HistoryResponse = HistoryServiceTypes.HistoryResponse;
 import SourceType = HistoryServiceTypes.SourceType;
+import RequestBody = HistoryServiceTypes.RequestBody;
 
 export class UserHistoryController extends APIClient {
     constructor() {
@@ -18,7 +19,7 @@ export class UserHistoryController extends APIClient {
      * @param filter
      */
     async fetchUserHistoryActivity(size: number = 100, offset: number = 0, sourceTypes: SourceType[] = ['ALL'], userIds: string[], filter?: HistoryFilter) {
-        let body: any = {
+        let body: RequestBody = {
             size,
             offset,
             sourceTypes,
@@ -42,7 +43,7 @@ export class UserHistoryController extends APIClient {
      * @param filter
      */
     async fetchUserHistoryDataChanges(size: number = 100, offset: number = 0, sourceTypes: SourceType[] = ['ALL'], userIds: string[], filter?: HistoryFilter) {
-        let body: any = {
+        let body: RequestBody = {
             size,
             offset,
             sourceTypes,

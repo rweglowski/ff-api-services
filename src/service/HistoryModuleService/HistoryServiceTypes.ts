@@ -2,11 +2,13 @@ import { Captions, Contact, HistoryFilter } from '@flowfact/types';
 
 export namespace HistoryServiceTypes {
     export interface RequestBody {
-        schemaId: string;
-        entityId: string;
+        schemaId?: string;
+        entityId?: string;
         size: number;
         offset: number;
         filter?: HistoryFilter;
+        sourceTypes?: SourceType[];
+        userIds?: string[];
     }
 
     export type Source ='APPOINTMENT' |
