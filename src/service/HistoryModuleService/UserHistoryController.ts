@@ -1,8 +1,8 @@
 import { HistoryFilter } from '@flowfact/types';
-import { APIClient, APIMapping, ApiResponse } from '../../http';
-import { UserHistoryTypes } from './UserHistoryTypes';
-import UserHistory = UserHistoryTypes.UserHistory;
-import SourceType = UserHistoryTypes.SourceType;
+import { APIClient, APIMapping } from '../../http';
+import { HistoryServiceTypes } from './HistoryServiceTypes';
+import HistoryResponse = HistoryServiceTypes.HistoryResponse;
+import SourceType = HistoryServiceTypes.SourceType;
 
 export default class UserHistoryController extends APIClient {
     constructor() {
@@ -30,7 +30,7 @@ export default class UserHistoryController extends APIClient {
             body.filter = filter;
         }
 
-        return await this.invokeApiWithErrorHandling<UserHistory>('/user/history/activtiy', 'POST', [body]);
+        return await this.invokeApiWithErrorHandling<HistoryResponse>('/user/history/activtiy', 'POST', [body]);
     }
 
     /**
@@ -54,6 +54,6 @@ export default class UserHistoryController extends APIClient {
             body.filter = filter;
         }
 
-        return await this.invokeApiWithErrorHandling<UserHistory>('/user/history/data-changes', 'POST', [body]);
+        return await this.invokeApiWithErrorHandling<HistoryResponse>('/user/history/data-changes', 'POST', [body]);
     }
 }

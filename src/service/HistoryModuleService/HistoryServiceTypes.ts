@@ -1,23 +1,29 @@
-import { Captions, Contact } from '@flowfact/types';
+import { Captions, Contact, HistoryFilter } from '@flowfact/types';
 
 export namespace HistoryServiceTypes {
-    export interface Source {
-        type:   'APPOINTMENT' |
-                'AUTOMATION' |
-                'CONTACT' |
-                'DATA_CHANGE' |
-                'DATA_CREATE' |
-                'DOCUMENT' |
-                'ESTATE_PUBLISHED' |
-                'ESTATE_UNPUBLISHED' |
-                'ESTATE' |
-                'MAIL' |
-                'NOTE' |
-                'OFFER' |
-                'TAG' |
-                'USER' |
-                'TASK'
+    export interface RequestBody {
+        schemaId: string;
+        entityId: string;
+        size: number;
+        offset: number;
+        filter?: HistoryFilter;
     }
+
+    export type Source ='APPOINTMENT' |
+                        'AUTOMATION' |
+                        'CONTACT' |
+                        'DATA_CHANGE' |
+                        'DATA_CREATE' |
+                        'DOCUMENT' |
+                        'ESTATE_PUBLISHED' |
+                        'ESTATE_UNPUBLISHED' |
+                        'ESTATE' |
+                        'MAIL' |
+                        'NOTE' |
+                        'OFFER' |
+                        'TAG' |
+                        'USER' |
+                        'TASK';
 
     export type SourceType = 'ALL' | 'CREATE' | 'UPDATE' | 'DELETE';
 

@@ -1,6 +1,6 @@
 import HistoryController from './HistoryController';
 import UserHistoryController from './UserHistoryController';
-export * from './UserHistoryTypes';
+export * from './HistoryServiceTypes';
 
 export class HistoryModuleService {
     public readonly history: HistoryController;
