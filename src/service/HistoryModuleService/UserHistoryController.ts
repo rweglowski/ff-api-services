@@ -31,7 +31,7 @@ export class UserHistoryController extends APIClient {
             body.filter = filter;
         }
 
-        return await this.invokeApiWithErrorHandling<HistoryResponse>('/user/history/activtiy', 'POST', [body]);
+        return await this.invokeApiWithErrorHandling<HistoryResponse>('/user/history/activity', 'POST', [body]);
     }
 
     /**
