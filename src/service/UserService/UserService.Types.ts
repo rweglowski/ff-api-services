@@ -27,6 +27,7 @@ export enum SsoType {
 
 export enum AdditionalFieldType {
     TEXT = 'TEXT',
+    EMAIL_TEMPLATE = 'EMAIL_TEMPLATE',
 }
 
 export interface IdentifiedUserResponse {
