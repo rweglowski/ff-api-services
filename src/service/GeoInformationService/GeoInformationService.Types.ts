@@ -9,12 +9,17 @@ export namespace GeoInformationsServiceTypes {
         };
         companyId: string;
         createdTimestamp: number;
-        geometry: object;
+        geometry?: GeoInformationValueGeometry;
         id: string;
         isGlobal: boolean;
         metadata: object;
         name: string;
         parent: string;
+    }
+
+    export interface GeoInformationValueGeometry {
+        type: string;
+        coordinates: Array<any>;
     }
 
     export interface ListOfPolygons {
