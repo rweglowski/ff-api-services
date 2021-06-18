@@ -10,6 +10,7 @@ export namespace PortalManagementTypes {
         portalId: string;
         entries: PublishRequestEntry[];
         portalType?: PortalType;
+        companyId: string;
     }
 
     export interface PublishRequestEntry {
