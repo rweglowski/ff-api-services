@@ -17,11 +17,11 @@ export namespace GeoInformationsServiceTypes {
         parent: string;
     }
 
-    export type Point = [number, number];
+    export type GeoPoint = [number, number];
 
     export interface GeoInformationValueGeometry {
         type: 'Polygon' | 'MultiPolygon';
-        coordinates: Point[][];
+        coordinates: GeoPoint[][];
     }
 
     export interface ListOfPolygons {
