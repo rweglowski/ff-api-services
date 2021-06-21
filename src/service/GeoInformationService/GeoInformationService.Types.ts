@@ -17,7 +17,11 @@ export namespace GeoInformationsServiceTypes {
         parent: string;
     }
 
-    export type GeoPoint = [number, number];
+    export type Latitude = number;
+
+    export type Longitude = number;
+    
+    export type GeoPoint = [Longitude, Latitude];
 
     export interface GeoInformationValueGeometry {
         type: 'Polygon' | 'MultiPolygon';
