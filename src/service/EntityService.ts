@@ -23,6 +23,34 @@ export interface PrefixData {
     defaultForSchemas?: string[];
 }
 
+export interface TrashedEntity {
+    content: Entity;
+    schemaName: string;
+    entityId: string;
+    deletedAt: number;
+    deletedBy: string;
+}
+
+export interface TrashedEntitiesResponse {
+    entries: TrashedEntity[];
+    totalCount: number;
+    page: number;
+    pageSize: number;
+    offset: number;
+    size: number;
+}
+
+export interface TrashedEntitySchemaName {
+    schema: string;
+}
+
+export interface TrashedEntitiesSchemaNameResponse {
+    schemas: TrashedEntitySchemaName[];
+}
+
+export interface TrashedEntityIds {
+    entityIds: string[];
+}
 export class EntityService extends APIClient {
     constructor() {
         super(APIMapping.entityService);
@@ -284,6 +312,57 @@ export class EntityService extends APIClient {
             prefix,
         };
         return this.invokeApiWithErrorHandling<void>('/prefixes', 'POST', postBody);
+    }
+
+    /**
+     *
+     * returns list of trashed entities
+     *
+     * @param page
+     * @param size
+     * @param schemaName
+     */
+
+    async getTrashedEntities(page: number, size = 50, schema?: string) {
+        return this.invokeApiWithErrorHandling<TrashedEntitiesResponse>('/recovery/entities', 'GET', undefined, {
+            queryParams: {
+                page,
+                size,
+                schema,
+            },
+        });
+    }
+
+    /**
+     *
+     * delete trashed entities
+     *
+     * @param toBeDeletedEntities
+     */
+
+    async deleteTrashedEntities(toBeDeletedEntities: string[]) {
+        return this.invokeApiWithErrorHandling('/recovery/entities', 'DELETE', { entityIds: toBeDeletedEntities });
+    }
+
+    /**
+     *
+     * restores trashed entities
+     *
+     * @param toBeRestoredEntities
+     */
+
+    async restoreTrashedEntities(toBeRestoredEntities: string[]) {
+        return this.invokeApiWithErrorHandling('/recovery/entities', 'POST', { entityIds: toBeRestoredEntities });
+    }
+
+    /**
+     *
+     * returns array of schema names of trashed entities
+     *
+     */
+
+    async getTrashedEntitySchemaNames() {
+        return this.invokeApiWithErrorHandling<TrashedEntitiesSchemaNameResponse>('/recovery/schemas', 'GET');
     }
 }
 

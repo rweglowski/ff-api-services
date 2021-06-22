@@ -1,3 +1,4 @@
+/* eslint-disable import/no-internal-modules */
 export { default as AdminTokenService } from './service/AdminTokenService';
 export { default as AgentRecommendationService } from './service/AgentRecommendationService';
 export { default as AppointmentBookingService } from './service/AppointmentBookingService';
