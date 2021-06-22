@@ -323,7 +323,7 @@ export class EntityService extends APIClient {
      * @param schemaName
      */
 
-    async getTrashedEntities(page: number, size = 50, schema?: string) {
+    async fetchTrashedEntities(page: number, size = 50, schema?: string) {
         return this.invokeApiWithErrorHandling<TrashedEntitiesResponse>('/recovery/entities', 'GET', undefined, {
             queryParams: {
                 page,
@@ -361,7 +361,7 @@ export class EntityService extends APIClient {
      *
      */
 
-    async getTrashedEntitySchemaNames() {
+    async fetchTrashedEntitySchemaNames() {
         return this.invokeApiWithErrorHandling<TrashedEntitiesSchemaNameResponse>('/recovery/schemas', 'GET');
     }
 }
