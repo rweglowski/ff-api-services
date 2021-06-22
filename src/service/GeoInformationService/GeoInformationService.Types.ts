@@ -46,7 +46,7 @@ export namespace GeoInformationsServiceTypes {
         parent: string;
     }
 
-    export interface FetchAddressLocationRequest {
+    export interface LocationAddress {
         city: string;
         street: string;
         zipcode: string;
@@ -54,7 +54,7 @@ export namespace GeoInformationsServiceTypes {
         [key: string]: string;
     }
 
-    export interface FetchAddressResponse {
+    export interface Coordinates {
         lat: number;
         lng: number
     }

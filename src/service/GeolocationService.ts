@@ -35,16 +35,11 @@ export class GeolocationService extends APIClient {
         return this.invokeApi('/getBestMatchCoordinates', 'GET', undefined, additionalParams).then((s) => s.data);
     }
 
-    fetchAddressCoordinates(request: types.FetchAddressLocationRequest): Promise<types.FetchAddressResponse> {
+    fetchAddressCoordinates(locationAddress: types.LocationAddress) {
         const additionalParams = {
-            queryParams: request,
+            queryParams: locationAddress,
         };
-        return this
-            .invokeApiWithErrorHandling('/searchByAddress', 'GET', undefined, additionalParams)
-            .then((s) => {
-                const { lat, lon } = s.data;
-                return { lat, lng: lon}
-            });
+        return this.invokeApiWithErrorHandling<types.Coordinates>('/searchByAddress', 'GET', undefined, additionalParams)
     }
 
 }
