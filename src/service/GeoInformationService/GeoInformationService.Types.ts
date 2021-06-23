@@ -56,6 +56,6 @@ export namespace GeoInformationsServiceTypes {
 
     export interface Coordinates {
         lat: number;
-        lng: number
+        lon: number
     }
 }
