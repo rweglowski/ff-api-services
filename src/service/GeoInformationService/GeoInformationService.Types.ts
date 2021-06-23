@@ -42,10 +42,24 @@ export namespace GeoInformationsServiceTypes {
         size: number;
         values: GeoInformation[];
     }
+
     export interface GeoInformation {
         global: boolean;
         labels: Captions;
         name: string;
         parent: string;
+    }
+
+    export interface LocationAddress {
+        city: string;
+        street: string;
+        zipcode: string;
+        country: string;
+        [key: string]: string;
+    }
+
+    export interface Coordinates {
+        lat: number;
+        lng: number
     }
 }
