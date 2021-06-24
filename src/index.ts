@@ -6,7 +6,6 @@ export { default as CommissionCalculationService } from './service/CommissionCal
 export { default as ContactService } from './service/ContactService';
 export { default as CsvToEntityImporterService } from './service/CsvToEntityImporterService';
 export { default as CustomerLegitimationArchiveService } from './service/CustomerLegitimationArchiveService';
-export { default as EntityService } from './service/EntityService';
 export { default as FlowfactExportInternalService } from './service/FlowfactExportInternalService';
 export { default as FormService } from './service/FormService';
 export { default as FullTextSearchService } from './service/FullTextSearchService';
@@ -39,6 +38,7 @@ export { default as OpenimmoImporterService } from './service/OpenimmoImporterSe
 export { default as ImporterFlowFactTransferService } from './service/ImporterFlowFactTransferService';
 export { default as AclGroupServiceRest } from './service/AclGroupServiceRest';
 
+export { default as EntityService, TrashedEntity, TrashedEntitiesResponse, TrashedEntitySchemaName, TrashedEntityIds } from './service/EntityService';
 export * from './service/GDPRService';
 export * from './service/IS24LeadService';
 export * from './service/IS24ImportService';
