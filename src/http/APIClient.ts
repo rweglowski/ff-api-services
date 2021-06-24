@@ -146,7 +146,7 @@ export class APIClient {
                 : {
                       ...response,
                       ...result,
-                      data: result.data ? result.data : defaultValue,
+                      data: result.data || defaultValue,
                   };
         } catch (error) {
             return {

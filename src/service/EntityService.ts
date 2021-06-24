@@ -362,7 +362,7 @@ export class EntityService extends APIClient {
      */
 
     async fetchTrashedEntitySchemaNames() {
-        return this.invokeApiWithErrorHandling<TrashedEntitiesSchemaNameResponse>('/recovery/schemas', 'GET');
+        return this.invokeApiWithErrorHandling<TrashedEntitiesSchemaNameResponse>('/recovery/schemas', 'GET', undefined, undefined, { schemas: [] });
     }
 }
 
