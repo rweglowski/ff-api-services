@@ -14,7 +14,7 @@ export namespace MailchimpServiceTypes {
 
     export interface Settings {
         syncDirection: SyncDirection;
-        listIds: Set<string>
+        listIds: string[]
     }
 
     export enum SyncDirection {
