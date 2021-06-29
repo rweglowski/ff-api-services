@@ -4,7 +4,10 @@ export namespace MailchimpServiceTypes {
     }
 
     export interface MailchimpLists {
-        lists: MailchimpList[];
+        entries: MailchimpList[];
+        page: number;
+        size: number;
+        totalCount: number;
     }
 
     export interface MailchimpList {
