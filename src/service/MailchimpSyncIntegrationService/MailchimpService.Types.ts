@@ -3,13 +3,6 @@ export namespace MailchimpServiceTypes {
         token: string;
     }
 
-    export interface MailchimpLists {
-        entries: MailchimpList[];
-        page: number;
-        size: number;
-        totalCount: number;
-    }
-
     export interface MailchimpList {
         id: string;
         name: string;
