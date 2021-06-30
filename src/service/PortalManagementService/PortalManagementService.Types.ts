@@ -7,6 +7,36 @@ export namespace PortalManagementTypes {
         callbackUrl: string;
     }
 
+    export interface BulkPublishRequest {
+        companyId: string;
+        userId: string;
+        publishRequestEntry: PublishRequestEntry;
+        publishPortalRequestEntries: PublishPortalRequestEntry[];
+    }
+
+    export interface PublishPortalRequestEntry {
+        portalId: string;
+        portalType?: PortalType;
+    }
+
+    export interface PublishBulkResponse {
+        entityId: string;
+        schemaId: string;
+        schema: string;
+        targetStatus: PortalEstateStatusType;
+        portalsWithoutAccessRights: string[];
+        succeededPublications: PublishBulkResponseEntry[];
+        failedPublications: PublishBulkResponseEntry[];
+    }
+
+    export interface PublishBulkResponseEntry {
+        portalId: string;
+        portalType?: PortalType;
+        errorResponseMessage?: string;
+    }
+
+    export type PortalEstateStatusType = 'OFFLINE' | 'ONLINE';
+
     export interface PublishRequest {
         portalId: string;
         entries: PublishRequestEntry[];
@@ -16,7 +46,7 @@ export namespace PortalManagementTypes {
     export interface PublishRequestEntry {
         entityId: string;
         externalId?: string;
-        targetStatus: 'OFFLINE' | 'ONLINE';
+        targetStatus: PortalEstateStatusType;
         entityLocation?: string;
         publishChannels?: PublishChannel[];
         schema?: string;
@@ -104,7 +134,7 @@ export namespace PortalManagementTypes {
     }
 
     export interface ProjectPublishResponse {
-        targetStatus: 'OFFLINE' | 'ONLINE';
+        targetStatus: PortalEstateStatusType;
         warnings: ProjectPublishResponseEntry[];
         errors: ProjectPublishResponseEntry[];
     }
