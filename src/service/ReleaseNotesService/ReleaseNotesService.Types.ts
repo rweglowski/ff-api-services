@@ -15,5 +15,7 @@ export namespace ReleaseNoteServiceTypes {
         size: number;
         number: number;
         content: ReleaseNote[];
+        last: boolean;
+        first: boolean;
     }
 }

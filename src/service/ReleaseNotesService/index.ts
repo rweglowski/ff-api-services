@@ -4,10 +4,10 @@ export * from './ReleaseNotesService.Types';
 
 export class ReleaseNotesService {
 
-    public readonly relesaseNotes: ReleaseNotesController;
+    public readonly releaseNotes: ReleaseNotesController;
 
     constructor() {
-        this.relesaseNotes = new ReleaseNotesController();
+        this.releaseNotes = new ReleaseNotesController();
     }
 }
 
