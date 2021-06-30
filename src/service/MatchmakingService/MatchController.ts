@@ -36,8 +36,8 @@ export default class MatchController extends APIClient {
             undefined,
             {
                 queryParams: {
-                    returnIds,
                     ...query,
+                    returnIds,
                     size,
                     offset,
                     sort: buildSortParameter(sorting),
@@ -66,8 +66,8 @@ export default class MatchController extends APIClient {
     ) {
         return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(`/match/search-profile`, 'POST', searchProfile, {
             queryParams: {
-                returnIds,
                 ...query,
+                returnIds,
                 size,
                 offset,
                 sort: buildSortParameter(sorting),
@@ -86,8 +86,8 @@ export default class MatchController extends APIClient {
     async fetchMatchesByEstate(estateId: string, query: MatchmakingTypes.FilterQuery = {}, sorting: Sort, size: number = 10, offset: number = 0, returnIds: boolean = false) {
         return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(`/match/estate/${estateId}`, 'GET', undefined, {
             queryParams: {
-                returnIds,
                 ...query,
+                returnIds,
                 size,
                 offset,
                 sort: buildSortParameter(sorting),
