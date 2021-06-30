@@ -3,7 +3,7 @@ export namespace MailchimpServiceTypes {
         token: string;
     }
 
-    export interface MailchimpList {
+    export interface MailchimpListItem {
         id: string;
         name: string;
     }
