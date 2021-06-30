@@ -1,3 +1,4 @@
+import { ACP } from '@flowfact/types';
 import { IS24ImportServiceTypes } from '../IS24ImportService';
 import ProjectInfo = IS24ImportServiceTypes.ProjectInfo;
 
@@ -47,7 +48,7 @@ export namespace PortalManagementTypes {
         fullUpdate: boolean;
         vendor?: string;
         index?: number;
-        _acps?: PortalACP[];
+        _acps?: ACP[];
         _metadata?: PortalMetadata;
     }
 
@@ -112,11 +113,6 @@ export namespace PortalManagementTypes {
         captions: { [key: string]: string };
         logo: string;
         portalType: PortalType;
-    }
-
-    export type PortalACP = {
-        groupId: string;
-        accessLevel: number;
     }
 
     export type PortalMetadata = {
