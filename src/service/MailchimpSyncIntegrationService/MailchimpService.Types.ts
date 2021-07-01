@@ -3,23 +3,19 @@ export namespace MailchimpServiceTypes {
         token: string;
     }
 
-    export interface MailchimpLists {
-        lists: MailchimpList[];
-    }
-
-    export interface MailchimpList {
+    export interface MailchimpListItem {
         id: string;
         name: string;
     }
 
     export interface Settings {
         syncDirection: SyncDirection;
-        listIds: Set<string>
+        listIds: string[];
     }
 
     export enum SyncDirection {
         MAILCHIMP = 'MAILCHIMP',
         FLOWFACT = 'FLOWFACT',
-        BOTH = 'BOTH'
+        BOTH = 'BOTH',
     }
 }
