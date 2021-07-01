@@ -1,3 +1,4 @@
+import { ParamList } from '../..';
 import { APIClient, APIMapping } from '../../http';
 import { ReleaseNoteServiceTypes } from './ReleaseNotesService.Types';
 
@@ -17,6 +18,12 @@ export class ReleaseNotesController extends APIClient {
      * @param sort
      */
     async fetchReleaseNotes(appName: string, size: number, page: number, sort: string = 'id,desc') {
-        return this.invokeApiWithErrorHandling<ReleaseNotesResponse>(`/release-note?appName=${appName}&size=${size}&page=${page}&sort=${sort}`, 'GET');
+        const queryParams: ParamList = {
+            appName,
+            size,
+            page,
+            sort,
+        };
+        return this.invokeApiWithErrorHandling<ReleaseNotesResponse>('/release-note', 'GET', undefined, { queryParams });
     }
 }
