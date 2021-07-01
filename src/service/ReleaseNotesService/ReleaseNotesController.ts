@@ -15,7 +15,7 @@ export class ReleaseNotesController extends APIClient {
      * @param size
      * @param page
      */
-    async fetchReleaseNotes(appName: string, size: number, page: number) {
-        return this.invokeApiWithErrorHandling<ReleaseNotesResponse>(`/release-note?appName=${appName}&size=${size}&page=${page}&sort=id,desc`, 'GET');
+    async fetchReleaseNotes(appName: string, size: number, page: number, sort: string = 'id,desc') {
+        return this.invokeApiWithErrorHandling<ReleaseNotesResponse>(`/release-note?appName=${appName}&size=${size}&page=${page}&sort=${sort}`, 'GET');
     }
 }
