@@ -82,6 +82,7 @@ export * from './service/EverSignService';
 export * from './service/ContractService';
 export * from './service/EntityShareService';
 export * from './service/HistoryModuleService';
+export * from './service/UserLogoutService'
 
 export * from './http';
 export * from './util/EnvironmentManagement';
