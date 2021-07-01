@@ -2,12 +2,16 @@ import { AxiosResponse } from 'axios';
 import { APIClient, APIMapping } from '../http';
 import { AclGroup, AclGroupType, AcpTemplate } from '@flowfact/types';
 
+/**
+ * @deprecated please use the AclGroupServiceRestInstance instead
+ */
 class AclGroupServiceRest extends APIClient {
     constructor() {
         super(APIMapping.aclGroupService);
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * This method fetches a group. If a groupType is provided, only groups with this type will be returned
      * @param groupType
      */
@@ -20,6 +24,7 @@ class AclGroupServiceRest extends APIClient {
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * Create a new acl group
      * @param group
      */
@@ -28,6 +33,7 @@ class AclGroupServiceRest extends APIClient {
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * Updates a group by the id
      * @param group
      */
@@ -36,6 +42,7 @@ class AclGroupServiceRest extends APIClient {
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * Deletes a group by the id
      * @param group
      */
@@ -44,6 +51,7 @@ class AclGroupServiceRest extends APIClient {
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * Fetch available templates
      */
     async fetchAcpTemplates(): Promise<AxiosResponse<AcpTemplate[]>> {
@@ -51,6 +59,7 @@ class AclGroupServiceRest extends APIClient {
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * Create template
      * @param template
      */
@@ -59,6 +68,7 @@ class AclGroupServiceRest extends APIClient {
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * Updates template
      * @param template
      */
@@ -67,6 +77,7 @@ class AclGroupServiceRest extends APIClient {
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * Fetches a template by Id
      * @param templateId
      */
@@ -75,6 +86,7 @@ class AclGroupServiceRest extends APIClient {
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * Updates template by Id
      * @param templateId
      * @param template
@@ -84,6 +96,7 @@ class AclGroupServiceRest extends APIClient {
     }
 
     /**
+     * @deprecated please use the AclGroupServiceRestInstance instead
      * Deletes template
      * @param templateId
      */
@@ -92,4 +105,7 @@ class AclGroupServiceRest extends APIClient {
     }
 }
 
+/**
+ * @deprecated please use the AclGroupServiceRestInstance instead
+ */
 export default new AclGroupServiceRest();
