@@ -1,13 +1,13 @@
 import { AdminTokenController } from './AdminTokenController';
-import { AdminUserController } from './AdminUserController';
+import { PublicAdminUserController } from './PublicAdminUserController';
 
 export class AdminTokenService {
     public readonly adminTokenService: AdminTokenController;
-    public readonly adminUserService: AdminUserController;
+    public readonly publicAdminUserService: PublicAdminUserController;
 
     constructor() {
         this.adminTokenService = new AdminTokenController();
-        this.adminUserService = new AdminUserController();
+        this.publicAdminUserService = new PublicAdminUserController();
     }
 }
 
