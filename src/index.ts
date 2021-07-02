@@ -1,5 +1,4 @@
 /* eslint-disable import/no-internal-modules */
-export { default as AdminTokenService } from './service/AdminTokenService';
 export { default as AgentRecommendationService } from './service/AgentRecommendationService';
 export { default as AppointmentBookingService } from './service/AppointmentBookingService';
 export { default as CommissionCalculationService } from './service/CommissionCalculationService';
@@ -83,7 +82,8 @@ export * from './service/EntityShareService';
 export * from './service/ReleaseNotesService';
 export * from './service/HistoryModuleService';
 export * from './service/AclGroupService';
-export * from './service/UserLogoutService'
+export * from './service/UserLogoutService';
+export * from './service/AdminTokenService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
