@@ -35,7 +35,6 @@ export { default as BehaviourService } from './service/BehaviourService';
 export { default as SoftLinksEntityService } from './service/SoftLinksEntityService';
 export { default as OpenimmoImporterService } from './service/OpenimmoImporterService';
 export { default as ImporterFlowFactTransferService } from './service/ImporterFlowFactTransferService';
-export { default as AclGroupServiceRest } from './service/AclGroupServiceRest';
 
 export * from './service/GDPRService';
 export * from './service/IS24LeadService';
@@ -81,6 +80,7 @@ export * from './service/EverSignService';
 export * from './service/ContractService';
 export * from './service/EntityShareService';
 export * from './service/HistoryModuleService';
+export * from './service/AclGroupService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
