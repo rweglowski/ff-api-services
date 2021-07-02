@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 
-export class AdminUserController extends APIClient {
+export class PublicAdminUserController extends APIClient {
     constructor() {
         super(APIMapping.adminTokenService);
     }
