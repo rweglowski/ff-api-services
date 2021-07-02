@@ -1,3 +1,4 @@
+/* eslint-disable import/no-internal-modules */
 export { default as AdminTokenService } from './service/AdminTokenService';
 export { default as AgentRecommendationService } from './service/AgentRecommendationService';
 export { default as AppointmentBookingService } from './service/AppointmentBookingService';
@@ -5,7 +6,6 @@ export { default as CommissionCalculationService } from './service/CommissionCal
 export { default as ContactService } from './service/ContactService';
 export { default as CsvToEntityImporterService } from './service/CsvToEntityImporterService';
 export { default as CustomerLegitimationArchiveService } from './service/CustomerLegitimationArchiveService';
-export { default as EntityService } from './service/EntityService';
 export { default as FlowfactExportInternalService } from './service/FlowfactExportInternalService';
 export { default as FormService } from './service/FormService';
 export { default as FullTextSearchService } from './service/FullTextSearchService';
@@ -36,6 +36,7 @@ export { default as SoftLinksEntityService } from './service/SoftLinksEntityServ
 export { default as OpenimmoImporterService } from './service/OpenimmoImporterService';
 export { default as ImporterFlowFactTransferService } from './service/ImporterFlowFactTransferService';
 
+export { default as EntityService, TrashedEntity, TrashedEntitiesResponse, TrashedEntitySchemaName, TrashedEntityIds } from './service/EntityService';
 export * from './service/GDPRService';
 export * from './service/IS24LeadService';
 export * from './service/IS24ImportService';
@@ -81,6 +82,7 @@ export * from './service/ContractService';
 export * from './service/EntityShareService';
 export * from './service/HistoryModuleService';
 export * from './service/AclGroupService';
+export * from './service/UserLogoutService'
 
 export * from './http';
 export * from './util/EnvironmentManagement';

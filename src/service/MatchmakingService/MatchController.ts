@@ -27,7 +27,8 @@ export default class MatchController extends APIClient {
         query: MatchmakingTypes.FilterQuery = {},
         sorting: Sort,
         size: number = 10,
-        offset: number = 0
+        offset: number = 0,
+        returnIds: boolean = false
     ) {
         return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(
             `/match/search-profile/${searchProfileId}`,
@@ -36,6 +37,7 @@ export default class MatchController extends APIClient {
             {
                 queryParams: {
                     ...query,
+                    returnIds,
                     size,
                     offset,
                     sort: buildSortParameter(sorting),
@@ -59,11 +61,13 @@ export default class MatchController extends APIClient {
         query: MatchmakingTypes.FilterQuery = {},
         sorting: Sort,
         size: number = 10,
-        offset: number = 0
+        offset: number = 0,
+        returnIds: boolean = false
     ) {
         return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(`/match/search-profile`, 'POST', searchProfile, {
             queryParams: {
                 ...query,
+                returnIds,
                 size,
                 offset,
                 sort: buildSortParameter(sorting),
@@ -79,10 +83,11 @@ export default class MatchController extends APIClient {
      * @param size
      * @param offset
      */
-    async fetchMatchesByEstate(estateId: string, query: MatchmakingTypes.FilterQuery = {}, sorting: Sort, size: number = 10, offset: number = 0) {
+    async fetchMatchesByEstate(estateId: string, query: MatchmakingTypes.FilterQuery = {}, sorting: Sort, size: number = 10, offset: number = 0, returnIds: boolean = false) {
         return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(`/match/estate/${estateId}`, 'GET', undefined, {
             queryParams: {
                 ...query,
+                returnIds,
                 size,
                 offset,
                 sort: buildSortParameter(sorting),

@@ -1,5 +1,6 @@
 import { APIClient, APIMapping } from '../http';
 import { CancelToken } from 'axios';
+import { GeoInformationsServiceTypes as types } from './GeoInformationService';
 
 export class GeolocationService extends APIClient {
     constructor() {
@@ -33,6 +34,14 @@ export class GeolocationService extends APIClient {
         };
         return this.invokeApi('/getBestMatchCoordinates', 'GET', undefined, additionalParams).then((s) => s.data);
     }
+
+    fetchAddressCoordinates(locationAddress: types.LocationAddress) {
+        const additionalParams = {
+            queryParams: locationAddress,
+        };
+        return this.invokeApiWithErrorHandling<types.Coordinates>('/searchByAddress', 'GET', undefined, additionalParams)
+    }
+
 }
 
 export default new GeolocationService();
