@@ -1,5 +1,10 @@
 import { APIClient, APIMapping } from '../../http';
-import {UserLogoutData, UserLogoutInformation} from './UserLogoutService.Types';
+import {
+    UserLogoutData,
+    UserLogoutInformation,
+    UserLogoutPolicyRequestCronTrigger,
+    UserLogoutPolicyRequestStringTimeTrigger
+} from './UserLogoutService.Types';
 import {JSONPatch} from '../DocumentTemplateService';
 
 export class UserLogoutController extends APIClient {
@@ -9,13 +14,13 @@ export class UserLogoutController extends APIClient {
 
     /**
      * Creates and schedules a logout policy based on cron and reminder time
-     * @param cronExpression
+     * @param trigger
      * @param reminderNotificationMinutes
      * @param userId
      */
-    async postLogoutDataForUser(cronExpression: string, reminderNotificationMinutes: number, userId: string) {
+    async postLogoutDataForUser(trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger, reminderNotificationMinutes: number, userId: string) {
         return this.invokeApiWithErrorHandling<UserLogoutData>('/user-logout-policy', 'POST', {
-            cronExpression,
+            trigger,
             reminderNotificationMinutes,
             userId,
         })
