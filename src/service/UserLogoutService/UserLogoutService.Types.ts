@@ -1,4 +1,4 @@
-const weekDays = 'MONDAY'||'TUESDAY' || 'WEDNESDAY'||'THURSDAY'||'FRIDAY'||'SATURDAY'||'SUNDAY'
+export type weekDays = 'MONDAY'|'TUESDAY' | 'WEDNESDAY'|'THURSDAY'|'FRIDAY'|'SATURDAY'|'SUNDAY'
 
 export interface UserLogoutPolicyRequestCronTrigger{
     cronExpression:	string
@@ -7,7 +7,7 @@ export interface UserLogoutPolicyRequestCronTrigger{
 }
 
 export interface UserLogoutPolicyRequestStringTimeTrigger {
-    weekDays: typeof weekDays[]
+    weekDays: weekDays[]
     time: string
     type: 'STRING_TIME'
 }
