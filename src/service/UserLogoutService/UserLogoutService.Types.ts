@@ -1,4 +1,4 @@
-const weekDays = ['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY']
+const weekDays = 'MONDAY'||'TUESDAY' || 'WEDNESDAY'||'THURSDAY'||'FRIDAY'||'SATURDAY'||'SUNDAY'
 
 export interface UserLogoutPolicyRequestCronTrigger{
     cronExpression:	string
