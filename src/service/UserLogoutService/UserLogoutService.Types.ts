@@ -1,6 +1,19 @@
+const weekDays = 'MONDAY'||'TUESDAY' || 'WEDNESDAY'||'THURSDAY'||'FRIDAY'||'SATURDAY'||'SUNDAY'
+
+export interface UserLogoutPolicyRequestCronTrigger{
+    cronExpression:	string
+    cronDescription?: string
+    type: 'CRON'
+}
+
+export interface UserLogoutPolicyRequestStringTimeTrigger {
+    weekDays: typeof weekDays[]
+    time: string
+    type: 'STRING_TIME'
+}
 
 export interface UserLogoutData {
-    cronExpression: string,
+    trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger ,
     reminderNotificationMinutes: number,
     userId: string
 }
