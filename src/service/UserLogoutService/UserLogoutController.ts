@@ -9,7 +9,7 @@ import {JSONPatch} from '../DocumentTemplateService';
 
 export class UserLogoutController extends APIClient {
     constructor() {
-        super(APIMapping.userService);
+        super(APIMapping.userLogout);
     }
 
     /**

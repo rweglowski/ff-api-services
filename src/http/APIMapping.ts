@@ -102,6 +102,7 @@ const APIMapping = {
     everSignService: new APIService('eversign-service'),
     mailchimpService: new APIService('mailchimp-sync-integration-service'),
     releaseNotesService: new APIService('release-notes-service'),
+    userLogout: new APIService('user-logout-service'),
 };
 
 export default APIMapping;
