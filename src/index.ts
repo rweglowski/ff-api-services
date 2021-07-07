@@ -84,6 +84,7 @@ export * from './service/HistoryModuleService';
 export * from './service/AclGroupService';
 export * from './service/UserLogoutService';
 export * from './service/AdminTokenService';
+export * from './service/PoiService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
