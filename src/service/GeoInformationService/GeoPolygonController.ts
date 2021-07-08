@@ -1,6 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { GeoInformationsServiceTypes } from './GeoInformationService.Types';
 import ListOfPolygons = GeoInformationsServiceTypes.ListOfPolygons;
+import GeoInformationValue = GeoInformationsServiceTypes.GeoInformationValue;
 
 export class GeoPolygonController extends APIClient {
     constructor() {
@@ -31,10 +32,10 @@ export class GeoPolygonController extends APIClient {
 
     /**
      * update polygon by name
-     * @param name
+     * @param geoInformation
      */
-    async updateByName(name: string) {
-        return this.invokeApiWithErrorHandling<ListOfPolygons>(`/polygons/${name}`, 'PUT');
+    async updateByName(geoInformation: GeoInformationValue) {
+        return this.invokeApiWithErrorHandling<GeoInformationValue>(`/polygons/${geoInformation.name}`, 'PUT', geoInformation);
     }
 
     /**
