@@ -28,6 +28,9 @@ export default class PossibleValuesController extends APIClient {
     async deletePossibleValue(schemaName: string, fieldName: string, possibleValue: string) {
         return this.invokeApiWithErrorHandling<void>(`/schemas/${schemaName}/fields/${fieldName}/possiblevalues`, 'DELETE', undefined, {
             queryParams: { value: possibleValue },
+            headers: {
+                'x-ff-version': 2,
+            },
         });
     }
 }
