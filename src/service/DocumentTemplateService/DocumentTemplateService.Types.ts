@@ -11,7 +11,7 @@ export enum BaseTemplateType {
     WORD = 'WORD',
     HTML = 'HTML',
     SLACK = 'SLACK',
-    TEAMS = 'TEAMS'
+    TEAMS = 'TEAMS',
 }
 
 // Expected types with a fallback to safe data, even if type is unknown

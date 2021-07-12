@@ -18,9 +18,9 @@ export class PublishController extends APIClient {
     }
 
     /**
-    * Allows publishing(ONLINE/OFFLINE) estate to several portals
-    * @param bulkPublishRequest
-    * */
+     * Allows publishing(ONLINE/OFFLINE) estate to several portals
+     * @param bulkPublishRequest
+     * */
     async bulkPublishEstate(bulkPublishRequest: BulkPublishRequest) {
         return await this.invokeApiWithErrorHandling<PublishBulkResponse>('/publish/bulk', 'POST', bulkPublishRequest);
     }

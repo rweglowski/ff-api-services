@@ -1,5 +1,5 @@
 import { APIClient, APIMapping } from '../../http';
-import {JSONPatch, ReadTemplate, TemplateType, WriteTemplate} from './DocumentTemplateService.Types';
+import { JSONPatch, ReadTemplate, TemplateType, WriteTemplate } from './DocumentTemplateService.Types';
 
 export class TemplateController extends APIClient {
     constructor() {

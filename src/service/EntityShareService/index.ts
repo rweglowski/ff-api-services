@@ -4,7 +4,6 @@ import { EntityShareAccessController } from './EntityShareAccessController';
 export * from './EntityShareService.Types';
 
 export class EntityShareService {
-
     public readonly token: EntityShareTokenController;
     public readonly access: EntityShareAccessController;
 

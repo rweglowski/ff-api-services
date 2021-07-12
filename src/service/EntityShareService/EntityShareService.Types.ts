@@ -1,5 +1,4 @@
 export namespace EntityShareServiceTypes {
-
     export interface ShareEntityTokenData {
         token: string;
         entityId: string;

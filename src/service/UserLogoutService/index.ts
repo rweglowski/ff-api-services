@@ -1,14 +1,14 @@
-import {UserLogoutController} from './UserLogoutController';
+import { UserLogoutController } from './UserLogoutController';
 
-export * from './UserLogoutService.Types'
+export * from './UserLogoutService.Types';
 
 export class UserLogoutService {
     public static instance = new UserLogoutService();
 
-    public readonly userLogout: UserLogoutController
+    public readonly userLogout: UserLogoutController;
 
     constructor() {
-        this.userLogout = new UserLogoutController()
+        this.userLogout = new UserLogoutController();
     }
 }
 

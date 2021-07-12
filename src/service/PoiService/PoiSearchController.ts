@@ -5,7 +5,6 @@ import PoiRequest = PoiServiceTypes.PoiRequest;
 import PoiList = PoiServiceTypes.PoiList;
 
 export class PoiSearchController extends APIClient {
-
     constructor() {
         super(APIMapping.geolocationService);
     }

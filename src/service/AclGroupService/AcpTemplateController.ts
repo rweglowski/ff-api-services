@@ -5,7 +5,7 @@ export class AcpTemplateController extends APIClient {
     constructor() {
         super(APIMapping.aclGroupService);
     }
-    
+
     /**
      * Fetch available templates
      */

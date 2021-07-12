@@ -39,9 +39,8 @@ export class GeolocationService extends APIClient {
         const additionalParams = {
             queryParams: locationAddress,
         };
-        return this.invokeApiWithErrorHandling<types.Coordinates>('/searchByAddress', 'GET', undefined, additionalParams)
+        return this.invokeApiWithErrorHandling<types.Coordinates>('/searchByAddress', 'GET', undefined, additionalParams);
     }
-
 }
 
 export default new GeolocationService();

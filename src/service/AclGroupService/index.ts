@@ -7,7 +7,7 @@ export class AclGroupService {
 
     constructor() {
         this.aclGroupService = new AclGroupController();
-         this.acpTemplateService = new AcpTemplateController();
+        this.acpTemplateService = new AcpTemplateController();
     }
 }
 

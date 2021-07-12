@@ -1,5 +1,4 @@
 export namespace ReleaseNoteServiceTypes {
-
     export interface ReleaseNote {
         id: number;
         appName: string;

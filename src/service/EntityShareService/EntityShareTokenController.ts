@@ -4,7 +4,6 @@ import { EntityShareServiceTypes } from './EntityShareService.Types';
 import ShareEntityTokenData = EntityShareServiceTypes.ShareEntityTokenData;
 
 export class EntityShareTokenController extends APIClient {
-
     constructor() {
         super(APIMapping.entityShareService);
     }
@@ -34,5 +33,4 @@ export class EntityShareTokenController extends APIClient {
     async deleteToken(token: string) {
         return this.invokeApiWithErrorHandling<ShareEntityTokenData>(`/shared/${token}`, 'DELETE');
     }
-
 }
