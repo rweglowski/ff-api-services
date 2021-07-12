@@ -70,4 +70,11 @@ export class MailchimpController extends APIClient {
     async synchronizeContacts() {
         return this.invokeApiWithErrorHandling<void>('/publish', 'POST');
     }
+
+    /**
+     * Check the manual sync status
+     */
+    async checkSyncStatus() {
+        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.SyncStatus>('/syncStatus', 'GET');
+    }
 }
