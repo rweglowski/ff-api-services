@@ -63,4 +63,18 @@ export class MailchimpController extends APIClient {
     async updateSettings(settings: MailchimpServiceTypes.Settings) {
         return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Settings>(`/settings`, 'PUT', settings);
     }
+
+    /**
+     * Synchronize Mailchimp contacts
+     */
+    async synchronizeContacts() {
+        return this.invokeApiWithErrorHandling<void>('/publish', 'POST');
+    }
+
+    /**
+     * Check the manual sync status
+     */
+    async checkSyncStatus() {
+        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.SyncStatus>('/syncStatus', 'GET');
+    }
 }

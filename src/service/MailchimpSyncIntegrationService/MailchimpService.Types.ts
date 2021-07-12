@@ -13,6 +13,12 @@ export namespace MailchimpServiceTypes {
         listIds: string[];
     }
 
+    export interface SyncStatus {
+        companyId: string;
+        syncDirection: SyncDirection;
+        finished: boolean;
+    }
+
     export enum SyncDirection {
         MAILCHIMP = 'MAILCHIMP',
         FLOWFACT = 'FLOWFACT',
