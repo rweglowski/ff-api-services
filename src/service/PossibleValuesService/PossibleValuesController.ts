@@ -19,7 +19,15 @@ export default class PossibleValuesController extends APIClient {
         return this.invokeApiWithErrorHandling<void>(`/schemas/${schemaName}/possiblevalues`, 'POST', possibleValues);
     }
 
+    /**
+     *
+     * @param schemaName
+     * @param fieldName
+     * @param possibleValue
+     */
     async deletePossibleValue(schemaName: string, fieldName: string, possibleValue: string) {
-        return this.invokeApiWithErrorHandling<void>(`/schemas/${schemaName}/fields/${fieldName}/possiblevalues/${possibleValue}`, 'DELETE');
+        return this.invokeApiWithErrorHandling<void>(`/schemas/${schemaName}/fields/${fieldName}/possiblevalues`, 'DELETE', undefined, {
+            queryParams: { value: possibleValue },
+        });
     }
 }

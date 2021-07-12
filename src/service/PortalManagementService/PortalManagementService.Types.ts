@@ -146,6 +146,6 @@ export namespace PortalManagementTypes {
     }
 
     export type PortalMetadata = {
-        currentAccessLevel: number
-    }
+        currentAccessLevel: number;
+    };
 }

@@ -3,9 +3,9 @@ import {
     UserLogoutData,
     UserLogoutInformation,
     UserLogoutPolicyRequestCronTrigger,
-    UserLogoutPolicyRequestStringTimeTrigger
+    UserLogoutPolicyRequestStringTimeTrigger,
 } from './UserLogoutService.Types';
-import {JSONPatch} from '../DocumentTemplateService';
+import { JSONPatch } from '../DocumentTemplateService';
 
 export class UserLogoutController extends APIClient {
     constructor() {
@@ -18,12 +18,16 @@ export class UserLogoutController extends APIClient {
      * @param reminderNotificationMinutes
      * @param userId
      */
-    async postLogoutDataForUser(trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger, reminderNotificationMinutes: number, userId: string) {
+    async postLogoutDataForUser(
+        trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger,
+        reminderNotificationMinutes: number,
+        userId: string
+    ) {
         return this.invokeApiWithErrorHandling<UserLogoutData>('/user-logout-policy', 'POST', {
             trigger,
             reminderNotificationMinutes,
             userId,
-        })
+        });
     }
 
     /**
@@ -31,7 +35,7 @@ export class UserLogoutController extends APIClient {
      * @param id
      */
     async fetchLogoutDataFromUser(id: string) {
-        return this.invokeApiWithErrorHandling<UserLogoutInformation>(`/user-logout-policy/${id}`, 'GET')
+        return this.invokeApiWithErrorHandling<UserLogoutInformation>(`/user-logout-policy/${id}`, 'GET');
     }
 
     /**
@@ -42,7 +46,7 @@ export class UserLogoutController extends APIClient {
     async patchLogoutPolicy(id: string, operations: JSONPatch[]) {
         return this.invokeApiWithErrorHandling<UserLogoutInformation>(`/user-logout-policy/${id}`, 'PATCH', operations, {
             headers: { 'Content-Type': 'application/json-patch+json' },
-        })
+        });
     }
 
     /**
@@ -50,7 +54,7 @@ export class UserLogoutController extends APIClient {
      * @param id
      */
     async deleteLogoutData(id: string) {
-        return this.invokeApiWithErrorHandling(`/user-logout-policy/${id}`, 'DELETE')
+        return this.invokeApiWithErrorHandling(`/user-logout-policy/${id}`, 'DELETE');
     }
 
     /**
@@ -58,7 +62,6 @@ export class UserLogoutController extends APIClient {
      * @param id
      */
     async fetchLogoutDataFromUsers(id: string) {
-        return this.invokeApiWithErrorHandling<UserLogoutData>(`/user-logout-policy/users/${id}`, 'GET')
+        return this.invokeApiWithErrorHandling<UserLogoutData>(`/user-logout-policy/users/${id}`, 'GET');
     }
-
 }

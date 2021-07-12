@@ -20,7 +20,7 @@ export namespace GeoInformationsServiceTypes {
     export type Latitude = number;
 
     export type Longitude = number;
-    
+
     export type GeoPoint = [Longitude, Latitude];
 
     export interface GeoInformationValueGeometry {
@@ -60,6 +60,6 @@ export namespace GeoInformationsServiceTypes {
 
     export interface Coordinates {
         lat: number;
-        lon: number
+        lon: number;
     }
 }

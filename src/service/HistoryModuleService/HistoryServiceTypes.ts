@@ -11,33 +11,34 @@ export namespace HistoryServiceTypes {
         userIds?: string[];
     }
 
-    export type Source ='APPOINTMENT' |
-                        'AUTOMATION' |
-                        'CONTACT' |
-                        'DATA_CHANGE' |
-                        'DATA_CREATE' |
-                        'DOCUMENT' |
-                        'ESTATE_PUBLISHED' |
-                        'ESTATE_UNPUBLISHED' |
-                        'ESTATE' |
-                        'MAIL' |
-                        'NOTE' |
-                        'OFFER' |
-                        'TAG' |
-                        'USER' |
-                        'TASK';
+    export type Source =
+        | 'APPOINTMENT'
+        | 'AUTOMATION'
+        | 'CONTACT'
+        | 'DATA_CHANGE'
+        | 'DATA_CREATE'
+        | 'DOCUMENT'
+        | 'ESTATE_PUBLISHED'
+        | 'ESTATE_UNPUBLISHED'
+        | 'ESTATE'
+        | 'MAIL'
+        | 'NOTE'
+        | 'OFFER'
+        | 'TAG'
+        | 'USER'
+        | 'TASK';
 
     export type SourceType = 'ALL' | 'CREATE' | 'UPDATE' | 'DELETE';
 
     export interface UserData {
         firstname: {
-            type: 'TEXT',
-            value: string
-        },
+            type: 'TEXT';
+            value: string;
+        };
         lastname: {
-            type: 'TEXT',
-            value: string,
-        }
+            type: 'TEXT';
+            value: string;
+        };
     }
 
     export interface User {
@@ -63,7 +64,7 @@ export namespace HistoryServiceTypes {
         group: {
             key: string;
             captions: Captions;
-        }
+        };
         entries: HistoryEntry[];
     }
 

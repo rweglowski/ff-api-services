@@ -1,4 +1,4 @@
-import {Contact, Entity, EntityView} from '@flowfact/types';
+import { Contact, Entity, EntityView } from '@flowfact/types';
 
 export namespace GDPRServiceTypes {
     export type ExportFileType = 'JSON' | 'CSV' | 'XML';

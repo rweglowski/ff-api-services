@@ -1,7 +1,6 @@
 import { AddressType } from '@flowfact/types';
 
 export namespace PoiServiceTypes {
-
     export interface PoiRequest {
         latitude: number;
         longitude: number;

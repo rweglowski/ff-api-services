@@ -5,7 +5,6 @@ import { ReleaseNoteServiceTypes } from './ReleaseNotesService.Types';
 import ReleaseNotesResponse = ReleaseNoteServiceTypes.ReleaseNotesResponse;
 
 export class ReleaseNotesController extends APIClient {
-
     constructor() {
         super(APIMapping.releaseNotesService);
     }

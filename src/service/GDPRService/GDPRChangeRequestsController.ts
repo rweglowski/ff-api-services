@@ -28,13 +28,13 @@ export class GDPRChangeRequestsController extends APIClient {
      */
     async fetchAllChangeRequests(
         approvalStatus?: Array<GDPRServiceTypes.DataChangeRequestApprovalStatus> | GDPRServiceTypes.DataChangeRequestApprovalStatus,
-        types?: Array<GDPRServiceTypes.DataChangeRequestType> | GDPRServiceTypes.DataChangeRequestType,
+        types?: Array<GDPRServiceTypes.DataChangeRequestType> | GDPRServiceTypes.DataChangeRequestType
     ) {
         return await this.invokeApiWithErrorHandling<GDPRServiceTypes.DataChangeRequest[]>('/changeRequests/all', 'GET', undefined, {
             queryParams: {
                 approvalStatus: Array.isArray(approvalStatus) ? approvalStatus.join(',') : approvalStatus,
-                types: Array.isArray(types) ? types.join(',') : types
-            }
+                types: Array.isArray(types) ? types.join(',') : types,
+            },
         });
     }
 }

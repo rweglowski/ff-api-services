@@ -1,25 +1,25 @@
-export type weekDays = 'MONDAY'|'TUESDAY' | 'WEDNESDAY'|'THURSDAY'|'FRIDAY'|'SATURDAY'|'SUNDAY'
+export type weekDays = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY';
 
-export interface UserLogoutPolicyRequestCronTrigger{
-    cronExpression:	string
-    cronDescription?: string
-    type: 'CRON'
+export interface UserLogoutPolicyRequestCronTrigger {
+    cronExpression: string;
+    cronDescription?: string;
+    type: 'CRON';
 }
 
 export interface UserLogoutPolicyRequestStringTimeTrigger {
-    weekDays: weekDays[]
-    time: string
-    type: 'STRING_TIME'
+    weekDays: weekDays[];
+    time: string;
+    type: 'STRING_TIME';
 }
 
 export interface UserLogoutData {
-    trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger ,
-    reminderNotificationMinutes: number,
-    userId: string
+    trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger;
+    reminderNotificationMinutes: number;
+    userId: string;
 }
 
 export interface UserLogoutInformation extends UserLogoutData {
-    id: string,
-    creatorId: string,
-    cronDescription: string
+    id: string;
+    creatorId: string;
+    cronDescription: string;
 }

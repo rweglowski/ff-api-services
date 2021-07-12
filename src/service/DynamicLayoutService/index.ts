@@ -2,7 +2,7 @@ import OverviewController from './OverviewController';
 import NavigationController from './NavigationController';
 import WidgetLayoutsController from './WidgetLayoutsController';
 import WidgetStoreController from './WidgetStoreController';
-import StartPageController from "./StartPageController";
+import StartPageController from './StartPageController';
 
 export * from './StartPageTypes';
 export * from './NavigationTypes';

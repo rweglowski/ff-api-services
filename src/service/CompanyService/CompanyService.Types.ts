@@ -34,7 +34,7 @@ export namespace CompanyServiceTypes {
     export enum CompanyMarket {
         GERMANY = 'germany',
         SWITZERLAND = 'switzerland',
-        SPAIN = 'spain'
+        SPAIN = 'spain',
     }
 
     export interface Company {
