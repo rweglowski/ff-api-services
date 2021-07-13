@@ -18,5 +18,7 @@ export namespace FilterDefinitionServiceTypes {
         captions: Captions;
         fields: Fields[];
         searchQuery: Flowdsl;
+        defaultFilter: boolean;
+        isGlobal: boolean;
     }
 }
