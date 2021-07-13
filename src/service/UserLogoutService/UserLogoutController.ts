@@ -34,7 +34,7 @@ export class UserLogoutController extends APIClient {
      * Get the logout data for specific user
      * @param id
      */
-    async fetchLogoutDataFromUser(id: string) {
+    async fetchLogoutData(id: string) {
         return this.invokeApiWithErrorHandling<UserLogoutInformation>(`/user-logout-policy/${id}`, 'GET');
     }
 
