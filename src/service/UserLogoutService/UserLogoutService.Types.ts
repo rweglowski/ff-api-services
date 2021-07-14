@@ -13,19 +13,23 @@ export namespace UserLogoutTypes {
         type: 'STRING_TIME';
     }
 
-    export interface UserLogoutData {
-        entries: UserLogoutDataEntries[]
+    export interface UserLogoutDataResponse {
+        entries: UserLogoutPolicyRequest[];
+        size: number;
     }
 
-    export interface UserLogoutDataEntries {
-        trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger;
-        reminderNotificationMinutes: number;
-        userId: string;
-    }
-
-    export interface UserLogoutInformation extends UserLogoutData {
+    export interface UserLogoutPolicyRequest {
         id: string;
         creatorId: string;
         cronDescription: string;
+        reminderNotificationMinutes: number;
+        userId: string;
+        trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger;
+    }
+
+    export interface UserLogoutDataCreateRequest {
+        reminderNotificationMinutes: number
+        userId: string;
+        trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger;
     }
 }
