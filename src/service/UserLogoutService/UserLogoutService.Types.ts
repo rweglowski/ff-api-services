@@ -1,6 +1,6 @@
-export type weekDays = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY';
-
 export namespace UserLogoutTypes {
+    export type weekDays = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY';
+
     export interface UserLogoutPolicyRequestCronTrigger {
         cronExpression: string;
         cronDescription?: string;
