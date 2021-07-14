@@ -1,12 +1,6 @@
 export namespace UserLogoutTypes {
     export type WeekDays = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY';
 
-    export interface UserLogoutPolicyRequestCronTrigger {
-        cronExpression: string;
-        cronDescription?: string;
-        type: 'CRON';
-    }
-
     export interface UserLogoutPolicyRequestStringTimeTrigger {
         weekDays: WeekDays[];
         time: string;
@@ -24,12 +18,12 @@ export namespace UserLogoutTypes {
         cronDescription: string;
         reminderNotificationMinutes: number;
         userId: string;
-        trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger;
+        trigger: UserLogoutPolicyRequestStringTimeTrigger;
     }
 
     export interface UserLogoutDataCreateRequest {
         reminderNotificationMinutes: number
         userId: string;
-        trigger: UserLogoutPolicyRequestCronTrigger | UserLogoutPolicyRequestStringTimeTrigger;
+        trigger: UserLogoutPolicyRequestStringTimeTrigger;
     }
 }
