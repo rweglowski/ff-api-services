@@ -14,7 +14,7 @@ export class UserLogoutController extends APIClient {
      * @param userId
      */
     async createLogoutData(
-        trigger: UserLogoutTypes.UserLogoutPolicyRequestCronTrigger | UserLogoutTypes.UserLogoutPolicyRequestStringTimeTrigger,
+        trigger: UserLogoutTypes.UserLogoutPolicyRequestStringTimeTrigger,
         reminderNotificationMinutes: number,
         userId: string
     ) {
