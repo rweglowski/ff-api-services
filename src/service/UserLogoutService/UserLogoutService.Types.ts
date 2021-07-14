@@ -14,7 +14,7 @@ export namespace UserLogoutTypes {
     }
 
     export interface UserLogoutData {
-        entries: UserLogoutDataEntries
+        entries: UserLogoutDataEntries[]
     }
 
     export interface UserLogoutDataEntries {
