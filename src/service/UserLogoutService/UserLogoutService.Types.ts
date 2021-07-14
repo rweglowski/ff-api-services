@@ -1,5 +1,5 @@
 export namespace UserLogoutTypes {
-    export type weekDays = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY';
+    export type WeekDays = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY';
 
     export interface UserLogoutPolicyRequestCronTrigger {
         cronExpression: string;
@@ -8,7 +8,7 @@ export namespace UserLogoutTypes {
     }
 
     export interface UserLogoutPolicyRequestStringTimeTrigger {
-        weekDays: weekDays[];
+        weekDays: WeekDays[];
         time: string;
         type: 'STRING_TIME';
     }
