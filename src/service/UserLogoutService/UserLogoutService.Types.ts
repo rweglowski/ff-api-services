@@ -5,6 +5,7 @@ export namespace UserLogoutTypes {
         weekDays: WeekDays[];
         time: string;
         type: 'STRING_TIME';
+        timeZoneOffset?: number
     }
 
     export interface UserLogoutDataResponse {
