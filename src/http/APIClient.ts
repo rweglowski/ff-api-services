@@ -1,10 +1,9 @@
-import { AxiosError, AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios';
 import * as isNode from 'detect-node';
 import { stringify } from 'qs';
 import Authentication from '../authentication/Authentication';
 import { EnvironmentManagementInstance } from '../util/EnvironmentManagement';
 import { APIService, LambdaAPIService } from './APIMapping';
-import axios from 'axios';
 import axiosETAGCache from './cache';
 
 export type ParamMap = { [key: string]: string | boolean | number | undefined };
