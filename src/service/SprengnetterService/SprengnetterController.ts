@@ -9,7 +9,7 @@ export class SprengnetterController extends APIClient {
     /**
      *
      * @param body
-     * @returns {any}
+     * @returns {GenericFetchValuationResponse}
      */
     async fetchValuation(body: any) {
         return await this.invokeApiWithErrorHandling<GenericFetchValuationResponse>('/api/valuation', 'POST', body);
@@ -18,7 +18,7 @@ export class SprengnetterController extends APIClient {
     /**
      *
      * @param body
-     * @returns {any} Returns rent price estimation
+     * @returns {GenericFetchValuationResponse}
      */
     async fetchRentValuation(body: any) {
         return await this.invokeApiWithErrorHandling<GenericFetchValuationResponse>('/api/rent', 'POST', body);
