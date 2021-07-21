@@ -7,7 +7,7 @@ export class InteractiveExposeV2S3Controller extends APIClient {
     }
     /**
      *
-     * returns the company extended settings
+     * returns the list of global iex V2 templates
      *
      */
     getGlobalTemplateRepository() {
