@@ -27,15 +27,15 @@ export interface PriceComparison {
 }
 
 export interface GenericFetchValuationResponse {
-    calc: {
+    calc?: {
         address: { house_number: string; nation: string; street: string; town: string; zip: string };
         coordinates: { lat: number; lng: number };
         equipment: string;
     };
-    compare_prices: PriceComparison[];
-    date: string;
-    meta: { model: string; range: { min: number; max: number }; score: number; standarderror: number };
-    value: number;
+    compare_prices?: PriceComparison[];
+    date?: string;
+    meta?: { model: string; range: { min: number; max: number }; score: number; standarderror: number };
+    value?: number;
 }
 
 export class SprengnetterService {
