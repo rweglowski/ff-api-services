@@ -10,7 +10,13 @@ export class InteractiveExposeV2Controller extends APIClient {
      * returns the company extended settings
      *
      */
-     loadExtendedSettings() {
+    loadExtendedSettings() {
         return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.IEXExtendedSettings>('/company-settings', 'GET');
+    }
+    updateExtendedSettings(extendedSettings: InteractiveExposeV2ServiceTypes.IEXExtendedSettings) {
+        return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.IEXExtendedSettings>('/company-settings', 'POST', extendedSettings);
+    }
+    iexBlast(templateId: string, payload: InteractiveExposeV2ServiceTypes.BlastRequest) {
+        return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.BlastResponse>(`/template/${templateId}/iex-blast?async`, 'POST', payload);
     }
 }

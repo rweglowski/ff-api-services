@@ -63,6 +63,7 @@ export * from './service/InteractiveExposeStatisticsService';
 export * from './service/EmailService';
 export * from './service/EntitlementService';
 export * from './service/InteractiveExposeV2Service';
+export * from './service/InteractiveExposeV2S3Service';
 export * from './service/MailchimpSyncIntegrationService';
 export * from './service/SearchServiceTypes';
 export * from './service/SlackService';

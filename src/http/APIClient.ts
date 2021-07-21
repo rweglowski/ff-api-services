@@ -3,7 +3,7 @@ import * as isNode from 'detect-node';
 import { stringify } from 'qs';
 import Authentication from '../authentication/Authentication';
 import { EnvironmentManagementInstance } from '../util/EnvironmentManagement';
-import { APIService, LambdaAPIService } from './APIMapping';
+import { APIService, LambdaAPIService, S3APIService } from './APIMapping';
 import axios from 'axios';
 import axiosETAGCache from './cache';
 
@@ -78,7 +78,7 @@ export class APIClient {
         path: string,
         method: MethodTypes = 'GET',
         body: string | {} = '',
-        additionalParams: APIClientAdditionalParams = {}
+        additionalParams: APIClientAdditionalParams = {},
     ): Promise<AxiosResponse<T>> {
         // If no service is defined and the url does not start with http, then we throw an error
         if (!this._service && !path.startsWith('http')) {
@@ -93,6 +93,8 @@ export class APIClient {
         if (this._service) {
             if (this._service instanceof LambdaAPIService) {
                 apiUrl = `${EnvironmentManagementInstance.getLambdaUrl(this._service)}${path}`;
+            } else if (this._service instanceof S3APIService) {
+                apiUrl = `${EnvironmentManagementInstance.getS3BucketUrl(this._service)}${path}`;
             } else {
                 apiUrl = `${EnvironmentManagementInstance.getBaseUrl(isNode)}/${this._service.name}${path}`;
             }
@@ -108,7 +110,7 @@ export class APIClient {
         }
 
         const versionHeaders = this._version ? { 'x-ff-version': this._version } : {};
-        const userIdentification = path.startsWith('/public') ? {} : await this.getUserIdentification();
+        const userIdentification = path.startsWith('/public') || this._service instanceof S3APIService ? {} : await this.getUserIdentification();
         const languages: any = { 'Accept-Language': APIClient.languages };
 
         let request: AxiosRequestConfig = {
