@@ -10,21 +10,21 @@ export declare namespace InteractiveExposeV2ServiceTypes {
         body: string;
     }
     interface IEXBlastItem {
-        contactId: string,
-        estateId: string,
+        contactId: string;
+        estateId: string;
     }
     interface BlastRequest {
         prospectEmailTemplateId?: string;
         afterAgreementEmailTemplateId?: string;
-        prospectEmailData?: EmailData,
-        afterAgreementEmailData?: EmailData,
-        items: IEXBlastItem[],
-        mergeContext?: { [key: string]: any},
+        prospectEmailData?: EmailData;
+        afterAgreementEmailData?: EmailData;
+        items: IEXBlastItem[];
+        mergeContext?: { [key: string]: any };
     }
     interface BlastResponse {
         MessageId: string;
     }
-   interface IEXExtendedSettings {
+    interface IEXExtendedSettings {
         iexMode: IEXModeType;
         iexMultilanguage: boolean;
         iexDefaultTemplate?: string;

@@ -78,7 +78,7 @@ export class APIClient {
         path: string,
         method: MethodTypes = 'GET',
         body: string | {} = '',
-        additionalParams: APIClientAdditionalParams = {},
+        additionalParams: APIClientAdditionalParams = {}
     ): Promise<AxiosResponse<T>> {
         // If no service is defined and the url does not start with http, then we throw an error
         if (!this._service && !path.startsWith('http')) {
