@@ -10,7 +10,7 @@ export class CompanySettingsController extends APIClient {
      * returns the company extended settings
      *
      */
-    loadExtendedSettings() {
+    fetchExtendedSettings() {
         return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.IEXExtendedSettings>('/company-settings', 'GET');
     }
     /**

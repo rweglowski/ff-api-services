@@ -1,19 +1,19 @@
-export enum IEXModeType {
-    V1_V2 = 'V1_V2',
-    V1 = 'V1',
-    V2 = 'V2',
-    V2_V1 = 'V2_V1',
-}
-export declare namespace InteractiveExposeV2ServiceTypes {
-    interface EmailData {
+export namespace InteractiveExposeV2ServiceTypes {
+    export enum IEXModeType {
+        V1_V2 = 'V1_V2',
+        V1 = 'V1',
+        V2 = 'V2',
+        V2_V1 = 'V2_V1',
+    }
+    export interface EmailData {
         subject: string;
         body: string;
     }
-    interface IEXBlastItem {
+    export interface IEXBlastItem {
         contactId: string;
         estateId: string;
     }
-    interface BlastRequest {
+    export interface BlastRequest {
         prospectEmailTemplateId?: string;
         afterAgreementEmailTemplateId?: string;
         prospectEmailData?: EmailData;
@@ -21,10 +21,10 @@ export declare namespace InteractiveExposeV2ServiceTypes {
         items: IEXBlastItem[];
         mergeContext?: { [key: string]: any };
     }
-    interface BlastResponse {
+    export interface BlastResponse {
         MessageId: string;
     }
-    interface IEXExtendedSettings {
+    export interface IEXExtendedSettings {
         iexMode: IEXModeType;
         iexMultilanguage: boolean;
         iexDefaultTemplate?: string;
