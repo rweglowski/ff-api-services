@@ -10,7 +10,7 @@ export class InteractiveExposeV2S3Controller extends APIClient {
      * returns the list of global iex V2 templates
      *
      */
-    getGlobalTemplateRepository() {
+    fetchGlobalTemplateRepository() {
         return this.invokeApiWithErrorHandling<Entity[]>('/global/template-repo.json', 'GET');
     }
 }
