@@ -10,7 +10,7 @@ export class InteractiveExposeV2Controller extends APIClient {
      * sends an exposé
      *
      */
-    iexBlast(templateId: string, payload: InteractiveExposeV2ServiceTypes.BlastRequest) {
+    sendBlast(templateId: string, payload: InteractiveExposeV2ServiceTypes.BlastRequest) {
         return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.BlastResponse>(`/template/${templateId}/iex-blast`, 'POST', payload, {
             queryParams: { async: '' },
         });
