@@ -4,7 +4,7 @@ export namespace PlaceholderServiceTypes {
         schemaId: string;
         schema: string;
         key: string;
-        externalSources: object;
+        externalSources?: object;
     }
 
     export interface EntityPlaceholder {
