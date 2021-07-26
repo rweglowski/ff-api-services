@@ -19,6 +19,17 @@ export class LambdaAPIService extends APIService {
     }
 }
 
+export class S3APIService extends APIService {
+    constructor(serviceName: string, private readonly forceUrl: string | undefined = undefined) {
+        super(serviceName);
+        this.forceUrl = forceUrl;
+    }
+
+    get url() {
+        return this.forceUrl;
+    }
+}
+
 const APIMapping = {
     aclGroupService: new APIService('acl-group-service'),
     adminTokenService: new APIService('admin-token-service'),
@@ -35,6 +46,8 @@ const APIMapping = {
     dynamicLayoutService: new APIService('dynamic-layout-service'),
     emailService: new APIService('email-service'),
     entitlementService: new LambdaAPIService('entitlement-lambda'),
+    interactiveExposeV2LambdaService: new LambdaAPIService('iex2-expose-lambda'),
+    interactiveExposeV2S3Service: new S3APIService('iex2-expose'),
     // entitlementService: new LambdaAPIService('entitlement-lambda', 'http://localhost:3001/offline'), // for local offline usage
     entityExportService: new APIService('entity-export-service'),
     entityService: new APIService('entity-service'),

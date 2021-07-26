@@ -3,7 +3,7 @@ import * as isNode from 'detect-node';
 import { stringify } from 'qs';
 import Authentication from '../authentication/Authentication';
 import { EnvironmentManagementInstance } from '../util/EnvironmentManagement';
-import { APIService, LambdaAPIService } from './APIMapping';
+import { APIService, LambdaAPIService, S3APIService } from './APIMapping';
 import axiosETAGCache from './cache';
 
 export type ParamMap = { [key: string]: string | boolean | number | undefined };
@@ -92,6 +92,8 @@ export class APIClient {
         if (this._service) {
             if (this._service instanceof LambdaAPIService) {
                 apiUrl = `${EnvironmentManagementInstance.getLambdaUrl(this._service)}${path}`;
+            } else if (this._service instanceof S3APIService) {
+                apiUrl = `${EnvironmentManagementInstance.getS3BucketUrl(this._service)}${path}`;
             } else {
                 apiUrl = `${EnvironmentManagementInstance.getBaseUrl(isNode)}/${this._service.name}${path}`;
             }
@@ -107,7 +109,7 @@ export class APIClient {
         }
 
         const versionHeaders = this._version ? { 'x-ff-version': this._version } : {};
-        const userIdentification = path.startsWith('/public') ? {} : await this.getUserIdentification();
+        const userIdentification = path.startsWith('/public') || this._service instanceof S3APIService ? {} : await this.getUserIdentification();
         const languages: any = { 'Accept-Language': APIClient.languages };
 
         let request: AxiosRequestConfig = {
