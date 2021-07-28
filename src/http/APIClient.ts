@@ -111,11 +111,13 @@ export class APIClient {
         const versionHeaders = this._version ? { 'x-ff-version': this._version } : {};
         const userIdentification = path.startsWith('/public') || this._service instanceof S3APIService ? {} : await this.getUserIdentification();
         const languages: any = { 'Accept-Language': APIClient.languages };
+        // Required for multiple companies per user
+        const companyId = { comapnyid: window?.sessionStorage?.getItem('company_id') || '' };
 
         let request: AxiosRequestConfig = {
             method: method,
             url: apiUrl,
-            headers: Object.assign({}, userIdentification, languages, versionHeaders, headers || {}),
+            headers: Object.assign({}, userIdentification, languages, versionHeaders, companyId, headers || {}),
             data: body,
             cancelToken: cancelToken,
             ...others,
