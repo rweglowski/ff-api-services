@@ -117,7 +117,7 @@ export class APIClient {
         const userIdentification = path.startsWith('/public') || this._service instanceof S3APIService ? {} : await this.getUserIdentification();
         const languages: any = { 'Accept-Language': APIClient.languages };
         // Required for multiple companies per user
-        const companyId = APIClient.companyId ? { comapnyid: APIClient.companyId } : {};
+        const companyId = APIClient.companyId ? { 'x-ff-company-id': APIClient.companyId } : {};
 
         let request: AxiosRequestConfig = {
             method: method,
