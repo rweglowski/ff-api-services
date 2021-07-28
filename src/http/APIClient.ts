@@ -24,9 +24,14 @@ export class APIClient {
     private readonly _version: APIVersion | undefined;
 
     private static languages: string = 'de';
+    private static companyId: string;
 
     public static changeLanguages(newLanguages: string) {
         this.languages = newLanguages;
+    }
+
+    public static setCompanyId(newCompanyId: string) {
+        this.companyId = newCompanyId;
     }
 
     public constructor(service?: APIService, version?: APIVersion) {
@@ -111,11 +116,13 @@ export class APIClient {
         const versionHeaders = this._version ? { 'x-ff-version': this._version } : {};
         const userIdentification = path.startsWith('/public') || this._service instanceof S3APIService ? {} : await this.getUserIdentification();
         const languages: any = { 'Accept-Language': APIClient.languages };
+        // Required for multiple companies per user
+        const companyId = APIClient.companyId ? { 'x-ff-company-id': APIClient.companyId } : {};
 
         let request: AxiosRequestConfig = {
             method: method,
             url: apiUrl,
-            headers: Object.assign({}, userIdentification, languages, versionHeaders, headers || {}),
+            headers: Object.assign({}, userIdentification, languages, versionHeaders, companyId, headers || {}),
             data: body,
             cancelToken: cancelToken,
             ...others,
