@@ -1319,10 +1319,9 @@
   dependencies:
     tslib "^1.10.0"
 
-"@flowfact/types@^8.20210702.198":
-  version "8.20210702.198"
-  resolved "https://registry.yarnpkg.com/@flowfact/types/-/types-8.20210702.198.tgz#d5fb74ac4cfd9df4225dee5fba4c784363325b0f"
-  integrity sha512-VVXRmJWXNLTkiPPwyuXLulxn/l8siklAkoAKAcRIvWOq0JuDjMSf/cvTP1uGDvGTSDNM9MnM9Tb3F7PBJbcB7g==
+"@flowfact/types@file:../types/types-1627656867236.tgz":
+  version "9.0.0-SNAPSHOT"
+  resolved "file:../types/types-1627656867236.tgz#7b6f4873853498deba6cd964c0eeb4223d96b88e"
   dependencies:
     "@flowfact/node-flowdsl" "^2.20200810.37"
     "@types/node" "^11.15.4"

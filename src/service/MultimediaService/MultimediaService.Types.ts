@@ -1,4 +1,4 @@
-import { Captions } from '@flowfact/types';
+import { Captions, TranslatableText } from '@flowfact/types';
 
 export type ContentCategory = 'IMAGE' | 'DOCUMENT' | 'LINK' | 'VIDEO';
 
@@ -47,6 +47,7 @@ export interface Album {
     name: string;
     captions: Captions;
     categories: Category[];
+    descriptions: TranslatableText;
     hidden: boolean;
 }
 
