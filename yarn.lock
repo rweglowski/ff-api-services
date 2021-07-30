@@ -1319,9 +1319,9 @@
   dependencies:
     tslib "^1.10.0"
 
-"@flowfact/types@file:../types/types-1627656867236.tgz":
+"@flowfact/types@file:./types-1627656867236.tgz":
   version "9.0.0-SNAPSHOT"
-  resolved "file:../types/types-1627656867236.tgz#7b6f4873853498deba6cd964c0eeb4223d96b88e"
+  resolved "file:./types-1627656867236.tgz#7b6f4873853498deba6cd964c0eeb4223d96b88e"
   dependencies:
     "@flowfact/node-flowdsl" "^2.20200810.37"
     "@types/node" "^11.15.4"
