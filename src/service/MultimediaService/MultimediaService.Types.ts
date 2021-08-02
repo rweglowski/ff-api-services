@@ -47,7 +47,7 @@ export interface Album {
     name: string;
     captions: Captions;
     categories: Category[];
-    descriptions: TranslatableText;
+    descriptions?: TranslatableText;
     hidden: boolean;
 }
 
