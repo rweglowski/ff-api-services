@@ -9,7 +9,7 @@ export class BodyController extends APIClient {
      * TODO: Please comment this method
      * @param s3Key
      */
-    fetchMailBody(s3Key: string) {
+    async fetchMailBody(s3Key: string) {
         return this.invokeApiWithErrorHandling<string>('/body/html', 'GET', undefined, {
             queryParams: {
                 s3key: s3Key,
