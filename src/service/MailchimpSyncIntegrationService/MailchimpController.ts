@@ -72,6 +72,14 @@ export class MailchimpController extends APIClient {
     }
 
     /**
+     * Synchronizes selected contacts and assigns them to given mailchimp subgroup
+     * @param contactResource
+     */
+    async synchronizeSelectedContacts(contactResource: MailchimpServiceTypes.ContactResource) {
+        return this.invokeApiWithErrorHandling<void>('/publish/contacts', 'POST', contactResource)
+    }
+
+    /**
      * Check the manual sync status
      */
     async checkSyncStatus() {
