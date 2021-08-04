@@ -38,7 +38,7 @@ export namespace InteractiveExposeV2ServiceTypes {
     export interface PublishTemplateRequest {
         id: string;
         name: string;
-        configuration: any;
+        configuration: Record<string, unknown>;
         isGlobal?: boolean;
         parentTemplateId: string;
     }
