@@ -34,4 +34,17 @@ export namespace InteractiveExposeV2ServiceTypes {
         iexAttachIEX: boolean;
         iexHideGlobalTemplates: boolean;
     }
+
+    export interface PublishTemplateRequest {
+        id: string;
+        name: string;
+        configuration: Record<string, unknown>;
+        isGlobal?: boolean;
+        parentTemplateId: string;
+    }
+
+    export interface PublishTemplateResponse {
+        id: string;
+        url: string;
+    }
 }
