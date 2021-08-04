@@ -76,7 +76,7 @@ export class MailchimpController extends APIClient {
      * @param contactResource
      */
     async synchronizeSelectedContacts(contactResource: MailchimpServiceTypes.ContactResource) {
-        return this.invokeApiWithErrorHandling('/publish/contacts', 'POST', contactResource)
+        return this.invokeApiWithErrorHandling<void>('/publish/contacts', 'POST', contactResource)
     }
 
     /**
