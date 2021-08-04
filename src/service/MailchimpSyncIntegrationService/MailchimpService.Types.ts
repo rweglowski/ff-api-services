@@ -19,6 +19,11 @@ export namespace MailchimpServiceTypes {
         finished: boolean;
     }
 
+    export interface ContactResource {
+        contactIds: string[];
+        subgroupName: string;
+    }
+
     export enum SyncDirection {
         MAILCHIMP = 'MAILCHIMP',
         FLOWFACT = 'FLOWFACT',
