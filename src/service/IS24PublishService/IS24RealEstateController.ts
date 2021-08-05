@@ -6,7 +6,7 @@ export class IS24RealEstateController extends APIClient {
     }
 
     /**
-     * This method deletes IS24 real estate by FlowFact estateId and portalId
+     * This method hard deletes IS24 real estate entity in IS24 system by FlowFact estateId and portalId
      * @param portalId
      * @param estateId
      */
