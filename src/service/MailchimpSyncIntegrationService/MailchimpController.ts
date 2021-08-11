@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { MailchimpServiceTypes } from './MailchimpService.Types';
 import { PagedResponse } from '@flowfact/types';
-import {EnvironmentManagementInstance} from "../../util/EnvironmentManagement";
+import { EnvironmentManagementInstance } from '../../util/EnvironmentManagement';
 
 export class MailchimpController extends APIClient {
     constructor() {
