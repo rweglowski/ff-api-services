@@ -148,4 +148,6 @@ export namespace PortalManagementTypes {
     export type PortalMetadata = {
         currentAccessLevel: number;
     };
+
+    export type CompanyEstateAttributes = Record<string, any>
 }

@@ -1,7 +1,9 @@
 import {APIClient, APIMapping} from "../../http";
+import { PortalManagementTypes } from './PortalManagementService.Types';
+import CompanyEstateAttributes = PortalManagementTypes.CompanyEstateAttributes;
 
 /**
- * Manages company wide attributes for an estate in a Record<string, any> model.
+ * Manages company wide attributes for an estate in a Record<string, any> (CompanyEstateAttributes) model.
  */
 export class CompanyEstateAttributesController extends APIClient {
     constructor() {
@@ -15,7 +17,7 @@ export class CompanyEstateAttributesController extends APIClient {
      * @param value as any - you can set anything your business case needs
      */
     async set(entityId: string, key: string, value: any) {
-        return await this.invokeApiWithErrorHandling<Record<string, any>>(`companies/estates/${entityId}/attributes/${key}`, 'POST', value);
+        return await this.invokeApiWithErrorHandling<CompanyEstateAttributes>(`companies/estates/${entityId}/attributes/${key}`, 'POST', value);
     }
 
     /**
@@ -23,8 +25,8 @@ export class CompanyEstateAttributesController extends APIClient {
      * @param entityId as UUID
      * @param attributes as Record containing key: value enties - you can set anything your business case needs
      */
-    async setAll(entityId: string, attributes: Record<string, any>) {
-        return await this.invokeApiWithErrorHandling<Record<string, any>>(`companies/estates/${entityId}/attributes`, 'POST', attributes);
+    async setAll(entityId: string, attributes: CompanyEstateAttributes) {
+        return await this.invokeApiWithErrorHandling<CompanyEstateAttributes>(`companies/estates/${entityId}/attributes`, 'POST', attributes);
     }
 
     /**
@@ -33,7 +35,7 @@ export class CompanyEstateAttributesController extends APIClient {
      * @param key as string
      */
     async get(entityId: string, key: string) {
-        return await this.invokeApiWithErrorHandling<Record<string, any>>(`companies/estates/${entityId}/attributes/${key}`, 'GET');
+        return await this.invokeApiWithErrorHandling<CompanyEstateAttributes>(`companies/estates/${entityId}/attributes/${key}`, 'GET');
     }
 
     /**
@@ -41,23 +43,25 @@ export class CompanyEstateAttributesController extends APIClient {
      * @param entityId as UUID
      */
     async getAll(entityId: string) {
-        return await this.invokeApiWithErrorHandling<Record<string, any>>(`companies/estates/${entityId}/attributes`, 'GET');
+        return await this.invokeApiWithErrorHandling<CompanyEstateAttributes>(`companies/estates/${entityId}/attributes`, 'GET');
     }
 
     /**
      * Removes an attribute by providing the key
+     * Returns deleted attributes
      * @param entityId as UUID
      * @param key as String
      */
     async remove(entityId: string, key: string) {
-        return await this.invokeApiWithErrorHandling<Record<string, any>>(`companies/estates/${entityId}/attributes/${key}`, 'DELETE');
+        return await this.invokeApiWithErrorHandling<CompanyEstateAttributes>(`companies/estates/${entityId}/attributes/${key}`, 'DELETE');
     }
 
     /**
      * Removes all attributes from given entity
+     * Returns deleted attributes
      * @param entityId as UUID
      */
     async removeAll(entityId: string) {
-        return await this.invokeApiWithErrorHandling<Record<string, any>>(`companies/estates/${entityId}/attributes`, 'DELETE');
+        return await this.invokeApiWithErrorHandling<CompanyEstateAttributes>(`companies/estates/${entityId}/attributes`, 'DELETE');
     }
 }
