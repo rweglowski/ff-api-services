@@ -1,6 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { MailchimpServiceTypes } from './MailchimpService.Types';
 import { PagedResponse } from '@flowfact/types';
+import {EnvironmentManagementInstance} from "../../util/EnvironmentManagement";
 
 export class MailchimpController extends APIClient {
     constructor() {
@@ -53,7 +54,10 @@ export class MailchimpController extends APIClient {
      * @param settings
      */
     async saveSettings(settings: MailchimpServiceTypes.Settings) {
-        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Settings>(`/settings`, 'POST', settings);
+        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Settings>(`/settings`, 'POST', {
+            ...settings,
+            callbackUrl: settings.callbackUrl ?? EnvironmentManagementInstance.getBaseUrl(),
+        });
     }
 
     /**
@@ -61,7 +65,10 @@ export class MailchimpController extends APIClient {
      * @param settings
      */
     async updateSettings(settings: MailchimpServiceTypes.Settings) {
-        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Settings>(`/settings`, 'PUT', settings);
+        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Settings>(`/settings`, 'PUT', {
+            ...settings,
+            callbackUrl: settings.callbackUrl ?? EnvironmentManagementInstance.getBaseUrl(),
+        });
     }
 
     /**
