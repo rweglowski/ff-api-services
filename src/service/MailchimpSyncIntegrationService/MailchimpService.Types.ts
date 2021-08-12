@@ -11,6 +11,7 @@ export namespace MailchimpServiceTypes {
     export interface Settings {
         syncDirection: SyncDirection;
         listIds: string[];
+        callbackUrl?: string;
     }
 
     export interface SyncStatus {
