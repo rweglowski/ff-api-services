@@ -116,6 +116,7 @@ const APIMapping = {
     mailchimpService: new APIService('mailchimp-sync-integration-service'),
     releaseNotesService: new APIService('release-notes-service'),
     userLogout: new APIService('user-logout-service'),
+    entityFieldCalculationService: new APIService('entity-field-calculation-service')
 };
 
 export default APIMapping;
