@@ -16,7 +16,7 @@ export class GeolocationService extends APIClient {
                 q: query,
             },
         };
-        return this.invokeApiWithErrorHandling('/search', 'GET', undefined, additionalParams);
+        return this.invokeApiWithErrorHandling<types.AutocompleteResults>('/search', 'GET', undefined, additionalParams);
     }
 
     /**
@@ -29,7 +29,7 @@ export class GeolocationService extends APIClient {
                 q: query,
             },
         };
-        return this.invokeApi('/getBestMatchCoordinates', 'GET', undefined, additionalParams).then((s) => s.data);
+        return this.invokeApiWithErrorHandling<types.BestMatchResult>('/getBestMatchCoordinates', 'GET', undefined, additionalParams);
     }
 
     fetchAddressCoordinates(locationAddress: types.LocationAddress) {
