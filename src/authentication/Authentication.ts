@@ -4,7 +4,7 @@ import { Amplify } from '@aws-amplify/core';
 import { Auth } from '@aws-amplify/auth';
 import { EnvironmentManagementInstance, StageTypes } from '../util/EnvironmentManagement';
 
-const region = 'eu-central-1';
+export const region = 'eu-central-1';
 const stageSettings = {
     development: {
         identityPoolId: 'eu-central-1:079515e9-300a-42c6-b608-930f84fed704',

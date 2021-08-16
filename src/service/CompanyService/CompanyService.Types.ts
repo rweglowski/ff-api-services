@@ -31,6 +31,12 @@ export namespace CompanyServiceTypes {
         legislationCheckboxes: LegislationCheckbox[];
     }
 
+    export enum CompanyMarket {
+        GERMANY = 'germany',
+        SWITZERLAND = 'switzerland',
+        SPAIN = 'spain',
+    }
+
     export interface Company {
         id: ID;
         businessType: string;
@@ -42,7 +48,7 @@ export namespace CompanyServiceTypes {
         companyHrbPlace: string;
         companyIban: string;
         companyMailInfo: string;
-        companyMarket: string;
+        companyMarket: CompanyMarket | string;
         companyName: string;
         companyPhoneInfo: string;
         companyPostcode: string;

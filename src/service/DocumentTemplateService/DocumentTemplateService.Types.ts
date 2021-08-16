@@ -7,16 +7,30 @@ export interface NeededPlaceholder {
     captions: Captions;
 }
 
+export enum BaseTemplateType {
+    WORD = 'WORD',
+    HTML = 'HTML',
+    SLACK = 'SLACK',
+    TEAMS = 'TEAMS',
+}
+
 // Expected types with a fallback to safe data, even if type is unknown
-export type TemplateTypes = 'WORD' | 'HTML' | 'SLACK' | string;
+export type TemplateType = BaseTemplateType | string;
+
+export enum BaseFileType {
+    DOCX = 'docx',
+    TXT = 'txt',
+}
+
+export type FileType = BaseFileType | string;
 
 export interface BaseTemplate {
     name: string;
     categoryName?: string;
     captions: Captions;
-    fileType: string;
+    fileType: FileType;
     neededPlaceholders: NeededPlaceholder[];
-    templateType?: TemplateTypes;
+    templateType?: TemplateType;
 }
 
 export interface ReadTemplate extends BaseTemplate {
@@ -29,7 +43,7 @@ export interface BaseCategory {
     parentName: string | null;
     name: string;
     captions: Captions;
-    templateType?: TemplateTypes;
+    templateType?: TemplateType;
 }
 
 export interface ReadCategory extends BaseCategory {

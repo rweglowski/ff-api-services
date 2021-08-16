@@ -10,6 +10,7 @@ export namespace WidgetLayoutTypes {
         id: string;
         sorting?: number;
         captions: Captions;
+        descriptions?: Captions;
         global: boolean;
         layout: LayoutContainer;
         domainType: LayoutDomainType;
@@ -22,6 +23,7 @@ export namespace WidgetLayoutTypes {
     export interface SchemaBoundWidgetLayout extends BaseWidgetLayout {
         schema: string;
         domainType: LayoutDomainType.SCHEMA_BOUND;
+        categories?: string[];
     }
 
     export interface PagedWidgetLayouts {

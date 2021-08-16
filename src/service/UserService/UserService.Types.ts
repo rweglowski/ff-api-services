@@ -27,6 +27,7 @@ export enum SsoType {
 
 export enum AdditionalFieldType {
     TEXT = 'TEXT',
+    EMAIL_TEMPLATE = 'EMAIL_TEMPLATE',
 }
 
 export interface IdentifiedUserResponse {
@@ -52,6 +53,7 @@ export interface User {
     onboardingTutorialsActive?: boolean;
     phone?: string;
     position?: string;
+    primaryColor?: string;
     roles?: UserRole[];
     salutation?: string;
     sso?: SSO[];

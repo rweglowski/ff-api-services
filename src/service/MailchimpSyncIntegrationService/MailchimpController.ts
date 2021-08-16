@@ -1,5 +1,7 @@
-import {APIClient, APIMapping} from '../../http';
-import {MailchimpServiceTypes} from './MailchimpService.Types';
+import { APIClient, APIMapping } from '../../http';
+import { MailchimpServiceTypes } from './MailchimpService.Types';
+import { PagedResponse } from '@flowfact/types';
+import { EnvironmentManagementInstance } from '../../util/EnvironmentManagement';
 
 export class MailchimpController extends APIClient {
     constructor() {
@@ -31,8 +33,13 @@ export class MailchimpController extends APIClient {
     /**
      * Fetches Mailchimp lists(audiences) for current user company
      */
-    async fetchMailchimpLists() {
-        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.MailchimpLists>(`/mailchimp/lists`, 'GET');
+    async fetchMailchimpLists(page: number = 0, size: number = 20) {
+        return this.invokeApiWithErrorHandling<PagedResponse<MailchimpServiceTypes.MailchimpListItem>>(`/mailchimp/lists`, 'GET', undefined, {
+            queryParams: {
+                page,
+                size,
+            },
+        });
     }
 
     /**
@@ -47,6 +54,42 @@ export class MailchimpController extends APIClient {
      * @param settings
      */
     async saveSettings(settings: MailchimpServiceTypes.Settings) {
-        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Credentials>(`/credentials`, 'POST', settings);
+        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Settings>(`/settings`, 'POST', {
+            ...settings,
+            callbackUrl: settings.callbackUrl ?? EnvironmentManagementInstance.getBaseUrl(),
+        });
+    }
+
+    /**
+     * Updates Mailchimp settings of the company
+     * @param settings
+     */
+    async updateSettings(settings: MailchimpServiceTypes.Settings) {
+        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.Settings>(`/settings`, 'PUT', {
+            ...settings,
+            callbackUrl: settings.callbackUrl ?? EnvironmentManagementInstance.getBaseUrl(),
+        });
+    }
+
+    /**
+     * Synchronize Mailchimp contacts
+     */
+    async synchronizeContacts() {
+        return this.invokeApiWithErrorHandling<void>('/publish', 'POST');
+    }
+
+    /**
+     * Synchronizes selected contacts and assigns them to given mailchimp subgroup
+     * @param contactResource
+     */
+    async synchronizeSelectedContacts(contactResource: MailchimpServiceTypes.ContactResource) {
+        return this.invokeApiWithErrorHandling<void>('/publish/contacts', 'POST', contactResource)
+    }
+
+    /**
+     * Check the manual sync status
+     */
+    async checkSyncStatus() {
+        return this.invokeApiWithErrorHandling<MailchimpServiceTypes.SyncStatus>('/syncStatus', 'GET');
     }
 }

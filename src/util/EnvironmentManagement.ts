@@ -1,5 +1,6 @@
 import * as isNode from 'detect-node';
-import { LambdaAPIService } from '../http/APIMapping';
+import { region } from '../authentication/Authentication';
+import { LambdaAPIService, S3APIService } from '../http/APIMapping';
 
 enum StageTypes {
     PRODUCTION = 'production',
@@ -65,6 +66,12 @@ class EnvironmentManagement {
         const account = stage === StageTypes.DEVELOPMENT ? 'flowfact-dev' : 'flowfact-prod';
 
         return service.url ?? `https://${service.name}.${stage}.sf.${account}.cloud`;
+    };
+
+    getS3BucketUrl = (service: S3APIService) => {
+        const stage = this.getStage();
+        const account = stage === StageTypes.DEVELOPMENT ? 'flowfact-dev' : 'flowfact-prod';
+        return service.url ?? `https://s3.${region}.amazonaws.com/${stage}-${service.name}.context.sf.${account}.cloud`;
     };
 
     isDefaultApi() {

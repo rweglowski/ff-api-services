@@ -5,7 +5,7 @@
 /doc
 /api-services.tgz
 /.yalc
-/ff-api-services.iml
+/*.iml
 yalc.lock
 api-services*.tgz
 /es

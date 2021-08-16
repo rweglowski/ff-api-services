@@ -57,7 +57,7 @@ export class PortalEstateController extends APIClient {
     }
 
     /**
-     * TODO: Please comment this method
+     * Fetches additional settings for en estate by id.
      * @param estateId
      */
     async fetchSettings(estateId: string) {

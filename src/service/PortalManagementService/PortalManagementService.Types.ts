@@ -1,3 +1,4 @@
+import { ACP } from '@flowfact/types';
 import { IS24ImportServiceTypes } from '../IS24ImportService';
 import ProjectInfo = IS24ImportServiceTypes.ProjectInfo;
 
@@ -5,6 +6,36 @@ export namespace PortalManagementTypes {
     export interface PortalAuthenticationModel {
         callbackUrl: string;
     }
+
+    export interface BulkPublishRequest {
+        companyId: string;
+        userId: string;
+        publishRequestEntry: PublishRequestEntry;
+        publishPortalRequestEntries: PublishPortalRequestEntry[];
+    }
+
+    export interface PublishPortalRequestEntry {
+        portalId: string;
+        portalType?: PortalType;
+    }
+
+    export interface PublishBulkResponse {
+        entityId: string;
+        schemaId: string;
+        schema: string;
+        targetStatus: PortalEstateStatusType;
+        portalsWithoutAccessRights: string[];
+        succeededPublications: PublishBulkResponseEntry[];
+        failedPublications: PublishBulkResponseEntry[];
+    }
+
+    export interface PublishBulkResponseEntry {
+        portalId: string;
+        portalType?: PortalType;
+        errorResponseMessage?: string;
+    }
+
+    export type PortalEstateStatusType = 'OFFLINE' | 'ONLINE';
 
     export interface PublishRequest {
         portalId: string;
@@ -15,7 +46,7 @@ export namespace PortalManagementTypes {
     export interface PublishRequestEntry {
         entityId: string;
         externalId?: string;
-        targetStatus: 'OFFLINE' | 'ONLINE';
+        targetStatus: PortalEstateStatusType;
         entityLocation?: string;
         publishChannels?: PublishChannel[];
         schema?: string;
@@ -47,6 +78,8 @@ export namespace PortalManagementTypes {
         fullUpdate: boolean;
         vendor?: string;
         index?: number;
+        _acps?: ACP[];
+        _metadata?: PortalMetadata;
     }
 
     export interface PortalEstate {
@@ -101,7 +134,7 @@ export namespace PortalManagementTypes {
     }
 
     export interface ProjectPublishResponse {
-        targetStatus: 'OFFLINE' | 'ONLINE';
+        targetStatus: PortalEstateStatusType;
         warnings: ProjectPublishResponseEntry[];
         errors: ProjectPublishResponseEntry[];
     }
@@ -111,4 +144,10 @@ export namespace PortalManagementTypes {
         logo: string;
         portalType: PortalType;
     }
+
+    export type PortalMetadata = {
+        currentAccessLevel: number;
+    };
+
+    export type CompanyEstateAttributes = Record<string, any>
 }

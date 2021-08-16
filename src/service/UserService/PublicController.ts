@@ -19,8 +19,8 @@ export class PublicController extends APIClient {
                 name: loginName,
             },
             headers: {
-                'x-ff-version': 2
-            }
+                'x-ff-version': 2,
+            },
         });
     }
 
