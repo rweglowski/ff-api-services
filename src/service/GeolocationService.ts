@@ -29,7 +29,7 @@ export class GeolocationService extends APIClient {
                 q: query,
             },
         };
-        return this.invokeApiWithErrorHandling<types.BestMatchResult>('/getBestMatchCoordinates', 'GET', undefined, additionalParams);
+        return this.invokeApiWithErrorHandling<types.MatchResult>('/getBestMatchCoordinates', 'GET', undefined, additionalParams);
     }
 
     fetchAddressCoordinates(locationAddress: types.LocationAddress) {

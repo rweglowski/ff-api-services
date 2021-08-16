@@ -12,7 +12,7 @@ export namespace GeoInformationsServiceTypes {
         places: LocationPlace[];
     }
 
-    export interface BestMatchResult extends LocationPlace, Coordinates {
+    export interface MatchResult extends LocationPlace, Coordinates {
         address: LocationAddress;
     }
 
