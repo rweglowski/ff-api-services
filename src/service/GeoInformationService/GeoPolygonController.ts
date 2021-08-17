@@ -2,6 +2,7 @@ import { APIClient, APIMapping } from '../../http';
 import { GeoInformationsServiceTypes } from './GeoInformationService.Types';
 import ListOfPolygons = GeoInformationsServiceTypes.ListOfPolygons;
 import GeoInformationValue = GeoInformationsServiceTypes.GeoInformationValue;
+import CreateGeoInformationRequest = GeoInformationsServiceTypes.CreateGeoInformationRequest;
 
 export class GeoPolygonController extends APIClient {
     constructor() {
@@ -16,10 +17,10 @@ export class GeoPolygonController extends APIClient {
     }
 
     /**
-     * create polygon of type LINE, LINESTRING, POLYGON and MULTIPOLYGON
+     * create new geoInformation
      */
-    async create() {
-        return this.invokeApiWithErrorHandling<ListOfPolygons>('/polygons', 'POST');
+    async create(request: CreateGeoInformationRequest) {
+        return this.invokeApiWithErrorHandling<GeoInformationValue>('/polygons', 'POST', request);
     }
 
     /**

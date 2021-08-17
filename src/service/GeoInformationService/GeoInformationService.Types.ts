@@ -1,4 +1,5 @@
 import { Captions } from '@flowfact/types';
+import { TranslatableText } from '../common/types/TranslatableText';
 
 export namespace GeoInformationsServiceTypes {
     export interface LocationPlace {
@@ -17,14 +18,10 @@ export namespace GeoInformationsServiceTypes {
     }
 
     export interface GeoInformationValue {
-        captions: {
-            additionalProp1: string;
-            additionalProp2: string;
-            additionalProp3: string;
-        };
+        captions: TranslatableText;
         companyId: string;
         createdTimestamp: number;
-        geometry?: GeoInformationValueGeometry;
+        geometry: Geometry;
         id: string;
         isGlobal: boolean;
         metadata: object;
@@ -38,10 +35,16 @@ export namespace GeoInformationsServiceTypes {
 
     export type GeoPoint = [Longitude, Latitude];
 
-    export interface GeoInformationValueGeometry {
-        type: 'Polygon' | 'MultiPolygon';
+    // https://en.wikipedia.org/wiki/GeoJSON
+    export interface PolygonGeometry {
+        type: 'Polygon';
         coordinates: GeoPoint[][];
     }
+    export interface MultiPolygonGeometry {
+        type: 'MultiPolygon';
+        coordinates: GeoPoint[][][];
+    }
+    export type Geometry = PolygonGeometry | MultiPolygonGeometry;
 
     export interface ListOfPolygons {
         size: number;
@@ -77,4 +80,14 @@ export namespace GeoInformationsServiceTypes {
         lat: number;
         lon: number;
     }
+
+    export interface CreateGeoInformationRequest {
+        captions: TranslatableText;
+        name: string;
+
+        parent?: string;
+        geometry?: Geometry;
+        metadata?: object;
+    }
+
 }
