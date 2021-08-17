@@ -1,6 +1,21 @@
 import { Captions } from '@flowfact/types';
 
 export namespace GeoInformationsServiceTypes {
+    export interface LocationPlace {
+        id: string;
+        description: string;
+        importance: number;
+        title: string;
+    }
+
+    export interface AutocompleteResults {
+        places: LocationPlace[];
+    }
+
+    export interface MatchResult extends LocationPlace, Coordinates {
+        address: LocationAddress;
+    }
+
     export interface GeoInformationValue {
         captions: {
             additionalProp1: string;

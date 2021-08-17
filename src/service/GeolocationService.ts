@@ -1,5 +1,4 @@
 import { APIClient, APIMapping } from '../http';
-import { CancelToken } from 'axios';
 import { GeoInformationsServiceTypes as types } from './GeoInformationService';
 
 export class GeolocationService extends APIClient {
@@ -10,16 +9,14 @@ export class GeolocationService extends APIClient {
     /**
      * TODO: Please comment this method
      * @param query
-     * @param cancelToken
      */
-    fetchAutocompletionResults(query: string, cancelToken: CancelToken) {
+    fetchAutocompletionResults(query: string) {
         const additionalParams = {
             queryParams: {
                 q: query,
             },
-            cancelToken,
         };
-        return this.invokeApi('/search', 'GET', undefined, additionalParams).then((s) => s.data);
+        return this.invokeApiWithErrorHandling<types.AutocompleteResults>('/search', 'GET', undefined, additionalParams);
     }
 
     /**
@@ -32,7 +29,7 @@ export class GeolocationService extends APIClient {
                 q: query,
             },
         };
-        return this.invokeApi('/getBestMatchCoordinates', 'GET', undefined, additionalParams).then((s) => s.data);
+        return this.invokeApiWithErrorHandling<types.MatchResult>('/getBestMatchCoordinates', 'GET', undefined, additionalParams);
     }
 
     fetchAddressCoordinates(locationAddress: types.LocationAddress) {
