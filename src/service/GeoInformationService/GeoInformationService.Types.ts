@@ -1,11 +1,9 @@
 import { Captions } from '@flowfact/types';
+import { TranslatableText } from '../common/types/TranslatableText';
 
 export namespace GeoInformationsServiceTypes {
     export interface GeoInformationValue {
-        captions: {
-            en?: string;
-            de?: string;
-        };
+        captions: TranslatableText;
         companyId: string;
         createdTimestamp: number;
         geometry: Geometry;
@@ -69,10 +67,7 @@ export namespace GeoInformationsServiceTypes {
     }
 
     export interface CreateGeoInformationRequest {
-        captions: {
-            en?: string;
-            de?: string;
-        };
+        captions: TranslatableText;
         name: string;
 
         parent?: string;
