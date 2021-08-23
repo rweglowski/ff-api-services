@@ -40,7 +40,7 @@ export * from './service/IS24LeadService';
 export * from './service/IS24ImportService';
 export * from './service/OpenimmoFtpAccessService';
 export * from './service/SprengnetterService';
-export { default as ExcelExporterService, ExcelExporter } from './service/ExcelExporterService';
+export * from './service/ExcelExporterService';
 export * from './service/FlywheelService';
 export * from './service/WorkflowService';
 export * from './service/DynamicLayoutService';
