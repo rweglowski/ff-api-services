@@ -10,6 +10,7 @@ export interface ShortViewDefinition {
 export interface ViewDefinitionCategory {
     name: string;
     fields: string[];
+    subFieldsConfig: { [field: string]: string }
 }
 
 export interface ViewDefinition extends ShortViewDefinition {
