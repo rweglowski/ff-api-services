@@ -18,6 +18,10 @@ export class SendController extends APIClient {
      *      The id of a entity (schema draft_email)
      */
     async sendMailV2(draftMailEntityId: string) {
-        return this.invokeApiWithErrorHandling( `/emails/v2/send/${draftMailEntityId}`, 'POST');
+        return this.invokeApiWithErrorHandling(`/emails/send/${draftMailEntityId}`, 'POST', undefined, {
+            headers: {
+                'x-ff-version': 2,
+            }
+        });
     }
 }
