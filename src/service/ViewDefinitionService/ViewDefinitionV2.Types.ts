@@ -20,6 +20,7 @@ export interface ViewDefinitionV2CategoryMediaItem {
 export interface ViewDefinitionV2CategoryEntityItem {
     type: ViewDefinitionV2CategoryContentItemTypes.ENTITY;
     fieldName?: string;
+    subField?: string;
 }
 
 export interface ViewDefinitionV2CategoryTextItem {
