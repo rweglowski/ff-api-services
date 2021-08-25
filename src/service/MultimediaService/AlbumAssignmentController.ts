@@ -83,7 +83,7 @@ export class AlbumAssignmentController extends APIClient {
         schemaName: string,
         entityId: string,
         mediaItemId: number
-    ): Promise<ApiResponseSuccess<{ albums: Album }> | ApiResponseError<any>> {
+    ): Promise<ApiResponseSuccess<{ albums: Album[] }> | ApiResponseError<any>> {
         return await this.invokeApiWithErrorHandling(`/assigned/schemas/${schemaName}/entities/${entityId}/items/${mediaItemId}`, 'GET');
     }
 

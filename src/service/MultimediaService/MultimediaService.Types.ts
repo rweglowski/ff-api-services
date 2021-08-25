@@ -46,6 +46,7 @@ export interface Album {
     schema: string;
     name: string;
     captions: Captions;
+    descriptions?: Captions;
     categories: Category[];
     hidden: boolean;
 }
