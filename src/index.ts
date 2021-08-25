@@ -1,5 +1,4 @@
 /* eslint-disable import/no-internal-modules */
-export { default as AgentRecommendationService } from './service/AgentRecommendationService';
 export { default as AppointmentBookingService } from './service/AppointmentBookingService';
 export { default as CommissionCalculationService } from './service/CommissionCalculationService';
 export { default as ContactService } from './service/ContactService';
@@ -35,6 +34,7 @@ export { default as OpenimmoImporterService } from './service/OpenimmoImporterSe
 export { default as ImporterFlowFactTransferService } from './service/ImporterFlowFactTransferService';
 
 export { default as EntityService, TrashedEntity, TrashedEntitiesResponse, TrashedEntitySchemaName, TrashedEntityIds } from './service/EntityService';
+export * from './service/AgentRecommendationService';
 export * from './service/GDPRService';
 export * from './service/IS24LeadService';
 export * from './service/IS24ImportService';
