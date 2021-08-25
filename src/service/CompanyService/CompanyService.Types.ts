@@ -29,6 +29,7 @@ export namespace CompanyServiceTypes {
         legislationTextName: string;
         legislationTextContent: string;
         legislationCheckboxes: LegislationCheckbox[];
+        technicalName?: string;
     }
 
     export enum CompanyMarket {
