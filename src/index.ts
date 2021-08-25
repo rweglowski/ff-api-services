@@ -87,6 +87,7 @@ export * from './service/UserLogoutService';
 export * from './service/AdminTokenService';
 export * from './service/PoiService';
 export * from './service/EntityFieldCalculationService';
+export * from './service/AlternativeCompanyDataService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
