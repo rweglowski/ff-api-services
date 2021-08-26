@@ -27,7 +27,6 @@ export { default as TagsService } from './service/TagService';
 export { default as TemplateService } from './service/TemplateService';
 export { default as TrialLicenseService } from './service/TrialLicenseService';
 export { default as Authentication } from './authentication/Authentication';
-export { default as OmniChannelService } from './service/OmniChannelService';
 export { default as IS24EntitlementService } from './service/IS24EntitlementService';
 export { default as BehaviourService } from './service/BehaviourService';
 export { default as SoftLinksEntityService } from './service/SoftLinksEntityService';
