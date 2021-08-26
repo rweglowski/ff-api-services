@@ -1,5 +1,4 @@
 /* eslint-disable import/no-internal-modules */
-export { default as AgentRecommendationService } from './service/AgentRecommendationService';
 export { default as AppointmentBookingService } from './service/AppointmentBookingService';
 export { default as CommissionCalculationService } from './service/CommissionCalculationService';
 export { default as ContactService } from './service/ContactService';
