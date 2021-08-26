@@ -11,6 +11,7 @@ export class RespondController extends APIClient {
      *      The id of a entity (schema email)
      * @param replyEmailBody
      *      Body of reply email.
+     * @returns ID of created draft_email
      */
     async replyMail(emailEntityId: string, replyEmailBody: string) {
         return this.replyMailCall(emailEntityId, replyEmailBody, false);
@@ -22,13 +23,14 @@ export class RespondController extends APIClient {
      *      The id of a entity (schema email)
      * @param replyEmailBody
      *      Body of reply email.
+     * @returns ID of created draft_email
      */
     async replyAllMail(emailEntityId: string, replyEmailBody: string) {
         return this.replyMailCall(emailEntityId, replyEmailBody, true);
     }
 
     private async replyMailCall(emailEntityId: string, replyEmailBody: string, replyAll: boolean) {
-        return this.invokeApiWithErrorHandling(`/emails/reply`, 'POST', {
+        return this.invokeApiWithErrorHandling<string>(`/emails/reply`, 'POST', {
             emailEntityId,
             replyEmailBody,
             replyAll,
@@ -43,9 +45,10 @@ export class RespondController extends APIClient {
      * Prepares forward draft_email entity.
      * @param emailEntityId
      *      The id of a entity (schema email)
+     * @returns ID of created draft_email
      */
     async forwardMail(emailEntityId: string) {
-        return this.invokeApiWithErrorHandling(`/emails/forward/${emailEntityId}`, 'POST', undefined, {
+        return this.invokeApiWithErrorHandling<string>(`/emails/forward/${emailEntityId}`, 'POST', undefined, {
             headers: {
                 'x-ff-version': 2,
             }
