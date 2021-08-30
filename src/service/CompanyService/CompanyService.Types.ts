@@ -36,6 +36,7 @@ export namespace CompanyServiceTypes {
         GERMANY = 'germany',
         SWITZERLAND = 'switzerland',
         SPAIN = 'spain',
+        FRANCHISE = 'franchise',
     }
 
     export interface Company {
