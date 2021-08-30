@@ -15,4 +15,22 @@ export class InteractiveExposeV2Controller extends APIClient {
             queryParams: { async: '' },
         });
     }
+    fetchEmailTemplates(role?: string, language?: string, getDefaults?: boolean) {
+        return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.EmailTemplate[]>('/email-template', 'GET', undefined, {
+            queryParams: { role, language, getDefaults },
+        });
+    }
+    createEmailTemplate(template: InteractiveExposeV2ServiceTypes.EmailTemplate) {
+        return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.EmailTemplate>('/email-template', 'PUT', template);
+    }
+    updateEmailTemplate(template: InteractiveExposeV2ServiceTypes.EmailTemplate) {
+        if (!template || !template.id) {
+            throw new Error('The template has no id');
+        }
+        return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.EmailTemplate>(`/email-template/${template.id}`, 'POST', template);
+    }
+    
+    deleteEmailTemplate(id: string) {
+        return this.invokeApiWithErrorHandling(`/email-template/${id}`, 'DELETE');
+    }
 }

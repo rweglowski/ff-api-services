@@ -47,4 +47,15 @@ export namespace InteractiveExposeV2ServiceTypes {
         id: string;
         url: string;
     }
+
+    export interface EmailTemplate {
+        role: string;
+        name: string;
+        id?: string;
+        subject: string;
+        description: string;
+        body: string;
+        language: string;
+        iexVersion?: string;
+    }
 }
