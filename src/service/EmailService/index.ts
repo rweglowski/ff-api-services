@@ -3,6 +3,7 @@ import {BodyController} from './BodyController';
 import {NotificationController} from './NotificationController';
 import {SendController} from './SendController';
 import {ConfigurationController} from './ConfigurationController';
+import {RespondController} from "./RespondController";
 
 export * from './EmailService.Types';
 
@@ -13,6 +14,7 @@ export class EmailService {
     public readonly notification: NotificationController;
     public readonly send: SendController;
     public readonly config: ConfigurationController;
+    public readonly respond: RespondController;
 
     constructor() {
         this.sync = new SyncController();
@@ -20,6 +22,7 @@ export class EmailService {
         this.notification = new NotificationController();
         this.send = new SendController();
         this.config = new ConfigurationController();
+        this.respond = new RespondController();
     }
 }
 
