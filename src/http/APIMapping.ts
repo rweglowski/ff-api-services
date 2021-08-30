@@ -36,7 +36,7 @@ const APIMapping = {
     appointmentBookingService: new APIService('appointment-booking-service'),
     behaviourService: new APIService('behaviour-service'),
     caasManamgentService: new APIService('caas-management-service'),
-    clientNotiiFicationService: new APIService('client-notification-service'),
+    clientNotificationService: new APIService('client-notification-service'),
     commissionCalculationService: new APIService('commission-calculation-service'),
     companyService: new APIService('company-service'),
     contactService: new APIService('contact-service'),
