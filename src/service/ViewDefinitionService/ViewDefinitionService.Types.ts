@@ -7,10 +7,16 @@ export interface ShortViewDefinition {
     sorting: number;
 }
 
+export interface ViewDefinitionCategoryJsonFieldConfig {
+    field: string;
+    path: string;
+    type: string;
+}
+
 export interface ViewDefinitionCategory {
     name: string;
     fields: string[];
-    subFieldsConfig?: { [field: string]: string }
+    jsonFieldsConfig?: ViewDefinitionCategoryJsonFieldConfig[];
 }
 
 export interface ViewDefinition extends ShortViewDefinition {
