@@ -10,8 +10,10 @@ export namespace InteractiveExposeV2ServiceTypes {
         body: string;
     }
     export interface IEXBlastItem {
+        email?: string;
         contactId: string;
-        estateId: string;
+        estateId?: string;
+        estateIds?: Array<string>;
     }
     export interface BlastRequest {
         prospectEmailTemplateId?: string;
