@@ -1,5 +1,5 @@
 import { Captions } from '@flowfact/types';
-import { ViewActionType, ViewType } from './ViewDefinitionService.Types';
+import { ViewActionType, ViewDefinitionCategoryJsonFieldConfig, ViewType } from './ViewDefinitionService.Types';
 
 export enum ViewDefinitionV2CategoryContentItemTypes {
     MULTIMEDIA = 'MULTIMEDIA',
@@ -20,7 +20,7 @@ export interface ViewDefinitionV2CategoryMediaItem {
 export interface ViewDefinitionV2CategoryEntityItem {
     type: ViewDefinitionV2CategoryContentItemTypes.ENTITY;
     fieldName?: string;
-    subField?: string;
+    jsonFieldConfig?: ViewDefinitionCategoryJsonFieldConfig;
 }
 
 export interface ViewDefinitionV2CategoryTextItem {
