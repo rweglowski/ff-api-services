@@ -1,3 +1,5 @@
+import {SchemaV2FieldType} from "@flowfact/types/src/SchemaV2";
+
 export interface ShortViewDefinition {
     id: string;
     type: ViewType | null;
@@ -10,7 +12,7 @@ export interface ShortViewDefinition {
 export interface ViewDefinitionCategoryJsonFieldConfig {
     field: string;
     path: string;
-    type: string;
+    type: SchemaV2FieldType;
 }
 
 export interface ViewDefinitionCategory {
