@@ -144,9 +144,10 @@ export class ItemsController extends APIClient {
      *      The url
      * @param albumAssignments
      */
-    async addLink(schemaName: string, entityId: string, url: string, albumAssignments: AlbumAssignmentRequest[] = []) {
+    async addLink(schemaName: string, entityId: string, url: string, albumAssignments: AlbumAssignmentRequest[] = [], title?: string) {
         const body = {
             link: url,
+            title: title,
             albumAssignments: albumAssignments,
         };
 
