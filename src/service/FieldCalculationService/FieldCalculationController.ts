@@ -2,7 +2,7 @@ import { APIClient, APIMapping } from '../../http';
 
 export class FieldCalculationController extends APIClient {
     constructor() {
-        super(APIMapping.fieldCalculation);
+        super(APIMapping.fieldCalculationService);
     }
 
     /**
