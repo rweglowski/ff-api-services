@@ -85,6 +85,7 @@ export * from './service/AdminTokenService';
 export * from './service/PoiService';
 export * from './service/EntityFieldCalculationService';
 export * from './service/AlternativeCompanyDataService';
+export * from './service/FieldCalculationService'
 
 export * from './http';
 export * from './util/EnvironmentManagement';
