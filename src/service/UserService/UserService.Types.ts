@@ -44,7 +44,7 @@ export interface User {
     cognitoUsername?: string;
     companyId?: string;
     firstname?: string;
-    id?: string;
+    id: string;
     image?: S3File;
     jobRole?: string;
     lastname?: string;
