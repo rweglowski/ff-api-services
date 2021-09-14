@@ -45,10 +45,15 @@ export class RespondController extends APIClient {
      * Prepares forward draft_email entity.
      * @param emailEntityId
      *      The id of a entity (schema email)
+     * @param forwardEmailBody
+     *      Body of the forward email.
      * @returns ID of created draft_email
      */
-    async forwardMail(emailEntityId: string) {
-        return this.invokeApiWithErrorHandling<string>(`/emails/forward/${emailEntityId}`, 'POST', undefined, {
+    async forwardMail(emailEntityId: string, forwardEmailBody: string) {
+        return this.invokeApiWithErrorHandling<string>(`/emails/forward`, 'POST', {
+            emailEntityId,
+            forwardEmailBody,
+        }, {
             headers: {
                 'x-ff-version': 2,
             }
