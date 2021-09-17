@@ -10,8 +10,13 @@ export default class PlaceholderController extends APIClient {
     /**
      * Resolve placeholders of a specific request.
      * @param placeholderRequest
+     * @param resolveLinkedEntitiesLevel
      */
-    async fetchPlaceholders(placeholderRequest: PlaceholderRequest) {
-        return this.invokeApiWithErrorHandling('/placeholders', 'POST', placeholderRequest);
+    async fetchPlaceholders(placeholderRequest: PlaceholderRequest, resolveLinkedEntitiesLevel: number = 0) {
+        return this.invokeApiWithErrorHandling('/placeholders', 'POST', placeholderRequest, {
+            queryParams: {
+                resolveLinkedEntitiesLevel
+            }
+        });
     }
 }
