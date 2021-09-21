@@ -35,7 +35,7 @@ export namespace PortalManagementTypes {
         errorResponseMessage?: string;
     }
 
-    export type PortalEstateStatusType = 'OFFLINE' | 'ONLINE';
+    export type PortalEstateStatusType = 'OFFLINE' | 'ONLINE' | 'DELETE';
 
     export interface PublishRequest {
         portalId: string;
