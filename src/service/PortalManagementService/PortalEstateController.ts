@@ -3,17 +3,27 @@ import { PortalManagementTypes } from './PortalManagementService.Types';
 import PortalEstateSettings = PortalManagementTypes.PortalEstateSettings;
 import PortalEstate = PortalManagementTypes.PortalEstate;
 import PortalPublishInformation = PortalManagementTypes.PortalPublishInformation;
+import EstatePortalPublishInformation = PortalManagementTypes.EstatePortalPublishInformation;
 
 export class PortalEstateController extends APIClient {
     constructor() {
         super(APIMapping.portalManagementService);
     }
+
     /**
      * Fetches the information on which portal a estate is published on.
      * @param estateId
      */
     async fetchPublishInformation(estateId: string) {
         return await this.invokeApiWithErrorHandling<PortalPublishInformation[]>(`/estates/${estateId}/portals`, 'GET');
+    }
+
+    /**
+     * Fetches the information on which portals the given estates are published on.
+     * @param estateIds
+     */
+    async fetchEstatesPublishInformation(estateIds: string[]) {
+        return await this.invokeApiWithErrorHandling<EstatePortalPublishInformation[]>(`/estates/portals`, 'GET', estateIds);
     }
 
     /**
