@@ -1,25 +1,20 @@
 ## Summary
-Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
-___
-- ...
-- ...
-- ...
 
-<br />
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+
+-   ...
+-   ...
+-   ...
 
 ## Checklist
-___
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] My changes generate no new warnings (ESLint)
 
-<br />
+-   [ ] My code follows the style guidelines of this project
+-   [ ] I have performed a self-review of my own code
+-   [ ] I have commented my code, particularly in hard-to-understand areas
+-   [ ] My changes generate no new warnings (ESLint)
 
 ## Links
-___
-- Jira: 
 
-<br />
+-   Jira:
 
 Thanks so much for your PR, your contribution is appreciated! ❤️
