@@ -3,6 +3,7 @@ import { FlowdslConditionUnion } from '@flowfact/node-flowdsl';
 import { ExcelExporterServiceTypes } from './ExcelExporterService.Types';
 
 import ExportData = ExcelExporterServiceTypes.ExportData;
+import SearchExportData = ExcelExporterServiceTypes.SearchExportData;
 
 export class ExcelExporterController extends APIClient {
     constructor() {
@@ -29,5 +30,24 @@ export class ExcelExporterController extends APIClient {
      */
     async fetchDownloadLink(fileId: string) {
         return this.invokeApiWithErrorHandling<string>(`/export/schema/download/${fileId}`, 'GET');
+    }
+
+    /**
+     *
+     * @param searchId The ID of the search entity that contained list view will be exported.
+     * @param entityIds Array of ids that should be used to limit the result
+     * @returns A fileId that can be used to check if the process is finished.
+     */
+    async createSearchExport(searchId: string, entityIds: string[] = []) {
+        return this.invokeApiWithErrorHandling<SearchExportData>(`/export/search/${searchId}`, 'POST', entityIds);
+    }
+
+    /**
+     *
+     * @param fileId The Id of the file that will be created when the Exporter finished creating the results.
+     * @returns The Download-Link of the file.
+     */
+    async fetchSearchDownloadLink(fileId: string) {
+        return this.invokeApiWithErrorHandling<string>(`/export/search/download/${fileId}`, 'GET');
     }
 }
