@@ -1312,10 +1312,10 @@
   dependencies:
     tslib "^1.10.0"
 
-"@flowfact/node-flowdsl@^2.20210518.47":
-  version "2.20210518.47"
-  resolved "https://registry.yarnpkg.com/@flowfact/node-flowdsl/-/node-flowdsl-2.20210518.47.tgz#39db1b4744bfeb6fadfcc7707f7cdf8a9128cab8"
-  integrity sha512-sp+HIb4EdrtfomXwi6d1BY3uXRcpvbvfzzcxXBBSX8d7hhdEFxvuBUsCsSNUeMr2DP3RvbEa+DTmrqGUvheA6g==
+"@flowfact/node-flowdsl@^2.20210922.48":
+  version "2.20210922.48"
+  resolved "https://registry.yarnpkg.com/@flowfact/node-flowdsl/-/node-flowdsl-2.20210922.48.tgz#2a586be6f845c046ef07b40b021441a7c22ec1ec"
+  integrity sha512-YCcCmd9iQOzCP88RBr/7Px9SHi56OLuKMvVgCK4Wc/uqbFFE07wnlS40TNV1TjwD7DYE+uNtMprIMQatId6svA==
   dependencies:
     tslib "^1.10.0"
 
