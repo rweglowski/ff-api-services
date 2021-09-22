@@ -93,6 +93,11 @@ export namespace PortalManagementTypes {
 
     export type PortalPublishInformation = Partial<PortalEstate> & { portalId: string };
 
+    export type EstatePortalPublishInformation = {
+        estateId: string;
+        publishInformation: PortalPublishInformation[];
+    };
+
     export interface PortalEstateSettings {
         id: string;
         portalId: string;
@@ -149,5 +154,5 @@ export namespace PortalManagementTypes {
         currentAccessLevel: number;
     };
 
-    export type CompanyEstateAttributes = Record<string, any>
+    export type CompanyEstateAttributes = Record<string, any>;
 }
