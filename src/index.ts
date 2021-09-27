@@ -27,7 +27,6 @@ export { default as TrialLicenseService } from './service/TrialLicenseService';
 export { default as Authentication } from './authentication/Authentication';
 export { default as IS24EntitlementService } from './service/IS24EntitlementService';
 export { default as BehaviourService } from './service/BehaviourService';
-export { default as SoftLinksEntityService } from './service/SoftLinksEntityService';
 export { default as OpenimmoImporterService } from './service/OpenimmoImporterService';
 export { default as ImporterFlowFactTransferService } from './service/ImporterFlowFactTransferService';
 
@@ -85,7 +84,8 @@ export * from './service/AdminTokenService';
 export * from './service/PoiService';
 export * from './service/EntityFieldCalculationService';
 export * from './service/AlternativeCompanyDataService';
-export * from './service/FieldCalculationService'
+export * from './service/FieldCalculationService';
+export * from './service/SoftLinksEntityService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
