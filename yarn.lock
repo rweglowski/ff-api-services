@@ -1312,7 +1312,7 @@
   dependencies:
     tslib "^1.10.0"
 
-"@flowfact/node-flowdsl@^2.20210922.48":
+"@flowfact/node-flowdsl@^2.20210518.47":
   version "2.20210922.48"
   resolved "https://registry.yarnpkg.com/@flowfact/node-flowdsl/-/node-flowdsl-2.20210922.48.tgz#2a586be6f845c046ef07b40b021441a7c22ec1ec"
   integrity sha512-YCcCmd9iQOzCP88RBr/7Px9SHi56OLuKMvVgCK4Wc/uqbFFE07wnlS40TNV1TjwD7DYE+uNtMprIMQatId6svA==
