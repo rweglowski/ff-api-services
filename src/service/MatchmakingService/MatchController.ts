@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { Entity, PagedResponse } from '@flowfact/types';
 import { MatchmakingTypes } from './Matchmaking.Types';
-import { Sort } from '@flowfact/node-flowdsl';
+import { Flowdsl, Sort } from '@flowfact/node-flowdsl';
 
 const buildSortParameter = (sorting: Sort): string | undefined => {
     // converts sorting to a string like "+fieldName,-fieldName2"
@@ -111,5 +111,15 @@ export default class MatchController extends APIClient {
             `/match/search-profile/${searchProfileId}/map-entries`,
             'GET'
         );
+    }
+
+    async fetchEntries(query: Flowdsl, index: string, offset: number = 0, size: number = 20, withCount: boolean = true) {
+        return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(`/search/schemas/${index}`, 'POST', query, {
+            queryParams: {
+                offset: offset,
+                size: size,
+                withCount: withCount,
+            },
+        });
     }
 }
