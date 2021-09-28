@@ -1,5 +1,5 @@
 import { APIClient, APIMapping } from '../../http';
-import {UserLogoutTypes} from './UserLogoutService.Types';
+import { UserLogoutTypes } from './UserLogoutService.Types';
 import { JSONPatch } from '../DocumentTemplateService';
 
 export class UserLogoutController extends APIClient {
@@ -13,11 +13,7 @@ export class UserLogoutController extends APIClient {
      * @param reminderNotificationMinutes
      * @param userId
      */
-    async createLogoutData(
-        trigger: UserLogoutTypes.UserLogoutPolicyRequestStringTimeTrigger,
-        reminderNotificationMinutes: number,
-        userId: string
-    ) {
+    async createLogoutData(trigger: UserLogoutTypes.UserLogoutPolicyRequestStringTimeTrigger, reminderNotificationMinutes: number, userId: string) {
         const createModel: UserLogoutTypes.UserLogoutDataCreateRequest = {
             trigger,
             reminderNotificationMinutes,
@@ -26,7 +22,6 @@ export class UserLogoutController extends APIClient {
 
         return this.invokeApiWithErrorHandling('/user-logout-policy', 'POST', createModel);
     }
-
 
     /**
      * Get the logout data for specific user
