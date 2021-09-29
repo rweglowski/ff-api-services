@@ -89,4 +89,5 @@ export namespace GeoInformationsServiceTypes {
         geometry?: Geometry;
         metadata?: object;
     }
+
 }

@@ -43,7 +43,7 @@ export class IS24PublishController extends APIClient {
      * @param projectProposal
      */
     async createProjectProposal(portalId: string, projectProposal: IS24PublishTypes.IS24ProjectProposalRequest) {
-        return await this.invokeApiWithErrorHandling<IS24PublishTypes.IS24ProjectProposalRequest, IS24PublishTypes.ErrorResponse>(
+        return await this.invokeApiWithErrorHandling<IS24PublishTypes.IS24ProjectProposalRequest>(
             `/portals/${portalId}/project-proposals`,
             'POST',
             projectProposal

@@ -1,5 +1,5 @@
-import { APIClient, APIMapping } from '../../http';
-import { EmailServiceTypes } from './EmailService.Types';
+import {APIClient, APIMapping} from '../../http';
+import {EmailServiceTypes} from './EmailService.Types';
 
 export class SendController extends APIClient {
     constructor() {
@@ -21,7 +21,7 @@ export class SendController extends APIClient {
         return this.invokeApiWithErrorHandling(`/emails/send/${draftMailEntityId}`, 'POST', undefined, {
             headers: {
                 'x-ff-version': 2,
-            },
+            }
         });
     }
 }
