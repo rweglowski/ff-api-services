@@ -146,6 +146,8 @@ export class APIClient {
             return {
                 isSuccessful2xx: response.status >= 200 && response.status < 300,
                 ...response,
+                // response.data can also be '' for 204 for example. We always wants to return undefined in these cases!
+                data: response.data || undefined
             } as ApiSuccessResponse<T>;
         } catch (error) {
             return {
