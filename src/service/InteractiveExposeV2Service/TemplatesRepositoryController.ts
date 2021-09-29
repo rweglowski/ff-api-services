@@ -21,7 +21,12 @@ export class TemplatesRepositoryController {
 
     publishTemplate(request: InteractiveExposeV2ServiceTypes.PublishTemplateRequest) {
         const { id, configuration, parentTemplateId, name } = request;
-        return this.lambdaController.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.PublishTemplateResponse>(`/template/${id}`, 'POST', configuration, { queryParams: { parentTemplateId, name }});
+        return this.lambdaController.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.PublishTemplateResponse>(
+            `/template/${id}`,
+            'POST',
+            configuration,
+            { queryParams: { parentTemplateId, name } }
+        );
     }
 
     deleteTemplate(id: string) {

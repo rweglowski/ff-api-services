@@ -1,14 +1,13 @@
-import {SyncController} from './SyncController';
-import {BodyController} from './BodyController';
-import {NotificationController} from './NotificationController';
-import {SendController} from './SendController';
-import {ConfigurationController} from './ConfigurationController';
-import {RespondController} from "./RespondController";
+import { SyncController } from './SyncController';
+import { BodyController } from './BodyController';
+import { NotificationController } from './NotificationController';
+import { SendController } from './SendController';
+import { ConfigurationController } from './ConfigurationController';
+import { RespondController } from './RespondController';
 
 export * from './EmailService.Types';
 
 export class EmailService {
-
     public readonly sync: SyncController;
     public readonly body: BodyController;
     public readonly notification: NotificationController;

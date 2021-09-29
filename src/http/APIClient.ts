@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios';
+import { AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios';
 import * as isNode from 'detect-node';
 import { stringify } from 'qs';
 import Authentication from '../authentication/Authentication';
@@ -135,48 +135,37 @@ export class APIClient {
         return client.request<T>(request);
     }
 
-    public async invokeApiWithErrorHandling<T = any>(
+    public async invokeApiWithErrorHandling<T = any, E = any>(
         path: string,
         method: MethodTypes = 'GET',
         body: string | {} = '',
-        additionalParams: APIClientAdditionalParams = {},
-        defaultValue?: T
-    ): Promise<ApiResponse<T>> {
+        additionalParams: APIClientAdditionalParams = {}
+    ): Promise<ApiResponse<T, E>> {
         try {
-            const result = await this.invokeApi<T>(path, method, body, additionalParams);
-            const response: ApiResponse<T> = {
-                isSuccessful2xx: result.status >= 200 && result.status < 300,
-                status: 0,
-            };
-
-            return !result
-                ? response
-                : {
-                      ...response,
-                      ...result,
-                      data: result.data || defaultValue,
-                  };
+            const response: AxiosResponse<T> = await this.invokeApi<T>(path, method, body, additionalParams);
+            return {
+                isSuccessful2xx: response.status >= 200 && response.status < 300,
+                ...response,
+            } as ApiSuccessResponse<T>;
         } catch (error) {
             return {
-                ...error,
-                status: error?.response?.status,
                 isSuccessful2xx: false,
-                isCancelled: axios.isCancel(error),
-                data: error?.response?.data ?? defaultValue,
-            };
+                data: undefined,
+                status: 0,
+                // be on the safe side, when it is not a AxiosError.
+                // The status and data can be included in error.response, so it will be maybe overwritten
+                ...(error?.response || {}),
+            } as ApiErrorResponse<E>;
         }
     }
 }
 
-export interface ApiResponseSuccess<T> extends Partial<AxiosResponse<T>> {
-    isSuccessful2xx: true;
+export interface ApiSuccessResponse<T> extends AxiosResponse<T> {
+    isSuccessful2xx: boolean;
 }
 
-export interface ApiResponseError<T> extends Partial<AxiosError<T>> {
-    isSuccessful2xx: false | undefined;
-    status: number;
-    isCancelled?: boolean;
-    data?: T;
+export interface ApiErrorResponse<T> extends  AxiosResponse<T> {
+    isSuccessful2xx: false;
 }
 
-export type ApiResponse<T> = ApiResponseSuccess<T> | ApiResponseError<T>;
+export type ApiResponse<T = any, E = any> = ApiSuccessResponse<T> | ApiErrorResponse<E>;
