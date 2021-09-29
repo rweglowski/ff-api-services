@@ -1,4 +1,4 @@
-import {FieldCalculationController} from "./FieldCalculationController";
+import { FieldCalculationController } from './FieldCalculationController';
 
 export class FieldsCalculationService {
     public readonly recalculation: FieldCalculationController;
@@ -9,4 +9,3 @@ export class FieldsCalculationService {
 }
 
 export const FieldCalculationServiceInstance = new FieldsCalculationService();
-

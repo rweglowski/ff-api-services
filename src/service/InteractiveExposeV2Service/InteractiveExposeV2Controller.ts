@@ -29,7 +29,7 @@ export class InteractiveExposeV2Controller extends APIClient {
         }
         return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.EmailTemplate>(`/email-template/${template.id}`, 'POST', template);
     }
-    
+
     deleteEmailTemplate(id: string) {
         return this.invokeApiWithErrorHandling(`/email-template/${id}`, 'DELETE');
     }

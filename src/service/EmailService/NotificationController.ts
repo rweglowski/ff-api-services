@@ -1,5 +1,5 @@
-import {APIClient, APIMapping} from '../../http';
-import {EmailServiceTypes} from './EmailService.Types';
+import { APIClient, APIMapping } from '../../http';
+import { EmailServiceTypes } from './EmailService.Types';
 
 export class NotificationController extends APIClient {
     constructor() {
