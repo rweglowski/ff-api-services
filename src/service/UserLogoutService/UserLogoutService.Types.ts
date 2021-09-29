@@ -5,7 +5,7 @@ export namespace UserLogoutTypes {
         weekDays: WeekDays[];
         time: string;
         type: 'STRING_TIME';
-        timeZoneOffset?: number
+        timeZoneOffset?: number;
     }
 
     export interface UserLogoutDataResponse {
@@ -23,7 +23,7 @@ export namespace UserLogoutTypes {
     }
 
     export interface UserLogoutDataCreateRequest {
-        reminderNotificationMinutes: number
+        reminderNotificationMinutes: number;
         userId: string;
         trigger: UserLogoutPolicyRequestStringTimeTrigger;
     }

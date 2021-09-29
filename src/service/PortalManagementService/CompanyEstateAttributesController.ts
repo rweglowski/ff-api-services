@@ -1,4 +1,4 @@
-import {APIClient, APIMapping} from "../../http";
+import { APIClient, APIMapping } from '../../http';
 import { PortalManagementTypes } from './PortalManagementService.Types';
 import CompanyEstateAttributes = PortalManagementTypes.CompanyEstateAttributes;
 
