@@ -49,20 +49,4 @@ export namespace IS24PublishTypes {
         startDate: number;
         status: string;
     }
-
-    export interface ErrorMessage {
-        code: string;
-        original: string;
-        translated: string;
-    }
-
-    export interface ErrorResponse {
-        type: string;
-        status: string;
-        description: string;
-        path: string;
-        additionalInfo: {
-            errorMessages: ErrorMessage[];
-        };
-    }
 }

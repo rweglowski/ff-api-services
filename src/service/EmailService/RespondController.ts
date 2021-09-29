@@ -1,4 +1,4 @@
-import { APIClient, APIMapping } from '../../http';
+import {APIClient, APIMapping} from '../../http';
 
 export class RespondController extends APIClient {
     constructor() {
@@ -30,20 +30,15 @@ export class RespondController extends APIClient {
     }
 
     private async replyMailCall(emailEntityId: string, replyEmailBody: string, replyAll: boolean) {
-        return this.invokeApiWithErrorHandling<string>(
-            `/emails/reply`,
-            'POST',
-            {
-                emailEntityId,
-                replyEmailBody,
-                replyAll,
-            },
-            {
-                headers: {
-                    'x-ff-version': 2,
-                },
+        return this.invokeApiWithErrorHandling<string>(`/emails/reply`, 'POST', {
+            emailEntityId,
+            replyEmailBody,
+            replyAll,
+        }, {
+            headers: {
+                'x-ff-version': 2,
             }
-        );
+        });
     }
 
     /**
@@ -55,18 +50,13 @@ export class RespondController extends APIClient {
      * @returns ID of created draft_email
      */
     async forwardMail(emailEntityId: string, forwardEmailBody: string) {
-        return this.invokeApiWithErrorHandling<string>(
-            `/emails/forward`,
-            'POST',
-            {
-                emailEntityId,
-                forwardEmailBody,
-            },
-            {
-                headers: {
-                    'x-ff-version': 2,
-                },
+        return this.invokeApiWithErrorHandling<string>(`/emails/forward`, 'POST', {
+            emailEntityId,
+            forwardEmailBody,
+        }, {
+            headers: {
+                'x-ff-version': 2,
             }
-        );
+        });
     }
 }
