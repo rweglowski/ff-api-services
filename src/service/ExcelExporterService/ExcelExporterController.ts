@@ -38,8 +38,11 @@ export class ExcelExporterController extends APIClient {
      * @param entityIds Array of ids that should be used to limit the result
      * @returns A fileId that can be used to check if the process is finished.
      */
-    async createSearchExport(searchId: string, entityIds: string[] = []) {
-        return this.invokeApiWithErrorHandling<SearchExportData>(`/export/search/${searchId}`, 'POST', entityIds);
+    async createSearchExport(searchId: string, filterConditions: FlowdslConditionUnion | FlowdslConditionUnion[]) {
+        return this.invokeApiWithErrorHandling<SearchExportData>(`/export/search/${searchId}`, 'POST', {
+            target: 'entity',
+            conditions: filterConditions,
+        });
     }
 
     /**
