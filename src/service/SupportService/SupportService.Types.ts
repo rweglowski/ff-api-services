@@ -15,6 +15,7 @@ export namespace SupportServiceTypes {
         url: string;
         method: 'GET' | 'POST' | 'PATCH' | 'PUT';
         body?: any;
+        accept?: string;
         contentType?: string;
     }
 
