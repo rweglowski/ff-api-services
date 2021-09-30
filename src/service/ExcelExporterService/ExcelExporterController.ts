@@ -39,7 +39,7 @@ export class ExcelExporterController extends APIClient {
      * @returns A fileId that can be used to check if the process is finished.
      */
     async createSearchExport(searchId: string, filterConditions: FlowdslConditionUnion | FlowdslConditionUnion[]) {
-        return this.invokeApiWithErrorHandling<SearchExportData[]>(`/export/search/${searchId}`, 'POST', {
+        return this.invokeApiWithErrorHandling<SearchExportData>(`/export/search/${searchId}`, 'POST', {
             target: 'entity',
             conditions: filterConditions,
         });

@@ -29,7 +29,7 @@ async function responseErrorInterceptor(error: AxiosError) {
 }
 
 function isCacheableMethod(config: AxiosRequestConfig) {
-    return ~['GET', 'HEAD'].indexOf((config.method as string).toUpperCase());
+    return ['GET', 'HEAD'].includes((config.method as string).toUpperCase());
 }
 
 function getCachedItem(config: AxiosRequestConfig) {
