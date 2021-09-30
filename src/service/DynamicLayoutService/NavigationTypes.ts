@@ -26,7 +26,7 @@ export namespace NavigationTypes {
         items: Item[];
     }
 
-    export interface NavigationEntry {
+    export interface NavigationEntry extends BaseItem {
         icon: string;
         type: 'EXPANDABLE' | 'REDIRECT';
         url?: string;
