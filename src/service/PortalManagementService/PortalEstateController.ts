@@ -23,7 +23,7 @@ export class PortalEstateController extends APIClient {
      * @param estateIds
      */
     async fetchEstatesPublishInformation(estateIds: string[]) {
-        return await this.invokeApiWithErrorHandling<EstatePortalPublishInformation[]>(`/estates/portals`, 'GET', estateIds);
+        return await this.invokeApiWithErrorHandling<EstatePortalPublishInformation>(`/estates/portals`, 'POST', estateIds);
     }
 
     /**

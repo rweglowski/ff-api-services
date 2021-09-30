@@ -94,8 +94,7 @@ export namespace PortalManagementTypes {
     export type PortalPublishInformation = Partial<PortalEstate> & { portalId: string };
 
     export type EstatePortalPublishInformation = {
-        estateId: string;
-        publishInformation: PortalPublishInformation[];
+        [estateId: string]: PortalPublishInformation[];
     };
 
     export interface PortalEstateSettings {
