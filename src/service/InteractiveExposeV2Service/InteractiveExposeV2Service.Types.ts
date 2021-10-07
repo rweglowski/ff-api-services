@@ -23,6 +23,9 @@ export namespace InteractiveExposeV2ServiceTypes {
         items: IEXBlastItem[];
         mergeContext?: { [key: string]: any };
     }
+    export interface AsyncJobResponse {
+        MessageId: string;
+    }
     export interface BlastResponse {
         MessageId: string;
     }

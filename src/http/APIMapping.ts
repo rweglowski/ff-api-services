@@ -40,6 +40,7 @@ const APIMapping = {
     commissionCalculationService: new APIService('commission-calculation-service'),
     companyService: new APIService('company-service'),
     contactService: new APIService('contact-service'),
+    csvDataToEntityImporterService: new APIService('csv-data-to-entity-importer-service'),
     customerLegitimationArchiveService: new APIService('customer-legitimation-archive-service'),
     dynamicLayoutService: new APIService('dynamic-layout-service'),
     emailService: new APIService('email-service'),
