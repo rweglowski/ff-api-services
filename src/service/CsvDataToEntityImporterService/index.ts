@@ -3,10 +3,10 @@ import { CsvDataToEntityImporterController } from './CsvDataToEntityImporterCont
 export * from './CsvDataToEntityImporter.Types';
 
 class CsvDataToEntityImporterService {
-    public readonly contract: CsvDataToEntityImporterController;
+    public readonly internal: CsvDataToEntityImporterController;
 
     constructor() {
-        this.contract = new CsvDataToEntityImporterController();
+        this.internal = new CsvDataToEntityImporterController();
     }
 }
 
