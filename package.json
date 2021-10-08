@@ -1,6 +1,6 @@
 {
     "name": "@flowfact/api-services",
-    "version": "56.0.0-SNAPSHOT",
+    "version": "57.0.0-SNAPSHOT",
     "description": "middleware of FLOWFACT to interact between frontend and backend",
     "main": "build/index.js",
     "module": "build/es/index.js",
@@ -22,28 +22,28 @@
         "prettier:changed": "yarn node scripts/prettier.js just-changed-files"
     },
     "dependencies": {
-        "@flowfact/node-flowdsl": "^2.20210922.48",
-        "@flowfact/types": "^9.20210820.203",
-        "aws-amplify": "^3.3.8",
-        "axios": "^0.21.0",
-        "detect-node": "^2.0.4",
-        "qs": "^6.9.4",
-        "tslib": "^2.0.3"
+        "@flowfact/node-flowdsl": "2.20210922.48",
+        "@flowfact/types": "9.20210820.203",
+        "aws-amplify": "4.3.2",
+        "axios": "0.22.0",
+        "detect-node": "2.1.0",
+        "qs": "6.10.1",
+        "tslib": "2.3.1"
     },
     "devDependencies": {
-        "@types/graphql": "14.0.7",
-        "@types/node": "^11.15.4",
-        "@types/qs": "^6.9.5",
-        "@types/storejs": "^2.0.3",
-        "@typescript-eslint/eslint-plugin": "^4.1.0",
-        "@typescript-eslint/parser": "^4.1.0",
-        "amazon-cognito-identity-js": "^4.5.4",
-        "eslint": "^7.9.0",
-        "eslint-plugin-import": "^2.22.0",
-        "prettier": "^2.1.2",
-        "recursive-search": "^1.0.1",
-        "rimraf": "^3.0.2",
-        "simple-git": "^2.21.0",
-        "typescript": "^4.0.5"
+        "@types/graphql": "14.5.0",
+        "@types/node": "16.10.3",
+        "@types/qs": "6.9.7",
+        "@types/storejs": "2.0.3",
+        "@typescript-eslint/eslint-plugin": "4.33.0",
+        "@typescript-eslint/parser": "4.33.0",
+        "amazon-cognito-identity-js": "5.2.0",
+        "eslint": "7.32.0",
+        "eslint-plugin-import": "2.24.2",
+        "prettier": "2.4.1",
+        "recursive-search": "1.0.1",
+        "rimraf": "3.0.2",
+        "simple-git": "2.46.0",
+        "typescript": "4.4.3"
     }
 }
