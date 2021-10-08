@@ -8,7 +8,7 @@ import axiosETAGCache from './cache';
 
 export type ParamMap = { [key: string]: string | boolean | number | undefined };
 
-export interface APIClientAdditionalParams extends AxiosRequestConfig {
+export interface APIClientAdditionalParams extends Omit<AxiosRequestConfig, 'headers'> {
     headers?: string | ParamMap;
     queryParams?: ParamMap;
     cancelToken?: CancelToken;
@@ -147,7 +147,7 @@ export class APIClient {
                 isSuccessful2xx: response.status >= 200 && response.status < 300,
                 ...response,
                 // response.data can also be '' for 204 for example. We always wants to return undefined in these cases!
-                data: response.data || undefined
+                data: response.data || undefined,
             } as ApiSuccessResponse<T>;
         } catch (error) {
             return {
@@ -166,7 +166,7 @@ export interface ApiSuccessResponse<T> extends AxiosResponse<T> {
     isSuccessful2xx: boolean;
 }
 
-export interface ApiErrorResponse<T> extends  AxiosResponse<T> {
+export interface ApiErrorResponse<T> extends AxiosResponse<T> {
     isSuccessful2xx: false;
 }
 
