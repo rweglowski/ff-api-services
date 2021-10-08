@@ -9,12 +9,24 @@ export class CsvDataToEntityImporterController extends APIClient {
     /**
      * Get import status for given fileId
      * @param fileId id of uploaded csv file
-     * @returns status of file inmport
+     * @returns status of file import
      */
     async fetchImportStatus(fileId: string): Promise<ApiResponse<CsvDataToEntityImporter.ImportStatus>> {
-        return await this.invokeApiWithErrorHandling<CsvDataToEntityImporter.ImportStatus>('/import/status', 'GET', undefined, {
+        return await this.invokeApiWithErrorHandling<CsvDataToEntityImporter.ImportStatus>(`/import/status`, 'GET', undefined, {
             queryParams: {
-              fileId: fileId,
+                fileId: fileId,
+            },
+        });
+    }
+
+    /**
+     * Get mapping for fileId
+     * @param fileId id of uploaded csv file
+     */
+    async fetchMapping(fileId: string): Promise<ApiResponse<CsvDataToEntityImporter.ImportMapping>> {
+        return await this.invokeApiWithErrorHandling<CsvDataToEntityImporter.ImportMapping>(`/mapping`, 'GET', undefined, {
+            queryParams: {
+                fileId: fileId,
             },
         });
     }
@@ -24,9 +36,22 @@ export class CsvDataToEntityImporterController extends APIClient {
      * @param file csv file to be imported
      * @param targetSchema schema where data should be imported
      * @param delimiter delimiter used inside csv file
+     * @param onUploadProgress function triggered on upload progress
      */
-    async uploadCsvFile(file: FormData, targetSchema: string, delimiter: string = ','): Promise<ApiResponse> {
-        return await this.invokeApiWithErrorHandling(`/upload?targetSchema=${targetSchema}&delimiter=${delimiter}`, 'POST', file)
+    async uploadCsvFile(
+        file: FormData,
+        targetSchema: string,
+        delimiter: string = ',',
+        // eslint-disable-next-line no-unused-vars
+        onUploadProgress: (progressEvent: ProgressEvent) => void
+    ): Promise<ApiResponse> {
+        return await this.invokeApiWithErrorHandling(`/upload`, 'POST', file, {
+            queryParams: {
+                targetSchema: targetSchema,
+                delimiter: delimiter,
+            },
+            onUploadProgress: onUploadProgress,
+        });
     }
 
     /**
@@ -34,7 +59,11 @@ export class CsvDataToEntityImporterController extends APIClient {
      * @param fileId id of uploaded csv file
      */
     async startImport(fileId: string): Promise<ApiResponse> {
-        return await this.invokeApiWithErrorHandling(`/import?fileId=${fileId}`, 'POST')
+        return await this.invokeApiWithErrorHandling(`/import`, 'POST', undefined, {
+            queryParams: {
+                fileId: fileId,
+            },
+        });
     }
 
     /**
@@ -43,15 +72,24 @@ export class CsvDataToEntityImporterController extends APIClient {
      * @param updateMappingData updated mapping data
      */
     async updateFieldMapping(fileId: string, updateMappingData: Record<string, CsvDataToEntityImporter.ImportField>): Promise<ApiResponse> {
-        return await this.invokeApiWithErrorHandling(`/field_mapping?fileId=${fileId}`, 'PATCH', updateMappingData)
+        return await this.invokeApiWithErrorHandling(`/field_mapping`, 'PATCH', updateMappingData, {
+            queryParams: {
+                fileId: fileId,
+            },
+        });
     }
 
     /**
-     * 
+     *
      * @param fileId id of uploaded csv file
      * @param fieldName name of mapping field to be removed
      */
     async deleteFieldMapping(fileId: string, fieldName: string): Promise<ApiResponse> {
-        return await this.invokeApiWithErrorHandling(`/field_mapping?fileId=${fileId}&fieldName=${fieldName}`, 'DELETE')
+        return await this.invokeApiWithErrorHandling(`/field_mapping`, 'DELETE', undefined, {
+            queryParams: {
+                fileId: fileId,
+                fieldName: fieldName,
+            },
+        });
     }
 }
