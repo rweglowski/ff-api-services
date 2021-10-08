@@ -50,6 +50,9 @@ export class CsvDataToEntityImporterController extends APIClient {
                 targetSchema: targetSchema,
                 delimiter: delimiter,
             },
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
             onUploadProgress: onUploadProgress,
         });
     }
