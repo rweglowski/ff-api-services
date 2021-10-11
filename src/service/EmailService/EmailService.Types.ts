@@ -34,5 +34,6 @@ export namespace EmailServiceTypes {
         ADMIN = 'ADMIN',
         USER = 'USER',
         EXTERNAL = 'EXTERNAL',
+        USER_LIGHT = 'USER_LIGHT'
     }
 }
