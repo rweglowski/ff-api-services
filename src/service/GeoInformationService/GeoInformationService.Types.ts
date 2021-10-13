@@ -24,6 +24,7 @@ export namespace GeoInformationsServiceTypes {
         geometry: Geometry;
         id: string;
         isGlobal: boolean;
+        hasGlobal:boolean;
         metadata: object;
         name: string;
         parent: string;

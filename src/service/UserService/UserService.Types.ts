@@ -4,6 +4,7 @@ export enum UserRole {
     USER = 'USER',
     ADMIN = 'ADMIN',
     ACCOUNT_MANAGER = 'ACCOUNT_MANAGER',
+    USER_LIGHT = 'USER_LIGHT'
 }
 
 export enum UserType {
