@@ -10,7 +10,7 @@ export class CustomerLegitimationArchiveService extends APIClient {
      * TODO: Please comment this method
      * @param type
      */
-    async findByType(type: string): Promise<AxiosResponse> {
+    async findByType(type: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/public/master/legitimation/type/${type}`, 'GET');
     }
 }

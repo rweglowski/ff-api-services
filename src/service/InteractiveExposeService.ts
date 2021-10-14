@@ -42,7 +42,7 @@ export class InteractiveExposeService extends APIClient {
         ).data;
     }
 
-    async sendInteractiveExpose(model: SendInteractiveExposeModel): Promise<AxiosResponse> {
+    async sendInteractiveExpose(model: SendInteractiveExposeModel): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/interactiveExposes', 'POST', model);
     }
 
@@ -56,7 +56,7 @@ export class InteractiveExposeService extends APIClient {
         ).data;
     }
 
-    async deleteLogo(type: 'light' | 'dark'): Promise<AxiosResponse> {
+    async deleteLogo(type: 'light' | 'dark'): Promise<AxiosResponse<any>> {
         return await this.invokeApi(`/settings/logos/${type}`, 'DELETE');
     }
 
@@ -64,7 +64,7 @@ export class InteractiveExposeService extends APIClient {
      * Get all interactive expose templates.
      * Add a role parameter to filter the templates by the roles.
      */
-    async getTemplates(role?: 'OFFER' | 'REPORT'): Promise<AxiosResponse> {
+    async getTemplates(role?: 'OFFER' | 'REPORT'): Promise<AxiosResponse<any>> {
         if (role) {
             return this.invokeApi(
                 '/templates',
@@ -84,14 +84,14 @@ export class InteractiveExposeService extends APIClient {
     /**
      * Check requirements of the interactive exposé and if necessary solve them
      */
-    async checkRequirements(): Promise<AxiosResponse> {
+    async checkRequirements(): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/interactiveExposes/checkRequirements`, 'GET');
     }
 
     /**
      * Get a template by its id.
      */
-    async getTemplateById(templateId: string): Promise<AxiosResponse> {
+    async getTemplateById(templateId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/templates/${templateId}`, 'GET');
     }
 
@@ -109,13 +109,13 @@ export class InteractiveExposeService extends APIClient {
         return this.invokeApi('/interactiveExposes/templates/assignments/?type=' + type, 'GET');
     }
 
-    async updateDesignTemplates(designTemplates: DesignTemplateAssignment[]): Promise<AxiosResponse> {
+    async updateDesignTemplates(designTemplates: DesignTemplateAssignment[]): Promise<AxiosResponse<any>> {
         return this.invokeApi('/interactiveExposes/templates/assignments', 'POST', designTemplates, {
             headers: { 'Content-Type': 'application/json' },
         });
     }
 
-    async deleteDesignTemplates(designTemplates: DesignTemplateAssignment[]): Promise<AxiosResponse> {
+    async deleteDesignTemplates(designTemplates: DesignTemplateAssignment[]): Promise<AxiosResponse<any>> {
         return this.invokeApi('/interactiveExposes/templates/assignments', 'DELETE', designTemplates, {
             headers: { 'Content-Type': 'application/json' },
         });
@@ -127,7 +127,7 @@ export class InteractiveExposeService extends APIClient {
      * @param fillDefaultContent
      *      true if the content of the template have to be filled with default content
      */
-    async createTemplate(template: InteractiveExposeTemplate, fillDefaultContent: boolean = false): Promise<AxiosResponse> {
+    async createTemplate(template: InteractiveExposeTemplate, fillDefaultContent: boolean = false): Promise<AxiosResponse<any>> {
         const queryParams = {
             queryParams: {
                 fillDefaultContent: String(fillDefaultContent),
@@ -170,63 +170,63 @@ export class InteractiveExposeService extends APIClient {
     /**
      * Update a interactive expose template by his id.
      */
-    async updateTemplate(templateId: string, template: InteractiveExposeTemplate): Promise<AxiosResponse> {
+    async updateTemplate(templateId: string, template: InteractiveExposeTemplate): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/templates/${templateId}`, 'PUT', template);
     }
 
     /**
      * Delete a interactive expose template on the server.
      */
-    async deleteTemplate(templateId: string): Promise<AxiosResponse> {
+    async deleteTemplate(templateId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/templates/${templateId}`, 'DELETE');
     }
 
     /**
      * Add a domain to the company.
      */
-    async addDomain(domain: string): Promise<AxiosResponse> {
+    async addDomain(domain: string): Promise<AxiosResponse<any>> {
         return this.invokeApi('/domain', 'POST', '', { queryParams: { domain } });
     }
 
     /**
      * Uninitialize the company domain.
      */
-    async startDomainTeardown(): Promise<AxiosResponse> {
+    async startDomainTeardown(): Promise<AxiosResponse<any>> {
         return this.invokeApi('/domain/startTeardown', 'POST');
     }
 
     /**
      * Perform the setup steps for the domain.
      */
-    async setupDomain(): Promise<AxiosResponse> {
+    async setupDomain(): Promise<AxiosResponse<any>> {
         return this.invokeApi('/domain/setup', 'POST');
     }
 
     /**
      * Get interactive expose mapping. Default mapping is just named so, cause of convienience
      */
-    async getMappingOrDefault(schemaId: string = 'defaultMapping'): Promise<AxiosResponse> {
+    async getMappingOrDefault(schemaId: string = 'defaultMapping'): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/mapping/${schemaId}`, 'GET');
     }
 
     /**
      * Get interactive expose mapping. Default mapping is just named so, cause of convienience
      */
-    async getAllMappings(): Promise<AxiosResponse> {
+    async getAllMappings(): Promise<AxiosResponse<any>> {
         return this.invokeApi('/mapping/all', 'GET');
     }
 
     /**
      * Update interactive expose mapping
      */
-    async updateMapping(mapping: InteractiveExposeMapping): Promise<AxiosResponse> {
+    async updateMapping(mapping: InteractiveExposeMapping): Promise<AxiosResponse<any>> {
         return this.invokeApi('/mapping', 'PUT', mapping);
     }
 
     /**
      * Put restored example legislation texts into the company scoped default mapping
      */
-    async restoreDefaults(): Promise<AxiosResponse> {
+    async restoreDefaults(): Promise<AxiosResponse<any>> {
         return this.invokeApi('/mapping/restoreDefaults', 'PUT', undefined, {
             headers: { 'Content-Type': 'application/json' },
         });
@@ -235,7 +235,7 @@ export class InteractiveExposeService extends APIClient {
     /**
      * Sets the last activity time of the user session
      */
-    keepAlive(token: string, userSessionId: string): Promise<AxiosResponse> {
+    keepAlive(token: string, userSessionId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(
             '/public/interactiveExposes/keepAlive',
             'GET',

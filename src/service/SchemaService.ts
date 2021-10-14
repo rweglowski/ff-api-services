@@ -10,7 +10,7 @@ export class SchemaService extends APIClient {
      * TODO: Please comment this method
      * @param withGroups
      */
-    async loadStats(withGroups: boolean = false): Promise<AxiosResponse> {
+    async loadStats(withGroups: boolean = false): Promise<AxiosResponse<any>> {
         const additionalParams = withGroups ? { queryParams: { groups: 'true' } } : undefined;
         return await this.invokeApi('/stats', 'GET', undefined, additionalParams);
     }
@@ -20,7 +20,7 @@ export class SchemaService extends APIClient {
      * @param withGroups
      * @param short
      */
-    async fetchAllSchemas(withGroups: boolean = false, short: boolean = false): Promise<AxiosResponse> {
+    async fetchAllSchemas(withGroups: boolean = false, short: boolean = false): Promise<AxiosResponse<any>> {
         let queryParams: any = {
             transform: true,
         };
@@ -42,7 +42,7 @@ export class SchemaService extends APIClient {
      * @param page
      * @param size
      */
-    async fetchDataBySchemaId(schemaId: string, page: number = 1, size?: number): Promise<AxiosResponse> {
+    async fetchDataBySchemaId(schemaId: string, page: number = 1, size?: number): Promise<AxiosResponse<any>> {
         let queryParams: any = {
             page: page.toString(),
         };
@@ -58,7 +58,7 @@ export class SchemaService extends APIClient {
      * @param schemaId
      * @param queryParams
      */
-    async fetchSchema(schemaId: string, queryParams: any = {}): Promise<AxiosResponse> {
+    async fetchSchema(schemaId: string, queryParams: any = {}): Promise<AxiosResponse<any>> {
         queryParams.transform = true;
         return this.invokeApi(`/schemas/${schemaId}`, 'GET', undefined, { queryParams });
     }
@@ -68,7 +68,7 @@ export class SchemaService extends APIClient {
      * Creates a schema
      * @param schema
      */
-    async createSchema(schema: any): Promise<AxiosResponse> {
+    async createSchema(schema: any): Promise<AxiosResponse<any>> {
         return this.invokeApi('/schemas?transform=true', 'POST', schema);
     }
 
@@ -77,7 +77,7 @@ export class SchemaService extends APIClient {
      * Deletes a schema
      * @param schemaId
      */
-    async deleteSchema(schemaId: string): Promise<AxiosResponse> {
+    async deleteSchema(schemaId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/schemas/${schemaId}`, 'DELETE');
     }
 
@@ -87,7 +87,7 @@ export class SchemaService extends APIClient {
      * @constructor
      * @param {string} key - if you are sure you want delete all schemas then set key = DELETE
      */
-    async deleteAllSchema(key: string): Promise<AxiosResponse> {
+    async deleteAllSchema(key: string): Promise<AxiosResponse<any>> {
         if (!key || key !== 'DELETE') {
             return Promise.reject('you need to set key = DELETE if you are sure you want delete all schemas');
         }
@@ -99,7 +99,7 @@ export class SchemaService extends APIClient {
      * Updates a schema
      * @param schema
      */
-    async updateSchema(schema: any): Promise<AxiosResponse> {
+    async updateSchema(schema: any): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/schemas/${schema.id}?transform=true`, 'PUT', schema);
     }
 
@@ -107,7 +107,7 @@ export class SchemaService extends APIClient {
      * Fetchs a transformed integration by his id.
      * @param integrationId
      */
-    async fetchIntegration(integrationId: string): Promise<AxiosResponse> {
+    async fetchIntegration(integrationId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/integrations/${integrationId}`, 'GET', undefined, {
             queryParams: {
                 transform: true,
@@ -119,7 +119,7 @@ export class SchemaService extends APIClient {
      * TODO: Please comment this method
      * @param schemaId
      */
-    async fetchIntegrationsForSchema(schemaId: string): Promise<AxiosResponse> {
+    async fetchIntegrationsForSchema(schemaId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/integrations?schemaId=${schemaId}&transform=true`, 'GET');
     }
 
@@ -128,7 +128,7 @@ export class SchemaService extends APIClient {
      * @param schemaId
      * @param label
      */
-    async createIntegrationForSchema(schemaId: string, label: string): Promise<AxiosResponse> {
+    async createIntegrationForSchema(schemaId: string, label: string): Promise<AxiosResponse<any>> {
         const integration = {
             schemaId: schemaId,
             label: label,
@@ -141,7 +141,7 @@ export class SchemaService extends APIClient {
      * @param integrationId
      * @param data
      */
-    async updateIntegrationFormData(integrationId: string, data: any): Promise<AxiosResponse> {
+    async updateIntegrationFormData(integrationId: string, data: any): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/integrations/${integrationId}/formdata?transform=true`, 'POST', data);
     }
 
@@ -150,7 +150,7 @@ export class SchemaService extends APIClient {
      * @param integrationId
      * @param data
      */
-    async updateIntegration(integrationId: string, data: any): Promise<AxiosResponse> {
+    async updateIntegration(integrationId: string, data: any): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/integrations/${integrationId}`, 'PUT', data);
     }
 
@@ -158,7 +158,7 @@ export class SchemaService extends APIClient {
      * Delete an integration by the representing id.
      * @param integrationId
      */
-    async deleteIntegration(integrationId: string): Promise<AxiosResponse> {
+    async deleteIntegration(integrationId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/integrations/${integrationId}`, 'DELETE');
     }
 
@@ -166,7 +166,7 @@ export class SchemaService extends APIClient {
      * TODO: Please comment this method
      * @param url
      */
-    async fetchResponseForIntegrationGetUrlByUrl(url: string): Promise<AxiosResponse> {
+    async fetchResponseForIntegrationGetUrlByUrl(url: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(url, 'GET');
     }
 
@@ -174,7 +174,7 @@ export class SchemaService extends APIClient {
      * TODO: Please comment this method
      * @param integrationId
      */
-    async fetchResponseForIntegrationGetUrlById(integrationId: string): Promise<AxiosResponse> {
+    async fetchResponseForIntegrationGetUrlById(integrationId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/integrations/${integrationId}/data`, 'GET');
     }
 
@@ -183,14 +183,14 @@ export class SchemaService extends APIClient {
      * Retrieves all members (schemas) of a given groupId
      * @param groupId
      */
-    async fetchAllMembersOfGroup(groupId: string): Promise<AxiosResponse> {
+    async fetchAllMembersOfGroup(groupId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/groups/${groupId}/members`, 'GET');
     }
 
     /**
      * Fetches all complex data types
      */
-    async fetchDataTypes(): Promise<AxiosResponse> {
+    async fetchDataTypes(): Promise<AxiosResponse<any>> {
         return this.invokeApi('/datatypes/alltypes', 'GET', undefined, {
             queryParams: {
                 transform: true,

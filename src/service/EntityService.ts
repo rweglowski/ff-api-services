@@ -62,7 +62,7 @@ export class EntityService extends APIClient {
      * @param entity
      * @return the created entity id
      */
-    async createEntity(schemaId: string, entity: any): Promise<AxiosResponse> {
+    async createEntity(schemaId: string, entity: any): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/schemas/${schemaId}`, 'POST', entity || {});
     }
 
@@ -77,7 +77,7 @@ export class EntityService extends APIClient {
      *      The entity of the previous entity
      * @return the created entity id
      */
-    async createEntityFromPrevious(schemaName: string, previousSchemaName: string, previousEntityId: string): Promise<AxiosResponse> {
+    async createEntityFromPrevious(schemaName: string, previousSchemaName: string, previousEntityId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/schemas/${schemaName}/previous`, 'POST', undefined, {
             queryParams: {
                 previousSchemaName,
@@ -92,7 +92,7 @@ export class EntityService extends APIClient {
      * @param entityId
      * @param viewId
      */
-    async stringifyEntity(schemaId: string, entityId: string, viewId: string = 'EntityRelationView'): Promise<AxiosResponse> {
+    async stringifyEntity(schemaId: string, entityId: string, viewId: string = 'EntityRelationView'): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/views/${viewId}/schemas/${schemaId}/entities/${entityId}/stringify`);
     }
 
@@ -238,7 +238,7 @@ export class EntityService extends APIClient {
      * @param page
      * @deprecated Please use the history-service instead.
      */
-    async fetchHistory(schemaId: string, entityId: string, page: number): Promise<AxiosResponse> {
+    async fetchHistory(schemaId: string, entityId: string, page: number): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/schemas/${schemaId}/entities/${entityId}/history?page=${page}&size=15&order=DESC`, 'GET');
     }
 
@@ -249,7 +249,7 @@ export class EntityService extends APIClient {
      * @param userId
      * @param accessType
      */
-    async hasAccessForSingleEntity(schemaId: string, entityId: string, userId: string, accessType: EntityACLType): Promise<AxiosResponse> {
+    async hasAccessForSingleEntity(schemaId: string, entityId: string, userId: string, accessType: EntityACLType): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/schemas/${schemaId}/entities/${entityId}/users/${userId}/hasaccess/${accessType}`, 'GET');
     }
 

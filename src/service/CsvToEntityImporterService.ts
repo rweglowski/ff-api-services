@@ -12,7 +12,7 @@ export class CsvToEntityImporterService extends APIClient {
      * @param targetSchema
      * @param delimiter
      */
-    async uploadCsvFile(file: FormData, targetSchema: string, delimiter: string = ','): Promise<AxiosResponse> {
+    async uploadCsvFile(file: FormData, targetSchema: string, delimiter: string = ','): Promise<AxiosResponse<any>> {
         return (await this.invokeApi(`/upload?targetSchema=${targetSchema}&delimiter=${delimiter}`, 'POST', file)).data;
     }
 }

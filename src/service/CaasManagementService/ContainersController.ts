@@ -85,7 +85,7 @@ export class ContainersController extends APIClient {
      * GETs the given url and returns the respose
      * @param url
      */
-    async pingUrl(url: string): Promise<AxiosResponse> {
+    async pingUrl(url: string): Promise<AxiosResponse<any>> {
         return axios.get(url);
     }
 

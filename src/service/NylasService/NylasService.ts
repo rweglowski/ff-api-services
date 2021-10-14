@@ -16,7 +16,7 @@ export class NylasService extends APIClient {
      * Authorize a user with the code from the nylas callback
      * @param code
      */
-    async authorizeUser(code: string, isGmail: boolean = false): Promise<AxiosResponse> {
+    async authorizeUser(code: string, isGmail: boolean = false): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/account', 'POST', undefined, {
             queryParams: {
                 command: 'authorize',
@@ -31,7 +31,7 @@ export class NylasService extends APIClient {
      * Authorize a user with specific credentials
      * @param authRequest IMAP/SMTP credentials
      */
-    async nativeAuth(authRequest: AuthRequest): Promise<AxiosResponse> {
+    async nativeAuth(authRequest: AuthRequest): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/account', 'POST', authRequest, {
             queryParams: {
                 nativeAuth: true,
@@ -44,7 +44,7 @@ export class NylasService extends APIClient {
      * Reactivates a 'cancelled' account and sets it back to 'paid' in nylas
      * @param email the email address to reactivate
      */
-    async reactivate(email: string): Promise<AxiosResponse> {
+    async reactivate(email: string): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/reactivate', 'POST', undefined, {
             queryParams: {
                 email: email,
@@ -145,7 +145,7 @@ export class NylasService extends APIClient {
      * Sets the email account values to the supplied settings, nulls them if they are left out
      * @param config
      */
-    async overwriteSettings(config: NylasConfigPatch): Promise<AxiosResponse> {
+    async overwriteSettings(config: NylasConfigPatch): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/config', 'POST', config);
     }
 
@@ -153,7 +153,7 @@ export class NylasService extends APIClient {
      * Updates the settings to the specified values, keeps existing values if none are supplied
      * @param config
      */
-    async updateSettings(config: NylasConfigPatch): Promise<AxiosResponse> {
+    async updateSettings(config: NylasConfigPatch): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/config', 'PATCH', config);
     }
 
@@ -162,7 +162,7 @@ export class NylasService extends APIClient {
      */
 
     /* UNDER DEVELOPMENT; DOES NOT WORK YET */
-    async deleteAccount(email: string): Promise<AxiosResponse> {
+    async deleteAccount(email: string): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/account', 'DELETE', undefined, {
             queryParams: {
                 email: email,
@@ -174,7 +174,7 @@ export class NylasService extends APIClient {
      * This method returns all information of the given provider.
      * @param mail
      */
-    async fetchMailSettings(mail: string): Promise<AxiosResponse> {
+    async fetchMailSettings(mail: string): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/mailsettings', 'POST', {
             mail: mail,
         });
@@ -184,7 +184,7 @@ export class NylasService extends APIClient {
      * This method returns all available calendars for the account
      * @param email
      */
-    async fetchCalendars(email: string): Promise<AxiosResponse> {
+    async fetchCalendars(email: string): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/nylas/calendars', 'GET', undefined, {
             queryParams: {
                 email: email,

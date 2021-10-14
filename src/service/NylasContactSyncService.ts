@@ -40,7 +40,7 @@ export class NylasContactSyncService extends APIClient {
      * Delete a syncEntry by it's id
      * @param {string} syncEntryId - The id of a syncEntry
      */
-    deleteSyncEntryById = async (syncEntryId: string): Promise<AxiosResponse> => {
+    deleteSyncEntryById = async (syncEntryId: string): Promise<AxiosResponse<any>> => {
         return await this.invokeApi(`/syncEntries/${syncEntryId}`, 'DELETE');
     };
 }

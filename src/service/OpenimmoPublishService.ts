@@ -7,7 +7,7 @@ export class OpenimmoPublishService extends APIClient {
         super(APIMapping.openimmoPublishService);
     }
 
-    async downloadZip(publishRequest: PublishRequest): Promise<AxiosResponse> {
+    async downloadZip(publishRequest: PublishRequest): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/service/downloadZip', 'POST', publishRequest);
     }
 }

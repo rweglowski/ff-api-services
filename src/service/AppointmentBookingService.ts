@@ -14,14 +14,14 @@ export class AppointmentBookingService extends APIClient {
     /**
      * fetches All objects from the current user.
      */
-    async fetchAllObjects(): Promise<AxiosResponse> {
+    async fetchAllObjects(): Promise<AxiosResponse<any>> {
         return this.invokeApi('/objectlist', 'GET');
     }
 
     /**
      * fetches All Events (possible and existing)
      */
-    async fetchAllEvents(): Promise<AxiosResponse> {
+    async fetchAllEvents(): Promise<AxiosResponse<any>> {
         return this.invokeApi('/eventlist', 'GET');
     }
 
@@ -29,7 +29,7 @@ export class AppointmentBookingService extends APIClient {
      * posts the provided config against the service. New eventslots will be created)
      * @param config
      */
-    async addConfig(config: any): Promise<AxiosResponse> {
+    async addConfig(config: any): Promise<AxiosResponse<any>> {
         return this.invokeApi('/eventconfig', 'POST', config);
     }
 
@@ -37,7 +37,7 @@ export class AppointmentBookingService extends APIClient {
      * Posts the eventId against the service. This event will be deleted.
      * @param eventId
      */
-    async deleteEvent(eventId: any): Promise<AxiosResponse> {
+    async deleteEvent(eventId: any): Promise<AxiosResponse<any>> {
         return this.invokeApi('/eventconfig/delete/event', 'POST', { eventSlotId: eventId });
     }
 
@@ -45,7 +45,7 @@ export class AppointmentBookingService extends APIClient {
      * This Get ressource returns all information needed for the view to display the prospect-booking-views
      * @param token
      */
-    async fetchAppointmentRequestData(token: any): Promise<AxiosResponse> {
+    async fetchAppointmentRequestData(token: any): Promise<AxiosResponse<any>> {
         return this.invokeApi('/public/request/' + token, 'GET');
     }
 
@@ -54,7 +54,7 @@ export class AppointmentBookingService extends APIClient {
      * @param token
      * @param appointment
      */
-    async bookAppointment(token: any, appointment: any): Promise<AxiosResponse> {
+    async bookAppointment(token: any, appointment: any): Promise<AxiosResponse<any>> {
         return this.invokeApi('/public/request/' + token, 'POST', appointment);
     }
 }
