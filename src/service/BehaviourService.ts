@@ -3,7 +3,7 @@ import { TrackingEvent } from '@flowfact/types';
 
 export class BehaviourService extends APIClient {
     private events: TrackingEvent[] = [];
-    private dataDogEvents: any
+    private dataDogEvents: any[] = []
     private timeout?: number;
 
     constructor() {
