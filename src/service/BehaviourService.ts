@@ -58,7 +58,7 @@ export class BehaviourService extends APIClient {
 
         //reset timeout and trigger again
         this.dataDogEventTimeout = setTimeout(() => {
-            this.timeout = undefined;
+            this.dataDogEventTimeout = undefined;
             this.postDataDogActionEvent()
         }, 5000) as any;
     };
