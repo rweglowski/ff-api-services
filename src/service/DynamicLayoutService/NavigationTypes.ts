@@ -9,6 +9,7 @@ export namespace NavigationTypes {
     export interface Access {
         acps?: ACP[];
         hideFromCrm?: boolean;
+        showForUserRoles?: string[];
     }
 
     export interface BaseItem {
