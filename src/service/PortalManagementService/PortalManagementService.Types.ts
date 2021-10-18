@@ -65,7 +65,7 @@ export namespace PortalManagementTypes {
         ftpConnectionType?: 'FTP';
         ftpPort?: number;
         ftpServer?: string;
-        id?: string;
+        id: string;
         loginName?: string;
         logo?: string;
         name?: string;

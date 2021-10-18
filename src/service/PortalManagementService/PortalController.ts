@@ -69,7 +69,7 @@ export class PortalController extends APIClient {
     /**
      * TODO: Please comment this method
      */
-    async create(portalType: PortalType, portal?: Portal, additionalParams?: APIClientAdditionalParams) {
+    async create(portalType: PortalType, portal?: Omit<Portal, 'id' | 'fullUpdate' | 'authenticated'>, additionalParams?: APIClientAdditionalParams) {
         return await this.invokeApiWithErrorHandling<Portal>(`/portals/create/${portalType}`, 'POST', portal, {
             headers: {
                 'Content-Type': 'application/json',
