@@ -158,6 +158,25 @@ export class NylasService extends APIClient {
     }
 
     /**
+     * Sets user default email
+     * @param email
+     */
+    async setDefaultEmail(email: string): Promise<AxiosResponse<any>> {
+        return await this.invokeApi('/default-account', 'POST', undefined, {
+            queryParams: {
+                email: email,
+            },
+        });
+    }
+
+    /**
+     * Removes user default email
+     */
+    async removeDefaultEmail(): Promise<AxiosResponse<any>> {
+        return await this.invokeApi('/default-account', 'DELETE');
+    }
+
+    /**
      * TODO: Please comment this method
      */
 
