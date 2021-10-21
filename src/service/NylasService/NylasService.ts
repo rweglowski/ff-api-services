@@ -161,7 +161,7 @@ export class NylasService extends APIClient {
      * Sets user default email
      * @param email
      */
-    async saveDefaultEmail(email: string): Promise<ApiResponse<void>> {
+    async saveDefaultEmail(email: string) {
         return await this.invokeApiWithErrorHandling<void>('/default-account', 'POST', undefined, {
             queryParams: {
                 email: email,
@@ -172,7 +172,7 @@ export class NylasService extends APIClient {
     /**
      * Removes user default email
      */
-    async removeDefaultEmail(): Promise<ApiResponse<void>> {
+    async removeDefaultEmail() {
         return await this.invokeApiWithErrorHandling<void>('/default-account', 'DELETE');
     }
 
