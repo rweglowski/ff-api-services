@@ -33,9 +33,7 @@ export namespace EmailServiceTypes {
         cc: AddressItem[];
         body: string,
         subject: string,
-        headers: {
-            [key: string]: string;
-        }[];
+        headers: Record<string, string>[];
         unread: boolean,
         date: number,
         files: NylasFile[],

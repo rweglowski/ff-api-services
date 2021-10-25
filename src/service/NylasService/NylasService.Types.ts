@@ -60,8 +60,6 @@ export namespace NylasServiceTypes {
     export interface RunningMailAccountResponse {
         id: string;
         satisfied: boolean;
-        detailedResult: {
-            [key: string]: boolean;
-        }[];
+        detailedResult: Record<string, boolean>[];
     }
 }
