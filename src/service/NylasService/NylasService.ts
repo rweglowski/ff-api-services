@@ -1,4 +1,5 @@
 import {
+    AccountInfo,
     AuthRequest,
     NylasConfig,
     NylasConfigPatch,
@@ -9,8 +10,6 @@ import { AxiosResponse, CancelToken } from 'axios';
 import { APIClient, APIMapping, ApiResponse } from '../../http';
 import { NylasServiceTypes } from './NylasService.Types';
 import SchedulerPage = NylasServiceTypes.SchedulerPage;
-import AccountInfo = NylasServiceTypes.AccountInfo;
-import ManualAccount = NylasServiceTypes.ManualAccount;
 import RunningMailAccountResponse = NylasServiceTypes.RunningMailAccountResponse;
 
 /**
@@ -251,7 +250,7 @@ export class NylasService extends APIClient {
      * Adds manual account that will be used by the Outlook Add In for manual synchronisation.
      * @param account
      */
-    async addManualAccount(account: ManualAccount) {
+    async addManualAccount(account: AccountInfo) {
         return await this.invokeApiWithErrorHandling('/manual-account', 'POST', account);
     }
 }

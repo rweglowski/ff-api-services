@@ -57,24 +57,6 @@ export namespace NylasServiceTypes {
         end: string;
     }
 
-    export interface ManualAccount {
-        companyId: string;
-        creator: string;
-        ownerId: string;
-        email: string;
-    }
-
-    export interface AccountInfo {
-        accountId: string;
-        accountType: string;
-        email: string;
-        ireland: boolean;
-        ownerId: string;
-        settings?: {
-            [key: string]: string;
-        },
-    }
-
     export interface RunningMailAccountResponse {
         id: string;
         satisfied: boolean;
