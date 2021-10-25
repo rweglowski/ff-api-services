@@ -114,6 +114,7 @@ const APIMapping = {
     userLogout: new APIService('user-logout-service'),
     entityFieldCalculationService: new APIService('entity-field-calculation-service'),
     alternativeCompanyDataService: new APIService('alternative-company-data-service'),
+    calendarSyncService: new APIService('calendar-sync-service'),
 };
 
 export default APIMapping;

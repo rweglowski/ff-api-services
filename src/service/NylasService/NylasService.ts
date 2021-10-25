@@ -1,8 +1,16 @@
-import { AuthRequest, NylasConfig, NylasConfigPatch, RegistrationUrl, SendEmailRequest } from '@flowfact/types';
+import {
+    AccountInfo,
+    AuthRequest,
+    NylasConfig,
+    NylasConfigPatch,
+    RegistrationUrl,
+    SendEmailRequest
+} from '@flowfact/types';
 import { AxiosResponse, CancelToken } from 'axios';
 import { APIClient, APIMapping, ApiResponse } from '../../http';
 import { NylasServiceTypes } from './NylasService.Types';
 import SchedulerPage = NylasServiceTypes.SchedulerPage;
+import RunningMailAccountResponse = NylasServiceTypes.RunningMailAccountResponse;
 
 /**
  * See https://docs.nylas.com/reference for more info
@@ -236,6 +244,33 @@ export class NylasService extends APIClient {
      */
     async deleteSchedulerPage(accountId: string, pageId: number) {
         return await this.invokeApi<string>(`/schedule/manage/pages/${pageId}?account_id=${accountId}`, 'DELETE');
+    }
+
+    /**
+     * Gets Nylas account info by email.
+     * @param email
+     */
+    async getAccountInfo(email: string) {
+        return await this.invokeApiWithErrorHandling<AccountInfo>('/account-info', 'GET', undefined, {
+            queryParams: {
+                email: email,
+            },
+        });
+    }
+
+    /**
+     * Gets all Nylas accounts with status running.
+     */
+    async getRunningMailAccounts() {
+        return await this.invokeApiWithErrorHandling<RunningMailAccountResponse>('/preconditions/runningMailAccounts', 'GET');
+    }
+
+    /**
+     * Adds manual account that will be used by the Outlook Add In for manual synchronisation.
+     * @param account
+     */
+    async addManualAccount(account: AccountInfo) {
+        return await this.invokeApiWithErrorHandling('/manual-account', 'POST', account);
     }
 }
 
