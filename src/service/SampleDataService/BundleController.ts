@@ -13,7 +13,7 @@ export class BundleController extends APIClient {
      * @param scope of FLOWFACT or CUSTOM
      * @param onlySelectableByCustomer as undefined, true or false. When not set, returns all.
      */
-    async fetchBundles(scope: 'FLOWFACT' | 'CUSTOM' = 'FLOWFACT', onlySelectableByCustomer: boolean) {
+    async fetchBundles(scope: 'FLOWFACT' | 'CUSTOM' = 'FLOWFACT', onlySelectableByCustomer: boolean | undefined) {
         return await this.invokeApiWithErrorHandling<Bundles>('/bundles', 'GET', undefined, {
             queryParams: {
                 scope: scope,
