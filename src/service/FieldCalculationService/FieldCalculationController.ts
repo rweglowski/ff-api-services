@@ -12,6 +12,6 @@ export class FieldCalculationController extends APIClient {
      * @param alsoRecalculateReferencingEntities
      */
     async recalculate(entityId: string, alsoRecalculateReferencedEntities?: boolean, alsoRecalculateReferencingEntities?: boolean) {
-        return await this.invokeApiWithErrorHandling(`/entity-calculations/entities/${entityId}?alsoRecalculateReferencedEntities=${alsoRecalculateReferencedEntities}alsoRecalculateReferencingEntities=false`, 'POST');
+        return await this.invokeApiWithErrorHandling(`/entity-calculations/entities/${entityId}?alsoRecalculateReferencedEntities=false&alsoRecalculateReferencingEntities=${alsoRecalculateReferencingEntities}`, 'POST');
     }
 }
