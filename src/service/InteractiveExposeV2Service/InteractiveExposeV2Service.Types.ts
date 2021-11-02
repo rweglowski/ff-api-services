@@ -38,6 +38,7 @@ export namespace InteractiveExposeV2ServiceTypes {
         iexAttachDocuments: boolean;
         iexAttachIEX: boolean;
         iexHideGlobalTemplates: boolean;
+        iexDefaultPersonalNote?: string;
     }
 
     export interface PublishTemplateRequest {
