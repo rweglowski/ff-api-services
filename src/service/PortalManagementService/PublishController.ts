@@ -14,7 +14,7 @@ export class PublishController extends APIClient {
      * @param publishRequest
      * */
     async publishEstates(publishRequest: PublishRequest) {
-        return await this.invokeApiWithErrorHandling<PublishRequest>('/publish', 'POST', publishRequest);
+        return await this.invokeApiWithErrorHandling<void>('/publish', 'POST', publishRequest);
     }
 
     /**
