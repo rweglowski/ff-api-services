@@ -3,6 +3,7 @@ import { PortalManagementTypes } from './PortalManagementService.Types';
 import PublishRequest = PortalManagementTypes.PublishRequest;
 import BulkPublishRequest = PortalManagementTypes.BulkPublishRequest;
 import PublishBulkResponse = PortalManagementTypes.PublishBulkResponse;
+import PublishResponse = PortalManagementTypes.PublishResponse;
 
 export class PublishController extends APIClient {
     constructor() {
@@ -14,7 +15,7 @@ export class PublishController extends APIClient {
      * @param publishRequest
      * */
     async publishEstates(publishRequest: PublishRequest) {
-        return await this.invokeApiWithErrorHandling<void>('/publish', 'POST', publishRequest);
+        return await this.invokeApiWithErrorHandling<PublishResponse | void>('/publish', 'POST', publishRequest);
     }
 
     /**
