@@ -68,7 +68,12 @@ export namespace PortalManagementTypes {
 
     export interface DetailedMessage {
         originalMessage: string;
-        validationError: string | null;
+        validationError: ValidationError | null;
+    }
+
+    export interface ValidationError {
+        translatedMessage: string;
+        type: string
     }
 
     export interface PublishRequestEntry {
