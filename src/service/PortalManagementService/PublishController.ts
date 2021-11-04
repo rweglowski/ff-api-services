@@ -13,6 +13,7 @@ export class PublishController extends APIClient {
     /**
      * Allows publishing(ONLINE/OFFLINE) estates to portal
      * @param publishRequest
+     * @return {void} when kafka is enabled AND portal type is not Wordpress. Otherwise return {PublishResponse}
      * */
     async publishEstates(publishRequest: PublishRequest) {
         return await this.invokeApiWithErrorHandling<PublishResponse | void>('/publish', 'POST', publishRequest);
