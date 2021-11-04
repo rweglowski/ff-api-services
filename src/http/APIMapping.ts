@@ -115,6 +115,7 @@ const APIMapping = {
     entityFieldCalculationService: new APIService('entity-field-calculation-service'),
     alternativeCompanyDataService: new APIService('alternative-company-data-service'),
     calendarSyncService: new APIService('calendar-sync-service'),
+    featureToggleService: new APIService('feature-toggle-service'),
 };
 
 export default APIMapping;

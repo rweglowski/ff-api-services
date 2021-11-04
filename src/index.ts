@@ -88,6 +88,7 @@ export * from './service/FieldCalculationService';
 export * from './service/SoftLinksEntityService';
 export * from './service/CsvDataToEntityImporterService';
 export * from './service/CalendarSyncService';
+export * from './service/FeatureToggleService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
