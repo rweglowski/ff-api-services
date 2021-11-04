@@ -43,6 +43,39 @@ export namespace PortalManagementTypes {
         portalType?: PortalType;
     }
 
+    export interface PublishResponse {
+        companyId: string;
+        userId: string;
+        errors: PublishResponseEntry[];
+        warnings: PublishResponseEntry[];
+        successFullyTransfered: PublishResponseEntry[];
+    }
+
+    export interface PublishResponseEntry {
+        detailedMessages: DetailedMessage[];
+        entityId: string;
+        externalId: string | null;
+        messages: string[];
+        portalId: string | null;
+        publishChannels: PublishChannel[];
+        schema: string | null;
+        schemaId: string | null;
+        showAddress: boolean | null;
+        targetStatus: PortalEstateStatusType | null;
+        timestamp: number | null;
+        usedIdForPortal: string | null;
+    }
+
+    export interface DetailedMessage {
+        originalMessage: string;
+        validationError: ValidationError | null;
+    }
+
+    export interface ValidationError {
+        translatedMessage: string;
+        type: string
+    }
+
     export interface PublishRequestEntry {
         entityId: string;
         externalId?: string;
