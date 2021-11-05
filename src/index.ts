@@ -84,7 +84,6 @@ export * from './service/AdminTokenService';
 export * from './service/PoiService';
 export * from './service/EntityFieldCalculationService';
 export * from './service/AlternativeCompanyDataService';
-export * from './service/FieldCalculationService';
 export * from './service/SoftLinksEntityService';
 export * from './service/CsvDataToEntityImporterService';
 export * from './service/CalendarSyncService';
