@@ -58,6 +58,7 @@ const APIMapping = {
     fullTextSearchService: new APIService('full-text-search-service'),
     funnelService: new APIService('funnel-service'),
     gdprService: new APIService('gdpr-service'),
+    globalChangeService: new APIService('global-change-lambda'),
     geoInformationService: new APIService('geo-information-service'),
     geolocationService: new APIService('geolocation-service'),
     importPreparationService: new APIService('import-preparation-service'),

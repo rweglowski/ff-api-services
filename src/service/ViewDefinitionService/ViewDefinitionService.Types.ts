@@ -32,6 +32,7 @@ export type ViewType = 'DEFAULT' | 'LIST' | 'CARD' | 'CALENDAR' | 'MAP' | 'ENTIT
 
 export enum ViewActionTypes {
     ACCESS_RIGHTS = 'ACCESS_RIGHTS',
+    CANCEL_GLOBAL_CHANGE = 'CANCEL_GLOBAL_CHANGE',
     CHANGE_INQUIRY_STATE = 'CHANGE_INQUIRY_STATE',
     CHANGE_INQUIRY_STATUS = 'CHANGE_INQUIRY_STATUS',
     COMPLETE_STATUS = 'COMPLETE_STATUS',
@@ -55,6 +56,7 @@ export enum ViewActionTypes {
     SEND_INTERACTIVE_EXPOSE_DRAFT = 'SEND_INTERACTIVE_EXPOSE_DRAFT',
     SEND_INTERACTIVE_EXPOSE_FROM_INQUIRY = 'SEND_INTERACTIVE_EXPOSE_FROM_INQUIRY',
 }
+
 export type ViewActionType = keyof typeof ViewActionTypes;
 
 export interface ViewDefinitionStatistic {
