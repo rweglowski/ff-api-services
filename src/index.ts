@@ -88,6 +88,7 @@ export * from './service/SoftLinksEntityService';
 export * from './service/CsvDataToEntityImporterService';
 export * from './service/CalendarSyncService';
 export * from './service/FeatureToggleService';
+export * from './service/GlobalChangeService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
