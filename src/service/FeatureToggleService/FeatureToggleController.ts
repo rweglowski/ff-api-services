@@ -5,7 +5,12 @@ export class FeatureToggleController extends APIClient {
         super(APIMapping.featureToggleService);
     }
 
-    async feature(featureName: string) {
+    /**
+     * fetch the state of a feature:
+     * true = enabled
+     * false = disabled
+     */
+    async fetchFeatureState(featureName: string) {
         return await this.invokeApiWithErrorHandling<boolean>(`/features/${featureName}`, 'GET');
     }
 }
