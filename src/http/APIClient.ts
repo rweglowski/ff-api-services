@@ -147,7 +147,7 @@ export class APIClient {
                 isSuccessful2xx: response.status >= 200 && response.status < 300,
                 ...response,
                 // response.data can also be '' for 204 for example. We always wants to return undefined in these cases!
-                data: response.data || undefined,
+                data: response.data || (typeof response.data === 'boolean' ? response.data : undefined),
             } as ApiSuccessResponse<T>;
         } catch (error) {
             return {
@@ -162,7 +162,7 @@ export class APIClient {
     }
 }
 
-export interface ApiSuccessResponse<T> extends AxiosResponse<T> {
+export interface ApiSuccessResponse<T = unknown> extends AxiosResponse<T> {
     isSuccessful2xx: boolean;
 }
 

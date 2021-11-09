@@ -90,4 +90,9 @@ export namespace GeoInformationsServiceTypes {
         geometry?: Geometry;
         metadata?: object;
     }
+
+    export enum CountryCode {
+        GERMANY = 'DE',
+        SWITZERLAND = 'CH'
+    }
 }
