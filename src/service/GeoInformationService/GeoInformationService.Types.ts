@@ -24,7 +24,11 @@ export namespace GeoInformationsServiceTypes {
         geometry: Geometry;
         id: string;
         isGlobal: boolean;
+
+        // for global polygons is always true
+        // for local polygons (isGlobal===false) hasGlobal says if we have global (isGlobal===true) polygon with same name
         hasGlobal:boolean;
+
         metadata: object;
         name: string;
         parent: string;

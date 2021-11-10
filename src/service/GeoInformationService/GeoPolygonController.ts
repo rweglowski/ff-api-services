@@ -53,7 +53,7 @@ export class GeoPolygonController extends APIClient {
      * return list of ids for all connected searches
      */
     async fetchConnectedSearches(name: string) {
-        return this.invokeApiWithErrorHandling<Array<string>>(`/polygons/${name}/searches`, 'GET');
+        return this.invokeApiWithErrorHandling<Array<string>>(`/polygons/${name}/entities`, 'GET');
     }
 
 }
