@@ -3,7 +3,7 @@ import { Entity, PagedResponse } from '@flowfact/types';
 import { MatchmakingTypes } from './Matchmaking.Types';
 import { Sort } from '@flowfact/node-flowdsl';
 
-const buildSortParameter = (sorting: Sort): string | undefined => {
+const buildSortParameter = (sorting?: Sort): string | undefined => {
     // converts sorting to a string like "+fieldName,-fieldName2"
     return sorting?.fields?.map((fieldName) => `${sorting.direction === 'ASC' ? '+' : '-'}${fieldName}`).join(',');
 };
@@ -25,7 +25,7 @@ export default class MatchController extends APIClient {
     async fetchMatchesBySearchProfile(
         searchProfileId: string,
         query: MatchmakingTypes.FilterQuery = {},
-        sorting: Sort,
+        sorting?: Sort,
         size: number = 10,
         offset: number = 0,
         returnIds: boolean = false
@@ -59,7 +59,7 @@ export default class MatchController extends APIClient {
     async fetchMatchesBySearchProfileBody(
         searchProfile: Entity,
         query: MatchmakingTypes.FilterQuery = {},
-        sorting: Sort,
+        sorting?: Sort,
         size: number = 10,
         offset: number = 0,
         returnIds: boolean = false
@@ -86,7 +86,7 @@ export default class MatchController extends APIClient {
     async fetchMatchesByEstate(
         estateId: string,
         query: MatchmakingTypes.FilterQuery = {},
-        sorting: Sort,
+        sorting?: Sort,
         size: number = 10,
         offset: number = 0,
         returnIds: boolean = false
