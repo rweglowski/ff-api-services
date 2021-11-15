@@ -20,16 +20,16 @@ export class SearchController extends APIClient {
 
     /**
      * fetch polygons list by names
-     * @param names
+     * @param names - e.g. "name1,name2,name3"
      */
     async fetchPolygonDetails(names: string) {
         return this.invokeApiWithErrorHandling<GeoInformationValue[]>(`/polygons/list?names=${names}&onlyMetadata=false`, 'GET');
     }
     /**
-     * fetch polygons metadata only by names
-     * @param names - e.g. "name1,name2,name3"
+     * fetch polygons metadata by names
+     * @param names
      */
-    async fetchPolygonsMetadata(names: string) {
+    async fetchPolygonsMetadata(names: string[]) {
         return this.invokeApiWithErrorHandling<GeoInformationMetadataOnly[]>(`/polygons/list?names=${names}&onlyMetadata=true`, 'GET');
     }
 }
