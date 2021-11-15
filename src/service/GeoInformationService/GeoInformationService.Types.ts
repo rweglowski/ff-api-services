@@ -34,6 +34,10 @@ export namespace GeoInformationsServiceTypes {
         parent: string;
     }
 
+    export interface GeoInformationMetadataOnly extends Omit<GeoInformationValue, "geometry">{
+        hasGeometry: boolean;
+    }
+
     export type Latitude = number;
 
     export type Longitude = number;
