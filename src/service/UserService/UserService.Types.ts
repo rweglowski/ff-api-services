@@ -26,6 +26,10 @@ export enum SsoType {
     COGNITO_SAML = 'COGNITO_SAML',
 }
 
+export enum SsoOrigin {
+    SCOUT_MANAGER = 'SCOUT_MANAGER',
+}
+
 export enum AdditionalFieldType {
     TEXT = 'TEXT',
     EMAIL_TEMPLATE = 'EMAIL_TEMPLATE',
@@ -59,6 +63,7 @@ export interface User {
     roles?: UserRole[];
     salutation?: string;
     sso?: SSO[];
+    ssoOrigin?: SsoOrigin;
     timestamp?: number;
     type?: UserType;
     language?: string;
