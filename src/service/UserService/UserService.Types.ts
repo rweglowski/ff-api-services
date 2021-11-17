@@ -28,6 +28,7 @@ export enum SsoType {
 
 export enum SsoOriginType {
     SCOUT_MANAGER = 'SCOUT_MANAGER',
+    SCOUT_MEMBERSHIP = 'SCOUT_MEMBERSHIP'
 }
 
 export enum AdditionalFieldType {
