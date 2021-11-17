@@ -24,6 +24,9 @@ export enum IdentifiedUserStatusCodes {
 export enum SsoType {
     SCOUT = 'SCOUT',
     COGNITO_SAML = 'COGNITO_SAML',
+}
+
+export enum SsoOriginType {
     SCOUT_MANAGER = 'SCOUT_MANAGER',
 }
 
@@ -60,7 +63,6 @@ export interface User {
     roles?: UserRole[];
     salutation?: string;
     sso?: SSO[];
-    ssoOrigin?: SsoType;
     timestamp?: number;
     type?: UserType;
     language?: string;
@@ -77,6 +79,7 @@ export interface UserTokenEntity {
 
 export interface SSO {
     ssoType: SsoType;
+    ssoOrigin?: SsoOriginType;
 }
 
 export interface SSOResponse {
