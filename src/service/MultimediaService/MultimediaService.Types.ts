@@ -49,6 +49,7 @@ export interface Album {
     descriptions?: Captions;
     categories: Category[];
     hidden: boolean;
+    companyId?: string;
 }
 
 export interface UploadResponse {
