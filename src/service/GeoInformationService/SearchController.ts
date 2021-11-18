@@ -19,11 +19,12 @@ export class SearchController extends APIClient {
     }
 
     /**
-     * fetch polygons list by names
-     * @param names - e.g. "name1,name2,name3"
+     * fetch polygons list by captions
+     * @param captions
+     * @param onlyMetadata
      */
-    async fetchPolygonDetails(names: string) {
-        return this.invokeApiWithErrorHandling<GeoInformationValue[]>(`/polygons/list?names=${names}&onlyMetadata=false`, 'GET');
+    async fetchPolygonDetails(captions: string, onlyMetadata: boolean = false) {
+        return this.invokeApiWithErrorHandling<GeoInformationValue[]>(`/polygons/list?names=${captions}&onlyMetadata=${onlyMetadata}`, 'GET');
     }
     /**
      * fetch polygons metadata by names
