@@ -39,6 +39,7 @@ export interface Category {
     maxItems?: number;
     sorting: number;
     allowedContentCategories: ContentCategory[];
+    companyId?: string;
 }
 
 export interface Album {
