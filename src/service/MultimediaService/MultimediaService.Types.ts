@@ -39,6 +39,7 @@ export interface Category {
     maxItems?: number;
     sorting: number;
     allowedContentCategories: ContentCategory[];
+    companyId?: string;
 }
 
 export interface Album {
@@ -49,6 +50,7 @@ export interface Album {
     descriptions?: Captions;
     categories: Category[];
     hidden: boolean;
+    companyId?: string;
 }
 
 export interface UploadResponse {

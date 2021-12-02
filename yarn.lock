@@ -1916,10 +1916,10 @@
   dependencies:
     tslib "^1.10.0"
 
-"@flowfact/types@9.20210820.203":
-  version "9.20210820.203"
-  resolved "https://registry.yarnpkg.com/@flowfact/types/-/types-9.20210820.203.tgz#99e0f98f3969dc53c81a7b3cb8b8c23bfa61b6d6"
-  integrity sha512-pGdJuwK/rbBtplafDONDruBx6g2HC5fW12uwFefOTMB90oOAi1n0j2SWPH4m9YnkWxFS6Gd/8BqdH8TbbH1GKA==
+"@flowfact/types@^10.20211126.221":
+  version "10.20211126.221"
+  resolved "https://registry.yarnpkg.com/@flowfact/types/-/types-10.20211126.221.tgz#1c5e3f44916553a611154e4ce3222f54165f905f"
+  integrity sha512-gCMWDv6NAaJTTsXICs0bwMrNJwxc6C+nosFbhJQhh6bZh+EZjCg/tpwk9tydLH/rnC3FXFM9jEOR7gZOBC2dyQ==
   dependencies:
     "@flowfact/node-flowdsl" "^2.20200810.37"
     "@types/node" "^11.15.4"
@@ -2246,10 +2246,10 @@ axios@0.21.4:
   dependencies:
     follow-redirects "^1.14.0"
 
-axios@0.22.0:
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.22.0.tgz#bf702c41fb50fbca4539589d839a077117b79b25"
-  integrity sha512-Z0U3uhqQeg1oNcihswf4ZD57O3NrR1+ZXhxaROaWpDmsDTx7T2HNBV2ulBtie2hwJptu8UvgnJoK+BIqdzh/1w==
+axios@0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.23.0.tgz#b0fa5d0948a8d1d75e3d5635238b6c4625b05149"
+  integrity sha512-NmvAE4i0YAv5cKq8zlDoPd1VLKAqX5oLuZKs8xkJa4qi6RGn0uhCYFjWtHHC9EM/MwOwYWOs53W+V0aqEXq1sg==
   dependencies:
     follow-redirects "^1.14.4"
 

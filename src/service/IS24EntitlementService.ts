@@ -11,7 +11,7 @@ export class IS24EntitlementService extends APIClient {
      * This method takes a temporary token created in the IS24 sso authentication flow and return cognito tokens.
      * @param temporaryToken
      */
-    async authenticate(temporaryToken: string): Promise<AxiosResponse> {
+    async authenticate(temporaryToken: string): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/public/authentication/cognito', 'GET', undefined, {
             queryParams: {
                 is24Token: temporaryToken,

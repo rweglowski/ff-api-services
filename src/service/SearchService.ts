@@ -13,7 +13,7 @@ export class SearchService extends APIClient {
      * Get all searches as short searches. Just the ID and the Name of the search
      * will be returned in a array.
      */
-    async fetchSearches(): Promise<AxiosResponse> {
+    async fetchSearches(): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/search', 'GET');
     }
 

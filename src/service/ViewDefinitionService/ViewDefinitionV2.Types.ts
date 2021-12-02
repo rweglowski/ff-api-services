@@ -75,4 +75,5 @@ export interface ViewDefinitionV2 {
     categories: ViewDefinitionV2Category[];
     defaultOrder?: string;
     filterConfiguration?: ViewDefinitionV2FilterConfiguration;
+    schema: string;
 }

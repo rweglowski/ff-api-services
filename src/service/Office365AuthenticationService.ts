@@ -10,7 +10,7 @@ export class Office365AuthenticationService extends APIClient {
      * TODO: Please comment this method
      * @param temporaryToken
      */
-    async authenticate(temporaryToken: string): Promise<AxiosResponse> {
+    async authenticate(temporaryToken: string): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/public/authentication/cognito', 'GET', undefined, {
             queryParams: {
                 temporaryToken: temporaryToken,
@@ -24,7 +24,7 @@ export class Office365AuthenticationService extends APIClient {
      * @param redirectUrl
      * @param clientId
      */
-    async registerContract(code: string, redirectUrl: string, clientId: string): Promise<AxiosResponse> {
+    async registerContract(code: string, redirectUrl: string, clientId: string): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/public/authentication/salesautomat', 'GET', undefined, {
             queryParams: {
                 code,

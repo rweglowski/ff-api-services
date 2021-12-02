@@ -56,4 +56,10 @@ export namespace NylasServiceTypes {
         start: string;
         end: string;
     }
+
+    export interface RunningMailAccountResponse {
+        id: string;
+        satisfied: boolean;
+        detailedResult: Record<string, boolean>[];
+    }
 }

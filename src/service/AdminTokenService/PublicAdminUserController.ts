@@ -8,7 +8,7 @@ export class PublicAdminUserController extends APIClient {
     /**
      * Authenticate the user with the platformToken and returns the cognitoToken
      * @param {string} platformToken
-     * @returns {Promise<AxiosResponse>}
+     * @returns {Promise<AxiosResponse<any>>}
      */
     async authenticate(platformToken: string) {
         return this.invokeApiWithErrorHandling('/public/adminUser/authenticate', 'GET', undefined, {
@@ -21,7 +21,7 @@ export class PublicAdminUserController extends APIClient {
     /**
      * Authenticate the user with the platformToken and returns the cognitoToken + username
      * @param {string} platformToken
-     * @returns {Promise<AxiosResponse>}
+     * @returns {Promise<AxiosResponse<any>>}
      */
     async authenticateAndReturnUsernameWithToken(platformToken: string) {
         return this.invokeApiWithErrorHandling('/public/adminUser/authenticateAndReturnUsernameWithToken', 'GET', undefined, {

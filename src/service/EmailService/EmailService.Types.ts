@@ -22,6 +22,37 @@ export namespace EmailServiceTypes {
         entityId?: string;
     }
 
+    export interface ManualSyncRequest {
+        emailAccount: string,
+        mails: NylasMail[]
+    }
+
+    interface NylasMail {
+        from: AddressItem[];
+        to: AddressItem[];
+        cc: AddressItem[];
+        body: string,
+        subject: string,
+        headers: Record<string, string>[];
+        unread: boolean,
+        date: number,
+        files: NylasFile[],
+    }
+
+    interface NylasFile {
+        filename: string;
+        size: number;
+        base64EncodedContent: string;
+        content_id: string;
+        content_type: string;
+        content_disposition: string;
+    }
+
+    interface AddressItem {
+        name?: string;
+        email: string;
+    }
+
     export enum EmailTemplate {
         AdviceInteractiveExpose = 'adviceInteractiveExpose',
         AdviceEmail = 'adviceEmail',

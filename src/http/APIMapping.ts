@@ -58,6 +58,7 @@ const APIMapping = {
     fullTextSearchService: new APIService('full-text-search-service'),
     funnelService: new APIService('funnel-service'),
     gdprService: new APIService('gdpr-service'),
+    globalChangeService: new APIService('global-change-lambda'),
     geoInformationService: new APIService('geo-information-service'),
     geolocationService: new APIService('geolocation-service'),
     importPreparationService: new APIService('import-preparation-service'),
@@ -114,6 +115,8 @@ const APIMapping = {
     userLogout: new APIService('user-logout-service'),
     entityFieldCalculationService: new APIService('entity-field-calculation-service'),
     alternativeCompanyDataService: new APIService('alternative-company-data-service'),
+    calendarSyncService: new APIService('calendar-sync-service'),
+    featureToggleService: new APIService('feature-toggle-service'),
 };
 
 export default APIMapping;
