@@ -62,4 +62,10 @@ export class UserLoginPolicyController extends APIClient {
         }
         return [];
     }
+    /**
+     * Check if user can login
+     */
+    async canLogin() {
+        return this.invokeApiWithErrorHandling<UserLogoutTypes.LoginPolicyValidationResponse>(`/user-login-verification`, 'GET');
+    }
 }

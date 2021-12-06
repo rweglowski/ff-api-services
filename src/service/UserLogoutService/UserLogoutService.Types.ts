@@ -56,4 +56,8 @@ export namespace UserLogoutTypes {
 
     export type UserLogoutPolicyListResponse = UserListDataResponse<UserLogoutPolicy>
     export type UserLoginPolicyListResponse = UserListDataResponse<UserLoginPolicy>
+
+    export interface LoginPolicyValidationResponse {
+        isLoginPolicyValid: boolean;
+    }
 }

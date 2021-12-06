@@ -53,6 +53,11 @@ export class UserLogoutController extends APIClient {
      * @param userId
      */
     async fetchPoliciesByUser(userId: string) {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicyListResponse>(`/user-logout-policy/users/${userId}`, 'GET');
+        const response = await this.invokeApiWithErrorHandling<UserLogoutTypes.UserLoginPolicyListResponse>(`/user-logout-policy/users/${userId}`, 'GET');
+        // This is temporary and will be removed when proper endpoint will be implemented
+        if (response.isSuccessful2xx && response.data) {
+            return response.data.entries.filter((item) => !Boolean(item.loginPolicy));
+        }
+        return [];
     }
 }
