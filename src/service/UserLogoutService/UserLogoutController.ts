@@ -8,36 +8,34 @@ export class UserLogoutController extends APIClient {
     }
 
     /**
-     * Creates and schedules a logout policy based on cron and reminder time
-     * @param trigger
-     * @param reminderNotificationMinutes
-     * @param userId
+     * Creates a Policy and schedule triggers/events
+     * @param policy
      */
-    async createLogoutData(trigger: UserLogoutTypes.UserLogoutPolicyRequestStringTimeTrigger, reminderNotificationMinutes: number, userId: string) {
-        const createModel: UserLogoutTypes.UserLogoutDataCreateRequest = {
-            trigger,
-            reminderNotificationMinutes,
-            userId,
+    async createPolicy(policy: UserLogoutTypes.UserLogoutPolicy) {
+        const createModel: UserLogoutTypes.UserLogoutPolicyCreateRequest = {
+            trigger: policy.trigger,
+            reminderNotificationMinutes: policy.reminderNotificationMinutes,
+            userId: policy.userId,
         };
 
-        return this.invokeApiWithErrorHandling('/user-logout-policy', 'POST', createModel);
+        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicy>('/user-logout-policy', 'POST', createModel);
     }
 
     /**
-     * Get the logout data for specific user
+     * fetch Policy by id
      * @param id
      */
-    async fetchLogoutData(id: string) {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicyRequest>(`/user-logout-policy/${id}`, 'GET');
+    async fetchPolicyById(id: string) {
+        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicy>(`/user-logout-policy/${id}`, 'GET');
     }
 
     /**
-     * Updates a logout policy by JSON patch method
+     * Updates a policy by JSON patch method
      * @param id
      * @param operations
      */
-    async patchLogoutPolicy(id: string, operations: JSONPatch[]) {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicyRequest>(`/user-logout-policy/${id}`, 'PATCH', operations, {
+    async patchPolicy(id: string, operations: JSONPatch[]) {
+        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicy>(`/user-logout-policy/${id}`, 'PATCH', operations, {
             headers: { 'Content-Type': 'application/json-patch+json' },
         });
     }
@@ -46,7 +44,7 @@ export class UserLogoutController extends APIClient {
      * Deletes the logout policy and all it's scheduled triggers/events
      * @param id
      */
-    async deleteLogoutData(id: string) {
+    async deletePolicy(id: string) {
         return this.invokeApiWithErrorHandling(`/user-logout-policy/${id}`, 'DELETE');
     }
 
@@ -54,7 +52,7 @@ export class UserLogoutController extends APIClient {
      * Get the logout data from users
      * @param userId
      */
-    async fetchLogoutDataByUser(userId: string) {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutDataResponse>(`/user-logout-policy/users/${userId}`, 'GET');
+    async fetchPoliciesByUser(userId: string) {
+        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicyListResponse>(`/user-logout-policy/users/${userId}`, 'GET');
     }
 }
