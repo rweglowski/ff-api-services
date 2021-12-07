@@ -2,23 +2,25 @@ import { APIClient, APIMapping } from '../../http';
 import { UserLogoutTypes } from './UserLogoutService.Types';
 import { JSONPatch } from '../DocumentTemplateService';
 
-export class UserLogoutController extends APIClient {
+export class UserLoginPolicyController extends APIClient {
     constructor() {
+        // this is not a mistake - it will be updated when backend will be implemented
         super(APIMapping.userLogout);
     }
 
     /**
-     * Creates a Policy and schedule triggers/events
+     * Create a Policy
      * @param policy
      */
-    async createPolicy(policy: UserLogoutTypes.UserLogoutPolicy) {
-        const createModel: UserLogoutTypes.UserLogoutPolicyCreateRequest = {
+    async createPolicy(policy: UserLogoutTypes.UserLoginPolicy) {
+        const createModel: UserLogoutTypes.UserLoginPolicyCreateRequest = {
             trigger: policy.trigger,
             reminderNotificationMinutes: policy.reminderNotificationMinutes,
             userId: policy.userId,
+            loginPolicy: policy.loginPolicy
         };
 
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicy>('/user-logout-policy', 'POST', createModel);
+        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLoginPolicy>('/user-logout-policy', 'POST', createModel);
     }
 
     /**
@@ -26,7 +28,7 @@ export class UserLogoutController extends APIClient {
      * @param id
      */
     async fetchPolicyById(id: string) {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicy>(`/user-logout-policy/${id}`, 'GET');
+        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLoginPolicy>(`/user-logout-policy/${id}`, 'GET');
     }
 
     /**
@@ -35,29 +37,35 @@ export class UserLogoutController extends APIClient {
      * @param operations
      */
     async patchPolicy(id: string, operations: JSONPatch[]) {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLogoutPolicy>(`/user-logout-policy/${id}`, 'PATCH', operations, {
+        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLoginPolicy>(`/user-logout-policy/${id}`, 'PATCH', operations, {
             headers: { 'Content-Type': 'application/json-patch+json' },
         });
     }
 
     /**
-     * Deletes the logout policy and all it's scheduled triggers/events
+     * Deletes a policy
      * @param id
      */
     async deletePolicy(id: string) {
-        return this.invokeApiWithErrorHandling(`/user-logout-policy/${id}`, 'DELETE');
+        return this.invokeApiWithErrorHandling<void>(`/user-logout-policy/${id}`, 'DELETE');
     }
 
     /**
-     * Get the logout data from users
+     * Fetch LoginPolicies for given user
      * @param userId
      */
     async fetchPoliciesByUser(userId: string) {
         const response = await this.invokeApiWithErrorHandling<UserLogoutTypes.UserLoginPolicyListResponse>(`/user-logout-policy/users/${userId}`, 'GET');
         // This is temporary and will be removed when proper endpoint will be implemented
         if (response.isSuccessful2xx && response.data) {
-            return response.data.entries.filter((item) => !Boolean(item.loginPolicy));
+            return response.data.entries.filter((item) => Boolean(item.loginPolicy));
         }
         return [];
+    }
+    /**
+     * Check if user can login
+     */
+    async canLogin() {
+        return this.invokeApiWithErrorHandling<UserLogoutTypes.LoginPolicyValidationResponse>(`/user-login-verification`, 'GET');
     }
 }
