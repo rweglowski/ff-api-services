@@ -118,6 +118,7 @@ const APIMapping = {
     alternativeCompanyDataService: new APIService('alternative-company-data-service'),
     calendarSyncService: new APIService('calendar-sync-service'),
     featureToggleService: new APIService('feature-toggle-service'),
+    swissLeadService: new APIService('swiss-lead-service'),
 };
 
 export default APIMapping;
