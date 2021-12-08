@@ -1,5 +1,5 @@
 import { APIClient, APIMapping } from '../../http';
-import { UserLogoutTypes } from './UserLoginService.Types';
+import { UserLoginTypes } from './UserLoginService.Types';
 import { JSONPatch } from '../DocumentTemplateService';
 
 const POLICY_PATH = '/user-logout-policy';
@@ -14,15 +14,15 @@ export class UserLoginPolicyController extends APIClient {
      * Create a Policy and schedule logout trigger
      * @param policy
      */
-    async createPolicy(policy: UserLogoutTypes.UserLoginPolicy) {
-        const createModel: UserLogoutTypes.UserLoginPolicyCreateRequest = {
+    async createPolicy(policy: UserLoginTypes.UserLoginPolicy) {
+        const createModel: UserLoginTypes.UserLoginPolicyCreateRequest = {
             trigger: policy.trigger,
             reminderNotificationMinutes: policy.reminderNotificationMinutes,
             userId: policy.userId,
             loginPolicy: policy.loginPolicy
         };
 
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLoginPolicy>(POLICY_PATH, 'POST', createModel);
+        return this.invokeApiWithErrorHandling<UserLoginTypes.UserLoginPolicy>(POLICY_PATH, 'POST', createModel);
     }
 
     /**
@@ -30,7 +30,7 @@ export class UserLoginPolicyController extends APIClient {
      * @param id
      */
     async fetchPolicyById(id: string) {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLoginPolicy>(`${POLICY_PATH}/${id}`, 'GET');
+        return this.invokeApiWithErrorHandling<UserLoginTypes.UserLoginPolicy>(`${POLICY_PATH}/${id}`, 'GET');
     }
 
     /**
@@ -39,7 +39,7 @@ export class UserLoginPolicyController extends APIClient {
      * @param operations
      */
     async patchPolicy(id: string, operations: JSONPatch[]) {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLoginPolicy>(`${POLICY_PATH}/${id}`, 'PATCH', operations, {
+        return this.invokeApiWithErrorHandling<UserLoginTypes.UserLoginPolicy>(`${POLICY_PATH}/${id}`, 'PATCH', operations, {
             headers: { 'Content-Type': 'application/json-patch+json' },
         });
     }
@@ -57,12 +57,12 @@ export class UserLoginPolicyController extends APIClient {
      * @param userId
      */
     async fetchPoliciesByUser(userId: string) {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.UserLoginPolicyListResponse>(`${POLICY_PATH}/users/${userId}`, 'GET');
+        return this.invokeApiWithErrorHandling<UserLoginTypes.UserLoginPolicyListResponse>(`${POLICY_PATH}/users/${userId}`, 'GET');
     }
     /**
      * Check if user can login
      */
     async canLogin() {
-        return this.invokeApiWithErrorHandling<UserLogoutTypes.LoginPolicyValidationResponse>(`/user-login-verification`, 'GET');
+        return this.invokeApiWithErrorHandling<UserLoginTypes.LoginPolicyValidationResponse>(`/user-login-verification`, 'GET');
     }
 }

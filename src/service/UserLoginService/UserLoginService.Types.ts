@@ -1,4 +1,4 @@
-export namespace UserLogoutTypes {
+export namespace UserLoginTypes {
     export type WeekDays = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY';
 
     export interface LogoutTrigger {
