@@ -1,6 +1,6 @@
 {
     "name": "@flowfact/api-services",
-    "version": "57.0.0-SNAPSHOT",
+    "version": "63.0.0-SNAPSHOT",
     "description": "middleware of FLOWFACT to interact between frontend and backend",
     "main": "build/index.js",
     "module": "build/es/index.js",
@@ -23,9 +23,9 @@
     },
     "dependencies": {
         "@flowfact/node-flowdsl": "2.20210922.48",
-        "@flowfact/types": "9.20210820.203",
+        "@flowfact/types": "10.20211126.221",
         "aws-amplify": "4.3.2",
-        "axios": "0.22.0",
+        "axios": "0.23.0",
         "detect-node": "2.1.0",
         "qs": "6.10.1",
         "tslib": "2.3.1"

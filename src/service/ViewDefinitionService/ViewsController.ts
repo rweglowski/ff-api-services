@@ -38,6 +38,18 @@ export class ViewsController extends APIClient {
     }
 
     /**
+     * This fetches all view definitions of a certain type
+     * @param viewType
+     */
+    async fetchDefinitionsV2ForViewType(viewType?: ViewType) {
+        return await this.invokeApiWithErrorHandling<{ views: ViewDefinitionV2[] }>(`/views/type/${viewType}`, 'GET', undefined, {
+            headers: {
+                'x-ff-version': 2,
+            },
+        });
+    }
+
+    /**
      * TODO: Please comment this method
      * @param viewDefinitionId
      */

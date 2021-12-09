@@ -44,7 +44,7 @@ export class TemplateService extends APIClient {
      * @param id
      * @param file
      */
-    uploadContent(id: string, file: any): Promise<AxiosResponse> {
+    uploadContent(id: string, file: any): Promise<AxiosResponse<any>> {
         const formData = new FormData();
         formData.append('file', file, file.name);
 

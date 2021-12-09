@@ -4,6 +4,7 @@ export enum UserRole {
     USER = 'USER',
     ADMIN = 'ADMIN',
     ACCOUNT_MANAGER = 'ACCOUNT_MANAGER',
+    USER_LIGHT = 'USER_LIGHT'
 }
 
 export enum UserType {
@@ -23,6 +24,11 @@ export enum IdentifiedUserStatusCodes {
 export enum SsoType {
     SCOUT = 'SCOUT',
     COGNITO_SAML = 'COGNITO_SAML',
+}
+
+export enum SsoOriginType {
+    SCOUT_MANAGER = 'SCOUT_MANAGER',
+    SCOUT_MEMBERSHIP = 'SCOUT_MEMBERSHIP'
 }
 
 export enum AdditionalFieldType {
@@ -74,6 +80,7 @@ export interface UserTokenEntity {
 
 export interface SSO {
     ssoType: SsoType;
+    ssoOrigin?: SsoOriginType;
 }
 
 export interface SSOResponse {

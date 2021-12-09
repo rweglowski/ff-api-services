@@ -72,6 +72,13 @@ export class MailchimpController extends APIClient {
     }
 
     /**
+     * Removes Mailchimp settings of the company
+     */
+    async deleteSettings() {
+        return this.invokeApiWithErrorHandling<void>('/settings', 'DELETE');
+    }
+
+    /**
      * Synchronize Mailchimp contacts
      */
     async synchronizeContacts() {

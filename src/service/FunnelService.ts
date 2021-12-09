@@ -182,7 +182,7 @@ export class FunnelService extends APIClient {
      * @param schemaId
      * @param entityId
      */
-    async executeActionForEntity(action: any, schemaId: string, entityId: string): Promise<AxiosResponse> {
+    async executeActionForEntity(action: any, schemaId: string, entityId: string): Promise<AxiosResponse<any>> {
         return this.invokeApi('/funnels/actions/execute/schemas/' + schemaId + '/entityId/' + entityId, 'POST', action);
     }
 

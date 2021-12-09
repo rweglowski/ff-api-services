@@ -12,7 +12,7 @@ export class InteractiveExposeDeliveryService extends APIClient {
      * TODO: Please comment this method
      * @param model
      */
-    async sendInteractiveExposes(model: SendInteractiveExposeModel[]): Promise<AxiosResponse> {
+    async sendInteractiveExposes(model: SendInteractiveExposeModel[]): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/interactiveExposes', 'POST', model);
     }
 
@@ -28,7 +28,7 @@ export class InteractiveExposeDeliveryService extends APIClient {
      * TODO: Please comment this method
      * @param requestId
      */
-    async fetchSendingStatus(requestId: string): Promise<AxiosResponse> {
+    async fetchSendingStatus(requestId: string): Promise<AxiosResponse<any>> {
         return await this.invokeApi(`/interactiveExposes/status/${requestId}`, 'GET');
     }
 }

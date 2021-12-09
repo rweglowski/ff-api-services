@@ -28,7 +28,7 @@ export class GeoPolygonController extends APIClient {
      * @param name
      */
     async fetchByName(name: string) {
-        return this.invokeApiWithErrorHandling<ListOfPolygons>(`/polygons/${name}`, 'GET');
+        return this.invokeApiWithErrorHandling<GeoInformationValue>(`/polygons/${name}`, 'GET');
     }
 
     /**
@@ -46,4 +46,14 @@ export class GeoPolygonController extends APIClient {
     async deleteByName(name: string) {
         return this.invokeApiWithErrorHandling<ListOfPolygons>(`/polygons/${name}`, 'DELETE');
     }
+
+    /**
+     * fetch all searches where given polygon is used
+     * @param name
+     * return list of ids for all connected searches
+     */
+    async fetchConnectedSearches(name: string) {
+        return this.invokeApiWithErrorHandling<Array<string>>(`/polygons/${name}/entities`, 'GET');
+    }
+
 }
