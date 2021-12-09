@@ -30,4 +30,17 @@ export class InternalController extends APIClient {
     async getTokenByNameForUser(userId: string, tokenName: string) {
         return await this.invokeApiWithErrorHandling<UserTokenEntity>(`/internal/token/user/${userId}/tokenName/${tokenName}`, 'GET', undefined);
     }
+
+    /**
+     * Create api token for user
+     * @param userId
+     * @param tokenName
+     */
+    async generateTokenForUser(userId: string, tokenName: string) {
+        return await this.invokeApiWithErrorHandling<UserTokenEntity>(`/internal/token/user/${userId}/api-token`, 'POST', undefined, {
+            queryParams: {
+                name: tokenName,
+            },
+        });
+    }
 }
