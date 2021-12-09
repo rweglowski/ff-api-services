@@ -49,7 +49,6 @@ export namespace GDPRServiceTypes {
         purposeOfDataProcessing: string;
     }
 
-    // this is an entity?
     export interface ConsentData {
         id: string;
         userId: string;

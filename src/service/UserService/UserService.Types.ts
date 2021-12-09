@@ -67,6 +67,7 @@ export interface User {
     timestamp?: number;
     type?: UserType;
     language?: string;
+    timezone?: string;
 }
 
 export interface UserTokenEntity {
