@@ -4,14 +4,14 @@ import {
     NylasConfig,
     NylasConfigPatch,
     RegistrationUrl,
-    SendEmailRequest
+    SendEmailRequest,
+    SharedAccountsRequest
 } from '@flowfact/types';
 import { AxiosResponse, CancelToken } from 'axios';
 import { APIClient, APIMapping, ApiResponse } from '../../http';
 import { NylasServiceTypes } from './NylasService.Types';
 import SchedulerPage = NylasServiceTypes.SchedulerPage;
 import RunningMailAccountResponse = NylasServiceTypes.RunningMailAccountResponse;
-import {SharedAccountsRequest} from "@flowfact/types/src/Nylas";
 
 /**
  * See https://docs.nylas.com/reference for more info
@@ -279,7 +279,7 @@ export class NylasService extends APIClient {
      * @param sharedAccounts
      */
     async createSharedAccountsList(sharedAccounts: SharedAccountsRequest) {
-        return await this.invokeApiWithErrorHandling('/shared-accounts', 'POST', sharedAccounts);
+        return await this.invokeApiWithErrorHandling<void>('/shared-accounts', 'POST', sharedAccounts);
     }
 
     /**
@@ -287,7 +287,7 @@ export class NylasService extends APIClient {
      * @param sharedAccounts
      */
     async updateSharedAccountsList(sharedAccounts: SharedAccountsRequest) {
-        return await this.invokeApiWithErrorHandling('/shared-accounts', 'PUT', sharedAccounts);
+        return await this.invokeApiWithErrorHandling<void>('/shared-accounts', 'PUT', sharedAccounts);
     }
 
     /**
