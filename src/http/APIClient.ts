@@ -46,7 +46,7 @@ export class APIClient {
 
     private async getUserIdentification() {
         // setup the request
-        if (isNode) {
+        if (isNode === true) {
             if (this.userId) {
                 return {
                     userId: this.userId,
@@ -100,7 +100,7 @@ export class APIClient {
             } else if (this._service instanceof S3APIService) {
                 apiUrl = `${EnvironmentManagementInstance.getS3BucketUrl(this._service)}${path}`;
             } else {
-                apiUrl = `${EnvironmentManagementInstance.getBaseUrl(isNode)}/${this._service.name}${path}`;
+                apiUrl = `${EnvironmentManagementInstance.getBaseUrl(isNode === true)}/${this._service.name}${path}`;
             }
         } else {
             apiUrl = path;

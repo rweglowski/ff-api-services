@@ -25,7 +25,7 @@ export namespace CompanyServiceTypes {
     }
 
     export interface LegislationText {
-        id: ID;
+        id?: ID;
         legislationTextName: string;
         legislationTextContent: string;
         legislationCheckboxes: LegislationCheckbox[];

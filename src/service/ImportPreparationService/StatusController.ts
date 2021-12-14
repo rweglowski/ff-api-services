@@ -4,7 +4,7 @@ import ImporterStatus = ImportPreparationServiceTypes.ImporterStatus;
 
 export class StatusController extends APIClient {
     constructor() {
-        super(APIMapping.importPreparationService);
+        super(APIMapping.importPreparationLambda);
     }
 
     /**

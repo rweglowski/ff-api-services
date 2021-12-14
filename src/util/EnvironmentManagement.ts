@@ -14,7 +14,7 @@ enum VersionTagTypes {
     STABLE = 'stable',
 }
 
-const defaultStage = isNode ? process.env.STAGE_NAME || StageTypes.DEVELOPMENT : StageTypes.PRODUCTION;
+const defaultStage = isNode === true ? process.env.STAGE_NAME || StageTypes.DEVELOPMENT : StageTypes.PRODUCTION;
 const defaultVersionTag = defaultStage === StageTypes.PRODUCTION ? VersionTagTypes.STABLE : VersionTagTypes.LATEST;
 
 let instance: EnvironmentManagement | null = null;

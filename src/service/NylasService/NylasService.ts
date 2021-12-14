@@ -4,7 +4,8 @@ import {
     NylasConfig,
     NylasConfigPatch,
     RegistrationUrl,
-    SendEmailRequest
+    SendEmailRequest,
+    SharedAccountsRequest
 } from '@flowfact/types';
 import { AxiosResponse, CancelToken } from 'axios';
 import { APIClient, APIMapping, ApiResponse } from '../../http';
@@ -271,6 +272,30 @@ export class NylasService extends APIClient {
      */
     async addManualAccount(account: AccountInfo) {
         return await this.invokeApiWithErrorHandling('/manual-account', 'POST', account);
+    }
+
+    /**
+     * Creates shared accounts entry for given email account
+     * @param sharedAccounts
+     */
+    async createSharedAccountsList(sharedAccounts: SharedAccountsRequest) {
+        return await this.invokeApiWithErrorHandling<void>('/shared-accounts', 'POST', sharedAccounts);
+    }
+
+    /**
+     * Updates shared accounts list by overwriting all entries
+     * @param sharedAccounts
+     */
+    async updateSharedAccountsList(sharedAccounts: SharedAccountsRequest) {
+        return await this.invokeApiWithErrorHandling<void>('/shared-accounts', 'PUT', sharedAccounts);
+    }
+
+    /**
+     * Deletes all accounts which given email is shared with
+     * @param email
+     */
+    async deleteSharedAccounts(email: string) {
+        return await this.invokeApiWithErrorHandling(`/shared-accounts/emails/${email}`, 'DELETE');
     }
 }
 

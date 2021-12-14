@@ -1,7 +1,7 @@
 import { Flowdsl } from '@flowfact/node-flowdsl';
 import { Entity } from '@flowfact/types';
 
-export interface CreateGlobalChangeResponse {
+export interface GlobalChangeResponse {
     statusCode: number;
     body: string;
 }

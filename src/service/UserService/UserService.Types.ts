@@ -26,6 +26,11 @@ export enum SsoType {
     COGNITO_SAML = 'COGNITO_SAML',
 }
 
+export enum SsoOriginType {
+    SCOUT_MANAGER = 'SCOUT_MANAGER',
+    SCOUT_MEMBERSHIP = 'SCOUT_MEMBERSHIP'
+}
+
 export enum AdditionalFieldType {
     TEXT = 'TEXT',
     EMAIL_TEMPLATE = 'EMAIL_TEMPLATE',
@@ -62,6 +67,7 @@ export interface User {
     timestamp?: number;
     type?: UserType;
     language?: string;
+    timezone?: string;
 }
 
 export interface UserTokenEntity {
@@ -75,6 +81,7 @@ export interface UserTokenEntity {
 
 export interface SSO {
     ssoType: SsoType;
+    ssoOrigin?: SsoOriginType;
 }
 
 export interface SSOResponse {

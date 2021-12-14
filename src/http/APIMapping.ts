@@ -62,6 +62,7 @@ const APIMapping = {
     geoInformationService: new APIService('geo-information-service'),
     geolocationService: new APIService('geolocation-service'),
     importPreparationService: new APIService('import-preparation-service'),
+    importPreparationLambda: new APIService('import-preparation-lambda'),
     importerFlowFactTransferService: new APIService('importer-flowfact-transfer-service'),
     inquiryService: new APIService('inquiry-service'),
     interactiveExposeDeliveryService: new APIService('interactive-expose-delivery-service'),
@@ -117,6 +118,7 @@ const APIMapping = {
     alternativeCompanyDataService: new APIService('alternative-company-data-service'),
     calendarSyncService: new APIService('calendar-sync-service'),
     featureToggleService: new APIService('feature-toggle-service'),
+    swissLeadService: new APIService('swiss-lead-service'),
 };
 
 export default APIMapping;

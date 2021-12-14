@@ -1,5 +1,5 @@
 import { APIClient, APIMapping } from '../../http';
-import { CreateGlobalChangeRequestBody, CreateGlobalChangeResponse } from './GlobalChange.Types';
+import { CreateGlobalChangeRequestBody, GlobalChangeResponse } from './GlobalChange.Types';
 
 export class GlobalChangeController extends APIClient {
     constructor() {
@@ -7,10 +7,18 @@ export class GlobalChangeController extends APIClient {
     }
 
     createGlobalChange = async (globalChangeEntity: CreateGlobalChangeRequestBody) => {
-        return await this.invokeApiWithErrorHandling<CreateGlobalChangeResponse>('/createGlobalChange', 'POST', globalChangeEntity);
+        return await this.invokeApiWithErrorHandling<GlobalChangeResponse>('/createGlobalChange', 'POST', globalChangeEntity);
     };
 
     cancelGlobalChange = async (globalChangeId: string) => {
-        return await this.invokeApiWithErrorHandling<CreateGlobalChangeResponse>('/cancelGlobalChange', 'POST', { globalChangeId });
+        return await this.invokeApiWithErrorHandling<GlobalChangeResponse>('/cancelGlobalChange', 'POST', { globalChangeId });
+    };
+
+    restoreGlobalChange = async (globalChangeId: string) => {
+        return await this.invokeApiWithErrorHandling<GlobalChangeResponse>('/restoreGlobalChange', 'POST', { globalChangeId });
+    };
+
+    fetchAffectedEntity = async (entityId: string) => {
+        return await this.invokeApiWithErrorHandling<GlobalChangeResponse>(`/queryAffectedEntities?entityId=${entityId}`, 'GET');
     };
 }

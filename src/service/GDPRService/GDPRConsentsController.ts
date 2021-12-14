@@ -1,5 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { GDPRServiceTypes } from './GDPRService.Types';
+import { EntityFields } from '@flowfact/types';
 
 export class GDPRConsentsController extends APIClient {
     constructor() {
@@ -10,8 +11,8 @@ export class GDPRConsentsController extends APIClient {
      * TODO: Please comment this method
      * @param consentEntity
      */
-    async addConsent(consentEntity: GDPRServiceTypes.ConsentData) {
-        return await this.invokeApiWithErrorHandling<Pick<GDPRServiceTypes.ConsentData, 'id'>>('/consents', 'POST', consentEntity);
+    async addConsent(consentEntity: EntityFields) {
+        return await this.invokeApiWithErrorHandling<string>('/consents', 'POST', consentEntity);
     }
 
     /**
