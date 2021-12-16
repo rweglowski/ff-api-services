@@ -48,7 +48,7 @@ export class ActivityReportV2Controller extends APIClient {
      * @param links array of links to activity reports
      * @param estateId entity id of the estate object
      */
-    async getEmailContent(links: ActivityReportLinkType[], estateId: string): Promise<ApiResponse<LambdaServiceResponse>> {
+    async fetchEmailContent(links: ActivityReportLinkType[], estateId: string): Promise<ApiResponse<LambdaServiceResponse>> {
         const authenticationToken = await this.getAuthenticationToken();
         const requestBody: ActivityReportRequestBody = {
             cognitoToken: authenticationToken,
