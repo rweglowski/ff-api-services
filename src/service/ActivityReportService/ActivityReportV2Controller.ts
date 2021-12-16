@@ -44,6 +44,24 @@ export class ActivityReportV2Controller extends APIClient {
     }
 
     /**
+     * Prepares the body of the activity report email with all placeholders already filled by Lambda service.
+     * @param links array of links to activity reports
+     * @param estateId entity id of the estate object
+     */
+    async getEmailContent(links: ActivityReportLinkType[], estateId: string): Promise<ApiResponse<LambdaServiceResponse>> {
+        const authenticationToken = await this.getAuthenticationToken();
+        const requestBody: ActivityReportRequestBody = {
+            cognitoToken: authenticationToken,
+            entityId: estateId,
+            method: 'getEmailContent',
+            links,
+        };
+        return await this.invokeApiWithErrorHandling<LambdaServiceResponse>('/activity-report2-lambda', 'POST', requestBody, {
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+
+    /**
      * Generate a URL to get a preview of activity report, without creating a context file
      * @param activityReportId entity id of the activity report instance
      */
