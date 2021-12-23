@@ -25,6 +25,16 @@ export class SprengnetterController extends APIClient {
     }
 
     /**
+     * Get a Sprengnetter Quick Valuation for an estate
+     * @param {String} entityId - The entityId of the estate that should be valuated
+     * @param {String} transactionType - type of transaction. Possible values: rent, purchase
+     * @returns {GenericFetchValuationResponse} response with details of valuation
+     */
+    async fetchQuickValuation(entityId: string, transactionType: string) {
+        return await this.invokeApiWithErrorHandling<GenericFetchValuationResponse>(`/quickValuation/${transactionType}/${entityId}`, `GET`)
+    }
+
+    /**
      * Gets a link to the pdfReport that is stored on S3
      * @param {String} entityId - The entityId of the estate that should the pdfView should be created for.
      * @returns {string} The response contains a link to the pdf that is stored on S3.
