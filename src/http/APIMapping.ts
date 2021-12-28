@@ -83,6 +83,7 @@ const APIMapping = {
     searchService: new APIService('search-service'),
     slackIntegrationService: new APIService('slack-integration-service'),
     teamsIntegrationService: new APIService('teams-integration-service'),
+    spregnetterGatewayService: new APIService('sprengnetter-gateway-service'),
     spregnetterService: new APIService('sprengnetter-service'),
     taggingService: new APIService('tagging-service'),
     tagService: new APIService('tag-service'),
