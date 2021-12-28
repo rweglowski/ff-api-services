@@ -10,7 +10,14 @@ export class SprengnetterGatewayController extends APIClient {
     /**
      * Creates a new Sprengnetter account for given data
      */
-    async createAccount(account: Account) {
+    async createCustomerAccount(account: Account) {
         return await this.invokeApiWithErrorHandling('/accounts', 'POST', account);
+    }
+
+    /**
+     * Fetches customer account linked with the company of currently logged-in user
+     */
+    async fetchCustomerAccount() {
+        return await this.invokeApiWithErrorHandling<SprengnetterGatewayServiceTypes.CustomerAccount>('/accounts');
     }
 }

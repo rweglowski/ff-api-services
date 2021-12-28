@@ -13,4 +13,10 @@ export namespace SprengnetterGatewayServiceTypes {
         companyName: string;
         billingAddress: BillingAddress;
     }
+
+    export interface CustomerAccount {
+        companyId: string;
+        email: string;
+        id: string;
+    }
 }
