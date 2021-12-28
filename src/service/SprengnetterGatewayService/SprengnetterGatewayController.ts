@@ -20,4 +20,11 @@ export class SprengnetterGatewayController extends APIClient {
     async fetchCustomerAccount() {
         return await this.invokeApiWithErrorHandling<SprengnetterGatewayServiceTypes.CustomerAccount>('/accounts');
     }
+
+    /**
+     * Deletes customer account linked with the company of currently logged-in user
+     */
+    async deleteCustomerAccount() {
+        return await this.invokeApiWithErrorHandling('/accounts', 'DELETE');
+    }
 }
