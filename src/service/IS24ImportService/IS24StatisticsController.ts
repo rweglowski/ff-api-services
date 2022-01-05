@@ -1,7 +1,7 @@
 import {APIClient, APIMapping} from '../../http';
 import {StatisticsType} from "../ViewDefinitionService";
 
-export default class IS24ImmoController extends APIClient {
+export default class IS24StatisticsController extends APIClient {
     constructor() {
         super(APIMapping.is24ImportService);
     }
