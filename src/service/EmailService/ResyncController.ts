@@ -34,10 +34,14 @@ export class ResyncController extends APIClient {
     }
 
     /**
-     * Checks if a resync progress is running
-     * @param processId
+     * Checks if a resync progress is running for a specific account
+     * @param accountId
      */
-    checkResyncRunning = async (processId: number) => {
-        return this.invokeApiWithErrorHandling<EmailServiceTypes.ResyncResponse>(`/resync/progress/${processId}`, 'GET');
+    checkResyncRunning = async (accountId: string) => {
+        return this.invokeApiWithErrorHandling<EmailServiceTypes.ResyncResponse>(`/resync/progress`, 'GET', undefined, {
+            queryParams: {
+                accountId: accountId
+            }
+        });
     }
 }
