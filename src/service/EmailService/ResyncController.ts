@@ -34,6 +34,14 @@ export class ResyncController extends APIClient {
     }
 
     /**
+     * Checks if a resync progress is running
+     * @param progressId
+     */
+    fetchResyncStatus = async (progressId: string) => {
+        return this.invokeApiWithErrorHandling<EmailServiceTypes.ResyncResponse>(`/resync/progress/${progressId}`, 'GET');
+    }
+
+    /**
      * Checks if a resync progress is running for a specific account
      * @param accountId
      */
