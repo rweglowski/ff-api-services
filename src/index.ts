@@ -34,6 +34,7 @@ export { default as EntityService, TrashedEntity, TrashedEntitiesResponse, Trash
 export * from './service/GDPRService';
 export * from './service/IS24LeadService';
 export * from './service/IS24ImportService';
+export * from './service/IS24EstateStatisticsService';
 export * from './service/OpenimmoFtpAccessService';
 export * from './service/SprengnetterService';
 export * from './service/SprengnetterGatewayService';
