@@ -15,7 +15,7 @@ export default class IS24StatisticsController extends APIClient {
     async fetchStatistics(is24EstateId: string, portalId: string, type: StatisticsType) {
         switch (type) {
             case StatisticsType.EXPOSE_VIEWS:
-                return await this.invokeApiWithErrorHandling<number>('exposeviews', 'GET', {}, {
+                return await this.invokeApiWithErrorHandling<number>('/exposeviews', 'GET', {}, {
                     queryParams: {
                         portalId,
                         scoutId: is24EstateId
