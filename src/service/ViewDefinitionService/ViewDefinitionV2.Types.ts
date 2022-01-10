@@ -13,7 +13,8 @@ export enum ViewDefinitionV2CategoryContentItemTypes {
 export enum StatisticsType {
     EXPOSE_VIEWS = 'EXPOSE_VIEWS'
 }
-export type ViewDefinitionV2CategoryCotentItemType = keyof typeof ViewDefinitionV2CategoryContentItemTypes;
+
+export type ViewDefinitionV2CategoryContentItemType = keyof typeof ViewDefinitionV2CategoryContentItemTypes;
 
 export interface ViewDefinitionV2CategoryIs24StatisticsItem {
     type: ViewDefinitionV2CategoryContentItemTypes.IS24_STATISTICS,
