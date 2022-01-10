@@ -2,14 +2,15 @@ import { AxiosResponse } from 'axios';
 import { APIClient, APIMapping } from '../http';
 
 export namespace SchemaServiceTypes {
+    export interface IntegrationFormData {
+        customCss?: string;
+        customJs?: string;
+        customRedirectUrl?: string;
+        customSubmitName?: string;
+        integrationFields?: Record<string, unknown>[];
+    }
     export interface Integration {
-        formData: {
-            customCss?: string;
-            customJs?: string;
-            customRedirectUrl?: string;
-            customSubmitName?: string;
-            integrationFields?: Record<string, unknown>[];
-        };
+        formData: IntegrationFormData;
         id: string;
         label: string;
         schemaId: string;
