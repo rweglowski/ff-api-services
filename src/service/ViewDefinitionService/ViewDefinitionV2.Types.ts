@@ -7,7 +7,7 @@ export enum ViewDefinitionV2CategoryContentItemTypes {
     TEXT = 'TEXT',
     SCHEMA = 'SCHEMA',
     SCHEMA_INFO = 'SCHEMA_INFO',
-    STATISTICS_ICON = 'STATISTICS_ICON'
+    IS24_STATISTICS = 'IS24_STATISTICS'
 }
 
 export enum StatisticsType {
@@ -15,8 +15,8 @@ export enum StatisticsType {
 }
 export type ViewDefinitionV2CategoryCotentItemType = keyof typeof ViewDefinitionV2CategoryContentItemTypes;
 
-export interface ViewDefinitionV2CategoryStatisticsIconItem {
-    type: ViewDefinitionV2CategoryContentItemTypes.STATISTICS_ICON,
+export interface ViewDefinitionV2CategoryIs24StatisticsItem {
+    type: ViewDefinitionV2CategoryContentItemTypes.IS24_STATISTICS,
     icon?: string;
     statisticsType: StatisticsType;
 }
@@ -55,7 +55,7 @@ export type ViewDefinitionV2CategoryContentItem =
     | ViewDefinitionV2CategoryMediaItem
     | ViewDefinitionV2CategoryEntityItem
     | ViewDefinitionV2CategoryLinkedEntityItem
-    | ViewDefinitionV2CategoryStatisticsIconItem;
+    | ViewDefinitionV2CategoryIs24StatisticsItem;
 
 export interface ViewDefinitionV2Category {
     name: string;
