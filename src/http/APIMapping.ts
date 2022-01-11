@@ -120,7 +120,7 @@ const APIMapping = {
     calendarSyncService: new APIService('calendar-sync-service'),
     featureToggleService: new APIService('feature-toggle-service'),
     swissLeadService: new APIService('swiss-lead-service'),
-    is24EstateStatisticsLambdaService: new LambdaAPIService('is24-estate-statistics-lambda'),
+    is24EstateStatisticsLambdaService: new APIService('is24-estate-statistics-lambda'),
 };
 
 export default APIMapping;
