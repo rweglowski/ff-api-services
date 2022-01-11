@@ -19,4 +19,17 @@ export namespace SprengnetterGatewayServiceTypes {
         email: string;
         id: string;
     }
+
+    export interface ConsentTranslation {
+        language: string;
+        text: string;
+    }
+
+    export interface Consent {
+        id: string;
+        revision: number;
+        code: string;
+        required: boolean;
+        translations: ConsentTranslation[];
+    }
 }
