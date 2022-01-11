@@ -44,6 +44,15 @@ export class SprengnetterController extends APIClient {
     }
 
     /**
+     * Gets a link to the docxReport that is stored on S3
+     * @param {string} entityId - The entityId of the estate that should the docxView should be created for.
+     * @returns {string} The response contains a link to the docx that is stored on S3.
+     */
+    async fetchDocxLink(entityId: string) {
+        return await this.invokeApiWithErrorHandling<string | HTMLError>(`/docxView/${entityId}`, 'GET');
+    }
+
+    /**
      * Gets the HTML that is necessary to display the market report
      * @param {String} entityId - The entityId of the estate that should the htmlView should be created for.
      * @returns {string} The response contains the html that represents the marketanalysis.
