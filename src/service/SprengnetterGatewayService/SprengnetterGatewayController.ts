@@ -27,4 +27,11 @@ export class SprengnetterGatewayController extends APIClient {
     async deleteCustomerAccount() {
         return await this.invokeApiWithErrorHandling('/accounts', 'DELETE');
     }
+
+    /**
+     * Fetches all available consents (eg. legal agreements, privacy policy)
+     */
+    async fetchConsents() {
+        return await this.invokeApiWithErrorHandling<SprengnetterGatewayServiceTypes.Consent[]>('/consents');
+    }
 }
