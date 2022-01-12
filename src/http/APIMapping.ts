@@ -53,7 +53,7 @@ const APIMapping = {
     entitlementService: new LambdaAPIService('entitlement-lambda', undefined, LambdaAPIVersion.V1),
     interactiveExposeV2LambdaService: new LambdaAPIService('iex2-expose-lambda', undefined, LambdaAPIVersion.V1),
     interactiveExposeV2S3Service: new S3APIService('iex2-expose'),
-    // entitlementService: new LambdaAPIService('entitlement-lambda', 'http://localhost:3001/offline', LambdaAPIVersion.V1), // for local offline usage
+    // entitlementService: new LambdaAPIService('entitlement-lambda', 'http://localhost:3001/offline'), // for local offline usage
     fieldCalculationService: new APIService('entity-field-calculation-service'),
     entityService: new APIService('entity-service'),
     entityShareService: new APIService('entity-share-service'),
