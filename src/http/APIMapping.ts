@@ -8,10 +8,16 @@ export class APIService {
     }
 }
 
+export enum LambdaAPIVersion {
+    V1 = 'V1',
+    V2 = 'V2'
+}
+
 export class LambdaAPIService extends APIService {
-    constructor(serviceName: string, private readonly forceUrl: string | undefined = undefined) {
+    constructor(serviceName: string, private readonly forceUrl: string | undefined = undefined, readonly apiVersion: LambdaAPIVersion = LambdaAPIVersion.V2) {
         super(serviceName);
         this.forceUrl = forceUrl;
+        this.apiVersion = apiVersion;
     }
 
     get url() {
@@ -44,10 +50,10 @@ const APIMapping = {
     customerLegitimationArchiveService: new APIService('customer-legitimation-archive-service'),
     dynamicLayoutService: new APIService('dynamic-layout-service'),
     emailService: new APIService('email-service'),
-    entitlementService: new LambdaAPIService('entitlement-lambda'),
-    interactiveExposeV2LambdaService: new LambdaAPIService('iex2-expose-lambda'),
+    entitlementService: new LambdaAPIService('entitlement-lambda', undefined, LambdaAPIVersion.V1),
+    interactiveExposeV2LambdaService: new LambdaAPIService('iex2-expose-lambda', undefined, LambdaAPIVersion.V1),
     interactiveExposeV2S3Service: new S3APIService('iex2-expose'),
-    // entitlementService: new LambdaAPIService('entitlement-lambda', 'http://localhost:3001/offline'), // for local offline usage
+    // entitlementService: new LambdaAPIService('entitlement-lambda', 'http://localhost:3001/offline', LambdaAPIVersion.V1), // for local offline usage
     fieldCalculationService: new APIService('entity-field-calculation-service'),
     entityService: new APIService('entity-service'),
     entityShareService: new APIService('entity-share-service'),
@@ -120,7 +126,7 @@ const APIMapping = {
     calendarSyncService: new APIService('calendar-sync-service'),
     featureToggleService: new APIService('feature-toggle-service'),
     swissLeadService: new APIService('swiss-lead-service'),
-    is24EstateStatisticsLambdaService: new APIService('is24-estate-statistics-lambda'),
+    is24EstateStatisticsLambdaService: new LambdaAPIService('is24-estate-statistics-lambda'),
 };
 
 export default APIMapping;
