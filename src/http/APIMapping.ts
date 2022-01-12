@@ -8,16 +8,11 @@ export class APIService {
     }
 }
 
-export enum LambdaAPIVersion {
-    V1 = 'V1',
-    V2 = 'V2'
-}
-
+// deprecated - useable only for Lambdas created with the old scaffold. For new Lambdas just use APIService.
 export class LambdaAPIService extends APIService {
-    constructor(serviceName: string, private readonly forceUrl: string | undefined = undefined, readonly apiVersion: LambdaAPIVersion = LambdaAPIVersion.V2) {
+    constructor(serviceName: string, private readonly forceUrl: string | undefined = undefined) {
         super(serviceName);
         this.forceUrl = forceUrl;
-        this.apiVersion = apiVersion;
     }
 
     get url() {
@@ -50,8 +45,8 @@ const APIMapping = {
     customerLegitimationArchiveService: new APIService('customer-legitimation-archive-service'),
     dynamicLayoutService: new APIService('dynamic-layout-service'),
     emailService: new APIService('email-service'),
-    entitlementService: new LambdaAPIService('entitlement-lambda', undefined, LambdaAPIVersion.V1),
-    interactiveExposeV2LambdaService: new LambdaAPIService('iex2-expose-lambda', undefined, LambdaAPIVersion.V1),
+    entitlementService: new LambdaAPIService('entitlement-lambda'),
+    interactiveExposeV2LambdaService: new LambdaAPIService('iex2-expose-lambda'),
     interactiveExposeV2S3Service: new S3APIService('iex2-expose'),
     // entitlementService: new LambdaAPIService('entitlement-lambda', 'http://localhost:3001/offline'), // for local offline usage
     fieldCalculationService: new APIService('entity-field-calculation-service'),
@@ -126,7 +121,7 @@ const APIMapping = {
     calendarSyncService: new APIService('calendar-sync-service'),
     featureToggleService: new APIService('feature-toggle-service'),
     swissLeadService: new APIService('swiss-lead-service'),
-    is24EstateStatisticsLambdaService: new LambdaAPIService('is24-estate-statistics-lambda'),
+    is24EstateStatisticsLambdaService: new APIService('is24-estate-statistics-lambda'),
 };
 
 export default APIMapping;

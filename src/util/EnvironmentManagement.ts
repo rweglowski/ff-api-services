@@ -1,6 +1,6 @@
 import * as isNode from 'detect-node';
 import { region } from '../authentication/Authentication';
-import {LambdaAPIService, LambdaAPIVersion, S3APIService} from '../http/APIMapping';
+import { LambdaAPIService, S3APIService } from '../http/APIMapping';
 
 enum StageTypes {
     PRODUCTION = 'production',
@@ -61,29 +61,11 @@ class EnvironmentManagement {
         return `https://api.${stage}.cloudios.${account}.cloud`;
     };
 
-    private getLambdaUrlV1 = (service: LambdaAPIService) => {
+    getLambdaUrl = (service: LambdaAPIService) => {
         const stage = this.getStage();
         const account = stage === StageTypes.DEVELOPMENT ? 'flowfact-dev' : 'flowfact-prod';
 
-        return `https://${service.name}.${stage}.sf.${account}.cloud`;
-    };
-
-    private getLambdaUrlV2 = (service: LambdaAPIService) => {
-        return `${this.getBaseUrl(false)}/${service.name}`;
-    }
-
-    getLambdaUrl = (service: LambdaAPIService) => {
-        if (service.url) {
-            return service.url;
-        }
-        switch (service.apiVersion) {
-            case LambdaAPIVersion.V2:
-                return this.getLambdaUrlV2(service);
-            case LambdaAPIVersion.V1:
-                return this.getLambdaUrlV1(service);
-            default:
-                throw Error('Unhandled Lambda API version')
-        }
+        return service.url ?? `https://${service.name}.${stage}.sf.${account}.cloud`;
     };
 
     getS3BucketUrl = (service: S3APIService) => {
