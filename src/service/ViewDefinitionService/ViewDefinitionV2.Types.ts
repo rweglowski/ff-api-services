@@ -89,4 +89,5 @@ export interface ViewDefinitionV2 {
     defaultOrder?: string;
     filterConfiguration?: ViewDefinitionV2FilterConfiguration;
     schema: string;
+    hints?: Captions[];
 }
