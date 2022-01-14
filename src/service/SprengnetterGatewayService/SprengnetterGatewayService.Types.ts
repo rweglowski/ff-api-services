@@ -1,3 +1,5 @@
+import { Captions } from '@flowfact/types';
+
 export namespace SprengnetterGatewayServiceTypes {
     export interface BillingAddress {
         zipcode: string;
@@ -20,16 +22,18 @@ export namespace SprengnetterGatewayServiceTypes {
         id: string;
     }
 
-    export interface ConsentTranslation {
-        language: string;
-        text: string;
+    export enum Code {
+        PRIVACY_POLICY = 'privacy_policy',
+        RESPONSIBILITY = 'responsibility',
     }
 
     export interface Consent {
         id: string;
         revision: number;
-        code: string;
+        code: Code;
         required: boolean;
-        translations: ConsentTranslation[];
+        translations: Captions;
+        // urls that are used inside the translations
+        urls: string[];
     }
 }
