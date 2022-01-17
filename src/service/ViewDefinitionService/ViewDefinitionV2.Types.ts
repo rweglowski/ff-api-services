@@ -19,8 +19,9 @@ export type ViewDefinitionV2CategoryContentItemType = keyof typeof ViewDefinitio
 
 export interface ViewDefinitionV2CategoryIs24StatisticsItem {
     type: ViewDefinitionV2CategoryContentItemTypes.IS24_STATISTICS,
-    icon?: string;
     statisticsType: StatisticsType;
+    icon?: string;
+    linkTemplate?: string;
 }
 
 export interface ViewDefinitionV2CategoryMediaItem {
