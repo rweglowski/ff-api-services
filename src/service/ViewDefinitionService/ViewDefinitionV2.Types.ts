@@ -11,7 +11,8 @@ export enum ViewDefinitionV2CategoryContentItemTypes {
 }
 
 export enum StatisticsType {
-    EXPOSE_VIEWS = 'EXPOSE_VIEWS'
+    EXPOSE_VIEWS = 'EXPOSE_VIEWS',
+    CONTACT_REQUESTS = 'CONTACT_REQUESTS'
 }
 
 export type ViewDefinitionV2CategoryContentItemType = keyof typeof ViewDefinitionV2CategoryContentItemTypes;

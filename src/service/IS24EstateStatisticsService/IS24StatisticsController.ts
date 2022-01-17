@@ -21,6 +21,9 @@ export default class IS24StatisticsController extends APIClient {
                         scoutId: is24EstateId
                     }
                 });
+            case StatisticsType.CONTACT_REQUESTS:
+                //TODO waiting for the backend to be complete
+                return 123;
             default:
                 throw new TypeError(`Unhandled statistics type: ${type}`);
         }
