@@ -23,7 +23,10 @@ export default class IS24StatisticsController extends APIClient {
                 });
             case StatisticsType.CONTACT_REQUESTS:
                 //TODO waiting for the backend to be complete
-                return 123;
+                return Promise.resolve({
+                    isSuccessful2xx: true,
+                    data: 123
+                });
             default:
                 throw new TypeError(`Unhandled statistics type: ${type}`);
         }
