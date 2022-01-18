@@ -22,10 +22,11 @@ export default class IS24StatisticsController extends APIClient {
                     }
                 });
             case StatisticsType.CONTACT_REQUESTS:
-                //TODO waiting for the backend to be complete
-                return Promise.resolve({
-                    isSuccessful2xx: true,
-                    data: 123
+                return await this.invokeApiWithErrorHandling<number>('/contactRequestsAmount', 'GET', {}, {
+                    queryParams: {
+                        portalId,
+                        scoutId: is24EstateId
+                    }
                 });
             default:
                 throw new TypeError(`Unhandled statistics type: ${type}`);
