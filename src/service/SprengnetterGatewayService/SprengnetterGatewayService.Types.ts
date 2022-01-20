@@ -1,6 +1,12 @@
 import { Captions } from '@flowfact/types';
 
 export namespace SprengnetterGatewayServiceTypes {
+    export interface RegistrationData extends Account {
+        // Consents of a user that wants to create an account
+        // It will be used at the BE to store the accepted/revoked consents
+        consents: ConsentStatusUpdate[];
+    }
+
     export interface BillingAddress {
         zipcode: string;
         city: string;
@@ -39,6 +45,7 @@ export namespace SprengnetterGatewayServiceTypes {
     }
 
     export interface UserConsent {
+        id: string;
         userId: string;
         companyId: string;
         acceptedAt?: Date;
@@ -50,8 +57,13 @@ export namespace SprengnetterGatewayServiceTypes {
         revision: number;
     }
 
+    export interface ConsentStatusUpdate {
+        consentId: string;
+        status: ConsentStatus;
+    }
+
     export enum ConsentStatus {
-        ACCEPTED,
-        REJECTED,
+        ACCEPTED = 'ACCEPTED',
+        REVOKED = 'REVOKED',
     }
 }
