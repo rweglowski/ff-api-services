@@ -27,6 +27,7 @@ export namespace SprengnetterGatewayServiceTypes {
         RESPONSIBILITY = 'responsibility',
     }
 
+    // General consent object
     export interface Consent {
         id: string;
         revision: number;
@@ -35,5 +36,22 @@ export namespace SprengnetterGatewayServiceTypes {
         translations: Captions;
         // urls that are used inside the translations
         urls: string[];
+    }
+
+    export interface UserConsent {
+        userId: string;
+        companyId: string;
+        acceptedAt?: Date;
+        withdrawnAt?: Date;
+        required: boolean;
+        code: Code;
+        // id of a general consent
+        consentId: string;
+        revision: number;
+    }
+
+    export enum ConsentStatus {
+        ACCEPTED,
+        REJECTED,
     }
 }
