@@ -24,7 +24,7 @@ export class UserConsentController extends APIClient {
      * Updates the consent with the given consentId for the current user and sets the given consent status
      */
     async updateUserConsent(consentId: string, status: SprengnetterGatewayServiceTypes.ConsentStatus) {
-        return await this.invokeApiWithErrorHandling('/user-consents', 'POST', {
+        return await this.invokeApiWithErrorHandling<SprengnetterGatewayServiceTypes.UserConsent>('/user-consents', 'POST', {
             consentId,
             status,
         });
