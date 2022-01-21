@@ -13,7 +13,8 @@ export default class IS24StatisticsController extends APIClient {
      * @param type
      */
     async fetchStatistics(is24EstateId: string, portalId: string, type: StatisticsType) {
-        return await this.invokeApiWithErrorHandling<number>(this.getPath(type), 'GET', {}, {
+        // invokeApi is used here because this endpoint can return plain '0' which is treated as error in invokeApiWithErrorHandling
+        return await this.invokeApi<number>(this.getPath(type), 'GET', {}, {
             queryParams: {
                 portalId,
                 scoutId: is24EstateId
