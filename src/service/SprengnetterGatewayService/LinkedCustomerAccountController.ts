@@ -16,8 +16,8 @@ export class LinkedCustomerAccountController extends APIClient {
     /**
      * Creates a new Sprengnetter account for given data
      */
-    async createCustomerAccount(account: SprengnetterGatewayServiceTypes.Account) {
-        return await this.invokeApiWithErrorHandling('/accounts', 'POST', account);
+    async createCustomerAccount(registrationData: SprengnetterGatewayServiceTypes.RegistrationData) {
+        return await this.invokeApiWithErrorHandling('/accounts', 'POST', registrationData);
     }
 
     /**
