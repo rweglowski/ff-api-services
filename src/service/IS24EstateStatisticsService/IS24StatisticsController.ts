@@ -30,13 +30,11 @@ export default class IS24StatisticsController extends APIClient {
     /**
      * Fetches IS24 contact request amount value for given estate
      * @param is24EstateIds
-     * @param portalId
      */
-    async fetchContactRequestsAmount(is24EstateIds: string[], portalId: string) {
+    async fetchContactRequestsAmount(is24EstateIds: string[]) {
         return this.arrayValidator.validateArray(is24EstateIds)
             || await this.invokeApiWithErrorHandling<ContactRequestResponse>('/contactRequestsAmount', 'GET', {}, {
                 queryParams: {
-                    portalId,
                     scoutIds: is24EstateIds.join(',')
                 }
             });
