@@ -1,6 +1,8 @@
 import {APIClient, APIMapping} from '../../http';
 import ArrayValidator from '../common/validators/ArrayValidator';
-import {ContactRequestResponse, ExposeViewsResponse} from './IS24StatisticsService.Types';
+import {IS24EstateStatisticsTypes} from "./IS24StatisticsService.Types";
+import ExposeViewsResponse = IS24EstateStatisticsTypes.ExposeViewsResponse;
+import ContactRequestResponse = IS24EstateStatisticsTypes.ContactRequestResponse;
 
 
 export default class IS24StatisticsController extends APIClient {

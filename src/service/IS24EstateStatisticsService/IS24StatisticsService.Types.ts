@@ -1,12 +1,16 @@
-export interface ExposeViewsResponse {
-    totalExposeViews: number;
-}
+export namespace IS24EstateStatisticsTypes {
 
-export interface ContactRequestResponse {
-    totalContactRequests: number;
-    totalUnreadContactRequests: number;
-}
+    export interface ExposeViewsResponse {
+        totalExposeViews: number;
+    }
 
-export type IS24StatisticsResponse =
-    | ExposeViewsResponse
-    | ContactRequestResponse;
+    export interface ContactRequestResponse {
+        totalContactRequests: number;
+        totalUnreadContactRequests: number;
+    }
+
+    export type IS24StatisticsResponse =
+        | ExposeViewsResponse
+        | ContactRequestResponse;
+
+}
