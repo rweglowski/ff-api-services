@@ -60,26 +60,12 @@ export type ViewDefinitionV2CategoryContentItem =
     | ViewDefinitionV2CategoryLinkedEntityItem
     | ViewDefinitionV2CategoryIs24StatisticsItem;
 
-export enum ViewDefinitionV2CategoryConfigTypes {
-    TABLE_COLUMN = 'TABLE_COLUMN'
-}
-
-export type ViewDefinitionV2CategoryConfigType = keyof typeof ViewDefinitionV2CategoryConfigTypes;
-
-export interface ViewDefinitionV2TableColumnConfiguration {
-    type: ViewDefinitionV2CategoryConfigTypes.TABLE_COLUMN;
-    // defaults to true
-    sortable?: boolean;
-}
-
-export type ViewDefinitionV2CategoryConfiguration = ViewDefinitionV2TableColumnConfiguration;
-
+// if you need a usecase specific property - make a usecase extension of ViewDefinitionV2 & ViewDefinitionV2Category,
+// don't put the fields directly in here. See ViewDefinitionV2List for reference.
 export interface ViewDefinitionV2Category {
     name: string;
     id: string;
     captions: Captions;
-    // if you need a usecase specific configuration field - provide a model for the config container instead of directly enhancing ViewDefinitionV2Category type
-    config?: ViewDefinitionV2CategoryConfiguration;
     content: ViewDefinitionV2CategoryContentItem[];
     hideFieldsIfEmpty: string[];
 }
@@ -109,3 +95,14 @@ export interface ViewDefinitionV2 {
     schema: string;
     hints?: Captions[];
 }
+
+export interface ViewDefinitionV2ListCategory extends ViewDefinitionV2Category{
+    // defaults to true
+    sortable?: boolean;
+}
+
+export interface ViewDefinitionV2List extends ViewDefinitionV2 {
+    type: ViewType.LIST;
+    categories: ViewDefinitionV2ListCategory[];
+}
+
