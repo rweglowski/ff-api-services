@@ -68,6 +68,7 @@ export interface ViewDefinitionV2Category {
     captions: Captions;
     content: ViewDefinitionV2CategoryContentItem[];
     hideFieldsIfEmpty: string[];
+    config?: ViewDefinitionV2CategoryConfig;
 }
 
 export interface ViewDefinitionV2FilterConfigurationField {
@@ -96,9 +97,15 @@ export interface ViewDefinitionV2 {
     hints?: Captions[];
 }
 
-export interface ViewDefinitionV2ListCategory extends ViewDefinitionV2Category{
+export interface ViewDefinitionV2CategoryConfig {}
+
+export interface ViewDefinitionV2ListCategoryConfig extends ViewDefinitionV2CategoryConfig {
     // defaults to true
     sortable?: boolean;
+}
+
+export interface ViewDefinitionV2ListCategory extends ViewDefinitionV2Category {
+    config?: ViewDefinitionV2ListCategoryConfig;
 }
 
 export interface ViewDefinitionV2List extends ViewDefinitionV2 {
@@ -106,3 +113,4 @@ export interface ViewDefinitionV2List extends ViewDefinitionV2 {
     categories: ViewDefinitionV2ListCategory[];
 }
 
+export type ViewDefinitionV2Type = ViewDefinitionV2 | ViewDefinitionV2List;
