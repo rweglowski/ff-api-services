@@ -1,5 +1,5 @@
-import { Captions } from '@flowfact/types';
-import { ViewActionType, ViewDefinitionCategoryJsonFieldConfig, ViewType } from './ViewDefinitionService.Types';
+import {Captions} from '@flowfact/types';
+import {ViewActionType, ViewDefinitionCategoryJsonFieldConfig, ViewType} from './ViewDefinitionService.Types';
 
 export enum ViewDefinitionV2CategoryContentItemTypes {
     MULTIMEDIA = 'MULTIMEDIA',
@@ -60,15 +60,23 @@ export type ViewDefinitionV2CategoryContentItem =
     | ViewDefinitionV2CategoryLinkedEntityItem
     | ViewDefinitionV2CategoryIs24StatisticsItem;
 
-// if you need a usecase specific property - make a usecase extension of ViewDefinitionV2 & ViewDefinitionV2Category,
-// don't put the fields directly in here. See ViewDefinitionV2List for reference.
-export interface ViewDefinitionV2Category {
+
+export interface ViewDefinitionV2Category<T = ViewType> {
     name: string;
     id: string;
     captions: Captions;
     content: ViewDefinitionV2CategoryContentItem[];
     hideFieldsIfEmpty: string[];
-    config?: ViewDefinitionV2CategoryConfig;
+    config?: ViewDefinitionV2CategoryConfig<T>;
+}
+
+export interface ViewDefinitionV2DefaultCategory extends ViewDefinitionV2Category<Omit<ViewType, ViewType.LIST>>//ViewType.DEFAULT |
+    // ViewType.CARD |
+    // ViewType.CALENDAR |
+    // ViewType.MAP |
+    // ViewType.ENTITY_RELATION |
+    // ViewType.QUICK_CREATE>
+{
 }
 
 export interface ViewDefinitionV2FilterConfigurationField {
@@ -83,34 +91,37 @@ export interface ViewDefinitionV2FilterConfiguration {
     filterFields: ViewDefinitionV2FilterConfigurationField[];
 }
 
-export interface ViewDefinitionV2 {
+export interface ViewDefinitionV2<T = ViewType> {
     id: string;
     metadata?: object;
-    type: ViewType;
+    type: T;
     default: boolean;
     actions: ViewActionType[];
     captions: Captions;
-    categories: ViewDefinitionV2Category[];
+    categories: ViewDefinitionV2Category<T>[];
     defaultOrder?: string;
     filterConfiguration?: ViewDefinitionV2FilterConfiguration;
     schema: string;
     hints?: Captions[];
 }
 
-export interface ViewDefinitionV2CategoryConfig {}
+export interface ViewDefinitionV2Default extends ViewDefinitionV2<Omit<ViewType, ViewType.LIST>> {}
 
-export interface ViewDefinitionV2ListCategoryConfig extends ViewDefinitionV2CategoryConfig {
+export interface ViewDefinitionV2CategoryConfig<T = ViewType> {
+}
+
+export interface ViewDefinitionV2DefaultCategoryConfig extends ViewDefinitionV2CategoryConfig<Omit<ViewType, ViewType.LIST>> {
+}
+
+export interface ViewDefinitionV2ListCategoryConfig extends ViewDefinitionV2CategoryConfig<ViewType.LIST> {
     // defaults to true
     sortable?: boolean;
 }
 
-export interface ViewDefinitionV2ListCategory extends ViewDefinitionV2Category {
+export interface ViewDefinitionV2ListCategory extends ViewDefinitionV2Category<ViewType.LIST> {
     config?: ViewDefinitionV2ListCategoryConfig;
 }
 
-export interface ViewDefinitionV2List extends ViewDefinitionV2 {
-    type: ViewType.LIST;
+export interface ViewDefinitionV2List extends ViewDefinitionV2<ViewType.LIST> {
     categories: ViewDefinitionV2ListCategory[];
 }
-
-export type ViewDefinitionV2Type = ViewDefinitionV2 | ViewDefinitionV2List;

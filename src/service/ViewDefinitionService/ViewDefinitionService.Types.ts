@@ -1,4 +1,4 @@
-import { SchemaV2FieldType } from '@flowfact/types';
+import {SchemaV2FieldType} from '@flowfact/types';
 
 export interface ShortViewDefinition {
     id: string;
