@@ -60,7 +60,6 @@ export type ViewDefinitionV2CategoryContentItem =
     | ViewDefinitionV2CategoryLinkedEntityItem
     | ViewDefinitionV2CategoryIs24StatisticsItem;
 
-
 export interface ViewDefinitionV2Category<T extends ViewType = ViewType> {
     name: string;
     id: string;
@@ -69,7 +68,6 @@ export interface ViewDefinitionV2Category<T extends ViewType = ViewType> {
     hideFieldsIfEmpty: string[];
     config?: ViewDefinitionV2CategoryConfig<T>;
 }
-
 
 export interface ViewDefinitionV2FilterConfigurationField {
     fieldName: string;
