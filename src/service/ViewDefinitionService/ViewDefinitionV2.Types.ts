@@ -61,7 +61,7 @@ export type ViewDefinitionV2CategoryContentItem =
     | ViewDefinitionV2CategoryIs24StatisticsItem;
 
 
-export interface ViewDefinitionV2Category<T = ViewType> {
+export interface ViewDefinitionV2Category<T extends ViewType = ViewType> {
     name: string;
     id: string;
     captions: Captions;
@@ -70,14 +70,6 @@ export interface ViewDefinitionV2Category<T = ViewType> {
     config?: ViewDefinitionV2CategoryConfig<T>;
 }
 
-export interface ViewDefinitionV2DefaultCategory extends ViewDefinitionV2Category<Omit<ViewType, ViewType.LIST>>//ViewType.DEFAULT |
-    // ViewType.CARD |
-    // ViewType.CALENDAR |
-    // ViewType.MAP |
-    // ViewType.ENTITY_RELATION |
-    // ViewType.QUICK_CREATE>
-{
-}
 
 export interface ViewDefinitionV2FilterConfigurationField {
     fieldName: string;
@@ -91,7 +83,7 @@ export interface ViewDefinitionV2FilterConfiguration {
     filterFields: ViewDefinitionV2FilterConfigurationField[];
 }
 
-export interface ViewDefinitionV2<T = ViewType> {
+export interface ViewDefinitionV2<T extends ViewType = ViewType> {
     id: string;
     metadata?: object;
     type: T;
@@ -105,23 +97,14 @@ export interface ViewDefinitionV2<T = ViewType> {
     hints?: Captions[];
 }
 
-export interface ViewDefinitionV2Default extends ViewDefinitionV2<Omit<ViewType, ViewType.LIST>> {}
+export type ViewDefinitionV2CategoryConfig<T extends ViewType = ViewType> = T extends ViewType.LIST
+    ? ViewDefinitionV2ListCategoryConfig
+    : ViewDefinitionV2DefaultCategoryConfig
 
-export interface ViewDefinitionV2CategoryConfig<T = ViewType> {
+export interface ViewDefinitionV2DefaultCategoryConfig {
 }
 
-export interface ViewDefinitionV2DefaultCategoryConfig extends ViewDefinitionV2CategoryConfig<Omit<ViewType, ViewType.LIST>> {
-}
-
-export interface ViewDefinitionV2ListCategoryConfig extends ViewDefinitionV2CategoryConfig<ViewType.LIST> {
+export interface ViewDefinitionV2ListCategoryConfig {
     // defaults to true
     sortable?: boolean;
-}
-
-export interface ViewDefinitionV2ListCategory extends ViewDefinitionV2Category<ViewType.LIST> {
-    config?: ViewDefinitionV2ListCategoryConfig;
-}
-
-export interface ViewDefinitionV2List extends ViewDefinitionV2<ViewType.LIST> {
-    categories: ViewDefinitionV2ListCategory[];
 }
