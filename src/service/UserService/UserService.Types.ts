@@ -7,7 +7,7 @@ export enum UserRole {
     USER_LIGHT = 'USER_LIGHT',
     /**
      * User agent has more limited rights
-     * For example, they can't edit their profile or sync emails
+     * For example, they can't edit their profile or enter the email sync section
      * It is used by some Franchise customers (e.g. Debeka)
      * In a future, ACPs will be used and this role will be removed
      */
