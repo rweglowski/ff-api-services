@@ -4,7 +4,14 @@ export enum UserRole {
     USER = 'USER',
     ADMIN = 'ADMIN',
     ACCOUNT_MANAGER = 'ACCOUNT_MANAGER',
-    USER_LIGHT = 'USER_LIGHT'
+    USER_LIGHT = 'USER_LIGHT',
+    /**
+     * User agent has more limited rights
+     * For example, they can't edit their profile or sync emails
+     * It is used by some Franchise customers (e.g. Debeka)
+     * In a future, ACPs will be used and this role will be removed
+     */
+    USER_AGENT = 'USER_AGENT',
 }
 
 export enum UserType {
@@ -28,7 +35,7 @@ export enum SsoType {
 
 export enum SsoOriginType {
     SCOUT_MANAGER = 'SCOUT_MANAGER',
-    SCOUT_MEMBERSHIP = 'SCOUT_MEMBERSHIP'
+    SCOUT_MEMBERSHIP = 'SCOUT_MEMBERSHIP',
 }
 
 export enum AdditionalFieldType {
