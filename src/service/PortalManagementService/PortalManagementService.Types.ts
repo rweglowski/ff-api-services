@@ -124,6 +124,11 @@ export namespace PortalManagementTypes {
         channels: PublishChannel[];
     }
 
+    export interface EstatesPublishedOnPortalResponse {
+       index: int;
+       total: int;
+       items: PortalEstate[];
+    }
     export type PortalPublishInformation = Partial<PortalEstate> & { portalId: string };
 
     export type EstatePortalPublishInformation = {

@@ -2,6 +2,7 @@ import { APIClient, APIMapping } from '../../http';
 import { PortalManagementTypes } from './PortalManagementService.Types';
 import PortalEstateSettings = PortalManagementTypes.PortalEstateSettings;
 import PortalEstate = PortalManagementTypes.PortalEstate;
+import EstatesPublishedOnPortalResponse = PortalManagementTypes.EstatesPublishedOnPortalResponse;
 import PortalPublishInformation = PortalManagementTypes.PortalPublishInformation;
 import EstatePortalPublishInformation = PortalManagementTypes.EstatePortalPublishInformation;
 
@@ -32,6 +33,14 @@ export class PortalEstateController extends APIClient {
      */
     async fetchAll(portalId: string) {
         return await this.invokeApiWithErrorHandling<PortalEstate[]>(`/portals/${portalId}/estates`, 'GET');
+    }
+
+    /**
+     * Fetches app published estates for special portal
+     * @param portalId
+     */
+    async fetchAllPaged(portalId: string, page: int, itemsPerPage: int) {
+        return await this.invokeApiWithErrorHandling<EstatesPublishedOnPortalResponse>(`/portals/${portalId}/estates-paged/?page=${page}&size=${itemsPerPage}`, 'GET');
     }
 
     /**
