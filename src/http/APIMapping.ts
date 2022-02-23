@@ -87,6 +87,7 @@ const APIMapping = {
     is24PublishService: new APIService('is24-publish-service'),
     lambdaProxyService: new APIService('lambda'),
     mailchimpService: new APIService('mailchimp-sync-integration-service'),
+    maintenanceStatusService: new APIService('maintenance-status-lambda'),
     matchmakingService: new APIService('matchmaking-service'),
     multimediaService: new APIService('multimedia-service'),
     nylasContactSyncService: new APIService('nylas-contact-sync-service'),
