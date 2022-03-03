@@ -25,6 +25,10 @@ export class NylasPreconditionController extends APIClient {
         return this.invokeApiWithErrorHandling<PreconditionServiceTypes.Precondition>('/preconditions/irelandMigration', 'GET');
     }
 
+    async fetchIrelandMigrationCompanyAccountsPreconditions() {
+        return this.invokeApiWithErrorHandling<PreconditionServiceTypes.Precondition>('/preconditions/irelandMigrationCompany', 'GET');
+    }
+
     async fetchInactiveAccountsPreconditions() {
         return this.invokeApiWithErrorHandling<PreconditionServiceTypes.Precondition>('/preconditions/userHasNoActiveMailAccounts', 'GET');
     }
