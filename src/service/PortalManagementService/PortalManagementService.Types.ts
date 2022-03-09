@@ -87,9 +87,11 @@ export namespace PortalManagementTypes {
         showAddress?: boolean;
     }
 
+    export type PublishChannels = 'SCOUT' | 'HOMEPAGE' | 'PROJECT';
+
     export interface PublishChannel {
         channelIdentifier: string;
-        type: 'SCOUT' | 'HOMEPAGE' | 'PROJECT';
+        type: PublishChannels;
     }
 
     export interface Portal {
@@ -133,10 +135,12 @@ export namespace PortalManagementTypes {
     export interface PortalEstateSettings {
         id: string;
         portalId: string;
-        schemaId: string;
+        schemaId?: string;
+        schemaName: string;
         entityId: string;
         externalId: string;
         showAddress: boolean;
+        publishChannels?: Array<PublishChannels>;
     }
 
     export type PortalType = 'IS24' | 'OPENIMMO' | 'WORDPRESS' | 'IDX' | 'IDX_SUB' | 'SWISSRETS' | 'LEADING_RE';
