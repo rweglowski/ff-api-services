@@ -51,6 +51,13 @@ export interface TrashedEntitiesSchemaNameResponse {
 export interface TrashedEntityIds {
     entityIds: string[];
 }
+
+export enum Operation {
+    ADD = 'add',
+    REMOVE = 'remove',
+    REPLACE = 'replace',
+}
+
 export class EntityService extends APIClient {
     constructor() {
         super(APIMapping.entityService);
@@ -201,13 +208,31 @@ export class EntityService extends APIClient {
     }
 
     /**
-     * Update a entity in the backend
+     * Updates an entity in the backend
      * @param schemaId
      * @param entityId
      * @param fields
      */
     async updateEntity(schemaId: string, entityId: string, fields: EntityFields) {
         return this.invokeApi<Entity>(`/schemas/${schemaId}/entities/${entityId}`, 'PATCH', fields);
+    }
+
+    /**
+     * Updates an entity in the backend with rules defined in the body
+     * It is different from the updateEntity method, because the service checks for a field configuration (like hasMultipleValues, maxItems, etc.)
+     * For example: if a field is a single value and already has a value, it will be overwritten with a new value.
+     * On the other hand, if a field is a multiple value and already has a value, the new value will be appended.
+     *
+     * @param schemaId
+     * @param entityId
+     * @param fields
+     * @param operation
+     */
+    async updateEntityDeep(schemaId: string, entityId: string, fields: EntityFields, operation: Operation) {
+        return this.invokeApiWithErrorHandling<Entity>(`/schemas/${schemaId}/entities/${entityId}/deep`, 'PATCH', {
+            op: operation,
+            value: fields,
+        });
     }
 
     /**
