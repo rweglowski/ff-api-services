@@ -22,6 +22,7 @@ export interface Inquiry {
 export interface InquiryAutomation {
     id: string;
     companyId: string;
+    is24ContactApiActive: boolean;
     isActive: boolean;
 }
 
@@ -34,6 +35,11 @@ export enum EmailValidationStatus {
     PROCESSED = 'PROCESSED',
     NOT_INQUIRY = 'NOT_INQUIRY',
     TO_BE_PROCESSED = 'TO_BE_PROCESSED',
+}
+
+export interface ContactAPIAvailabilityResponse {
+    id: string;
+    satisfied: boolean;
 }
 
 export class InquiryServiceClass extends APIClient {
@@ -70,12 +76,21 @@ export class InquiryServiceClass extends APIClient {
         return this.invokeApi(`/inquiry/${inquiryId}/setEstate/${estateId}`, 'POST');
     }
 
-    isInquiryAutomationActive(companyId: string): Promise<AxiosResponse<InquiryAutomation>> {
+    getInquiryAutomation(companyId: string): Promise<AxiosResponse<InquiryAutomation>> {
         return this.invokeApi(`/inquiry/automation/${companyId}`, 'GET');
     }
 
     toggleAutomation(companyId: string): Promise<AxiosResponse<InquiryAutomation>> {
         return this.invokeApi(`/inquiry/automation/${companyId}`, 'POST');
+    }
+
+    /**
+     * Updates the inquiry automation settings
+     * @param {string} companyId - ID of the current company
+     * @param {InquiryAutomation} settings - new inquiry automation settings
+     */
+    updateAutomation(companyId: string, settings: InquiryAutomation): Promise<ApiResponse<InquiryAutomation>> {
+        return this.invokeApiWithErrorHandling(`/inquiry/automation/${companyId}`, 'PUT', settings);
     }
 
     /**
@@ -100,6 +115,13 @@ export class InquiryServiceClass extends APIClient {
      */
     validateEmail(entityId: string): Promise<ApiResponse<any>> {
         return this.invokeApiWithErrorHandling(`/email/${entityId}/verify`, 'GET');
+    }
+
+    /**
+     * Checks if the Contact API is available for that customer
+     */
+    checkContactAPIAvailability(): Promise<ApiResponse<ContactAPIAvailabilityResponse>> {
+        return this.invokeApiWithErrorHandling('/preconditions/authenticatedIs24Portal', 'GET');
     }
 }
 
