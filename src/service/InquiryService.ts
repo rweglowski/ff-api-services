@@ -53,7 +53,7 @@ export class InquiryServiceClass extends APIClient {
      * @param {number} size - Number of entities to fetch.
      */
     fetchAll(page: number = 1, size: number = 100): Promise<AxiosResponse<Array<Inquiry>>> {
-        return this.invokeApi(`/inquiry?page=${page}&size=${size}`, 'GET');
+        return this.invokeApiWithErrorHandling(`/inquiry?page=${page}&size=${size}`, 'GET');
     }
 
     /**
@@ -63,7 +63,7 @@ export class InquiryServiceClass extends APIClient {
      * @param {number} size - Number of entities to fetch.
      */
     fetchWithFlowDsl(flowDsl: Flowdsl, page: number = 1, size: number = 100): Promise<AxiosResponse<Array<Inquiry>>> {
-        return this.invokeApi(`/inquiry?page=${page}&size=${size}`, 'POST', flowDsl);
+        return this.invokeApiWithErrorHandling(`/inquiry?page=${page}&size=${size}`, 'POST', flowDsl);
     }
 
     /**
@@ -77,11 +77,11 @@ export class InquiryServiceClass extends APIClient {
     }
 
     getInquiryAutomation(companyId: string): Promise<AxiosResponse<InquiryAutomation>> {
-        return this.invokeApi(`/inquiry/automation/${companyId}`, 'GET');
+        return this.invokeApiWithErrorHandling(`/inquiry/automation/${companyId}`, 'GET');
     }
 
     toggleAutomation(companyId: string): Promise<AxiosResponse<InquiryAutomation>> {
-        return this.invokeApi(`/inquiry/automation/${companyId}`, 'POST');
+        return this.invokeApiWithErrorHandling(`/inquiry/automation/${companyId}`, 'POST');
     }
 
     /**
