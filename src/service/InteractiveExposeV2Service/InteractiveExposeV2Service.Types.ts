@@ -63,5 +63,6 @@ export namespace InteractiveExposeV2ServiceTypes {
         body: string;
         language: string;
         iexVersion?: string;
+        isDefault?: boolean;
     }
 }
