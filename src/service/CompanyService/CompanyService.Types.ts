@@ -95,4 +95,16 @@ export namespace CompanyServiceTypes {
         INTERNAL = 'INTERNAL',
         EXTERNAL_DEVELOPER = 'EXTERNAL_DEVELOPER',
     }
+
+    export enum CompanyEmailFields {
+        FONT = 'emailStyleFont',
+        SIZE = 'emailStyleFontSize',
+        COLOR = 'emailStyleFontColor',
+    }
+
+    export interface CompanyMetadata<T> {
+        key: string;
+        value: T;
+    }
+
 }
