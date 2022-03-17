@@ -1,4 +1,4 @@
-import {S3File} from '@flowfact/types';
+import { S3File } from '@flowfact/types';
 
 export namespace CompanyServiceTypes {
     export type ID = string;
