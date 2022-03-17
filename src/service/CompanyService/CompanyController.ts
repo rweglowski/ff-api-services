@@ -114,4 +114,21 @@ export class CompanyController extends APIClient {
     async setOwnerClassForCompany(companyId: CompanyServiceTypes.ID, ownerClass: CompanyServiceTypes.OwnerClass) {
         return this.invokeApiWithErrorHandling(`/company/${companyId}/ownerclass/${ownerClass}`, 'PUT');
     }
+
+
+    /**
+     * Loads metadata for company
+     */
+    async fetchCompanyMetadata() {
+        return this.invokeApiWithErrorHandling<{ entries: CompanyServiceTypes.CompanyMetadata<any>[] }>('/metadata', 'GET');
+    }
+
+    /**
+     * Save metadata for company
+     * creates new metadata or updates existing one
+     */
+    async saveCompanyMetadata(metadata: CompanyServiceTypes.CompanyMetadata<any>) {
+        return this.invokeApiWithErrorHandling<CompanyServiceTypes.CompanyMetadata<any>>('/metadata', 'POST', metadata);
+    }
+
 }
