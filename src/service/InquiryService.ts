@@ -22,6 +22,7 @@ export interface Inquiry {
 export interface InquiryAutomation {
     id: string;
     companyId: string;
+    is24ContactApiActive: boolean;
     isActive: boolean;
 }
 
@@ -36,6 +37,11 @@ export enum EmailValidationStatus {
     TO_BE_PROCESSED = 'TO_BE_PROCESSED',
 }
 
+export interface ContactAPIAvailabilityResponse {
+    id: string;
+    satisfied: boolean;
+}
+
 export class InquiryServiceClass extends APIClient {
     constructor() {
         super(APIMapping.inquiryService);
@@ -47,7 +53,7 @@ export class InquiryServiceClass extends APIClient {
      * @param {number} size - Number of entities to fetch.
      */
     fetchAll(page: number = 1, size: number = 100): Promise<AxiosResponse<Array<Inquiry>>> {
-        return this.invokeApi(`/inquiry?page=${page}&size=${size}`, 'GET');
+        return this.invokeApiWithErrorHandling(`/inquiry?page=${page}&size=${size}`, 'GET');
     }
 
     /**
@@ -57,7 +63,7 @@ export class InquiryServiceClass extends APIClient {
      * @param {number} size - Number of entities to fetch.
      */
     fetchWithFlowDsl(flowDsl: Flowdsl, page: number = 1, size: number = 100): Promise<AxiosResponse<Array<Inquiry>>> {
-        return this.invokeApi(`/inquiry?page=${page}&size=${size}`, 'POST', flowDsl);
+        return this.invokeApiWithErrorHandling(`/inquiry?page=${page}&size=${size}`, 'POST', flowDsl);
     }
 
     /**
@@ -70,12 +76,21 @@ export class InquiryServiceClass extends APIClient {
         return this.invokeApi(`/inquiry/${inquiryId}/setEstate/${estateId}`, 'POST');
     }
 
-    isInquiryAutomationActive(companyId: string): Promise<AxiosResponse<InquiryAutomation>> {
-        return this.invokeApi(`/inquiry/automation/${companyId}`, 'GET');
+    getInquiryAutomation(companyId: string): Promise<AxiosResponse<InquiryAutomation>> {
+        return this.invokeApiWithErrorHandling(`/inquiry/automation/${companyId}`, 'GET');
     }
 
     toggleAutomation(companyId: string): Promise<AxiosResponse<InquiryAutomation>> {
-        return this.invokeApi(`/inquiry/automation/${companyId}`, 'POST');
+        return this.invokeApiWithErrorHandling(`/inquiry/automation/${companyId}`, 'POST');
+    }
+
+    /**
+     * Updates the inquiry automation settings
+     * @param {string} companyId - ID of the current company
+     * @param {InquiryAutomation} settings - new inquiry automation settings
+     */
+    updateAutomation(companyId: string, settings: InquiryAutomation): Promise<ApiResponse<InquiryAutomation>> {
+        return this.invokeApiWithErrorHandling(`/inquiry/automation/${companyId}`, 'PUT', settings);
     }
 
     /**
@@ -100,6 +115,13 @@ export class InquiryServiceClass extends APIClient {
      */
     validateEmail(entityId: string): Promise<ApiResponse<any>> {
         return this.invokeApiWithErrorHandling(`/email/${entityId}/verify`, 'GET');
+    }
+
+    /**
+     * Checks if the Contact API is available for that customer
+     */
+    checkContactAPIAvailability(): Promise<ApiResponse<ContactAPIAvailabilityResponse>> {
+        return this.invokeApiWithErrorHandling('/preconditions/authenticatedIs24Portal', 'GET');
     }
 }
 
