@@ -1,4 +1,4 @@
-import { PagedNylasContactSyncEntries, NylasContactSyncEntry, NylasContactSyncEntryPostModel } from '@flowfact/types';
+import { PagedNylasContactSyncEntries, NylasContactSyncEntry, NylasContactSyncEntryPostModel, NylasContactSyncEntryUpdateModel } from '@flowfact/types';
 import { AxiosResponse } from 'axios';
 import { APIClient, APIMapping } from '../http';
 
@@ -34,6 +34,13 @@ export class NylasContactSyncService extends APIClient {
      */
     createSyncEntry = async (syncEntry: NylasContactSyncEntryPostModel): Promise<AxiosResponse<NylasContactSyncEntry>> => {
         return await this.invokeApi(`/syncEntries`, 'POST', syncEntry);
+    };
+
+    updateSyncEntriesForContact = async (
+        contactId: string,
+        body: NylasContactSyncEntryUpdateModel
+    ): Promise<AxiosResponse<NylasContactSyncEntry>> => {
+        return await this.invokeApiWithErrorHandling(`/syncEntries/contact/${contactId}`, 'POST', body);
     };
 
     /**

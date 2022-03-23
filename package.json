@@ -23,7 +23,7 @@
     },
     "dependencies": {
         "@flowfact/node-flowdsl": "2.20210922.48",
-        "@flowfact/types": "^10.20220111.223",
+        "@flowfact/types": "^10.20220322.224",
         "aws-amplify": "4.3.13",
         "axios": "0.25.0",
         "detect-node": "2.1.0",
