@@ -7,14 +7,22 @@ export namespace NavigationTypes {
     }
 
     export interface Access {
+        // this will be handled by the backend. But you have to save it in frontend!
         acps?: ACP[];
-        hideFromCrm?: boolean;
+        // Hide given item from navigation for a user with a given role
+        // It has a precedence over the showForUserRoles property
+        hideForUserRoles?: string[];
+        showForUserRoles?: string[];
     }
 
     export interface BaseItem {
         name: string;
         access?: Access;
         captions: Captions;
+        metadata?: {
+            hideFromCrm?: boolean;
+            hideForTrial?: boolean;
+        };
     }
 
     export interface Item extends BaseItem {
