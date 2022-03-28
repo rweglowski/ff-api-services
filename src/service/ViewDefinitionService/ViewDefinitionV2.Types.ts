@@ -75,6 +75,7 @@ export interface ViewDefinitionV2FilterConfigurationField {
 
 export interface ViewDefinitionV2FilterConfiguration {
     id: string;
+    showMoreFilters?: boolean;
     showSavedSearches?: boolean;
     saveFilterState?: boolean;
     groupByFields?: ViewDefinitionV2FilterConfigurationField[];
