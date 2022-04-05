@@ -28,6 +28,8 @@ export interface ViewDefinitionV2CategoryMediaItem {
     type: ViewDefinitionV2CategoryContentItemTypes.MULTIMEDIA;
     album?: string;
     category?: string;
+    height?: number;
+    width?: number;
     index: number;
 }
 
