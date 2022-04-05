@@ -7,6 +7,14 @@ export class InternalController extends APIClient {
     }
 
     /**
+     * Returns user indentified by given userId
+     * @param userId
+     */
+    async getUserById(userId: string) {
+        return await this.invokeApiWithErrorHandling<User>(`/internal/users/${userId}`, 'GET', undefined);
+    }
+
+    /**
      * Returns user indentified by given email address
      * @param email
      */
@@ -15,11 +23,11 @@ export class InternalController extends APIClient {
     }
 
     /**
-     * Returns user indentified by given token
+     * Returns userId by given token
      * @param token
      */
-    async getUserByToken(token: string) {
-        return await this.invokeApiWithErrorHandling<User>(`/internal/token/${token}/user-id`, 'GET', undefined);
+    async getUserIdByToken(token: string) {
+        return await this.invokeApiWithErrorHandling<{ id: string }>(`/internal/token/${token}/user-id`, 'GET', undefined);
     }
 
     /**
