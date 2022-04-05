@@ -15,6 +15,14 @@ export class InternalController extends APIClient {
     }
 
     /**
+     * Returns user indentified by given token
+     * @param token
+     */
+    async getUserByToken(token: string) {
+        return await this.invokeApiWithErrorHandling<User>(`/internal/token/${token}/user-id`, 'GET', undefined);
+    }
+
+    /**
      * Creates new user
      * @param user
      */
