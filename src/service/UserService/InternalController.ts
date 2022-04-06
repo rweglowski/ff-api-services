@@ -10,7 +10,7 @@ export class InternalController extends APIClient {
      * Returns user indentified by given userId
      * @param userId
      */
-    async getUserById(userId: string) {
+    async fetchUserById(userId: string) {
         return await this.invokeApiWithErrorHandling<User>(`/internal/users/${userId}`, 'GET', undefined);
     }
 
@@ -18,7 +18,7 @@ export class InternalController extends APIClient {
      * Returns user indentified by given email address
      * @param email
      */
-    async getUserByEmail(email: string) {
+    async fetchUserByEmail(email: string) {
         return await this.invokeApiWithErrorHandling<User>(`/internal/users/byEmail/${email}`, 'GET', undefined);
     }
 
@@ -26,7 +26,7 @@ export class InternalController extends APIClient {
      * Returns userId by given token
      * @param token
      */
-    async getUserIdByToken(token: string) {
+    async fetchUserIdByToken(token: string) {
         return await this.invokeApiWithErrorHandling<{ id: string }>(`/internal/token/${token}/user-id`, 'GET', undefined);
     }
 
@@ -43,7 +43,7 @@ export class InternalController extends APIClient {
      * @param userId
      * @param tokenName
      */
-    async getTokenByNameForUser(userId: string, tokenName: string) {
+    async fetchTokenByNameForUser(userId: string, tokenName: string) {
         return await this.invokeApiWithErrorHandling<UserTokenEntity>(`/internal/token/user/${userId}/tokenName/${tokenName}`, 'GET', undefined);
     }
 

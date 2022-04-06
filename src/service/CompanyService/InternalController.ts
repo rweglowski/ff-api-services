@@ -7,10 +7,10 @@ export class InternalController extends APIClient {
     }
 
     /**
-     * find company by id
+     * fetch a company by its id
      * @param companyId
      */
-    async findCompanyById(companyId: CompanyServiceTypes.ID) {
+    async fetchCompanyById(companyId: CompanyServiceTypes.ID) {
         return this.invokeApiWithErrorHandling<CompanyServiceTypes.Company>(`/internal/company/${companyId}`, 'GET', undefined);
     }
 
