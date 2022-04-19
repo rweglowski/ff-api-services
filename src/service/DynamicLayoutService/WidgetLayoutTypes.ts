@@ -10,6 +10,7 @@ export namespace WidgetLayoutTypes {
         id: string;
         sorting?: number;
         captions: Captions;
+        tabTitle?: Captions;
         descriptions?: Captions;
         global: boolean;
         layout: LayoutContainer;
