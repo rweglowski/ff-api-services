@@ -14,7 +14,7 @@
         "build:esm": "tsc --project tsconfig.esm.json",
         "prepare": "rimraf build/ && yarn run build:cjs && yarn run build:esm",
         "lint": "eslint src/*",
-        "doc": "typedoc --out doc/",
+        "docs": "yarn node scripts/createDocs.js && yarn typedoc src/docs.ts && rimraf src/docs.ts",
         "local": "node pack.js platform-apps",
         "upgradeTypes": "yarn && yarn add @flowfact/types --latest",
         "upgradeNodeFlowdsl": "yarn add @flowfact/node-flowdsl --latest",
@@ -28,7 +28,8 @@
         "axios": "0.25.0",
         "detect-node": "2.1.0",
         "qs": "6.10.3",
-        "tslib": "2.3.1"
+        "tslib": "2.3.1",
+        "typedoc": "^0.22.14"
     },
     "devDependencies": {
         "@types/graphql": "14.5.0",
