@@ -1,4 +1,5 @@
 import { Captions } from '@flowfact/types';
+import { ViewActionType } from '../ViewDefinitionService';
 
 export namespace WidgetLayoutTypes {
     export enum LayoutDomainType {
@@ -6,8 +7,13 @@ export namespace WidgetLayoutTypes {
         SCHEMA_BOUND = 'SCHEMA_BOUND',
     }
 
+    export interface LayoutActionType {
+        type: ViewActionType;
+    }
+
     export interface BaseWidgetLayout {
         id: string;
+        actions?: LayoutActionType[];
         sorting?: number;
         captions: Captions;
         tabTitle?: Captions;
