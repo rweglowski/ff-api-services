@@ -7,10 +7,16 @@ export namespace WidgetLayoutTypes {
         SCHEMA_BOUND = 'SCHEMA_BOUND',
     }
 
+    export interface LayoutActionType {
+        type: ViewActionType;
+    }
+
     export interface BaseWidgetLayout {
         id: string;
+        actions?: LayoutActionType[];
         sorting?: number;
         captions: Captions;
+        tabTitle?: Captions;
         descriptions?: Captions;
         global: boolean;
         layout: LayoutContainer;
@@ -21,13 +27,8 @@ export namespace WidgetLayoutTypes {
         domainType: LayoutDomainType.GENERAL;
     }
 
-    export interface LayoutActionType {
-        type: ViewActionType;
-    }
-
     export interface SchemaBoundWidgetLayout extends BaseWidgetLayout {
         schema: string;
-        actions?: LayoutActionType[];
         domainType: LayoutDomainType.SCHEMA_BOUND;
         categories?: string[];
     }

@@ -15,6 +15,12 @@ export enum StatisticsType {
     CONTACT_REQUESTS = 'CONTACT_REQUESTS'
 }
 
+export enum HighligtingColor {
+    ACTIVE_COLOR = 'ACTIVE_COLOR',
+    INACTIVE_COLOR = 'INACTIVE_COLOR',
+    ARCHIVED_COLOR = 'ARCHIVED_COLOR'
+}
+
 export type ViewDefinitionV2CategoryContentItemType = keyof typeof ViewDefinitionV2CategoryContentItemTypes;
 
 export interface ViewDefinitionV2CategoryIs24StatisticsItem {
@@ -28,13 +34,21 @@ export interface ViewDefinitionV2CategoryMediaItem {
     type: ViewDefinitionV2CategoryContentItemTypes.MULTIMEDIA;
     album?: string;
     category?: string;
+    height?: number;
+    width?: number;
     index: number;
+}
+
+export interface ViewDefinitionV2CategoryEntityItemConfig {
+    //this field is used to define highlight mapping between the possible field values and the highlight styles.
+    highlighting?: Record<string, HighligtingColor>;
 }
 
 export interface ViewDefinitionV2CategoryEntityItem {
     type: ViewDefinitionV2CategoryContentItemTypes.ENTITY;
     fieldName?: string;
     jsonFieldConfig?: ViewDefinitionCategoryJsonFieldConfig;
+    config?: ViewDefinitionV2CategoryEntityItemConfig
 }
 
 export interface ViewDefinitionV2CategoryTextItem {
@@ -75,6 +89,7 @@ export interface ViewDefinitionV2FilterConfigurationField {
 
 export interface ViewDefinitionV2FilterConfiguration {
     id: string;
+    showMoreFilters?: boolean;
     showSavedSearches?: boolean;
     saveFilterState?: boolean;
     groupByFields?: ViewDefinitionV2FilterConfigurationField[];

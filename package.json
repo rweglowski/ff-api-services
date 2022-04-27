@@ -1,6 +1,6 @@
 {
     "name": "@flowfact/api-services",
-    "version": "68.0.0-SNAPSHOT",
+    "version": "70.0.0-SNAPSHOT",
     "description": "middleware of FLOWFACT to interact between frontend and backend",
     "main": "build/index.js",
     "module": "build/es/index.js",
@@ -14,7 +14,7 @@
         "build:esm": "tsc --project tsconfig.esm.json",
         "prepare": "rimraf build/ && yarn run build:cjs && yarn run build:esm",
         "lint": "eslint src/*",
-        "doc": "typedoc --out doc/",
+        "docs": "yarn node scripts/createDocs.js && yarn typedoc src/docs.ts && rimraf src/docs.ts",
         "local": "node pack.js platform-apps",
         "upgradeTypes": "yarn && yarn add @flowfact/types --latest",
         "upgradeNodeFlowdsl": "yarn add @flowfact/node-flowdsl --latest",
@@ -23,12 +23,13 @@
     },
     "dependencies": {
         "@flowfact/node-flowdsl": "2.20210922.48",
-        "@flowfact/types": "^10.20220111.223",
+        "@flowfact/types": "^10.20220322.224",
         "aws-amplify": "4.3.13",
         "axios": "0.25.0",
         "detect-node": "2.1.0",
         "qs": "6.10.3",
-        "tslib": "2.3.1"
+        "tslib": "2.3.1",
+        "typedoc": "^0.22.14"
     },
     "devDependencies": {
         "@types/graphql": "14.5.0",
@@ -43,7 +44,7 @@
         "prettier": "2.5.1",
         "recursive-search": "1.0.1",
         "rimraf": "3.0.2",
-        "simple-git": "3.1.1",
+        "simple-git": "3.6.0",
         "typescript": "4.5.5"
     }
 }
