@@ -13,7 +13,6 @@ export namespace WidgetLayoutTypes {
 
     export interface BaseWidgetLayout {
         id: string;
-        actions?: LayoutActionType[];
         sorting?: number;
         captions: Captions;
         tabTitle?: Captions;
@@ -73,6 +72,7 @@ export namespace WidgetLayoutTypes {
 
     export interface LayoutContainer {
         tempKey: string;
+        actions?: LayoutActionType[];
         kind: 'container';
         columns: LayoutColumn[];
     }
