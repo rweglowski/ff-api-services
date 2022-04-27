@@ -1,4 +1,5 @@
 import { Captions } from '@flowfact/types';
+import { ViewActionType } from '../ViewDefinitionService';
 
 export namespace WidgetLayoutTypes {
     export enum LayoutDomainType {
@@ -20,8 +21,13 @@ export namespace WidgetLayoutTypes {
         domainType: LayoutDomainType.GENERAL;
     }
 
+    export interface LayoutActionType {
+        type: ViewActionType;
+    }
+
     export interface SchemaBoundWidgetLayout extends BaseWidgetLayout {
         schema: string;
+        actions?: LayoutActionType[];
         domainType: LayoutDomainType.SCHEMA_BOUND;
         categories?: string[];
     }
