@@ -35,7 +35,7 @@ export enum ViewType {
     CALENDAR = 'CALENDAR',
     MAP = 'MAP',
     ENTITY_RELATION = 'ENTITY_RELATION',
-    QUICK_CREATE = 'QUICK_CREATE'
+    QUICK_CREATE = 'QUICK_CREATE',
 }
 
 export enum ViewActionTypes {

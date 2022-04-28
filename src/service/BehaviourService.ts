@@ -5,7 +5,6 @@ export class BehaviourService extends APIClient {
     private events: TrackingEvent[] = [];
     private timeout?: number;
 
-
     constructor() {
         super(APIMapping.behaviourService);
     }
@@ -20,7 +19,7 @@ export class BehaviourService extends APIClient {
     }
 
     private postEvents = () => {
-        if (this.timeout || this.events.length === 0 ) {
+        if (this.timeout || this.events.length === 0) {
             return;
         }
 
@@ -32,11 +31,9 @@ export class BehaviourService extends APIClient {
         //reset timeout and trigger again
         this.timeout = setTimeout(() => {
             this.timeout = undefined;
-            this.postEvents()
+            this.postEvents();
         }, 5000) as any;
     };
-
-
 }
 
 export default new BehaviourService();

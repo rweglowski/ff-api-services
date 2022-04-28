@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
 import { APIClient, APIMapping, ApiResponse } from '../http';
 import { Flowdsl } from '@flowfact/node-flowdsl';
+import { PreconditionResponse } from '../util/InternalTypes';
 
 export type InquiryStatus = 'active' | 'pinned' | 'done';
 
@@ -35,11 +36,6 @@ export enum EmailValidationStatus {
     PROCESSED = 'PROCESSED',
     NOT_INQUIRY = 'NOT_INQUIRY',
     TO_BE_PROCESSED = 'TO_BE_PROCESSED',
-}
-
-export interface ContactAPIAvailabilityResponse {
-    id: string;
-    satisfied: boolean;
 }
 
 export class InquiryServiceClass extends APIClient {
@@ -120,7 +116,7 @@ export class InquiryServiceClass extends APIClient {
     /**
      * Checks if the Contact API is available for that customer
      */
-    checkContactAPIAvailability(): Promise<ApiResponse<ContactAPIAvailabilityResponse>> {
+    checkContactAPIAvailability(): Promise<ApiResponse<PreconditionResponse>> {
         return this.invokeApiWithErrorHandling('/preconditions/authenticatedIs24Portal', 'GET');
     }
 }

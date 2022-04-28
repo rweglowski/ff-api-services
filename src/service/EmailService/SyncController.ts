@@ -1,5 +1,5 @@
 import { APIClient, APIMapping } from '../../http';
-import { EmailServiceTypes } from "./EmailService.Types";
+import { EmailServiceTypes } from './EmailService.Types';
 import SyncEmailModel = EmailServiceTypes.ManualSyncRequest;
 
 export class SyncController extends APIClient {

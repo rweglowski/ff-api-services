@@ -1,10 +1,9 @@
-import {APIClient, APIMapping} from '../../http';
+import { APIClient, APIMapping } from '../../http';
 import ArrayValidator from '../common/validators/ArrayValidator';
-import {IS24EstateStatisticsTypes} from "./IS24StatisticsService.Types";
+import { IS24EstateStatisticsTypes } from './IS24StatisticsService.Types';
 import ExposeViewsResponse = IS24EstateStatisticsTypes.ExposeViewsResponse;
 import ContactRequestResponse = IS24EstateStatisticsTypes.ContactRequestResponse;
 import HomeOwnerRequestResponse = IS24EstateStatisticsTypes.HomeOwnerRequestResponse;
-
 
 export default class IS24StatisticsController extends APIClient {
     private readonly MIN_ESTATE_IDS = 1;
@@ -22,12 +21,17 @@ export default class IS24StatisticsController extends APIClient {
      * @param portalId
      */
     async fetchExposeViews(is24EstateId: string, portalId: string) {
-        return await this.invokeApiWithErrorHandling<ExposeViewsResponse>('/exposeviews', 'GET', {}, {
-            queryParams: {
-                portalId,
-                scoutId: is24EstateId
+        return await this.invokeApiWithErrorHandling<ExposeViewsResponse>(
+            '/exposeviews',
+            'GET',
+            {},
+            {
+                queryParams: {
+                    portalId,
+                    scoutId: is24EstateId,
+                },
             }
-        });
+        );
     }
 
     /**
@@ -36,24 +40,36 @@ export default class IS24StatisticsController extends APIClient {
      * @param numberOfDays
      */
     async fetchContactRequestsAmount(is24EstateIds: string[], numberOfDays?: number) {
-        return this.arrayValidator.validateArray(is24EstateIds)
-            || await this.invokeApiWithErrorHandling<ContactRequestResponse>('/contactrequests', 'GET', {}, {
-                queryParams: {
-                    scoutIds: is24EstateIds.join(','),
-                    numberOfDays
+        return (
+            this.arrayValidator.validateArray(is24EstateIds) ||
+            (await this.invokeApiWithErrorHandling<ContactRequestResponse>(
+                '/contactrequests',
+                'GET',
+                {},
+                {
+                    queryParams: {
+                        scoutIds: is24EstateIds.join(','),
+                        numberOfDays,
+                    },
                 }
-            });
+            ))
+        );
     }
 
     /**
      * Fetches IS24 home owner total request value
      * @param portalId
      */
-    async fetchHomeOwnerRequestsAmount( portalId: string) {
-        return await this.invokeApiWithErrorHandling<HomeOwnerRequestResponse>('/homeownerrequests', 'GET', {}, {
-            queryParams: {
-                portalId,
+    async fetchHomeOwnerRequestsAmount(portalId: string) {
+        return await this.invokeApiWithErrorHandling<HomeOwnerRequestResponse>(
+            '/homeownerrequests',
+            'GET',
+            {},
+            {
+                queryParams: {
+                    portalId,
+                },
             }
-        });
+        );
     }
 }

@@ -19,7 +19,7 @@ export class SwissLeadController extends APIClient {
      * @param settings
      */
     async saveSettings(settings: SwissLeadServiceTypes.Settings) {
-        return this.invokeApiWithErrorHandling<SwissLeadServiceTypes.Settings>(`/settings`, 'POST',  settings);
+        return this.invokeApiWithErrorHandling<SwissLeadServiceTypes.Settings>(`/settings`, 'POST', settings);
     }
 
     /**

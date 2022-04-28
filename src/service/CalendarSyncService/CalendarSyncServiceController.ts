@@ -1,4 +1,4 @@
-import {APIClient, APIMapping} from "../../http";
+import { APIClient, APIMapping } from '../../http';
 import { CalendarSyncServiceTypes } from './CalendarSyncService.Types';
 
 export class CalendarSyncServiceController extends APIClient {

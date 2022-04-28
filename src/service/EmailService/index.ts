@@ -4,7 +4,7 @@ import { NotificationController } from './NotificationController';
 import { SendController } from './SendController';
 import { ConfigurationController } from './ConfigurationController';
 import { RespondController } from './RespondController';
-import {ResyncController} from './ResyncController';
+import { ResyncController } from './ResyncController';
 
 export * from './EmailService.Types';
 

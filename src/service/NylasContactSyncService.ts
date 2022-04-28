@@ -1,4 +1,9 @@
-import { PagedNylasContactSyncEntries, NylasContactSyncEntry, NylasContactSyncEntryPostModel, NylasContactSyncEntryUpdateModel } from '@flowfact/types';
+import {
+    PagedNylasContactSyncEntries,
+    NylasContactSyncEntry,
+    NylasContactSyncEntryPostModel,
+    NylasContactSyncEntryUpdateModel,
+} from '@flowfact/types';
 import { AxiosResponse } from 'axios';
 import { APIClient, APIMapping } from '../http';
 

@@ -227,7 +227,6 @@ export class SchemaServiceV2 extends APIClient {
         return this.invokeApiWithErrorHandling<Extension>(`/extensions`, 'POST', extension, v2Header);
     };
 
-
     /**
      * Deletes extension by name.
      * @param name - The extension's name.

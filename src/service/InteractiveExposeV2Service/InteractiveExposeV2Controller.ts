@@ -39,6 +39,7 @@ export class InteractiveExposeV2Controller extends APIClient {
             throw new Error('The id is empty');
         }
         return this.invokeApiWithErrorHandling<InteractiveExposeV2ServiceTypes.AsyncJobResponse>(`/draft-expose/${id}/send`, 'POST', undefined, {
-            queryParams: { async: '' }, } );
+            queryParams: { async: '' },
+        });
     }
 }

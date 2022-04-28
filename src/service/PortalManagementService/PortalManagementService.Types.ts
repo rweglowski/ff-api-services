@@ -73,7 +73,7 @@ export namespace PortalManagementTypes {
 
     export interface ValidationError {
         translatedMessage: string;
-        type: string
+        type: string;
     }
 
     export interface PublishRequestEntry {

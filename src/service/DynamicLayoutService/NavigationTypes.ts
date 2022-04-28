@@ -26,9 +26,8 @@ export namespace NavigationTypes {
     }
 
     export interface Item extends BaseItem {
-        type:
-            // This will embed the website into the software (iframe)
-            'REDIRECT'
+        type: // This will embed the website into the software (iframe)
+        | 'REDIRECT'
             // This will redirect with target="_blank"
             | 'EXTERNAL_REDIRECT'
             // This will redirect with target="_self"

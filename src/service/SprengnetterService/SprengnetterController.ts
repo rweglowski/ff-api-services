@@ -31,7 +31,7 @@ export class SprengnetterController extends APIClient {
      * @returns {GenericFetchValuationResponse} response with details of valuation
      */
     async fetchQuickValuation(entityId: string, transactionType: string) {
-        return await this.invokeApiWithErrorHandling<GenericFetchValuationResponse>(`/quickValuation/${transactionType}/${entityId}`, `GET`)
+        return await this.invokeApiWithErrorHandling<GenericFetchValuationResponse>(`/quickValuation/${transactionType}/${entityId}`, `GET`);
     }
 
     /**

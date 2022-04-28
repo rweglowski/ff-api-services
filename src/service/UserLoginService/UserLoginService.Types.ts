@@ -25,7 +25,7 @@ export namespace UserLoginTypes {
         loginPolicy: LoginPolicy;
     }
 
-    export interface UserLoginPolicyCreateRequest{
+    export interface UserLoginPolicyCreateRequest {
         reminderNotificationMinutes: number;
         userId: string;
         trigger: LogoutTrigger;

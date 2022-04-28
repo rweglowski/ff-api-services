@@ -1,3 +1,3 @@
-import {CalendarSyncServiceController} from "./CalendarSyncServiceController";
+import { CalendarSyncServiceController } from './CalendarSyncServiceController';
 
 export const CalendarSyncService = new CalendarSyncServiceController();

@@ -28,14 +28,14 @@ export namespace GeoInformationsServiceTypes {
         // for global polygons is always true
         // for local polygons (isGlobal===false) hasGlobal says if we have global (isGlobal===true) polygon with same name,
         // so we can revert local to global one
-        hasGlobal:boolean;
+        hasGlobal: boolean;
 
         metadata: object;
         name: string;
         parent?: string;
     }
 
-    export interface GeoInformationMetadataOnly extends Omit<GeoInformationValue, "geometry">{
+    export interface GeoInformationMetadataOnly extends Omit<GeoInformationValue, 'geometry'> {
         hasGeometry: boolean;
     }
 
@@ -104,6 +104,6 @@ export namespace GeoInformationsServiceTypes {
 
     export enum CountryCode {
         GERMANY = 'DE',
-        SWITZERLAND = 'CH'
+        SWITZERLAND = 'CH',
     }
 }

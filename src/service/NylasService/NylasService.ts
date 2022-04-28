@@ -1,17 +1,9 @@
-import {
-    AccountInfo,
-    AuthRequest,
-    NylasConfig,
-    NylasConfigPatch,
-    RegistrationUrl,
-    SendEmailRequest,
-    SharedAccountsRequest
-} from '@flowfact/types';
+import { AccountInfo, AuthRequest, NylasConfig, NylasConfigPatch, RegistrationUrl, SendEmailRequest, SharedAccountsRequest } from '@flowfact/types';
 import { AxiosResponse, CancelToken } from 'axios';
 import { APIClient, APIMapping, ApiResponse } from '../../http';
 import { NylasServiceTypes } from './NylasService.Types';
 import SchedulerPage = NylasServiceTypes.SchedulerPage;
-import RunningMailAccountResponse = NylasServiceTypes.RunningMailAccountResponse;
+import { PreconditionResponse } from '../../util/InternalTypes';
 
 /**
  * See https://docs.nylas.com/reference for more info
@@ -260,10 +252,11 @@ export class NylasService extends APIClient {
     }
 
     /**
-     * Gets all Nylas accounts with status running.
+     * Check if there is a active mail account in the current company available.
+     * Returns precondition check
      */
-    async getRunningMailAccounts() {
-        return await this.invokeApiWithErrorHandling<RunningMailAccountResponse>('/preconditions/runningMailAccounts', 'GET');
+    async checkActiveMailAccount() {
+        return await this.invokeApiWithErrorHandling<PreconditionResponse>('/preconditions/activeMailAccount', 'GET');
     }
 
     /**

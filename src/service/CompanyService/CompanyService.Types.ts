@@ -106,5 +106,4 @@ export namespace CompanyServiceTypes {
         key: string;
         value: T;
     }
-
 }

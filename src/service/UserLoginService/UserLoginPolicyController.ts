@@ -19,7 +19,7 @@ export class UserLoginPolicyController extends APIClient {
             trigger: policy.trigger,
             reminderNotificationMinutes: policy.reminderNotificationMinutes,
             userId: policy.userId,
-            loginPolicy: policy.loginPolicy
+            loginPolicy: policy.loginPolicy,
         };
 
         return this.invokeApiWithErrorHandling<UserLoginTypes.UserLoginPolicy>(POLICY_PATH, 'POST', createModel);

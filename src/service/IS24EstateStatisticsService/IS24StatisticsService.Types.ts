@@ -1,5 +1,4 @@
 export namespace IS24EstateStatisticsTypes {
-
     export interface ExposeViewsResponse {
         totalExposeViews: number;
     }
@@ -13,8 +12,5 @@ export namespace IS24EstateStatisticsTypes {
         totalHomeOwnerRequests: number;
     }
 
-    export type IS24StatisticsResponse =
-        | ExposeViewsResponse
-        | ContactRequestResponse
-        | HomeOwnerRequestResponse;
+    export type IS24StatisticsResponse = ExposeViewsResponse | ContactRequestResponse | HomeOwnerRequestResponse;
 }

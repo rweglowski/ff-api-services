@@ -23,20 +23,20 @@ export namespace EmailServiceTypes {
     }
 
     export interface ManualSyncRequest {
-        emailAccount: string,
-        mails: NylasMail[]
+        emailAccount: string;
+        mails: NylasMail[];
     }
 
     interface NylasMail {
         from: AddressItem[];
         to: AddressItem[];
         cc: AddressItem[];
-        body: string,
-        subject: string,
+        body: string;
+        subject: string;
         headers: Record<string, string>[];
-        unread: boolean,
-        date: number,
-        files: NylasFile[],
+        unread: boolean;
+        date: number;
+        files: NylasFile[];
     }
 
     interface NylasFile {
@@ -68,7 +68,7 @@ export namespace EmailServiceTypes {
     }
 
     export interface ResyncResponse {
-        id: number,
+        id: number;
         companyId: string;
         accountId?: string;
         finished: boolean;

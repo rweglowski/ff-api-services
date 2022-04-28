@@ -7,24 +7,24 @@ export enum ViewDefinitionV2CategoryContentItemTypes {
     TEXT = 'TEXT',
     SCHEMA = 'SCHEMA',
     SCHEMA_INFO = 'SCHEMA_INFO',
-    IS24_STATISTICS = 'IS24_STATISTICS'
+    IS24_STATISTICS = 'IS24_STATISTICS',
 }
 
 export enum StatisticsType {
     EXPOSE_VIEWS = 'EXPOSE_VIEWS',
-    CONTACT_REQUESTS = 'CONTACT_REQUESTS'
+    CONTACT_REQUESTS = 'CONTACT_REQUESTS',
 }
 
 export enum HighligtingColor {
     ACTIVE_COLOR = 'ACTIVE_COLOR',
     INACTIVE_COLOR = 'INACTIVE_COLOR',
-    ARCHIVED_COLOR = 'ARCHIVED_COLOR'
+    ARCHIVED_COLOR = 'ARCHIVED_COLOR',
 }
 
 export type ViewDefinitionV2CategoryContentItemType = keyof typeof ViewDefinitionV2CategoryContentItemTypes;
 
 export interface ViewDefinitionV2CategoryIs24StatisticsItem {
-    type: ViewDefinitionV2CategoryContentItemTypes.IS24_STATISTICS,
+    type: ViewDefinitionV2CategoryContentItemTypes.IS24_STATISTICS;
     statisticsType: StatisticsType;
     icon?: string;
     linkTemplate?: string;
@@ -48,7 +48,7 @@ export interface ViewDefinitionV2CategoryEntityItem {
     type: ViewDefinitionV2CategoryContentItemTypes.ENTITY;
     fieldName?: string;
     jsonFieldConfig?: ViewDefinitionCategoryJsonFieldConfig;
-    config?: ViewDefinitionV2CategoryEntityItemConfig
+    config?: ViewDefinitionV2CategoryEntityItemConfig;
 }
 
 export interface ViewDefinitionV2CategoryTextItem {
@@ -112,10 +112,9 @@ export interface ViewDefinitionV2<T extends ViewType = ViewType> {
 
 export type ViewDefinitionV2CategoryConfig<T extends ViewType = ViewType> = T extends ViewType.LIST
     ? ViewDefinitionV2ListCategoryConfig
-    : ViewDefinitionV2DefaultCategoryConfig
+    : ViewDefinitionV2DefaultCategoryConfig;
 
-export interface ViewDefinitionV2DefaultCategoryConfig {
-}
+export interface ViewDefinitionV2DefaultCategoryConfig {}
 
 export interface ViewDefinitionV2ListCategoryConfig {
     // defaults to true

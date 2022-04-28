@@ -1,4 +1,4 @@
-import { UserLoginPolicyController } from "./UserLoginPolicyController";
+import { UserLoginPolicyController } from './UserLoginPolicyController';
 
 export * from './UserLoginService.Types';
 
