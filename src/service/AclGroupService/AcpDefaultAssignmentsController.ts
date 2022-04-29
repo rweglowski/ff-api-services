@@ -8,9 +8,8 @@ export class AcpDefaultAssignmentsController extends APIClient {
     /**
      * Get assignments by templates
      * @param templateId
-     * @param userId
      */
-    async fetchAssignmentsByTemplates(templateId: string) {
+    async fetchAssignments(templateId: string) {
         return this.invokeApiWithErrorHandling(`/default-assignments/${templateId}`, 'GET');
     }
 
