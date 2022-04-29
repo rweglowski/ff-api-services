@@ -26,10 +26,4 @@ export interface EntityPhaseInformation {
     phaseName: PhaseName;
 }
 
-export interface PreconditionResponse<T = Record<string, boolean>> {
-    id: string;
-    satisfied: boolean;
-    detailedResult: T;
-}
-
 export type PhaseName = 'acquisition' | 'preparation' | 'marketing' | 'closing' | 'after_sales';

@@ -1,4 +1,4 @@
-import {APIClient, APIMapping} from "../../http";
+import { APIClient, APIMapping } from '../../http';
 
 export class AcpDefaultAssignmentsController extends APIClient {
     constructor() {
@@ -41,4 +41,3 @@ export class AcpDefaultAssignmentsController extends APIClient {
         return this.invokeApiWithErrorHandling(`/default-assignments/${templateId}/users/${schemaName}`, 'DELETE');
     }
 }
-

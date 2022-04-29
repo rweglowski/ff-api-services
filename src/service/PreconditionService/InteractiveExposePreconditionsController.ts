@@ -7,6 +7,8 @@ export class InteractiveExposePreconditionsController extends APIClient {
     }
 
     async fetchPreconditions() {
-        return this.invokeApiWithErrorHandling<PreconditionServiceTypes.Precondition>('/preconditions/interactiveExposeSetup', 'GET');
+        return this.invokeApiWithErrorHandling<
+            PreconditionServiceTypes.PreconditionResponse<PreconditionServiceTypes.InteractiveExpose.DetailedResult>
+        >('/preconditions/interactiveExposeSetup', 'GET');
     }
 }

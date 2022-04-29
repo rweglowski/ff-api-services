@@ -7,6 +7,13 @@ export class InquiryPreconditionsController extends APIClient {
     }
 
     async fetchPreconditions() {
-        return this.invokeApiWithErrorHandling<PreconditionServiceTypes.Precondition>('/preconditions/inquiriesSetup', 'GET');
+        return this.invokeApiWithErrorHandling<PreconditionServiceTypes.PreconditionResponse>('/preconditions/inquiriesSetup', 'GET');
+    }
+
+    /**
+     * Checks if the Contact API is available for that customer
+     */
+    async checkContactAPIAvailability() {
+        return this.invokeApiWithErrorHandling<PreconditionServiceTypes.PreconditionResponse>('/preconditions/authenticatedIs24Portal', 'GET');
     }
 }

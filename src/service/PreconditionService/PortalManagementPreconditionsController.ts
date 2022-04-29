@@ -7,6 +7,6 @@ export class PortalManagementPreconditionsController extends APIClient {
     }
 
     async fetchPreconditions() {
-        return this.invokeApiWithErrorHandling<PreconditionServiceTypes.Precondition>('/preconditions/authenticatedPortal', 'GET');
+        return this.invokeApiWithErrorHandling<PreconditionServiceTypes.PreconditionResponse>('/preconditions/authenticatedPortal', 'GET');
     }
 }

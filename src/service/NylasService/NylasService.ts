@@ -3,7 +3,6 @@ import { AxiosResponse, CancelToken } from 'axios';
 import { APIClient, APIMapping, ApiResponse } from '../../http';
 import { NylasServiceTypes } from './NylasService.Types';
 import SchedulerPage = NylasServiceTypes.SchedulerPage;
-import { PreconditionResponse } from '../../util/InternalTypes';
 
 /**
  * See https://docs.nylas.com/reference for more info
@@ -249,14 +248,6 @@ export class NylasService extends APIClient {
                 email: email,
             },
         });
-    }
-
-    /**
-     * Check if there is a active mail account in the current company available.
-     * Returns precondition check
-     */
-    async checkActiveMailAccount() {
-        return await this.invokeApiWithErrorHandling<PreconditionResponse>('/preconditions/activeMailAccount', 'GET');
     }
 
     /**
