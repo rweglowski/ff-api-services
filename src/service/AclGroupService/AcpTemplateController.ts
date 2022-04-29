@@ -8,9 +8,14 @@ export class AcpTemplateController extends APIClient {
 
     /**
      * Fetch available templates
+     * @param userId
      */
-    async fetchAcpTemplates() {
-        return this.invokeApiWithErrorHandling<AcpTemplate[]>(`/templates`, 'GET');
+    async fetchAcpTemplates(userId?: string) {
+        return this.invokeApiWithErrorHandling<AcpTemplate[]>(`/templates`, 'GET', undefined,  {
+            queryParams: {
+                userId: userId,
+            },
+        });
     }
 
     /**
