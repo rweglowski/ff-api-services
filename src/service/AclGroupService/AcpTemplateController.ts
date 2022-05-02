@@ -7,10 +7,17 @@ export class AcpTemplateController extends APIClient {
     }
 
     /**
-     * Fetch available templates
+     * Fetch available templates.
+     * @param userId Filters a list of templates, which are already assigned to the user.
+     * @param schemaName Filters a list of templates, which are already assigned to the schema.
      */
-    async fetchAcpTemplates() {
-        return this.invokeApiWithErrorHandling<AcpTemplate[]>(`/templates`, 'GET');
+    async fetchAcpTemplates(userId?: string, schemaName?: string) {
+        return this.invokeApiWithErrorHandling<AcpTemplate[]>(`/templates`, 'GET', undefined,  {
+            queryParams: {
+                userId: userId,
+                schema: schemaName
+            },
+        });
     }
 
     /**
