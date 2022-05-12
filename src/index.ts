@@ -28,8 +28,9 @@ export { default as IS24EntitlementService } from './service/IS24EntitlementServ
 export { default as BehaviourService } from './service/BehaviourService';
 export { default as OpenimmoImporterService } from './service/OpenimmoImporterService';
 export { default as ImporterFlowFactTransferService } from './service/ImporterFlowFactTransferService';
+export { default as EntityService, TrashedEntity, TrashedEntitiesResponse, TrashedEntitySchemaName, TrashedEntityIds, PrefixData, Operation } from './service/EntityService';
 
-export { default as EntityService, TrashedEntity, TrashedEntitiesResponse, TrashedEntitySchemaName, TrashedEntityIds } from './service/EntityService';
+export * from './service/common/types/TranslatableText'
 export * from './service/SchemaService';
 export * from './service/GDPRService';
 export * from './service/IS24LeadService';
