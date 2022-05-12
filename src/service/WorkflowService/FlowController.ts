@@ -20,7 +20,7 @@ export class FlowController extends APIClient {
      * @param withStatistics
      * When set to true it also returns statistics of the workflow
      */
-    async fetchWorkflow(workflowId: string, withStatistics: boolean = false) {
+    async fetchWorkflow(workflowId: string, withStatistics = false) {
         return this.invokeApiWithErrorHandling<Workflow>(`/flow/${workflowId}`, 'GET', undefined, {
             queryParams: {
                 stats: withStatistics,
@@ -34,7 +34,7 @@ export class FlowController extends APIClient {
      * @param withStatistics
      * When set to true it also returns statistics of the workflows
      */
-    async fetchWorkflows(workflowIds: string[], withStatistics: boolean = false) {
+    async fetchWorkflows(workflowIds: string[], withStatistics = false) {
         return this.invokeApiWithErrorHandling<Workflows>(`/flow`, 'GET', undefined, {
             queryParams: {
                 ids: workflowIds.join(','),

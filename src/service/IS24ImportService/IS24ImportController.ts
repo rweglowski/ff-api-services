@@ -21,7 +21,7 @@ export default class IS24ImportController extends APIClient {
      * @param page
      * @param pageSize
      */
-    async fetchProperties(portalId: string, page: number = 1, pageSize: number = 10) {
+    async fetchProperties(portalId: string, page = 1, pageSize = 10) {
         return this.invokeApiWithErrorHandling<PagedResponse<IS24Property>>(`/${portalId}/previews`, 'GET', undefined, {
             queryParams: {
                 page: page,

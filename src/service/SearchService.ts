@@ -57,7 +57,7 @@ export class SearchService extends APIClient {
      * @param size
      * @param withCount
      */
-    async search(query: Flowdsl, index: string, page: number = 1, size?: number, withCount?: boolean) {
+    async search(query: Flowdsl, index: string, page = 1, size?: number, withCount?: boolean) {
         return await this.invokeApi<PagedResponse<Entity>>('/schemas/' + index, 'POST', query, {
             queryParams: this.buildQueryParams(page, size, withCount),
             headers: {
@@ -73,7 +73,7 @@ export class SearchService extends APIClient {
      * @param size
      * @param withCount
      */
-    async searchSavedSearches(query: Flowdsl, page: number = 1, size?: number, withCount?: boolean) {
+    async searchSavedSearches(query: Flowdsl, page = 1, size?: number, withCount?: boolean) {
         return await this.invokeApi<PagedResponse<Entity>>('/saved-searches', 'POST', query, {
             queryParams: this.buildQueryParams(page, size, withCount),
             headers: {
@@ -90,7 +90,7 @@ export class SearchService extends APIClient {
      * @param size
      * @param withCount
      */
-    async searchVirtualized(query: Flowdsl, index: string, offset: number = 0, size: number = 20, withCount: boolean = true) {
+    async searchVirtualized(query: Flowdsl, index: string, offset = 0, size = 20, withCount: boolean = true) {
         return this.invokeApiWithErrorHandling<PagedResponse<Entity>>(`/schemas/${index}`, 'POST', query, {
             queryParams: {
                 offset: offset,
@@ -124,7 +124,7 @@ export class SearchService extends APIClient {
      * @param groupBy - schema fields used for grouping
      * @param treatingBlankStringValuesAsNull - if true null and empty string are treated as same value
      */
-    async groupBy(query: Flowdsl, index: string, groupBy: string[], treatingBlankStringValuesAsNull: boolean = true) {
+    async groupBy(query: Flowdsl, index: string, groupBy: string[], treatingBlankStringValuesAsNull = true) {
         return await this.invokeApiWithErrorHandling<SearchServiceTypes.GroupingResult>('/schemas/' + index + '/count', 'POST', query, {
             queryParams: {
                 groupBy: groupBy.join(','),
@@ -144,7 +144,7 @@ export class SearchService extends APIClient {
      * @param index
      * @param withAclGroups
      */
-    async internalCount(companyId: string, query: Flowdsl, index: string, withAclGroups: boolean = false) {
+    async internalCount(companyId: string, query: Flowdsl, index: string, withAclGroups = false) {
         return this.invokeApi('/internal/schemas/' + index + '/count', 'POST', query, {
             headers: {
                 'Content-Type': 'application/json',
@@ -164,8 +164,8 @@ export class SearchService extends APIClient {
      * @param filter
      * @param sorting
      */
-    async filter(index: string, page: number = 1, size: number = 30, filter: FilterConfiguration, sorting: any) {
-        let queryParams: any = {};
+    async filter(index: string, page = 1, size = 30, filter: FilterConfiguration, sorting: any) {
+        const queryParams: any = {};
         if (page) {
             // page -1 because the the pages start at 0 on the backend
             queryParams.page = page;
@@ -182,7 +182,7 @@ export class SearchService extends APIClient {
         });
     }
 
-    private buildQueryParams(page: number = 1, size?: number, withCount?: boolean) {
+    private buildQueryParams(page = 1, size?: number, withCount?: boolean) {
         const queryParams: any = {};
         if (page) {
             queryParams.page = page;

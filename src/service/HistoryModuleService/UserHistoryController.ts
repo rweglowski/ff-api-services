@@ -19,13 +19,13 @@ export class UserHistoryController extends APIClient {
      * @param filter
      */
     async fetchUserHistoryActivity(
-        size: number = 100,
-        offset: number = 0,
+        size = 100,
+        offset = 0,
         sourceTypes: SourceType[] = ['ALL'],
         userIds: string[],
         filter?: HistoryFilter
     ) {
-        let body: RequestBody = {
+        const body: RequestBody = {
             size,
             offset,
             sourceTypes,
@@ -49,13 +49,13 @@ export class UserHistoryController extends APIClient {
      * @param filter
      */
     async fetchUserHistoryDataChanges(
-        size: number = 100,
-        offset: number = 0,
+        size = 100,
+        offset = 0,
         sourceTypes: SourceType[] = ['ALL'],
         userIds: string[],
         filter?: HistoryFilter
     ) {
-        let body: RequestBody = {
+        const body: RequestBody = {
             size,
             offset,
             sourceTypes,

@@ -9,7 +9,7 @@ export class SampleDataController extends APIClient {
      * Removes sample data from company.
      * @param bundleName
      */
-    async removeSampleData(bundleName: string = 'All') {
+    async removeSampleData(bundleName = 'All') {
         const queryParams: any = {
             bundleName: bundleName,
         };

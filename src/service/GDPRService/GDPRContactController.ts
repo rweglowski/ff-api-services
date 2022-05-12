@@ -11,7 +11,7 @@ export class GDPRContactController extends APIClient {
      * @param page
      * @param size
      */
-    async fetchContactsWithPendingConsent(page: number = 1, size: number = 50) {
+    async fetchContactsWithPendingConsent(page = 1, size = 50) {
         return await this.invokeApiWithErrorHandling<Contact[]>('/contacts', 'GET', undefined, {
             queryParams: {
                 status: 'CONSENT_PENDING',

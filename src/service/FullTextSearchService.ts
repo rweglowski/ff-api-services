@@ -15,7 +15,7 @@ export class FullTextSearchService extends APIClient {
      * @param size
      * @param params
      */
-    async search(schemaName: string, searchTerm: string, page: number = 1, size?: number, params: ParamList = {}) {
+    async search(schemaName: string, searchTerm: string, page = 1, size?: number, params: ParamList = {}) {
         return this.invokeApi<PagedResponse<Entity>>('/search/' + schemaName, 'GET', '', {
             queryParams: {
                 page,

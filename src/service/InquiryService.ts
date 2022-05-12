@@ -47,7 +47,7 @@ export class InquiryServiceClass extends APIClient {
      * @param {number} page - Number of times the result will be offset by given size.
      * @param {number} size - Number of entities to fetch.
      */
-    fetchAll(page: number = 1, size: number = 100): Promise<AxiosResponse<Array<Inquiry>>> {
+    fetchAll(page = 1, size = 100): Promise<AxiosResponse<Array<Inquiry>>> {
         return this.invokeApiWithErrorHandling(`/inquiry?page=${page}&size=${size}`, 'GET');
     }
 
@@ -57,7 +57,7 @@ export class InquiryServiceClass extends APIClient {
      * @param {number} page - Number of times the result will be offset by given size.
      * @param {number} size - Number of entities to fetch.
      */
-    fetchWithFlowDsl(flowDsl: Flowdsl, page: number = 1, size: number = 100): Promise<AxiosResponse<Array<Inquiry>>> {
+    fetchWithFlowDsl(flowDsl: Flowdsl, page = 1, size = 100): Promise<AxiosResponse<Array<Inquiry>>> {
         return this.invokeApiWithErrorHandling(`/inquiry?page=${page}&size=${size}`, 'POST', flowDsl);
     }
 

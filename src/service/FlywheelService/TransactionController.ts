@@ -13,7 +13,7 @@ export class TransactionController extends APIClient {
      * @param view
      * @param {Flowdsl} flowdsl
      */
-    async fetchForPhaseWithFilter(phaseName: string, view: string = 'card', flowdsl?: Flowdsl) {
+    async fetchForPhaseWithFilter(phaseName: string, view = 'card', flowdsl?: Flowdsl) {
         return this.invokeApiWithErrorHandling<FlywheelServiceTypes.Transaction[]>(
             `/transactions/phases/${phaseName}?view=${view}`,
             'POST',
@@ -61,7 +61,7 @@ export class TransactionController extends APIClient {
      * @param {Flowdsl} flowdsl
      * @param page
      */
-    async fetchForPhaseAndStepWithFilter(phaseName: string, stepName: string, view: string = 'card', flowdsl?: Flowdsl, page: number = 1) {
+    async fetchForPhaseAndStepWithFilter(phaseName: string, stepName: string, view = 'card', flowdsl?: Flowdsl, page: number = 1) {
         return this.invokeApiWithErrorHandling<FlywheelServiceTypes.PagedTransactions>(
             `/transactions/phases/${phaseName}/${stepName}`,
             'POST',

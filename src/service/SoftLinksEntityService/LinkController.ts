@@ -57,7 +57,7 @@ export class LinkController extends APIClient {
      * @param page
      * @param size
      */
-    async searchLinksWithPagination(link: SoftLinksEntityServiceTypes.NulleableSoftlinkSearch, page: number = 1, size: number = 20) {
+    async searchLinksWithPagination(link: SoftLinksEntityServiceTypes.NulleableSoftlinkSearch, page = 1, size = 20) {
         return this.invokeApiWithErrorHandling<PagedResult<SoftLinksEntityServiceTypes.Softlink>>(`/link/search`, 'POST', link || {}, {
             queryParams: {
                 page,
@@ -75,7 +75,7 @@ export class LinkController extends APIClient {
      * @param page
      * @param size
      */
-    async searchAllSoftLinks(request: SoftLinksEntityServiceTypes.AllSoftlinksRequest, page: number = 1, size: number = 20) {
+    async searchAllSoftLinks(request: SoftLinksEntityServiceTypes.AllSoftlinksRequest, page = 1, size = 20) {
         return this.invokeApiWithErrorHandling<PagedResult<SoftLinksEntityServiceTypes.Softlink>>(
             `/link/search/all-softlinks`,
             'POST',

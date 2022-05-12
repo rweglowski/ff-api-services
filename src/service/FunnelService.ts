@@ -48,7 +48,7 @@ export class FunnelService extends APIClient {
      * @param page
      * @param size
      */
-    async fetchFunnelStageEntities(funnelId: string, stageId: string, page: number = 1, size: number = 10) {
+    async fetchFunnelStageEntities(funnelId: string, stageId: string, page = 1, size = 10) {
         return (await this.invokeApi(`/funnels/${funnelId}/stage/${stageId}/entities`, 'GET', { page, size })).data;
     }
 
@@ -172,7 +172,7 @@ export class FunnelService extends APIClient {
      * TODO: Please comment this method
      * @param type
      */
-    async fetchAllActions(type: string = 'automatic') {
+    async fetchAllActions(type = 'automatic') {
         return this.invokeApi('/funnels/actions/?type=' + type, 'GET').then((s) => s.data);
     }
 

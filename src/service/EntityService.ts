@@ -100,7 +100,7 @@ export class EntityService extends APIClient {
      * @param viewId
      * @deprecated Use stringifyEntityByType instead.
      */
-    async stringifyEntity(schemaId: string, entityId: string, viewId: string = 'EntityRelationView'): Promise<AxiosResponse<string | undefined>> {
+    async stringifyEntity(schemaId: string, entityId: string, viewId = 'EntityRelationView'): Promise<AxiosResponse<string | undefined>> {
         return this.invokeApi(`/views/${viewId}/schemas/${schemaId}/entities/${entityId}/stringify`);
     }
 
@@ -122,7 +122,7 @@ export class EntityService extends APIClient {
      * @param size
      * @param withCount
      */
-    async searchEntity(index: string, viewName: string, flowdsl?: Flowdsl, page: number = 1, size: number = 20, withCount?: boolean) {
+    async searchEntity(index: string, viewName: string, flowdsl?: Flowdsl, page = 1, size = 20, withCount?: boolean) {
         const queryParams: ParamList = {
             page,
             size,
@@ -147,7 +147,7 @@ export class EntityService extends APIClient {
      * @param size
      * @param withCount
      */
-    async fetchEntitiesVirtualized(index: string, viewName: string, flowdsl?: Flowdsl, offset: number = 0, size: number = 20, withCount?: boolean) {
+    async fetchEntitiesVirtualized(index: string, viewName: string, flowdsl?: Flowdsl, offset = 0, size = 20, withCount?: boolean) {
         const queryParams: ParamList = {
             offset,
             size,
@@ -169,7 +169,7 @@ export class EntityService extends APIClient {
      * @param size
      * @param withCount
      */
-    async fetchEntitiesVirtualizedV2(index: string, viewName: string, flowdsl?: Flowdsl, offset: number = 0, size: number = 20, withCount?: boolean) {
+    async fetchEntitiesVirtualizedV2(index: string, viewName: string, flowdsl?: Flowdsl, offset = 0, size = 20, withCount?: boolean) {
         const queryParams: ParamList = {
             offset,
             size,

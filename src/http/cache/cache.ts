@@ -33,7 +33,7 @@ async function apiCache() {
 }
 
 function getHeadersObject(headers: Headers) {
-    let result = {} as HeaderObject;
+    const result = {} as HeaderObject;
     headers.forEach((value, key) => (result[key] = value));
     return result;
 }

@@ -10,7 +10,7 @@ export class SchemaService extends APIClient {
      * TODO: Please comment this method
      * @param withGroups
      */
-    async loadStats(withGroups: boolean = false): Promise<AxiosResponse<any>> {
+    async loadStats(withGroups = false): Promise<AxiosResponse<any>> {
         const additionalParams = withGroups ? { queryParams: { groups: 'true' } } : undefined;
         return await this.invokeApi('/stats', 'GET', undefined, additionalParams);
     }
@@ -20,8 +20,8 @@ export class SchemaService extends APIClient {
      * @param withGroups
      * @param short
      */
-    async fetchAllSchemas(withGroups: boolean = false, short: boolean = false): Promise<AxiosResponse<any>> {
-        let queryParams: any = {
+    async fetchAllSchemas(withGroups = false, short = false): Promise<AxiosResponse<any>> {
+        const queryParams: any = {
             transform: true,
         };
 
@@ -42,8 +42,8 @@ export class SchemaService extends APIClient {
      * @param page
      * @param size
      */
-    async fetchDataBySchemaId(schemaId: string, page: number = 1, size?: number): Promise<AxiosResponse<any>> {
-        let queryParams: any = {
+    async fetchDataBySchemaId(schemaId: string, page = 1, size?: number): Promise<AxiosResponse<any>> {
+        const queryParams: any = {
             page: page.toString(),
         };
         if (size) {

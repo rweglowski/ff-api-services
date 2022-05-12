@@ -8,7 +8,7 @@ export default class SearchController extends APIClient {
         super(APIMapping.matchmakingService);
     }
 
-    async fetchEntries(query: Flowdsl, index: string, offset: number = 0, size: number = 20, withCount: boolean = true) {
+    async fetchEntries(query: Flowdsl, index: string, offset = 0, size = 20, withCount = true) {
         return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(`/search/schemas/${index}`, 'POST', query, {
             queryParams: {
                 offset: offset,

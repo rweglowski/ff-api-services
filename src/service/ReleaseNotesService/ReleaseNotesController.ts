@@ -16,7 +16,7 @@ export class ReleaseNotesController extends APIClient {
      * @param page
      * @param sort
      */
-    async fetchReleaseNotes(appName: string, size: number, page: number, sort: string = 'id,desc') {
+    async fetchReleaseNotes(appName: string, size: number, page: number, sort = 'id,desc') {
         const queryParams: ParamList = {
             appName,
             size,

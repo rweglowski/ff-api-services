@@ -80,7 +80,7 @@ class Authentication {
      * @param global
      *      if true, then the user will be globally log out on all devices.
      */
-    public async logout(global: boolean = false) {
+    public async logout(global = false) {
         return Auth.signOut({
             global: global,
         });
@@ -161,7 +161,7 @@ class Authentication {
                 exists: true,
                 statusCode: null,
             };
-        } catch (error) {
+        } catch (error: any) {
             const code = error.code;
             console.log(error);
             switch (code) {

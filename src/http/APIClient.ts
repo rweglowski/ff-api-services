@@ -23,7 +23,7 @@ export class APIClient {
     private readonly _service: APIService | undefined;
     private readonly _version: APIVersion | undefined;
 
-    private static languages: string = 'de';
+    private static languages = 'de';
     private static companyId: string;
 
     public static changeLanguages(newLanguages: string) {
@@ -119,7 +119,7 @@ export class APIClient {
         // Required for multiple companies per user
         const companyId = APIClient.companyId ? { 'x-ff-company-id': APIClient.companyId } : {};
 
-        let request: AxiosRequestConfig = {
+        const request: AxiosRequestConfig = {
             method: method,
             url: apiUrl,
             headers: Object.assign({}, userIdentification, languages, versionHeaders, companyId, headers || {}),
@@ -149,7 +149,7 @@ export class APIClient {
                 // response.data can also be '' for 204 for example. We always wants to return undefined in these cases!
                 data: response.data || (typeof response.data === 'boolean' ? response.data : undefined),
             } as ApiSuccessResponse<T>;
-        } catch (error) {
+        } catch (error: any) {
             return {
                 isSuccessful2xx: false,
                 data: undefined,

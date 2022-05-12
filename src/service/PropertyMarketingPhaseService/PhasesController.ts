@@ -36,7 +36,7 @@ export class PhasesController extends APIClient {
      * @param archived
      * @param inactive
      */
-    async fetchEntitiesInPhase(phaseName: string, page: number = 1, size: number = 50, archived = true, inactive = true) {
+    async fetchEntitiesInPhase(phaseName: string, page = 1, size = 50, archived = true, inactive = true) {
         return await this.invokeApiWithErrorHandling<string[]>(`/phases/${phaseName}/entities`, 'GET', undefined, {
             queryParams: {
                 archived: archived.toString(),
@@ -56,7 +56,7 @@ export class PhasesController extends APIClient {
      * @param archived
      * @param inactive
      */
-    async fetchEntitiesInPhaseAndSchema(phaseName: string, schemaId: string, page: number = 1, size: number = 50, archived = true, inactive = true) {
+    async fetchEntitiesInPhaseAndSchema(phaseName: string, schemaId: string, page = 1, size = 50, archived = true, inactive = true) {
         return await this.invokeApiWithErrorHandling<string[]>(`/phases/${phaseName}/entities/${schemaId}`, 'GET', undefined, {
             queryParams: {
                 archived: archived.toString(),
@@ -111,7 +111,7 @@ export class PhasesController extends APIClient {
      * @param archived
      * @param inactive
      */
-    async fetchPhaseStatistics(maxCount: number = 50, archived = true, inactive = true) {
+    async fetchPhaseStatistics(maxCount = 50, archived = true, inactive = true) {
         return await this.invokeApiWithErrorHandling(`/phases/stats`, 'GET', undefined, {
             queryParams: {
                 archived,

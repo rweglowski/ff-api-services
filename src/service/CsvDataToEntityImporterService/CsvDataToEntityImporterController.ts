@@ -41,7 +41,7 @@ export class CsvDataToEntityImporterController extends APIClient {
     async uploadCsvFile(
         file: FormData,
         targetSchema: string,
-        delimiter: string = ',',
+        delimiter = ',',
         // eslint-disable-next-line no-unused-vars
         onUploadProgress?: (progressEvent: ProgressEvent) => void
     ): Promise<ApiResponse> {

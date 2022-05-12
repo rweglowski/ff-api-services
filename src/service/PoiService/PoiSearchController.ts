@@ -14,7 +14,7 @@ export class PoiSearchController extends APIClient {
      * @param poiRequest defines latitude, longitude, radius and categories
      * @param limit maximum number of results for each category
      */
-    async fetchPoiList(poiRequest: PoiRequest, limit: number = 10) {
+    async fetchPoiList(poiRequest: PoiRequest, limit = 10) {
         return this.invokeApiWithErrorHandling<PoiList>('/pois', 'POST', poiRequest, {
             queryParams: {
                 limit,

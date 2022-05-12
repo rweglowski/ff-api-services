@@ -16,7 +16,7 @@ export class ExcelExporterController extends APIClient {
      * @param filterConditions FilterConditions that should be used to define the result more specific
      * @returns A fileId that can be used to check if the process is finished.
      */
-    async createExport(schemaName: String, filterConditions: FlowdslConditionUnion | FlowdslConditionUnion[]) {
+    async createExport(schemaName: string, filterConditions: FlowdslConditionUnion | FlowdslConditionUnion[]) {
         return this.invokeApiWithErrorHandling<ExportData[]>(`/export/schema/${schemaName}`, 'POST', {
             target: 'entity',
             conditions: filterConditions,

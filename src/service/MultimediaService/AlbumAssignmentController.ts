@@ -13,7 +13,7 @@ export class AlbumAssignmentController extends APIClient {
      * @param albumName
      * @param short
      */
-    async fetchAssignments(schemaName: string, entityId: string, albumName: string, short: boolean = true) {
+    async fetchAssignments(schemaName: string, entityId: string, albumName: string, short = true) {
         return await this.invokeApiWithErrorHandling<MultimediaAssignments>(
             `/assigned/schemas/${schemaName}/entities/${entityId}`,
             'GET',
@@ -53,7 +53,7 @@ export class AlbumAssignmentController extends APIClient {
         entityId: string,
         albumName: string,
         assignments: { [key: string]: MultimediaAssignment[] },
-        short: boolean = true
+        short = true
     ) {
         return await this.invokeApiWithErrorHandling<MultimediaAssignments>(
             `/assigned/schemas/${schemaName}/entities/${entityId}`,
@@ -91,7 +91,7 @@ export class AlbumAssignmentController extends APIClient {
      * @param mediaItemIds
      * @param categories
      */
-    async assignMediaItems(schemaName: string, entityId: string, albumName: string, mediaItemIds: Number[], categories: string[] = []) {
+    async assignMediaItems(schemaName: string, entityId: string, albumName: string, mediaItemIds: number[], categories: string[] = []) {
         return await this.invokeApiWithErrorHandling(`/assigned/schemas/${schemaName}/entities/${entityId}/items`, 'PUT', {
             albumName: albumName,
             categories: categories,

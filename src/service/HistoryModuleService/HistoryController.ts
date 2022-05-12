@@ -17,7 +17,7 @@ export class HistoryController extends APIClient {
      * @param offset
      * @param filter
      */
-    async fetchHistory(schemaId: string, entityId: string, size: number = 20, offset: number = 0, filter?: HistoryFilter) {
+    async fetchHistory(schemaId: string, entityId: string, size = 20, offset = 0, filter?: HistoryFilter) {
         const body: RequestBody = {
             schemaId,
             entityId,

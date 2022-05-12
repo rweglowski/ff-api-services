@@ -119,6 +119,7 @@ export class ItemsController extends APIClient {
         schemaName: string,
         entityId: string,
         file: any,
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         onUploadProgress: (progressEvent: any) => void = () => {},
         albumAssignments: AlbumAssignmentRequest[] = []
     ) {

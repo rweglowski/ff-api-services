@@ -26,9 +26,9 @@ export default class MatchController extends APIClient {
         searchProfileId: string,
         query: MatchmakingTypes.FilterQuery = {},
         sorting?: Sort,
-        size: number = 10,
-        offset: number = 0,
-        returnIds: boolean = false
+        size = 10,
+        offset = 0,
+        returnIds = false
     ) {
         return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(
             `/match/search-profile/${searchProfileId}`,
@@ -60,9 +60,9 @@ export default class MatchController extends APIClient {
         searchProfile: Entity,
         query: MatchmakingTypes.FilterQuery = {},
         sorting?: Sort,
-        size: number = 10,
-        offset: number = 0,
-        returnIds: boolean = false
+        size = 10,
+        offset = 0,
+        returnIds = false
     ) {
         return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(`/match/search-profile`, 'POST', searchProfile, {
             queryParams: {
@@ -87,9 +87,9 @@ export default class MatchController extends APIClient {
         estateId: string,
         query: MatchmakingTypes.FilterQuery = {},
         sorting?: Sort,
-        size: number = 10,
-        offset: number = 0,
-        returnIds: boolean = false
+        size = 10,
+        offset = 0,
+        returnIds = false
     ) {
         return await this.invokeApiWithErrorHandling<PagedResponse<MatchmakingTypes.Match>>(`/match/estate/${estateId}`, 'GET', undefined, {
             queryParams: {

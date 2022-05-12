@@ -131,9 +131,8 @@ export class ViewsController extends APIClient {
      * TODO: Please comment this method
      * @param schemaId
      * @param viewName
-     * @param short
      */
-    async fetchBySchemaAndName(schemaId: string, viewName: string, short: boolean = false) {
+    async fetchBySchemaAndName(schemaId: string, viewName: string) {
         return await this.invokeApiWithErrorHandling<ViewDefinition | ShortViewDefinition>(`/views/schema/${schemaId}/name/${viewName}`, 'GET');
     }
 

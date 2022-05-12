@@ -39,7 +39,7 @@ export class SprengnetterController extends APIClient {
      * @param {String} entityId - The entityId of the estate that should the pdfView should be created for.
      * @returns {string} The response contains a link to the pdf that is stored on S3.
      */
-    async fetchPdfLink(entityId: String) {
+    async fetchPdfLink(entityId: string) {
         return await this.invokeApiWithErrorHandling<string | HTMLError>(`/pdfView/${entityId}`, 'GET');
     }
 

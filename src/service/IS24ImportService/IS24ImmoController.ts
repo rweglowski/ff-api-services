@@ -44,6 +44,6 @@ export default class IS24ImmoController extends APIClient {
      * @param portalId
      */
     async checkImmoWidgetAvailableForPortal(portalId: string) {
-        return await this.invokeApiWithErrorHandling<Boolean>(`/portal/${portalId}/immoAvailability`, 'GET');
+        return await this.invokeApiWithErrorHandling<boolean>(`/portal/${portalId}/immoAvailability`, 'GET');
     }
 }

@@ -16,7 +16,7 @@ export class NylasService extends APIClient {
      * Authorize a user with the code from the nylas callback
      * @param code
      */
-    async authorizeUser(code: string, isGmail: boolean = false): Promise<AxiosResponse<any>> {
+    async authorizeUser(code: string, isGmail = false): Promise<AxiosResponse<any>> {
         return await this.invokeApi('/account', 'POST', undefined, {
             queryParams: {
                 command: 'authorize',
@@ -126,7 +126,7 @@ export class NylasService extends APIClient {
     async getRegistrationUrl(
         email: string,
         callbackUrl?: string,
-        isGmail: boolean = false,
+        isGmail = false,
         syncEmails = false,
         ownerId = undefined
     ): Promise<AxiosResponse<RegistrationUrl>> {

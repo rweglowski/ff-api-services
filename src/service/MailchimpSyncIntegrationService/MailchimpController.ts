@@ -33,7 +33,7 @@ export class MailchimpController extends APIClient {
     /**
      * Fetches Mailchimp lists(audiences) for current user company
      */
-    async fetchMailchimpLists(page: number = 0, size: number = 20) {
+    async fetchMailchimpLists(page = 0, size = 20) {
         return this.invokeApiWithErrorHandling<PagedResponse<MailchimpServiceTypes.MailchimpListItem>>(`/mailchimp/lists`, 'GET', undefined, {
             queryParams: {
                 page,

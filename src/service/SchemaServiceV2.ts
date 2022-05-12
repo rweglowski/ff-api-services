@@ -24,7 +24,7 @@ export class SchemaServiceV2 extends APIClient {
      * @param extensions - Extensions that should be added to the schema
      */
     fetchAllSchemas = async (group?: string, size?: number, page?: number, extensions?: string) => {
-        let queryParams: any = {};
+        const queryParams: any = {};
         if (group) {
             queryParams.group = group;
         }
@@ -77,7 +77,7 @@ export class SchemaServiceV2 extends APIClient {
      * @param targetSchemaName
      */
     duplicateSchema = async (sourceSchemaName: string, targetSchemaName: string) => {
-        let queryParams: any = {};
+        const queryParams: any = {};
         queryParams.sourceSchemaName = sourceSchemaName;
         queryParams.targetSchemaName = targetSchemaName;
 

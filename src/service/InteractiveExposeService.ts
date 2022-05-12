@@ -26,10 +26,10 @@ export class InteractiveExposeService extends APIClient {
 
     async getPreviewUrl(
         entityId: string,
-        templateName: string = 'standard',
-        attachDocuments: boolean = false,
+        templateName = 'standard',
+        attachDocuments = false,
         creatorId?: string,
-        showFinanceCalculator: boolean = false
+        showFinanceCalculator = false
     ): Promise<string> {
         return (
             await this.invokeApi('/preview', 'POST', {
@@ -127,7 +127,7 @@ export class InteractiveExposeService extends APIClient {
      * @param fillDefaultContent
      *      true if the content of the template have to be filled with default content
      */
-    async createTemplate(template: InteractiveExposeTemplate, fillDefaultContent: boolean = false): Promise<AxiosResponse<any>> {
+    async createTemplate(template: InteractiveExposeTemplate, fillDefaultContent = false): Promise<AxiosResponse<any>> {
         const queryParams = {
             queryParams: {
                 fillDefaultContent: String(fillDefaultContent),
@@ -157,7 +157,7 @@ export class InteractiveExposeService extends APIClient {
         return this.invokeApi('/public/interactiveExposes/templates/' + templateName, 'GET');
     }
 
-    async fetchInteractiveExposeTemplateFilesByFileType(templateName: string, fileType: String) {
+    async fetchInteractiveExposeTemplateFilesByFileType(templateName: string, fileType: string) {
         return this.invokeApi(`/public/interactiveExposes/templates/${templateName}/fileType/${fileType}`, 'GET');
     }
 
@@ -205,7 +205,7 @@ export class InteractiveExposeService extends APIClient {
     /**
      * Get interactive expose mapping. Default mapping is just named so, cause of convienience
      */
-    async getMappingOrDefault(schemaId: string = 'defaultMapping'): Promise<AxiosResponse<any>> {
+    async getMappingOrDefault(schemaId = 'defaultMapping'): Promise<AxiosResponse<any>> {
         return this.invokeApi(`/mapping/${schemaId}`, 'GET');
     }
 

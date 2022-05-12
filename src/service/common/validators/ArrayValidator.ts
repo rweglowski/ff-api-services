@@ -4,7 +4,7 @@ export default class ArrayValidator {
     private readonly minSize: number;
     private readonly maxSize: number;
 
-    constructor(minSize: number = 1, maxSize: number) {
+    constructor(minSize = 1, maxSize: number) {
         this.minSize = minSize;
         this.maxSize = maxSize;
     }

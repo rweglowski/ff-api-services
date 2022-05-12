@@ -19,7 +19,7 @@ export class NylasContactSyncService extends APIClient {
      * @param {number} size - The amount of results per page (default: 25)
      * @return {NylasContactSyncEntry[]}
      */
-    fetchByContactId = async (contactId: string, page: number = 1, size: number = 25): Promise<AxiosResponse<PagedNylasContactSyncEntries>> => {
+    fetchByContactId = async (contactId: string, page = 1, size = 25): Promise<AxiosResponse<PagedNylasContactSyncEntries>> => {
         return await this.invokeApi(`/syncEntries`, 'GET', undefined, { params: { contactId, page, size } });
     };
 

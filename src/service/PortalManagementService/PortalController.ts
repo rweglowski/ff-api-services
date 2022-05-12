@@ -15,7 +15,7 @@ export class PortalController extends APIClient {
      * Gets all portals.
      * Provide portalType to reduce the result set by type
      */
-    async fetchAll(ignoreInactivePortals: boolean = false, portalType?: string) {
+    async fetchAll(ignoreInactivePortals = false, portalType?: string) {
         return await this.invokeApiWithErrorHandling<Portal[]>('/portals', 'GET', undefined, {
             queryParams: {
                 ignoreInactivePortals,
