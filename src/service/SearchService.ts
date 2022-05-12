@@ -90,7 +90,7 @@ export class SearchService extends APIClient {
      * @param size
      * @param withCount
      */
-    async searchVirtualized(query: Flowdsl, index: string, offset = 0, size = 20, withCount: boolean = true) {
+    async searchVirtualized(query: Flowdsl, index: string, offset = 0, size = 20, withCount = true) {
         return this.invokeApiWithErrorHandling<PagedResponse<Entity>>(`/schemas/${index}`, 'POST', query, {
             queryParams: {
                 offset: offset,

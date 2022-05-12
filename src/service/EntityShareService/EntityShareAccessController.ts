@@ -12,7 +12,7 @@ export class EntityShareAccessController extends APIClient {
      * @param page
      * @param size
      */
-    async fetchImportedEntities(page = 0, size: number = 10) {
+    async fetchImportedEntities(page = 0, size = 10) {
         return this.invokeApiWithErrorHandling<PagedResponse<EntityShareServiceTypes.ImportedEntity>>('/access', 'GET', { page, size });
     }
 
