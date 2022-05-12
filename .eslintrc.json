@@ -1,0 +1,40 @@
+{
+    "extends": ["plugin:@nrwl/nx/react", "../../.eslintrc.json"],
+    "ignorePatterns": [
+        "!**/*",
+        "/node_modules/*",
+        "/types/crypto-js.d.ts"
+    ],
+    "overrides": [
+        {
+            "files": ["*.ts", "*.js"],
+            "rules": {
+                "no-setter-return": "error",
+                "yoda": "error",
+                "no-unused-vars": "off",
+                "import/no-internal-modules": [
+                    "warn",
+                    {
+                        "allow": ["**/actions/*", "source-map-support/*"]
+                    }
+                ]
+            }
+        },
+        {
+            "files": ["*.ts"],
+            "rules": {
+                "@typescript-eslint/no-unused-vars": "error",
+                "@typescript-eslint/prefer-namespace-keyword": "warn",
+                "@typescript-eslint/no-empty-interface": "warn",
+                "@typescript-eslint/no-namespace": "warn",
+                "@typescript-eslint/no-inferrable-types": "warn",
+                "@typescript-eslint/ban-types": "warn",
+                "@typescript-eslint/no-this-alias": "warn"
+            }
+        },
+        {
+            "files": ["*.js"],
+            "rules": {}
+        }
+    ]
+}

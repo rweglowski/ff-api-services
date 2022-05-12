@@ -1,0 +1,34 @@
+{
+    "sourceRoot": "libs/api-services/src",
+    "projectType": "library",
+    "tags": ["scope:api-services"],
+    "targets": {
+        "build": {
+            "executor": "@nrwl/web:rollup",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/api-services",
+                "tsConfig": "libs/api-services/tsconfig.lib.json",
+                "project": "libs/api-services/package.json",
+                "entryFile": "libs/api-services/src/index.ts",
+                "external": ["react/jsx-runtime"],
+                "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+                "compiler": "babel",
+                "assets": [
+                    {
+                        "glob": "libs/api-services/README.md",
+                        "input": ".",
+                        "output": "."
+                    }
+                ]
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/api-services/**/*.{ts,js}"]
+            }
+        }
+    }
+}
