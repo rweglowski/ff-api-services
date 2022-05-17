@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { SlackServiceTypes } from './SlackService.Types';
-import ChannelsResponse = SlackServiceTypes.ChannelsResponse;
-import SlackUsersResponse = SlackServiceTypes.SlackUsersResponse;
+type ChannelsResponse = SlackServiceTypes.ChannelsResponse;
+type SlackUsersResponse = SlackServiceTypes.SlackUsersResponse;
 
 export class SlackIntegrationController extends APIClient {
     constructor() {

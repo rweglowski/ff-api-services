@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { IS24ImportServiceTypes } from './IS24ImportService.Types';
-import IS24Property = IS24ImportServiceTypes.IS24Property;
-import PossibleUser = IS24ImportServiceTypes.PossibleUser;
+type IS24Property = IS24ImportServiceTypes.IS24Property;
+type PossibleUser = IS24ImportServiceTypes.PossibleUser;
 
 export interface PagedResponse<T> {
     entities: T[];

@@ -1,10 +1,10 @@
 import { APIClient, APIMapping } from '../../http';
 import { WidgetLayoutTypes } from './WidgetLayoutTypes';
 
-import PagedWidgetLayouts = WidgetLayoutTypes.PagedWidgetLayouts;
-import SchemaBoundWidgetLayout = WidgetLayoutTypes.SchemaBoundWidgetLayout;
-import LayoutDomainType = WidgetLayoutTypes.LayoutDomainType;
-import BaseWidgetLayout = WidgetLayoutTypes.BaseWidgetLayout;
+type PagedWidgetLayouts = WidgetLayoutTypes.PagedWidgetLayouts;
+type SchemaBoundWidgetLayout = WidgetLayoutTypes.SchemaBoundWidgetLayout;
+type LayoutDomainType = WidgetLayoutTypes.LayoutDomainType;
+type BaseWidgetLayout = WidgetLayoutTypes.BaseWidgetLayout;
 
 class WidgetLayoutsController extends APIClient {
     constructor() {
@@ -19,7 +19,7 @@ class WidgetLayoutsController extends APIClient {
      * @param layoutDomainType
      *  With LayoutDomainType.GENERAL returns layouts for General Widgets, LayoutDomainType.SCHEMA_BOUND returns layouts for Entity Widgets.
      */
-    async fetchLayouts(schemaNames: string[] = [], short = false, layoutDomainType: LayoutDomainType = LayoutDomainType.SCHEMA_BOUND) {
+    async fetchLayouts(schemaNames: string[] = [], short = false, layoutDomainType: LayoutDomainType = WidgetLayoutTypes.LayoutDomainType.SCHEMA_BOUND) {
         return this.invokeApiWithErrorHandling<PagedWidgetLayouts>('/widget-layouts', 'GET', undefined, {
             queryParams: {
                 schema: schemaNames.join(','),

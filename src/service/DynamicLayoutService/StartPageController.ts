@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { StartPageTypes } from './StartPageTypes';
-import StartPage = StartPageTypes.StartPage;
+type StartPage = StartPageTypes.StartPage;
 
 export default class StartPageController extends APIClient {
     constructor() {

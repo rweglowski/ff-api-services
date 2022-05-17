@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { SampleDataServiceTypes } from './SampleDataService.Types';
-import Bundles = SampleDataServiceTypes.Bundles;
-import Bundle = SampleDataServiceTypes.Bundle;
+type Bundles = SampleDataServiceTypes.Bundles;
+type Bundle = SampleDataServiceTypes.Bundle;
 
 export class BundleController extends APIClient {
     constructor() {

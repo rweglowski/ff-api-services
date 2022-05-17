@@ -1,8 +1,8 @@
 import { APIClient, APIMapping } from '../../http';
 import { GeoInformationsServiceTypes } from './GeoInformationService.Types';
-import ListOfPolygons = GeoInformationsServiceTypes.ListOfPolygons;
-import GeoInformationValue = GeoInformationsServiceTypes.GeoInformationValue;
-import CreateGeoInformationRequest = GeoInformationsServiceTypes.CreateGeoInformationRequest;
+type ListOfPolygons = GeoInformationsServiceTypes.ListOfPolygons;
+type GeoInformationValue = GeoInformationsServiceTypes.GeoInformationValue;
+type CreateGeoInformationRequest = GeoInformationsServiceTypes.CreateGeoInformationRequest;
 
 export class GeoPolygonController extends APIClient {
     constructor() {

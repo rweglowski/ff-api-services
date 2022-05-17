@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { PlaceholderServiceTypes } from './PlaceholderService.Types';
-import PlaceholderRequest = PlaceholderServiceTypes.PlaceholderRequest;
+type PlaceholderRequest = PlaceholderServiceTypes.PlaceholderRequest;
 
 export default class PlaceholderController extends APIClient {
     constructor() {

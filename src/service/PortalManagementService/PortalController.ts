@@ -1,10 +1,10 @@
 import { APIClient, APIMapping, APIClientAdditionalParams } from '../../http';
 import { PortalManagementTypes } from './PortalManagementService.Types';
-import Portal = PortalManagementTypes.Portal;
-import PredefinedPortal = PortalManagementTypes.PredefinedPortal;
-import PortalAuthenticationModel = PortalManagementTypes.PortalAuthenticationModel;
-import PortalType = PortalManagementTypes.PortalType;
-import PortalTypeWithCaption = PortalManagementTypes.PortalTypeWithCaption;
+type Portal = PortalManagementTypes.Portal;
+type PredefinedPortal = PortalManagementTypes.PredefinedPortal;
+type PortalAuthenticationModel = PortalManagementTypes.PortalAuthenticationModel;
+type PortalType = PortalManagementTypes.PortalType;
+type PortalTypeWithCaption = PortalManagementTypes.PortalTypeWithCaption;
 
 export class PortalController extends APIClient {
     constructor() {

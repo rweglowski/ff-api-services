@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { WorkflowServiceTypes } from './WorkflowService.Types';
-import Templates = WorkflowServiceTypes.Templates;
-import AllTypesResponse = WorkflowServiceTypes.AllTypesResponse;
+type Templates = WorkflowServiceTypes.Templates;
+type AllTypesResponse = WorkflowServiceTypes.AllTypesResponse;
 
 export class FlowTypeController extends APIClient {
     constructor() {

@@ -2,7 +2,7 @@ import { ParamList } from '../..';
 import { APIClient, APIMapping } from '../../http';
 import { ReleaseNoteServiceTypes } from './ReleaseNotesService.Types';
 
-import ReleaseNotesResponse = ReleaseNoteServiceTypes.ReleaseNotesResponse;
+type ReleaseNotesResponse = ReleaseNoteServiceTypes.ReleaseNotesResponse;
 
 export class ReleaseNotesController extends APIClient {
     constructor() {

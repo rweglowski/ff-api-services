@@ -1,12 +1,12 @@
 import { APIClient, APIMapping } from '../../http';
 import { WorkflowServiceTypes } from './WorkflowService.Types';
-import Workflow = WorkflowServiceTypes.Workflow;
-import Workflows = WorkflowServiceTypes.Workflows;
-import WorkflowMultiPatchRequest = WorkflowServiceTypes.WorkflowMultiPatchRequest;
-import WorkflowMultiPatchResult = WorkflowServiceTypes.WorkflowMultiPatchResult;
-import WorkflowPatchRequest = WorkflowServiceTypes.WorkflowPatchRequest;
-import WorkflowPatchResult = WorkflowServiceTypes.WorkflowPatchResult;
-import CreateWorkflowRequest = WorkflowServiceTypes.CreateWorkflowRequest;
+type Workflow = WorkflowServiceTypes.Workflow;
+type Workflows = WorkflowServiceTypes.Workflows;
+type WorkflowMultiPatchRequest = WorkflowServiceTypes.WorkflowMultiPatchRequest;
+type WorkflowMultiPatchResult = WorkflowServiceTypes.WorkflowMultiPatchResult;
+type WorkflowPatchRequest = WorkflowServiceTypes.WorkflowPatchRequest;
+type WorkflowPatchResult = WorkflowServiceTypes.WorkflowPatchResult;
+type CreateWorkflowRequest = WorkflowServiceTypes.CreateWorkflowRequest;
 
 export class FlowController extends APIClient {
     constructor() {

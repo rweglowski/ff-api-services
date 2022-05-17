@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { InteractiveExposeStatisticsServiceTypes } from './InteractiveExposeStatisticsService.Types';
-import OpenCountStatistic = InteractiveExposeStatisticsServiceTypes.OpenCountStatistic;
-import DwellTimeStatistic = InteractiveExposeStatisticsServiceTypes.DwellTimeStatistic;
+type OpenCountStatistic = InteractiveExposeStatisticsServiceTypes.OpenCountStatistic;
+type DwellTimeStatistic = InteractiveExposeStatisticsServiceTypes.DwellTimeStatistic;
 
 export class StatisticsController extends APIClient {
     constructor() {

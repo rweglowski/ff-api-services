@@ -1,10 +1,10 @@
 import { APIClient, APIMapping } from '../../http';
 import { ProofOfActivityServiceTypes } from './ProofOfActivityService.Types';
 
-import EmailData = ProofOfActivityServiceTypes.EmailData;
-import DateRange = ProofOfActivityServiceTypes.DateRange;
-import EntityIdData = ProofOfActivityServiceTypes.EntityIdData;
-import ExcludedItem = ProofOfActivityServiceTypes.ExcludedItem;
+type EmailData = ProofOfActivityServiceTypes.EmailData;
+type DateRange = ProofOfActivityServiceTypes.DateRange;
+type EntityIdData = ProofOfActivityServiceTypes.EntityIdData;
+type ExcludedItem = ProofOfActivityServiceTypes.ExcludedItem;
 
 export class EmailController extends APIClient {
     constructor() {

@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { EntityShareServiceTypes } from './EntityShareService.Types';
 
-import ShareEntityTokenData = EntityShareServiceTypes.ShareEntityTokenData;
+type ShareEntityTokenData = EntityShareServiceTypes.ShareEntityTokenData;
 
 export class EntityShareTokenController extends APIClient {
     constructor() {

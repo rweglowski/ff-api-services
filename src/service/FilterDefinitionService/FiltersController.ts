@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { FilterDefinitionServiceTypes } from './FilterDefinitionService.Types';
 
-import FilterDefinition = FilterDefinitionServiceTypes.FilterDefinition;
+type FilterDefinition = FilterDefinitionServiceTypes.FilterDefinition;
 
 export class FiltersController extends APIClient {
     constructor() {

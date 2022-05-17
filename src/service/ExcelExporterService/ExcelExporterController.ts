@@ -2,8 +2,8 @@ import { APIClient, APIMapping } from '../../http';
 import { FlowdslConditionUnion } from '@flowfact/node-flowdsl';
 import { ExcelExporterServiceTypes } from './ExcelExporterService.Types';
 
-import ExportData = ExcelExporterServiceTypes.ExportData;
-import SearchExportData = ExcelExporterServiceTypes.SearchExportData;
+type ExportData = ExcelExporterServiceTypes.ExportData;
+type SearchExportData = ExcelExporterServiceTypes.SearchExportData;
 
 export class ExcelExporterController extends APIClient {
     constructor() {

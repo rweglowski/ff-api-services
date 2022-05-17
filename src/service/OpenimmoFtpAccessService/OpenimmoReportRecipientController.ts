@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { OpenImmoReportRecipientTypes } from './OpenimmoReportRecipientService.Types';
-import OpenimmoReportRecipient = OpenImmoReportRecipientTypes.OpenimmoReportRecipient;
+type OpenimmoReportRecipient = OpenImmoReportRecipientTypes.OpenimmoReportRecipient;
 
 export default class OpenimmoReportRecipientsController extends APIClient {
     constructor() {

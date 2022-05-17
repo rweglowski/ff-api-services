@@ -1,8 +1,8 @@
 import { APIClient, APIMapping } from '../../http';
 import { PoiServiceTypes } from './PoiService.Types';
 
-import PoiRequest = PoiServiceTypes.PoiRequest;
-import PoiList = PoiServiceTypes.PoiList;
+type PoiRequest = PoiServiceTypes.PoiRequest;
+type PoiList = PoiServiceTypes.PoiList;
 
 export class PoiSearchController extends APIClient {
     constructor() {

@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { PortalManagementTypes } from './PortalManagementService.Types';
-import ProjectPublishResponse = PortalManagementTypes.ProjectPublishResponse;
+type ProjectPublishResponse = PortalManagementTypes.ProjectPublishResponse;
 
 export class ProjectsController extends APIClient {
     constructor() {

@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { PortalManagementTypes } from './PortalManagementService.Types';
-import CompanyEstateAttributes = PortalManagementTypes.CompanyEstateAttributes;
+type CompanyEstateAttributes = PortalManagementTypes.CompanyEstateAttributes;
 
 /**
  * Manages company wide attributes for an estate in a Record<string, any> (CompanyEstateAttributes) model.

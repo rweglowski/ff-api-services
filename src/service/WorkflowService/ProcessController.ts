@@ -1,8 +1,8 @@
 import { APIClient, APIMapping } from '../../http';
 import { WorkflowServiceTypes } from './WorkflowService.Types';
-import ProcessInfo = WorkflowServiceTypes.ProcessInfo;
-import ProcessRequest = WorkflowServiceTypes.ProcessRequest;
-import ProcessEntityRequest = WorkflowServiceTypes.ProcessEntityRequest;
+type ProcessInfo = WorkflowServiceTypes.ProcessInfo;
+type ProcessRequest = WorkflowServiceTypes.ProcessRequest;
+type ProcessEntityRequest = WorkflowServiceTypes.ProcessEntityRequest;
 
 export class ProcessController extends APIClient {
     constructor() {

@@ -1,9 +1,9 @@
 import { APIClient, APIMapping } from '../../http';
 import { PortalManagementTypes } from './PortalManagementService.Types';
-import PublishRequest = PortalManagementTypes.PublishRequest;
-import BulkPublishRequest = PortalManagementTypes.BulkPublishRequest;
-import PublishBulkResponse = PortalManagementTypes.PublishBulkResponse;
-import PublishResponse = PortalManagementTypes.PublishResponse;
+type PublishRequest = PortalManagementTypes.PublishRequest;
+type BulkPublishRequest = PortalManagementTypes.BulkPublishRequest;
+type PublishBulkResponse = PortalManagementTypes.PublishBulkResponse;
+type PublishResponse = PortalManagementTypes.PublishResponse;
 
 export class PublishController extends APIClient {
     constructor() {

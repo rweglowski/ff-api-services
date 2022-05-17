@@ -1,8 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { GeoInformationsServiceTypes } from './GeoInformationService.Types';
-import LinkedPolygon = GeoInformationsServiceTypes.LinkedPolygon;
-import ListOfPolygons = GeoInformationsServiceTypes.ListOfPolygons;
-import ListResponse = GeoInformationsServiceTypes.ListResponse;
+type LinkedPolygon = GeoInformationsServiceTypes.LinkedPolygon;
+type ListOfPolygons = GeoInformationsServiceTypes.ListOfPolygons;
 
 export class PolygonEntityLinkController extends APIClient {
     constructor() {
@@ -38,6 +37,6 @@ export class PolygonEntityLinkController extends APIClient {
      * return list of ids for all connected search entities
      */
     async fetchConnectedEntities(name: string) {
-        return this.invokeApiWithErrorHandling<ListResponse<string>>(`/polygons/${name}/entities`, 'GET');
+        return this.invokeApiWithErrorHandling<GeoInformationsServiceTypes.ListResponse<string>>(`/polygons/${name}/entities`, 'GET');
     }
 }

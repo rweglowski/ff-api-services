@@ -1,9 +1,9 @@
 import { APIClient, APIMapping } from '../../http';
 import ArrayValidator from '../common/validators/ArrayValidator';
 import { IS24EstateStatisticsTypes } from './IS24StatisticsService.Types';
-import ExposeViewsResponse = IS24EstateStatisticsTypes.ExposeViewsResponse;
-import ContactRequestResponse = IS24EstateStatisticsTypes.ContactRequestResponse;
-import HomeOwnerRequestResponse = IS24EstateStatisticsTypes.HomeOwnerRequestResponse;
+type ExposeViewsResponse = IS24EstateStatisticsTypes.ExposeViewsResponse;
+type ContactRequestResponse = IS24EstateStatisticsTypes.ContactRequestResponse;
+type HomeOwnerRequestResponse = IS24EstateStatisticsTypes.HomeOwnerRequestResponse;
 
 export default class IS24StatisticsController extends APIClient {
     private readonly MIN_ESTATE_IDS = 1;

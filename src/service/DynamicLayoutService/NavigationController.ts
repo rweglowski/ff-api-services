@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { NavigationTypes } from './NavigationTypes';
-import Navigation = NavigationTypes.Navigation;
+type Navigation = NavigationTypes.Navigation;
 
 export default class NavigationController extends APIClient {
     constructor() {

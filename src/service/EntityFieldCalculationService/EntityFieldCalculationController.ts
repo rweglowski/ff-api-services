@@ -1,8 +1,8 @@
 import { APIClient, APIMapping } from '../../http';
 import { EntityFieldCalculationServiceTypes } from './EntityFieldCalculationService.Types';
 
-import FormulaVerificationRequest = EntityFieldCalculationServiceTypes.FormulaVerificationRequest;
-import FormulaVerificationResponse = EntityFieldCalculationServiceTypes.FormulaVerificationResponse;
+type FormulaVerificationRequest = EntityFieldCalculationServiceTypes.FormulaVerificationRequest;
+type FormulaVerificationResponse = EntityFieldCalculationServiceTypes.FormulaVerificationResponse;
 
 export class EntityFieldCalculationController extends APIClient {
     constructor() {

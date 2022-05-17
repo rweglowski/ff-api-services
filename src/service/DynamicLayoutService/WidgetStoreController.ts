@@ -1,8 +1,8 @@
 import { APIClient, APIMapping } from '../../http';
 import { WidgetTypes } from './WidgetTypes';
 import { WidgetLayoutTypes } from './WidgetLayoutTypes';
-import PagedWidgets = WidgetTypes.PagedWidgets;
-import LayoutDomainType = WidgetLayoutTypes.LayoutDomainType;
+type PagedWidgets = WidgetTypes.PagedWidgets;
+type LayoutDomainType = WidgetLayoutTypes.LayoutDomainType;
 
 class WidgetStoreController extends APIClient {
     constructor() {

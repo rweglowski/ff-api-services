@@ -1,8 +1,8 @@
 import { HistoryFilter } from '@flowfact/types';
 import { APIClient, APIMapping } from '../../http';
 import { HistoryServiceTypes } from './HistoryServiceTypes';
-import HistoryResponse = HistoryServiceTypes.HistoryResponse;
-import RequestBody = HistoryServiceTypes.RequestBody;
+type HistoryResponse = HistoryServiceTypes.HistoryResponse;
+type RequestBody = HistoryServiceTypes.RequestBody;
 
 export class HistoryController extends APIClient {
     constructor() {

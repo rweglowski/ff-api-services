@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { GeoInformationsServiceTypes } from './GeoInformationService.Types';
-import ListOfPolygons = GeoInformationsServiceTypes.ListOfPolygons;
+type ListOfPolygons = GeoInformationsServiceTypes.ListOfPolygons;
 
 export class GeoLocationController extends APIClient {
     constructor() {

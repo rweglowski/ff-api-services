@@ -1,6 +1,5 @@
 import { APIClient, APIMapping } from '../../http';
 import { IS24LeadServiceTypes } from './IS24LeadService.Types';
-import LeadImportMode = IS24LeadServiceTypes.LeadImportMode;
 
 export default class IS24LeadsContoller extends APIClient {
     constructor() {
@@ -12,7 +11,7 @@ export default class IS24LeadsContoller extends APIClient {
      * @param portalId
      */
     async fetchImportMode(portalId: string) {
-        return await this.invokeApiWithErrorHandling<{ leadImportSetting: LeadImportMode }>(`/portals/${portalId}`, 'GET');
+        return await this.invokeApiWithErrorHandling<{ leadImportSetting: IS24LeadServiceTypes.LeadImportMode }>(`/portals/${portalId}`, 'GET');
     }
 
     /**
@@ -20,7 +19,7 @@ export default class IS24LeadsContoller extends APIClient {
      * @param portalId
      * @param importMode
      */
-    async updateImportMode(portalId: string, importMode: LeadImportMode) {
+    async updateImportMode(portalId: string, importMode: IS24LeadServiceTypes.LeadImportMode) {
         return await this.invokeApiWithErrorHandling(`/portals/${portalId}`, 'PUT', { leadImportSetting: importMode });
     }
 }

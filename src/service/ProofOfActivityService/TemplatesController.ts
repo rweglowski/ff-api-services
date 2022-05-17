@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { ProofOfActivityServiceTypes } from './ProofOfActivityService.Types';
 
-import TemplatesResponse = ProofOfActivityServiceTypes.Templates.TemplatesResponse;
+type TemplatesResponse = ProofOfActivityServiceTypes.Templates.TemplatesResponse;
 
 export class TemplatesController extends APIClient {
     constructor() {

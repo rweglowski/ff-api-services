@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { ImportPreparationServiceTypes } from './ImportPreparationService.Types';
-import TableDependency = ImportPreparationServiceTypes.TableDependency;
+type TableDependency = ImportPreparationServiceTypes.TableDependency;
 
 export class TableDependenciesController extends APIClient {
     constructor() {

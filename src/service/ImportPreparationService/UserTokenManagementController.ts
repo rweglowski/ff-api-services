@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { User, UserTokenEntity } from '../UserService';
 import { ImportPreparationServiceTypes } from './ImportPreparationService.Types';
-import TokenMapping = ImportPreparationServiceTypes.TokenMapping;
+type TokenMapping = ImportPreparationServiceTypes.TokenMapping;
 
 export class UserTokenManagementController extends APIClient {
     constructor() {

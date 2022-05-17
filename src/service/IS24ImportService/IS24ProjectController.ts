@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 import { IS24ImportServiceTypes } from './IS24ImportService.Types';
-import ProjectInfo = IS24ImportServiceTypes.ProjectInfo;
+type ProjectInfo = IS24ImportServiceTypes.ProjectInfo;
 
 export default class IS24ImportContoller extends APIClient {
     constructor() {

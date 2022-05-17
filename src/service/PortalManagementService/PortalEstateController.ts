@@ -1,9 +1,9 @@
 import { APIClient, APIMapping } from '../../http';
 import { PortalManagementTypes } from './PortalManagementService.Types';
-import PortalEstateSettings = PortalManagementTypes.PortalEstateSettings;
-import PortalEstate = PortalManagementTypes.PortalEstate;
-import PortalPublishInformation = PortalManagementTypes.PortalPublishInformation;
-import EstatePortalPublishInformation = PortalManagementTypes.EstatePortalPublishInformation;
+type PortalEstateSettings = PortalManagementTypes.PortalEstateSettings;
+type PortalEstate = PortalManagementTypes.PortalEstate;
+type PortalPublishInformation = PortalManagementTypes.PortalPublishInformation;
+type EstatePortalPublishInformation = PortalManagementTypes.EstatePortalPublishInformation;
 
 export class PortalEstateController extends APIClient {
     constructor() {

@@ -1,7 +1,7 @@
 import { APIClient, APIMapping } from '../../http';
 import { IS24ImportServiceTypes } from './IS24ImportService.Types';
-import ImmoResponse = IS24ImportServiceTypes.ImmoResponse;
-import ImmoAvailabilityInfo = IS24ImportServiceTypes.ImmoAvailabilityInfo;
+type ImmoResponse = IS24ImportServiceTypes.ImmoResponse;
+type ImmoAvailabilityInfo = IS24ImportServiceTypes.ImmoAvailabilityInfo;
 
 export default class IS24ImmoController extends APIClient {
     constructor() {

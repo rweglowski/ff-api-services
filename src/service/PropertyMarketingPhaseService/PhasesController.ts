@@ -2,9 +2,9 @@ import { APIClient, APIMapping } from '../../http';
 import { EntityPhaseInformation, EntityQuery, PhaseConfigurationInformation } from '../..';
 import { PropertyMarketingPhaseServiceTypes } from './PropertyMarketingPhaseService.Types';
 
-import PhasesResponse = PropertyMarketingPhaseServiceTypes.PhasesResponse;
-import Phase = PropertyMarketingPhaseServiceTypes.Phase;
-import Widget = PropertyMarketingPhaseServiceTypes.Widget;
+type PhasesResponse = PropertyMarketingPhaseServiceTypes.PhasesResponse;
+type Phase = PropertyMarketingPhaseServiceTypes.Phase;
+type Widget = PropertyMarketingPhaseServiceTypes.Widget;
 
 export class PhasesController extends APIClient {
     constructor() {

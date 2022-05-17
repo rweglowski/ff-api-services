@@ -1,9 +1,9 @@
 import { APIClient, APIMapping } from '../../http';
 import { ProofOfActivityServiceTypes } from './ProofOfActivityService.Types';
-import ActivitiesResponse = ProofOfActivityServiceTypes.Activities.ActivitiesResponse;
-import EntityIdData = ProofOfActivityServiceTypes.EntityIdData;
-import DateRange = ProofOfActivityServiceTypes.DateRange;
-import ActivityResponse = ProofOfActivityServiceTypes.Activities.ActivityResponse;
+type ActivitiesResponse = ProofOfActivityServiceTypes.Activities.ActivitiesResponse;
+type EntityIdData = ProofOfActivityServiceTypes.EntityIdData;
+type DateRange = ProofOfActivityServiceTypes.DateRange;
+type ActivityResponse = ProofOfActivityServiceTypes.Activities.ActivityResponse;
 
 export class ActivitiesController extends APIClient {
     constructor() {

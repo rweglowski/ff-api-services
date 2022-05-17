@@ -1,8 +1,8 @@
 import { APIClient, APIMapping } from '../../http';
 import { GeoInformationsServiceTypes } from './GeoInformationService.Types';
-import FindPolygonResponse = GeoInformationsServiceTypes.FindPolygonResponse;
-import GeoInformationValue = GeoInformationsServiceTypes.GeoInformationValue;
-import GeoInformationMetadataOnly = GeoInformationsServiceTypes.GeoInformationMetadataOnly;
+type FindPolygonResponse = GeoInformationsServiceTypes.FindPolygonResponse;
+type GeoInformationValue = GeoInformationsServiceTypes.GeoInformationValue;
+type GeoInformationMetadataOnly = GeoInformationsServiceTypes.GeoInformationMetadataOnly;
 
 export class SearchController extends APIClient {
     constructor() {

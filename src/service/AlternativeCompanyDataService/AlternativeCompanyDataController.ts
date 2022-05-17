@@ -1,10 +1,10 @@
 import { APIClient, APIMapping } from '../../http';
 import { AlternativeCompanyDataServiceTypes } from './AlternativeCompanyDataService.Types';
 
-import AlternativeCompanyDataResponse = AlternativeCompanyDataServiceTypes.AlternativeCompanyDataResponse;
-import AlternativeCompanyDataSaveRequest = AlternativeCompanyDataServiceTypes.AlternativeCompanyDataSaveRequest;
-import AlternativeCompanyDataSaveResponse = AlternativeCompanyDataServiceTypes.AlternativeCompanyDataSaveResponse;
-import AlternativeCompanyDataSavedResponse = AlternativeCompanyDataServiceTypes.AlternativeCompanyDataSavedResponse;
+type AlternativeCompanyDataResponse = AlternativeCompanyDataServiceTypes.AlternativeCompanyDataResponse;
+type AlternativeCompanyDataSaveRequest = AlternativeCompanyDataServiceTypes.AlternativeCompanyDataSaveRequest;
+type AlternativeCompanyDataSaveResponse = AlternativeCompanyDataServiceTypes.AlternativeCompanyDataSaveResponse;
+type AlternativeCompanyDataSavedResponse = AlternativeCompanyDataServiceTypes.AlternativeCompanyDataSavedResponse;
 
 export class AlternativeCompanyDataController extends APIClient {
     constructor() {

@@ -1,11 +1,11 @@
 import { APIClient, APIMapping } from '../../http';
 import { FlywheelServiceTypes } from './FlywheelService.Types';
-import FlywheelFilter = FlywheelServiceTypes.FlywheelFilter;
-import FlywheelPhase = FlywheelServiceTypes.FlywheelPhase;
-import FlywheelPhaseTree = FlywheelServiceTypes.FlywheelPhaseTree;
-import FlywheelPhasePatch = FlywheelServiceTypes.FlywheelPhasePatch;
-import PhaseSyncCommands = FlywheelServiceTypes.PhaseSyncCommands;
-import CreateFlywheelPhase = FlywheelServiceTypes.CreateFlywheelPhase;
+type FlywheelFilter = FlywheelServiceTypes.FlywheelFilter;
+type FlywheelPhase = FlywheelServiceTypes.FlywheelPhase;
+type FlywheelPhaseTree = FlywheelServiceTypes.FlywheelPhaseTree;
+type FlywheelPhasePatch = FlywheelServiceTypes.FlywheelPhasePatch;
+type PhaseSyncCommands = FlywheelServiceTypes.PhaseSyncCommands;
+type CreateFlywheelPhase = FlywheelServiceTypes.CreateFlywheelPhase;
 
 export class PhaseController extends APIClient {
     constructor() {

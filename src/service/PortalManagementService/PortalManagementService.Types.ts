@@ -1,6 +1,6 @@
 import { ACP } from '@flowfact/types';
 import { IS24ImportServiceTypes } from '../IS24ImportService';
-import ProjectInfo = IS24ImportServiceTypes.ProjectInfo;
+type ProjectInfo = IS24ImportServiceTypes.ProjectInfo;
 
 export namespace PortalManagementTypes {
     export interface PortalAuthenticationModel {
