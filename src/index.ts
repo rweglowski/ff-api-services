@@ -95,6 +95,7 @@ export * from './service/GlobalChangeService';
 export * from './service/SwissLeadService';
 export * from './service/FlowfactImporterService';
 export * from './service/MaintenanceStatusService';
+export * from './service/GetResponseSyncIntegrationService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';

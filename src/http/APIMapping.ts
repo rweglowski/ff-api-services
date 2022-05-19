@@ -71,6 +71,7 @@ const APIMapping = {
     geoInformationService: new APIService('geo-information-service'),
     geolocationService: new APIService('geolocation-service'),
     globalChangeService: new APIService('global-change-lambda'),
+    getResponseService: new APIService('getresponse-integration-service'),
     historyModuleService: new APIService('history-module-service'),
     importerFlowFactTransferService: new APIService('importer-flowfact-transfer-service'),
     importPreparationService: new APIService('import-preparation-service'),
