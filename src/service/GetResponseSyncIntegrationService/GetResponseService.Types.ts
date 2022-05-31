@@ -5,6 +5,6 @@ export namespace GetResponseServiceTypes {
 
     export interface Settings {
         campaignName: string;
-        callbackUrl?: string;
+        flowfactIdName: string;
     }
 }

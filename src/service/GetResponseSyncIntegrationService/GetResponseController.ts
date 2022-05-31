@@ -1,6 +1,5 @@
 import { APIClient, APIMapping } from '../../http';
 import { GetResponseServiceTypes } from './GetResponseService.Types';
-import { EnvironmentManagementInstance } from '../../util/EnvironmentManagement';
 
 export class GetResponseController extends APIClient {
     constructor() {
@@ -43,7 +42,6 @@ export class GetResponseController extends APIClient {
     async saveSettings(settings: GetResponseServiceTypes.Settings) {
         return this.invokeApiWithErrorHandling<GetResponseServiceTypes.Settings>(`/settings`, 'POST', {
             ...settings,
-            callbackUrl: settings.callbackUrl ?? EnvironmentManagementInstance.getBaseUrl(),
         });
     }
 
@@ -54,7 +52,6 @@ export class GetResponseController extends APIClient {
     async updateSettings(settings: GetResponseServiceTypes.Settings) {
         return this.invokeApiWithErrorHandling<GetResponseServiceTypes.Settings>(`/settings`, 'PUT', {
             ...settings,
-            callbackUrl: settings.callbackUrl ?? EnvironmentManagementInstance.getBaseUrl(),
         });
     }
 
